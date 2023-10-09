@@ -1,0 +1,5 @@
+﻿lroai_stalemate_war_prevention = {
+    default = lroai_stalemate_war_prevention_enabled
+    lroai_stalemate_war_prevention_enabled = {}
+    lroai_stalemate_war_prevention_disabled = {}
+}

@@ -1,0 +1,23 @@
+﻿namespace = lroai_weekly_loop_events
+
+# Called by lroai_count_and_schedule_iterations_of_weekly_loop
+lroai_weekly_loop_events.1 = {
+    type = country_event
+    hidden = yes
+    
+    trigger = {}
+    
+    immediate = {
+        if = {
+            limit = {
+                lroai_is_country_allowed = no
+            }
+            lroai_clear_country_cycle_variables = yes
+        }
+        else = {
+            lroai_perform_iteration_of_weekly_loop = {
+                day_1_of_main_loop = no
+            }
+        }
+    }
+}

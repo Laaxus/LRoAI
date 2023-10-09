@@ -1,0 +1,6 @@
+﻿l_russian:
+ rule_aroai_stalemate_war_prevention:0 "ARoAI | Stalemate War Prevention"
+ setting_aroai_stalemate_war_prevention_enabled:0 "Enabled"
+ setting_aroai_stalemate_war_prevention_enabled_desc:0 "Wars where both leaders are AI countries with war support being stuck at 0 for multiple years straight will be forcefully resolved with white peace (or annexation in civil wars)."
+ setting_aroai_stalemate_war_prevention_disabled:0 "#high Disabled#!"
+ setting_aroai_stalemate_war_prevention_disabled_desc:0 "Wars where both leaders are AI countries with war support being stuck at 0 for multiple years straight will be forcefully resolved with white peace (or annexation in civil wars)."

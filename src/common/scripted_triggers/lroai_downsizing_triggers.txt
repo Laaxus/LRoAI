@@ -1,0 +1,200 @@
+﻿# Government administration
+lroai_downsize_government_administration = {
+    var:lroai_building_government_administration_level > 0
+    var:lroai_building_government_administration_level <= lroai_building_government_administration_downsizing_threshold
+    any_scope_building = {
+        is_building_type = building_government_administration
+        prev.lroai_tax_capacity_balance_value >= lroai_tax_capacity_from_government_administration
+    }
+    save_temporary_scope_as = lroai_current_state
+    NOT = {
+        root = {
+            any_scope_state = {
+                var:lroai_building_government_administration_level > 0
+                var:lroai_building_government_administration_level < lroai_current_government_administration_level
+                any_scope_building = {
+                    is_building_type = building_government_administration
+                    prev.lroai_tax_capacity_balance_value >= lroai_tax_capacity_from_government_administration
+                }
+            }
+        }
+    }
+}
+
+# University
+lroai_downsize_university = {
+    var:lroai_building_university_level > 0
+    OR = {
+        root = {
+            NOT = {
+                lroai_budget_health_is_equal_or_higher = {
+                    level = -2
+                }
+            }
+            lroai_are_military_expenses_higher_than_usual = no
+        }
+        root = {
+            NOT = {
+                lroai_budget_health_is_equal_or_higher = {
+                    level = -3
+                }
+            }
+        }
+        var:lroai_building_university_level <= lroai_building_university_downsizing_threshold
+    }
+    save_temporary_scope_as = lroai_current_state
+    NOT = {
+        root = {
+            any_scope_state = {
+                var:lroai_building_university_level > 0
+                var:lroai_building_university_level < lroai_current_university_level
+            }
+        }
+    }
+}
+
+# Construction sector
+lroai_downsize_construction_sector = {
+    var:lroai_building_construction_sector_level > 0
+    OR = {
+        root = {
+            NOT = {
+                lroai_budget_health_is_equal_or_higher = {
+                    level = -2
+                }
+            }
+            lroai_are_military_expenses_higher_than_usual = no
+        }
+        root = {
+            NOT = {
+                lroai_budget_health_is_equal_or_higher = {
+                    level = -3
+                }
+            }
+        }
+        var:lroai_building_construction_sector_level <= lroai_building_construction_sector_downsizing_threshold
+    }
+    save_temporary_scope_as = lroai_current_state
+    NOT = {
+        root = {
+            any_scope_state = {
+                var:lroai_building_construction_sector_level > 0
+                var:lroai_building_construction_sector_level < lroai_current_construction_sector_level
+            }
+        }
+    }
+}
+
+# Port
+lroai_downsize_port = {
+    var:lroai_building_port_level > 0
+    OR = {
+        root = {
+            lroai_in_default = yes
+        }
+        var:lroai_building_port_level <= lroai_building_port_downsizing_threshold
+    }
+    OR = {
+        root = {
+            lroai_overseas_connections_are_required = no
+        }
+        AND = {
+            NOT = {
+                this = root.market_capital
+            }
+            root = {
+                lroai_has_variable_list = {
+                    name = lroai_states_of_market_capital_coastline
+                }
+                is_target_in_variable_list = {
+                    name = lroai_states_of_market_capital_coastline
+                    target = prev
+                }
+                any_in_list = {
+                    variable = lroai_states_of_market_capital_coastline
+                    lroai_has_building = {
+                        key = building_port
+                    }
+                    count > lroai_ports_on_market_capital_coastline
+                }
+            }
+        }
+        root = {
+            is_target_in_variable_list = {
+                name = lroai_safe_to_delete_ports_in_overseas_lands
+                target = prev
+            }
+        }
+    }
+    save_temporary_scope_as = lroai_current_state
+    NOT = {
+        root = {
+            any_scope_state = {
+                var:lroai_building_port_level > 0
+                var:lroai_building_port_level < lroai_current_port_level
+                OR = {
+                    root = {
+                        lroai_overseas_connections_are_required = no
+                    }
+                    AND = {
+                        NOT = {
+                            this = root.market_capital
+                        }
+                        root = {
+                            lroai_has_variable_list = {
+                                name = lroai_states_of_market_capital_coastline
+                            }
+                            is_target_in_variable_list = {
+                                name = lroai_states_of_market_capital_coastline
+                                target = prev
+                            }
+                            any_in_list = {
+                                variable = lroai_states_of_market_capital_coastline
+                                lroai_has_building = {
+                                    key = building_port
+                                }
+                                count > lroai_ports_on_market_capital_coastline
+                            }
+                        }
+                    }
+                    root = {
+                        is_target_in_variable_list = {
+                            name = lroai_safe_to_delete_ports_in_overseas_lands
+                            target = prev
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# Barracks
+lroai_downsize_barracks = {
+    var:lroai_building_barracks_level > 0
+    var:lroai_building_barracks_level <= lroai_building_barracks_downsizing_threshold
+    save_temporary_scope_as = lroai_current_state
+    NOT = {
+        root = {
+            any_scope_state = {
+                var:lroai_building_barracks_level > 0
+                var:lroai_building_barracks_level < lroai_current_barracks_level
+            }
+        }
+    }
+}
+
+# Naval base
+lroai_downsize_naval_base = {
+    var:lroai_building_naval_base_level > 0
+    var:lroai_building_naval_base_level <= lroai_building_naval_base_downsizing_threshold
+    save_temporary_scope_as = lroai_current_state
+    NOT = {
+        root = {
+            any_scope_state = {
+                var:lroai_building_naval_base_level > 0
+                var:lroai_building_naval_base_level < lroai_current_naval_base_level
+            }
+        }
+    }
+}

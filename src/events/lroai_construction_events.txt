@@ -1,0 +1,36 @@
+﻿namespace = lroai_construction_events
+
+# Called by lroai_preparation_events.1 and lroai_choose_building_type_to_construct effect
+lroai_construction_events.1 = {
+    type = country_event
+    hidden = yes
+    
+    trigger = {}
+    
+    immediate = {
+        if = {
+            limit = {
+                lroai_is_country_allowed = no
+            }
+            lroai_clear_country_cycle_variables = yes
+            lroai_clear_country_iteration_variables = yes
+        }
+        else_if = {
+            limit = {
+                lroai_is_construction_allowed = no
+            }
+            lroai_clear_country_iteration_variables = yes
+        }
+        else = {
+            if = {
+                limit = {
+                    lroai_has_free_construction_points = yes
+                }
+                lroai_choose_building_type_to_construct = yes
+            }
+            else = {
+                lroai_clear_country_iteration_variables = yes
+            }
+        }
+    }
+}

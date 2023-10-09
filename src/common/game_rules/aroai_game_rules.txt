@@ -1,5 +1,0 @@
-﻿aroai_stalemate_war_prevention = {
-    default = aroai_stalemate_war_prevention_enabled
-    aroai_stalemate_war_prevention_enabled = {}
-    aroai_stalemate_war_prevention_disabled = {}
-}

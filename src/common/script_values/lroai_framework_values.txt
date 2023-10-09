@@ -1,0 +1,42 @@
+﻿lroai_csr_square = {
+    value = local_var:lroai_csr_square
+}
+
+lroai_weeks_in_iteration = 4
+
+lroai_weeks_in_iteration_minus_1 = {
+    value = lroai_weeks_in_iteration
+    subtract = 1
+    min = 1
+}
+
+lroai_days_in_the_iteration = {
+    value = lroai_weeks_in_iteration
+    multiply = 7
+    min = 14
+}
+
+lroai_days_in_the_iteration_plus_week = {
+    value = lroai_days_in_the_iteration
+    add = 7
+}
+
+lroai_days_in_building_cooldown = 70
+
+lroai_max_iterations_to_ignore_downsizing = 5
+
+lroai_days_to_keep_abandoned_variable = {
+    value = lroai_days_in_the_iteration
+    multiply = lroai_max_iterations_to_ignore_downsizing
+    ceiling = yes
+    add = 7
+}
+
+lroai_days_to_keep_short_variables = 3
+
+lroai_half_of_days_in_iteration_rounded_down = {
+    value = lroai_days_in_the_iteration
+    divide = 2
+    floor = yes
+}
+

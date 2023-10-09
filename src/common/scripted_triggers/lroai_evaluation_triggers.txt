@@ -1,0 +1,538 @@
+﻿lroai_building_is_allowed = {
+    OR = {
+        lroai_is_regular_construction_allowed = yes
+        AND = {
+            $critical$ = 1
+            lroai_evaluate_building_government_administration = {
+                priority = 1
+            }
+        }
+        AND = {
+            $critical$ = 3
+            lroai_evaluate_building_construction_sector = {
+                priority = 1
+            }
+        }
+        AND = {
+            $critical$ = 5
+            lroai_evaluate_building_port = {
+                priority = 1
+            }
+        }
+    }
+}
+
+lroai_consider_building = {
+    OR = {
+        $shortage$ = 0
+        NOT = {
+            has_variable = lroai_building_type_$id$_collected_data
+        }
+        lroai_building_type_$id$_collected_data_1 >= 90
+    }
+}
+
+lroai_has_non_discriminated_homelanders = {
+    state_region = {
+        save_temporary_scope_as = state_region
+        prev = {
+            any_scope_culture = {
+                NOT = {
+                    culture_is_discriminated_in = root
+                }
+                scope:state_region = {
+                    is_homeland = prev
+                }
+            }
+        }
+    }
+}
+
+lroai_building_can_be_expanded = {
+    can_queue_building_levels = 1
+    OR = {
+        level <= 0
+        AND = {
+            level >= 1
+            occupancy >= lroai_sufficient_occupancy
+            OR = {
+                $shortage$ = 0
+                building_has_goods_shortage = no
+            }
+            OR = {
+                $profitable$ = 0
+                lroai_building_is_profitable = yes
+            }
+        }
+    }
+}
+
+# Conditions: 0 = new and expanding, 1 = only new, 2 = only expanding
+lroai_sanction_building = {
+    trigger_if = {
+        limit = {
+            $conditions$ = 0
+        }
+        OR = {
+            NOT = {
+                lroai_has_building = {
+                    key = $key$
+                }
+            }
+            any_scope_building = {
+                is_building_type = $key$
+                lroai_building_can_be_expanded = {
+                    shortage = $shortage$
+                    profitable = $profitable$
+                }
+            }
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $conditions$ = 1
+        }
+        NOT = {
+            lroai_has_building = {
+                key = $key$
+            }
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $conditions$ = 2
+        }
+        any_scope_building = {
+            is_building_type = $key$
+            lroai_building_can_be_expanded = {
+                shortage = $shortage$
+                profitable = $profitable$
+            }
+        }
+    }
+    trigger_else = {
+        always = no
+    }
+}
+
+# Government buildings
+lroai_sanction_government = {
+    lroai_sanction_building = {
+        key = $key$
+        conditions = $conditions$
+        shortage = $shortage$
+        profitable = $profitable$
+    }
+}
+
+# Infrastructure buildings
+lroai_sanction_infrastructure = {
+    lroai_sanction_building = {
+        key = $key$
+        conditions = $conditions$
+        shortage = $shortage$
+        profitable = $profitable$
+    }
+}
+
+# Resource buildings
+lroai_sanction_resource = {
+    state_region = {
+        remaining_undepleted = {
+            type = $resource$
+            amount > 0
+        }
+    }
+    trigger_if = {
+        limit = {
+            $conditions$ = 0
+        }
+        OR = {
+            AND = {
+                NOT = {
+                    lroai_has_building = {
+                        key = $key$
+                    }
+                }
+                has_potential_resource = $resource$
+                OR = {
+                    $profitable$ = 0
+                    root.lroai_building_type_$id$_collected_data_4 = 1
+                }
+            }
+            any_scope_building = {
+                is_building_type = $key$
+                lroai_building_can_be_expanded = {
+                    shortage = $shortage$
+                    profitable = $profitable$
+                }
+                OR = {
+                    $profitable$ = 0
+                    lroai_productivity_formatted >= root.lroai_building_type_$id$_collected_data_3
+                }
+            }
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $conditions$ = 1
+        }
+        NOT = {
+            lroai_has_building = {
+                key = $key$
+            }
+        }
+        has_potential_resource = $resource$
+        OR = {
+            $profitable$ = 0
+            root.lroai_building_type_$id$_collected_data_4 = 1
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $conditions$ = 2
+        }
+        any_scope_building = {
+            is_building_type = $key$
+            lroai_building_can_be_expanded = {
+                shortage = $shortage$
+                profitable = $profitable$
+            }
+            OR = {
+                $profitable$ = 0
+                lroai_productivity_formatted >= root.lroai_building_type_$id$_collected_data_3
+            }
+        }
+    }
+    trigger_else = {
+        always = no
+    }
+}
+
+# Agriculture buildings
+lroai_sanction_agriculture = {
+    free_arable_land > 0
+    OR = {
+        free_arable_land > root.lroai_construction_limit_5_1
+        NOT = {
+            any_scope_building = {
+                OR = {
+                    is_building_type = building_wheat_farm
+                    is_building_type = building_rye_farm
+                    is_building_type = building_rice_farm
+                    is_building_type = building_maize_farm
+                    is_building_type = building_millet_farm
+                    is_building_type = building_livestock_ranch
+                    is_building_type = building_cotton_plantation
+                    is_building_type = building_dye_plantation
+                    is_building_type = building_silk_plantation
+                    is_building_type = building_banana_plantation
+                    is_building_type = building_sugar_plantation
+                    is_building_type = building_tea_plantation
+                    is_building_type = building_coffee_plantation
+                    is_building_type = building_tobacco_plantation
+                    is_building_type = building_opium_plantation
+                }
+                is_under_construction = yes
+            }
+        }
+    }
+    OR = {
+        always = yes
+        has_potential_resource = $resource$
+    }
+    trigger_if = {
+        limit = {
+            $conditions$ = 0
+        }
+        OR = {
+            AND = {
+                NOT = {
+                    lroai_has_building = {
+                        key = $key$
+                    }
+                }
+                lroai_check_agriculture_resource = {
+                    cipher = $cipher$
+                }
+                OR = {
+                    $profitable$ = 0
+                    root.lroai_building_type_$id$_collected_data_4 = 1
+                }
+            }
+            any_scope_building = {
+                is_building_type = $key$
+                lroai_building_can_be_expanded = {
+                    shortage = $shortage$
+                    profitable = $profitable$
+                }
+                OR = {
+                    $profitable$ = 0
+                    lroai_productivity_formatted >= root.lroai_building_type_$id$_collected_data_3
+                }
+            }
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $conditions$ = 1
+        }
+        NOT = {
+            lroai_has_building = {
+                key = $key$
+            }
+        }
+        lroai_check_agriculture_resource = {
+            cipher = $cipher$
+        }
+        OR = {
+            $profitable$ = 0
+            root.lroai_building_type_$id$_collected_data_4 = 1
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $conditions$ = 2
+        }
+        any_scope_building = {
+            is_building_type = $key$
+            lroai_building_can_be_expanded = {
+                shortage = $shortage$
+                profitable = $profitable$
+            }
+            OR = {
+                $profitable$ = 0
+                lroai_productivity_formatted >= root.lroai_building_type_$id$_collected_data_3
+            }
+        }
+    }
+    trigger_else = {
+        always = no
+    }
+}
+
+# Industry buildings
+lroai_sanction_industry = {
+    trigger_if = {
+        limit = {
+            $conditions$ = 0
+        }
+        OR = {
+            AND = {
+                NOT = {
+                    lroai_has_building = {
+                        key = $key$
+                    }
+                }
+                OR = {
+                    $profitable$ = 0
+                    root.lroai_building_type_$id$_collected_data_4 = 1
+                }
+            }
+            any_scope_building = {
+                is_building_type = $key$
+                lroai_building_can_be_expanded = {
+                    shortage = $shortage$
+                    profitable = $profitable$
+                }
+                OR = {
+                    $profitable$ = 0
+                    lroai_productivity_formatted >= root.lroai_building_type_$id$_collected_data_3
+                }
+            }
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $conditions$ = 1
+        }
+        NOT = {
+            lroai_has_building = {
+                key = $key$
+            }
+        }
+        OR = {
+            $profitable$ = 0
+            root.lroai_building_type_$id$_collected_data_4 = 1
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $conditions$ = 2
+        }
+        any_scope_building = {
+            is_building_type = $key$
+            lroai_building_can_be_expanded = {
+                shortage = $shortage$
+                profitable = $profitable$
+            }
+            OR = {
+                $profitable$ = 0
+                lroai_productivity_formatted >= root.lroai_building_type_$id$_collected_data_3
+            }
+        }
+    }
+    trigger_else = {
+        always = no
+    }
+}
+
+# Custom check of arable resources
+lroai_check_agriculture_resource = {
+    trigger_if = {
+        limit = {
+            $cipher$ < 10
+        }
+        lroai_available_agriculture_resources_6 = $cipher$
+    }
+    trigger_else_if = {
+        limit = {
+            $cipher$ < 100
+        }
+        OR = {
+            lroai_available_agriculture_resources_5 = $cipher$
+            lroai_available_agriculture_resources_5 >= 30
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $cipher$ < 1000
+        }
+        OR = {
+            lroai_available_agriculture_resources_4 = $cipher$
+            lroai_available_agriculture_resources_4 >= 300
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $cipher$ < 10000
+        }
+        OR = {
+            lroai_available_agriculture_resources_3 = $cipher$
+            lroai_available_agriculture_resources_3 >= 3000
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $cipher$ < 100000
+        }
+        OR = {
+            lroai_available_agriculture_resources_2 = $cipher$
+            lroai_available_agriculture_resources_2 >= 30000
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $cipher$ < 1000000
+        }
+        OR = {
+            lroai_available_agriculture_resources_1 = $cipher$
+            lroai_available_agriculture_resources_1 >= 300000
+        }
+    }
+    trigger_else = {
+        always = no
+    }
+}
+
+# Resource buildings – aptitude based on resource importance
+lroai_allocate_resource = {
+    trigger_if = {
+        limit = {
+            $aptitude$ = 1
+        }
+        OR = {
+            $good$ = g:rubber
+            $good$ = g:oil
+            $good$ = g:coal
+            $good$ = g:iron
+            $good$ = g:sulfur
+            $good$ = g:gold
+            NOR = {
+                has_potential_resource = bg_rubber
+                has_potential_resource = bg_oil_extraction
+                has_potential_resource = bg_coal_mining
+                has_potential_resource = bg_iron_mining
+                has_potential_resource = bg_sulfur_mining
+                has_potential_resource = bg_gold_mining
+            }
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $aptitude$ = 2
+        }
+        NOR = {
+            $good$ = g:rubber
+            $good$ = g:oil
+            $good$ = g:coal
+            $good$ = g:iron
+            $good$ = g:sulfur
+            $good$ = g:gold
+        }
+        OR = {
+            has_potential_resource = bg_rubber
+            has_potential_resource = bg_oil_extraction
+            has_potential_resource = bg_coal_mining
+            has_potential_resource = bg_iron_mining
+            has_potential_resource = bg_sulfur_mining
+            has_potential_resource = bg_gold_mining
+        }
+    }
+    trigger_else = {
+        always = no
+    }
+}
+
+# Agriculture buildings – aptitude based on resource importance
+lroai_allocate_agriculture = {
+    trigger_if = {
+        limit = {
+            $aptitude$ = 1
+        }
+        OR = {
+            $good$ = g:tea
+            $good$ = g:coffee
+            $good$ = g:dye
+            $good$ = g:tobacco
+            $good$ = g:opium
+            $good$ = g:sugar
+            $good$ = g:silk
+            NOR = {
+                lroai_check_agriculture_resource = { cipher = 100 } # dye
+                lroai_check_agriculture_resource = { cipher = 200 } # silk
+                lroai_check_agriculture_resource = { cipher = 2000 } # sugar
+                lroai_check_agriculture_resource = { cipher = 10000 } # tea
+                lroai_check_agriculture_resource = { cipher = 20000 } # coffee
+                lroai_check_agriculture_resource = { cipher = 100000 } # tobacco
+                lroai_check_agriculture_resource = { cipher = 200000 } # opium
+            }
+        }
+    }
+    trigger_else_if = {
+        limit = {
+            $aptitude$ = 2
+        }
+        NOR = {
+            $good$ = g:tea
+            $good$ = g:coffee
+            $good$ = g:dye
+            $good$ = g:tobacco
+            $good$ = g:opium
+            $good$ = g:sugar
+            $good$ = g:silk
+        }
+        OR = {
+            lroai_check_agriculture_resource = { cipher = 100 } # dye
+            lroai_check_agriculture_resource = { cipher = 200 } # silk
+            lroai_check_agriculture_resource = { cipher = 2000 } # sugar
+            lroai_check_agriculture_resource = { cipher = 10000 } # tea
+            lroai_check_agriculture_resource = { cipher = 20000 } # coffee
+            lroai_check_agriculture_resource = { cipher = 100000 } # tobacco
+            lroai_check_agriculture_resource = { cipher = 200000 } # opium
+        }
+    }
+    trigger_else = {
+        always = no
+    }
+}

@@ -1,0 +1,499 @@
+﻿lroai_country_current_treasury = {
+    if = {
+        limit = {
+            scaled_debt <= 0
+        }
+        value = gold_reserves
+    }
+    else = {
+        value = 0
+        subtract = scaled_debt
+        multiply = credit
+    }
+}
+
+lroai_95_percent_of_credit = {
+    value = 0
+    subtract = credit
+    multiply = 0.95
+}
+
+lroai_country_budget_surplus = {
+    if = {
+        limit = {
+            has_variable = lroai_country_budget_surplus
+            var:lroai_country_budget_surplus != 0
+        }
+        value = var:lroai_country_budget_surplus
+        if = {
+            limit = {
+                var:lroai_country_budget_surplus < 0
+            }
+            ceiling = yes
+        }
+        else = {
+            floor = yes
+        }
+        divide = {
+            if = {
+                limit = {
+                    var:lroai_country_budget_surplus < 0
+                }
+                value = 0
+                subtract = {
+                    value = var:lroai_country_budget_surplus
+                    subtract = {
+                        value = var:lroai_country_budget_surplus
+                        ceiling = yes
+                    }
+                }
+            }
+            else = {
+                value = var:lroai_country_budget_surplus
+                subtract = {
+                    value = var:lroai_country_budget_surplus
+                    floor = yes
+                }
+            }
+            multiply = 100
+        }
+    }
+    else = {
+        value = 0
+    }
+}
+
+lroai_total_building_expenses = {
+    if = {
+        limit = {
+            has_variable = lroai_total_building_expenses
+            var:lroai_total_building_expenses > 0
+        }
+        value = var:lroai_total_building_expenses
+        floor = yes
+        divide = {
+            value = var:lroai_total_building_expenses
+            subtract = {
+                value = var:lroai_total_building_expenses
+                floor = yes 
+            }
+            multiply = 100
+        }
+    }
+    else = {
+        value = 0
+    }
+}
+
+lroai_country_fixed_income = {
+    value = income
+    if = {
+        limit = {
+            has_variable = lroai_investment_pool_transfer
+            var:lroai_investment_pool_transfer > 0
+        }
+        subtract = lroai_investment_pool_transfer
+    }
+    if = {
+        limit = {
+            is_player = no
+        }
+        if = {
+            limit = {
+                tax_level = very_low
+            }
+            multiply = lroai_very_low_tax_level_factor
+        }
+        else_if = {
+            limit = {
+                tax_level = low
+            }
+            multiply = lroai_low_tax_level_factor
+        }
+        else_if = {
+            limit = {
+                tax_level = high
+            }
+            multiply = lroai_high_tax_level_factor
+        }
+        else_if = {
+            limit = {
+                tax_level = very_high
+            }
+            multiply = lroai_very_high_tax_level_factor
+        }
+    }
+}
+
+lroai_country_active_income = {
+    if = {
+        limit = {
+            has_variable = lroai_country_budget_surplus
+            var:lroai_country_budget_surplus != 0
+            has_variable = lroai_total_building_expenses
+            var:lroai_total_building_expenses > 0
+            has_variable = lroai_investment_pool_transfer
+            var:lroai_investment_pool_transfer > 0
+        }
+        value = lroai_country_budget_surplus
+        add = lroai_total_building_expenses
+        subtract = lroai_investment_pool_transfer
+    }
+    else = {
+        value = lroai_country_fixed_income
+    }
+    if = {
+        limit = {
+            is_player = no
+        }
+        if = {
+            limit = {
+                tax_level = very_low
+            }
+            multiply = lroai_very_low_tax_level_factor
+        }
+        else_if = {
+            limit = {
+                tax_level = low
+            }
+            multiply = lroai_low_tax_level_factor
+        }
+        else_if = {
+            limit = {
+                tax_level = high
+            }
+            multiply = lroai_high_tax_level_factor
+        }
+        else_if = {
+            limit = {
+                tax_level = very_high
+            }
+            multiply = lroai_very_high_tax_level_factor
+        }
+    }
+    min = 1
+}
+
+lroai_very_low_tax_level_factor = 1.500
+lroai_low_tax_level_factor = 1.200
+lroai_high_tax_level_factor = 0.835
+lroai_very_high_tax_level_factor = 0.670
+
+lroai_investment_pool_transfer = {
+    if = {
+        limit = {
+            has_variable = lroai_investment_pool_transfer
+            var:lroai_investment_pool_transfer > 0
+        }
+        value = var:lroai_investment_pool_transfer
+        floor = yes
+        divide = {
+            value = var:lroai_investment_pool_transfer
+            subtract = {
+                value = var:lroai_investment_pool_transfer
+                floor = yes 
+            }
+            multiply = 100
+        }
+    }
+    else = {
+        value = 0
+    }
+}
+
+lroai_investment_pool_transfer_125_percent = {
+    value = lroai_investment_pool_transfer
+    multiply = 1.25
+}
+
+lroai_investment_pool_potential = {
+    value = lroai_investment_pool_transfer
+    if = {
+        limit = {
+            lroai_investment_pool_transfer > 0
+            lroai_construction_expenses_of_private_queue >= lroai_investment_pool_transfer_125_percent
+
+            # If you actually have excess reinvestments, the pool itself is for sure not empty
+            investment_pool >= lroai_construction_expenses_of_private_queue
+        }
+
+        # Equals 1.30x of transfer when it's 1.75x of transfer
+        multiply = {
+            value = lroai_construction_expenses_of_private_queue
+            divide = lroai_investment_pool_transfer
+            subtract = 1
+            divide = 2.50
+            add = 1
+            max = 1.30
+        }
+    }
+}
+
+lroai_construction_expenses_of_private_queue = {
+    if = {
+        limit = {
+            has_game_rule = autonomous_investment_pool
+        }
+        value = construction_queue_num_queued_private_levels
+        multiply = lroai_construction_points_per_building
+        multiply = lroai_building_construction_sector_expenses_per_point
+    }
+    else = {
+        value = 0
+    }
+}
+
+lroai_investment_pool_expected = {
+    if = {
+        limit = {
+            has_variable = lroai_investment_pool_expected
+            var:lroai_investment_pool_transfer > 0
+        }
+        value = var:lroai_investment_pool_expected
+        floor = yes
+        divide = {
+            value = var:lroai_investment_pool_expected
+            subtract = {
+                value = var:lroai_investment_pool_expected
+                floor = yes 
+            }
+            multiply = 100
+        }
+    }
+    else = {
+        value = 0
+    }
+}
+
+lroai_country_budget_surplus_critical = 0.1875
+
+lroai_country_budget_surplus_percent = {
+    value = lroai_country_budget_surplus
+    divide = {
+        value = lroai_country_fixed_income
+        min = 1
+    }
+}
+
+lroai_country_budget_surplus_for_health_minus_3 = { # from 0 at 0.75 to 0.11 at 1.00
+    value = 0.11
+    multiply = {
+        value = scaled_debt
+        subtract = 0.75
+        divide = 0.25
+        min = 0
+        max = 1
+    }
+}
+
+lroai_scaled_debt_for_health_minus_3 = { # from 0.75 at 0 to 0.50 at -0.15
+    value = 0.75
+    subtract = {
+        value = 0.25
+        multiply = {
+            value = 0
+            subtract = lroai_country_budget_surplus_percent
+            divide = lroai_country_budget_surplus_critical
+            min = 0
+            max = 1
+        }
+    }
+}
+
+lroai_country_budget_surplus_for_health_minus_2 = { # from 0 at 0.50 to 0.22 at 1.00
+    value = 0.22
+    multiply = {
+        value = scaled_debt
+        subtract = 0.50
+        divide = 0.50
+        min = 0
+        max = 1
+    }
+}
+
+lroai_scaled_debt_for_health_minus_2 = { # from 0.50 at 0 to 0.25 at -0.15
+    value = 0.50
+    subtract = {
+        value = 0.25
+        multiply = {
+            value = 0
+            subtract = lroai_country_budget_surplus_percent
+            divide = lroai_country_budget_surplus_critical
+            min = 0
+            max = 1
+        }
+    }
+}
+
+lroai_country_budget_surplus_for_health_minus_1 = { # from 0 at 0.25 to 0.33 at 1.00
+    value = 0.33
+    multiply = {
+        value = scaled_debt
+        subtract = 0.25
+        divide = 0.75
+        min = 0
+        max = 1
+    }
+}
+
+lroai_scaled_debt_for_health_minus_1 = { # from 0.25 at 0 to 0.00 at -0.15
+    value = 0.25
+    subtract = {
+        value = 0.25
+        multiply = {
+            value = 0
+            subtract = lroai_country_budget_surplus_percent
+            divide = lroai_country_budget_surplus_critical
+            min = 0
+            max = 1
+        }
+    }
+}
+
+lroai_country_budget_surplus_for_health_0 = { # from 0 at 0.00 to 0.44 at 1.00
+    value = 0.44
+    multiply = {
+        value = scaled_debt
+        min = 0
+        max = 1
+    }
+}
+
+lroai_weeks_of_reserves_for_health_0 = 156
+
+lroai_country_budget_surplus_for_health_1 = {
+
+    #
+    if = {
+        limit = {
+            scaled_debt > 0
+        }
+        value = 0.625
+        multiply = {
+            value = scaled_debt
+            add = 0.25
+            divide = 1.25
+            min = 0
+            max = 1
+        }
+    }
+
+    # From 0.11 at 0 reserves to 0.00 at 0.50 reserves
+    else = {
+        value = 0.11
+        multiply = {
+            value = 0.50
+            subtract = lroai_gold_reserves_percent
+            divide = 0.50
+            min = 0
+            max = 1
+        }
+    }
+}
+
+lroai_weeks_of_reserves_for_health_1 = 208
+
+lroai_country_budget_surplus_for_health_2 = {
+
+    #
+    if = {
+        limit = {
+            scaled_debt > 0
+        }
+        value = 0.75
+        multiply = {
+            value = scaled_debt
+            add = 0.50
+            divide = 1.50
+            min = 0
+            max = 1
+        }
+    }
+
+    # From 0.22 at 0 reserves to 0.00 at 0.75 reserves
+    else = {
+        value = 0.22
+        multiply = {
+            value = 0.75
+            subtract = lroai_gold_reserves_percent
+            divide = 0.75
+            min = 0
+            max = 1
+        }
+    }
+}
+
+
+lroai_weeks_of_reserves_for_health_2 = 260
+
+lroai_country_budget_surplus_for_health_3 = {
+
+    #
+    if = {
+        limit = {
+            scaled_debt > 0
+        }
+        value = 0.875
+        multiply = {
+            value = scaled_debt
+            add = 0.75
+            divide = 1.75
+            min = 0
+            max = 1
+        }
+    }
+
+    # From 0.33 at 0 reserves to 0.00 at 1.00 reserves
+    else = {
+        value = 0.33
+        multiply = {
+            value = 1.00
+            subtract = lroai_gold_reserves_percent
+            divide = 1.00
+            min = 0
+            max = 1
+        }
+    }
+}
+
+lroai_weeks_of_reserves_for_health_3 = 312
+
+lroai_gold_reserves_percent = {
+    value = gold_reserves
+    divide = {
+        value = gold_reserves_limit
+        min = 1
+    }
+}
+
+lroai_weeks_of_reserves = {
+    if = {
+        limit = {
+            lroai_country_budget_surplus < 0
+            gold_reserves > 0
+        }
+        value = gold_reserves
+        divide = {
+            value = 0
+            subtract = {
+                if = {
+                    limit = {
+                        lroai_country_budget_surplus < 0
+                    }
+                    value = lroai_country_budget_surplus
+                }
+                else = {
+                    value = lroai_country_budget_surplus_percent
+                    subtract = 0.10
+                    max = -0.05
+                    multiply = lroai_country_fixed_income
+                }
+            }
+            min = 1
+        }
+        max = 9000
+    }
+    else = {
+        value = 0
+    }
+}
