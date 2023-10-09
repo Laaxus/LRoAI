@@ -14,11 +14,6 @@ aroai_days_since_stalemate_wars_were_tracked = {
     subtract = global_var:aroai_date_of_last_tracking_of_stalemate_wars
 }
 
-aroai_days_since_construction_modifiers_were_applied = {
-    value = game_date
-    subtract = global_var:aroai_date_of_last_applying_of_construction_modifiers
-}
-
 aroai_max_iterations_since_production_downsizing = 5
 
 # TODO get it from countries with no construction sectors yearly or monthly instead

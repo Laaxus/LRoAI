@@ -638,7 +638,6 @@ aroai_evaluate_production_building = {
             name = aroai_evaluated_priority_level
             value = {
                 value = local_var:aroai_evaluated_supply_vs_demand_level
-                add = $weight$
             }
         }
         

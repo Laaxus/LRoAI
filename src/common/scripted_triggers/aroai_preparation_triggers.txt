@@ -21,10 +21,6 @@ aroai_is_construction_allowed = {
     }
     OR = {
         is_player = no
-        AND = {
-            has_game_rule = aroai_autobuild_for_players_allowed
-            has_variable = aroai_autobuild
-        }
     }
 }
 

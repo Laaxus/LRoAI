@@ -44,13 +44,6 @@ aroai_consider_building_government_administration = {
     bureaucracy < aroai_bureaucracy_ceiling
     OR = {
         is_player = no
-        AND = {
-            has_game_rule = aroai_autobuild_for_players_allowed
-            has_variable = aroai_autobuild
-            NOT = {
-                has_variable = aroai_autobuild_government_administration
-            }
-        }
     }
 }
 
@@ -249,13 +242,6 @@ aroai_consider_building_university = {
     aroai_building_university_spending_expected < aroai_building_university_spending_excess
     OR = {
         is_player = no
-        AND = {
-            has_game_rule = aroai_autobuild_for_players_allowed
-            has_variable = aroai_autobuild
-            NOT = {
-                has_variable = aroai_autobuild_university
-            }
-        }
     }
 }
 
@@ -394,13 +380,6 @@ aroai_consider_building_construction_sector = {
     aroai_building_construction_sector_spending_expected < aroai_building_construction_sector_spending_excess
     OR = {
         is_player = no
-        AND = {
-            has_game_rule = aroai_autobuild_for_players_allowed
-            has_variable = aroai_autobuild
-            NOT = {
-                has_variable = aroai_autobuild_construction_sector
-            }
-        }
     }
 }
 
@@ -492,13 +471,6 @@ aroai_consider_building_railway = {
     }
     OR = {
         is_player = no
-        AND = {
-            has_game_rule = aroai_autobuild_for_players_allowed
-            has_variable = aroai_autobuild
-            NOT = {
-                has_variable = aroai_autobuild_railway
-            }
-        }
     }
     OR = {
         always = yes
@@ -630,13 +602,6 @@ aroai_consider_building_port = {
     }
     OR = {
         is_player = no
-        AND = {
-            has_game_rule = aroai_autobuild_for_players_allowed
-            has_variable = aroai_autobuild
-            NOT = {
-                has_variable = aroai_autobuild_port
-            }
-        }
     }
     OR = {
         always = yes
@@ -1039,13 +1004,6 @@ aroai_consider_building_barracks = {
     }
     OR = {
         is_player = no
-        AND = {
-            has_game_rule = aroai_autobuild_for_players_allowed
-            has_variable = aroai_autobuild
-            NOT = {
-                has_variable = aroai_autobuild_barracks
-            }
-        }
     }
 }
 
@@ -1176,13 +1134,6 @@ aroai_consider_building_naval_base = {
     }
     OR = {
         is_player = no
-        AND = {
-            has_game_rule = aroai_autobuild_for_players_allowed
-            has_variable = aroai_autobuild
-            NOT = {
-                has_variable = aroai_autobuild_naval_base
-            }
-        }
     }
 }
 
