@@ -16,7 +16,6 @@ lroai_days_since_stalemate_wars_were_tracked = {
 
 lroai_max_iterations_since_production_downsizing = 5
 
-# TODO get it from countries with no construction sectors yearly or monthly instead
 lroai_base_construction_points = 5
 
 lroai_construction_points_per_building = {
