@@ -8,7 +8,7 @@ This mod is based on the amazing work of Anbeeld. Unfortunately, he decided to s
 
 The original mod description was : "**ARoAI** is a mod that focuses on making the AI in Victoria 3 as good as possible at developing economy and infrastructure of the countries controlled by it".
 
-My aim is to completely rewrite it, step by step, to make it better and provide clear documentation so that the community can keep it going when I eventually step back.
+My goal is to completely rewrite it, step by step, to make it better and provide clear documentation so that the community can keep it going when I eventually step back.
 
 ### Current state of the roadmap
 
