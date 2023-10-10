@@ -12,7 +12,7 @@ My aim is to completely rewrite it, step by step, to make it better and provide 
 
 ### Current state of the roadmap
 
-![Roadmap](/img/lroai-overview.png)
+![Roadmap](/img/lroai_overview.png)
 
 ### Installation 
 #### Official release
