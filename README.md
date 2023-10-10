@@ -10,8 +10,9 @@ The original mod description was : "**ARoAI** is a mod that focuses on making th
 
 My aim is to completely rewrite it, step by step, to make it better and provide clear documentation so that the community can keep it going when I eventually step back.
 
-### Roadmap
-TODO : soon tm
+### Current state of the roadmap
+
+![Roadmap](/img/lroai-overview.png)
 
 ### Installation 
 #### Official release
