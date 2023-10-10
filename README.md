@@ -29,4 +29,4 @@ I'll make it officially available on the steam workshop, paradox mods and parado
 
 ## Dev Diaries
 
-- Dev Diary 0 : [A New Beginning](https://laaxus.github.io/2023-10-10-the-beginning/)git
+- Dev Diary 0 : [A New Beginning](https://laaxus.github.io/2023-10-10-the-beginning/)
