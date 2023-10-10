@@ -19,7 +19,7 @@ lroai_max_iterations_since_production_downsizing = 5
 lroai_base_construction_points = 5
 
 lroai_construction_points_per_building = {
-    value = define:NEconomy|MAX_WEEKLY_CONSTRUCTION_PROGRESS
+    value = modifier:country_max_weekly_construction_progress_add
     divide = {
         if = {
             limit = {
@@ -48,7 +48,7 @@ lroai_construction_points_per_building = {
         min = 0.01
     }
     min = 0.5
-    max = define:NEconomy|MAX_WEEKLY_CONSTRUCTION_ALLOCATION
+    max = modifier:country_max_weekly_construction_progress_add
 }
 
 lroai_construction_points_current = {
