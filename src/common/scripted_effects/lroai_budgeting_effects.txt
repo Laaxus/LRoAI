@@ -1,6 +1,10 @@
-﻿# If army or navy are currently used in diplomatic play, their expenses will be higher than usual. Many actions are
+﻿#
+# tag           : tag_aroai_check_if_military_expenses_are_higher_than_usual
+# Called by     : aroai_preparation_events.1
+# If army or navy are currently used in diplomatic play, their expenses will be higher than usual. Many actions are
 # affected by this or by country being at war in general. To improve stability of country management a timed variable
 # is used. When war ends, decision making returns to peaceful mode not in the next iteration, but in the next + 1.
+#
 lroai_check_if_military_expenses_are_higher_than_usual = {
     if = {
         limit = {
@@ -13,8 +17,48 @@ lroai_check_if_military_expenses_are_higher_than_usual = {
     }
 }
 
+
+#
+# tag           : tag_aroai_manage_tax_and_wage_level
+# Called by     : aroai_preparation_events.1
+#
 # Custom management of budget settings
-lroai_manage_tax_and_wage_level = {
+#
+aroai_manage_tax_and_wage_level = {
+
+    # If the country is a player, don't do anything
+    if = {
+        limit = { is_player = yes  }
+        #Do nothing
+
+    }
+    # If the country is in debt, set the taxes very high, and the wages very low
+    else if {
+        limit = { scaled_debt > 0}
+
+        set_tax_level = very_high
+        set_military_wage_level = very_low
+        set_government_wage_level = very_low
+    }
+    # If the country is between 0 and 50% of the gold reserves limit, set the taxes high, and the wages low
+    else if {
+        limit = { lroai_gold_reserves_percent > 0 lroai_gold_reserves_percent < 0.5}
+
+        set_tax_level = high
+        set_military_wage_level = low
+        set_government_wage_level = low
+    }
+    # If the country have more than 50% of the gold reserves limit, set the taxes and the wages medium
+    else {
+        set_tax_level = medium
+        set_military_wage_level = medium
+        set_government_wage_level = medium
+    }
+}
+
+
+# Custom management of budget settings
+lroai_manage_tax_and_wage_level_old = {
     if = {
         limit = {
             has_variable = lroai_country_budget_surplus
