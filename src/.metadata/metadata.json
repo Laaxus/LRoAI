@@ -1,8 +1,8 @@
 {
   "name" : "Laaxus Revision of AI",
   "id" : "",
-  "version" : "",
-  "supported_game_version" : "",
+  "version" : "0.1",
+  "supported_game_version" : "1.5.2",
   "short_description" : "",
   "tags" : [],
   "relationships" : [],

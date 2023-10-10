@@ -52,6 +52,10 @@ var buildings = [ '',
     ["building_munition_plants",                   47,   6,    false,  7,    5,    dc,   true,   false,  true,   true],
     ["building_war_machine_industry",              48,   6,    false,  8,    5,    dc,   true,   false,  true,   true],
     ["building_arts_academy",                      49,   6,    false,  15,   5,    dc,   true,   false,  true,   true],
+    ["building_explosives_factory",                50,   6,    false,  6,    5,    dc,   true,   false,  true,   true],
+    ["building_military_shipyards",                51,   6,    false,  8,    5,    dc,   true,   false,  true,   true],
+    ["building_artillery_foundries",               52,   6,    false,  7,    5,    dc,   true,   false,  true,   true],
+    ["building_vineyard_plantation",               53,   5,    false,  13,   5,    dc,   true,   false,  true,   true],
 ];
 
 classes = ['',

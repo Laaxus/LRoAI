@@ -232,6 +232,7 @@ lroai_sanction_agriculture = {
                     is_building_type = building_coffee_plantation
                     is_building_type = building_tobacco_plantation
                     is_building_type = building_opium_plantation
+                    is_building_type = building_vineyard_plantation
                 }
                 is_under_construction = yes
             }

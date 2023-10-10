@@ -2589,519 +2589,136 @@ lroai_allocate_building_arts_academy = {
     $aptitude$ = 1
 }
 
-# ------------------------------------------------------------------------------------
-# Triggers below were generated with a modding tool and should not be changed manually
-# ------------------------------------------------------------------------------------
+#
+#  NEW IN 1.5
+#
 
-lroai_is_true_for_any_building_type = {
-    OR = {
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_government_administration id = 1
-        class = 1 counter = 1 order = 2 limit = 4 crucial = 10 workforce = 0 allocate = 4 branching = 0 scaling = 0 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_university id = 2
-        class = 1 counter = 2 order = 9 limit = 3 crucial = 8 workforce = 0 allocate = 1 branching = 1 scaling = 0 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_construction_sector id = 3
-        class = 2 counter = 3 order = 1 limit = 5 crucial = 5 workforce = 0 allocate = 1 branching = 1 scaling = 0 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_railway id = 4
-        class = 2 counter = 4 order = 3 limit = 5 crucial = 99 workforce = 0 allocate = 7 branching = 0 scaling = 0 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_port id = 5
-        class = 2 counter = 5 order = 3 limit = 3 crucial = 99 workforce = 0 allocate = 5 branching = 0 scaling = 0 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_barracks id = 6
-        class = 3 counter = 6 order = 9 limit = 8 crucial = 8 workforce = 0 allocate = 2 branching = 0 scaling = 0 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_naval_base id = 7
-        class = 3 counter = 7 order = 9 limit = 5 crucial = 8 workforce = 0 allocate = 2 branching = 0 scaling = 0 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_logging_camp id = 8
-        class = 4 counter = 8 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_fishing_wharf id = 9
-        class = 4 counter = 9 order = 13 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_whaling_station id = 10
-        class = 4 counter = 10 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_rubber_plantation id = 11
-        class = 4 counter = 11 order = 6 limit = 5 crucial = 11 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_oil_rig id = 12
-        class = 4 counter = 12 order = 4 limit = 5 crucial = 11 workforce = 0 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_coal_mine id = 13
-        class = 4 counter = 13 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_iron_mine id = 14
-        class = 4 counter = 14 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_lead_mine id = 15
-        class = 4 counter = 15 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_sulfur_mine id = 16
-        class = 4 counter = 16 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_gold_mine id = 17
-        class = 4 counter = 17 order = 11 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_rye_farm id = 18
-        class = 5 counter = 18 order = 10 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_wheat_farm id = 19
-        class = 5 counter = 18 order = 10 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_rice_farm id = 20
-        class = 5 counter = 18 order = 10 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_maize_farm id = 21
-        class = 5 counter = 18 order = 10 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_millet_farm id = 22
-        class = 5 counter = 18 order = 10 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_livestock_ranch id = 23
-        class = 5 counter = 23 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_cotton_plantation id = 24
-        class = 5 counter = 23 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_dye_plantation id = 25
-        class = 5 counter = 25 order = 11 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_silk_plantation id = 26
-        class = 5 counter = 26 order = 11 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_banana_plantation id = 27
-        class = 5 counter = 27 order = 13 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_sugar_plantation id = 28
-        class = 5 counter = 28 order = 13 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_tea_plantation id = 29
-        class = 5 counter = 29 order = 15 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_coffee_plantation id = 30
-        class = 5 counter = 30 order = 15 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_tobacco_plantation id = 31
-        class = 5 counter = 31 order = 14 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_opium_plantation id = 32
-        class = 5 counter = 32 order = 11 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_food_industry id = 33
-        class = 6 counter = 33 order = 14 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_textile_mills id = 34
-        class = 6 counter = 34 order = 12 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_furniture_manufacturies id = 35
-        class = 6 counter = 35 order = 12 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_glassworks id = 36
-        class = 6 counter = 36 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_tooling_workshops id = 37
-        class = 6 counter = 37 order = 4 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_paper_mills id = 38
-        class = 6 counter = 38 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_chemical_plants id = 39
-        class = 6 counter = 39 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_synthetics_plants id = 40
-        class = 6 counter = 25 order = 12 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_steel_mills id = 41
-        class = 6 counter = 41 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_motor_industry id = 42
-        class = 6 counter = 42 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_shipyards id = 43
-        class = 6 counter = 43 order = 8 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_power_plant id = 44
-        class = 6 counter = 44 order = 4 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_electrics_industry id = 45
-        class = 6 counter = 45 order = 8 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_arms_industry id = 46
-        class = 6 counter = 46 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_munition_plants id = 47
-        class = 6 counter = 47 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_war_machine_industry id = 48
-        class = 6 counter = 48 order = 8 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_arts_academy id = 49
-        class = 6 counter = 49 order = 15 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
-        AND = {
-            lroai_is_using_compatibility_patches = yes
-            lroai_is_true_for_any_building_type_compatibility = { trigger = $trigger$ }
-        }
+
+# ------------
+# Explosives factory
+# ------------
+
+lroai_consider_building_explosives_factory = {
+    has_technology_researched = intensive_agriculture
+    NOT = {
+        has_law = law_type:law_industry_banned
+    }
+    lroai_building_is_allowed = {
+        critical = 0
+    }
+    lroai_consider_building = {
+        id = $id$
+        shortage = 1
     }
 }
 
-lroai_is_true_for_any_building_type_compatibility = {
-    OR = {
-        lroai_is_true_for_any_building_type_1 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_2 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_3 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_4 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_5 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_6 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_7 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_8 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_9 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_10 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_11 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_12 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_13 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_14 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_15 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_16 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_17 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_18 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_19 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_20 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_21 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_22 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_23 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_24 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_25 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_26 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_27 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_28 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_29 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_30 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_31 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_32 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_33 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_34 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_35 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_36 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_37 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_38 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_39 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_40 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_41 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_42 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_43 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_44 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_45 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_46 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_47 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_48 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_49 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_50 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_51 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_52 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_53 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_54 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_55 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_56 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_57 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_58 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_59 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_60 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_61 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_62 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_63 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_64 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_65 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_66 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_67 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_68 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_69 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_70 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_71 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_72 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_73 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_74 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_75 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_76 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_77 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_78 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_79 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_80 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_81 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_82 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_83 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_84 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_85 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_86 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_87 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_88 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_89 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_90 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_91 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_92 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_93 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_94 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_95 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_96 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_97 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_98 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_99 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_100 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_101 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_102 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_103 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_104 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_105 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_106 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_107 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_108 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_109 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_110 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_111 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_112 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_113 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_114 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_115 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_116 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_117 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_118 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_119 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_120 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_121 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_122 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_123 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_124 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_125 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_126 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_127 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_128 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_129 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_130 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_131 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_132 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_133 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_134 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_135 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_136 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_137 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_138 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_139 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_140 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_141 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_142 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_143 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_144 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_145 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_146 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_147 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_148 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_149 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_150 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_151 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_152 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_153 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_154 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_155 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_156 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_157 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_158 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_159 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_160 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_161 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_162 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_163 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_164 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_165 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_166 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_167 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_168 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_169 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_170 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_171 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_172 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_173 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_174 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_175 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_176 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_177 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_178 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_179 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_180 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_181 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_182 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_183 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_184 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_185 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_186 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_187 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_188 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_189 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_190 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_191 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_192 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_193 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_194 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_195 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_196 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_197 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_198 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_199 = { trigger = $trigger$ }
-        lroai_is_true_for_any_building_type_200 = { trigger = $trigger$ }
+lroai_sanction_building_explosives_factory = {
+    lroai_sanction_industry = {
+        key = building_explosives_factory
+        id = $id$
+        conditions = 0
+        shortage = 1
+        profitable = 1
     }
 }
 
-lroai_is_true_for_any_building_type_1 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_2 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_3 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_4 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_5 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_6 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_7 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_8 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_9 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_10 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_11 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_12 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_13 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_14 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_15 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_16 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_17 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_18 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_19 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_20 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_21 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_22 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_23 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_24 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_25 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_26 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_27 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_28 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_29 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_30 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_31 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_32 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_33 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_34 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_35 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_36 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_37 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_38 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_39 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_40 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_41 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_42 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_43 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_44 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_45 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_46 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_47 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_48 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_49 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_50 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_51 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_52 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_53 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_54 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_55 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_56 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_57 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_58 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_59 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_60 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_61 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_62 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_63 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_64 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_65 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_66 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_67 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_68 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_69 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_70 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_71 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_72 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_73 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_74 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_75 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_76 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_77 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_78 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_79 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_80 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_81 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_82 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_83 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_84 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_85 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_86 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_87 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_88 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_89 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_90 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_91 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_92 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_93 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_94 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_95 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_96 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_97 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_98 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_99 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_100 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_101 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_102 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_103 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_104 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_105 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_106 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_107 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_108 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_109 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_110 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_111 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_112 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_113 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_114 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_115 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_116 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_117 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_118 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_119 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_120 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_121 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_122 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_123 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_124 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_125 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_126 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_127 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_128 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_129 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_130 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_131 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_132 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_133 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_134 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_135 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_136 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_137 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_138 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_139 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_140 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_141 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_142 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_143 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_144 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_145 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_146 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_147 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_148 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_149 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_150 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_151 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_152 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_153 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_154 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_155 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_156 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_157 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_158 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_159 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_160 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_161 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_162 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_163 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_164 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_165 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_166 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_167 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_168 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_169 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_170 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_171 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_172 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_173 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_174 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_175 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_176 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_177 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_178 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_179 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_180 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_181 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_182 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_183 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_184 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_185 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_186 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_187 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_188 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_189 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_190 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_191 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_192 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_193 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_194 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_195 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_196 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_197 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_198 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_199 = { always = no $trigger$ = 0 }
-lroai_is_true_for_any_building_type_200 = { always = no $trigger$ = 0 }
+lroai_allocate_building_explosives_factory = {
+    $aptitude$ = 1
+}
+
+# ---------
+# Military shipyards
+# ---------
+
+lroai_consider_building_military_shipyards = {
+    has_technology_researched = navigation
+    any_scope_state = {
+        is_coastal = yes
+    }
+    lroai_building_is_allowed = {
+        critical = 0
+    }
+    lroai_consider_building = {
+        id = $id$
+        shortage = 1
+    }
+}
+
+lroai_sanction_building_military_shipyards = {
+    is_coastal = yes
+    lroai_sanction_industry = {
+        key = building_military_shipyards
+        id = $id$
+        conditions = 0
+        shortage = 1
+        profitable = 1
+    }
+}
+
+lroai_allocate_building_military_shipyards = {
+    $aptitude$ = 1
+}
+
+
+# -------------
+# Artillery foundries
+# -------------
+
+lroai_consider_building_artillery_foundries = {
+    has_technology_researched = gunsmithing
+    lroai_building_is_allowed = {
+        critical = 0
+    }
+    lroai_consider_building = {
+        id = $id$
+        shortage = 1
+    }
+}
+
+lroai_sanction_building_artillery_foundries = {
+    lroai_sanction_industry = {
+        key = building_artillery_foundries
+        id = $id$
+        conditions = 0
+        shortage = 1
+        profitable = 1
+    }
+}
+
+lroai_allocate_building_artillery_foundries = {
+    $aptitude$ = 1
+}
+
+# ----------
+# Vineyard plantation
+# ----------
+
+lroai_consider_building_vineyard_plantation = {
+    has_technology_researched = enclosure
+    lroai_building_is_allowed = {
+        critical = 0
+    }
+    lroai_consider_building = {
+        id = $id$
+        shortage = 1
+    }
+}
+
+lroai_sanction_building_vineyard_plantation = {
+    lroai_sanction_agriculture = {
+        key = building_vineyard_plantation
+        id = $id$
+        resource = bg_vineyard_plantation
+        cipher = 2
+        conditions = 0
+        shortage = 1
+        profitable = 1
+    }
+}
+
+lroai_allocate_building_vineyard_plantation = {
+    lroai_allocate_agriculture = {
+        good = g:vine
+        aptitude = $aptitude$
+    }
+}
