@@ -347,37 +347,7 @@ lroai_consider_building_construction_sector = {
         id = $id$
         shortage = 1
     }
-    OR = {
-        NOT = {
-            has_variable = lroai_previous_usage_of_construction_points
-        }
-        var:lroai_previous_usage_of_construction_points >= 0.70
-    }
-    trigger_if = {
-        limit = {
-            lroai_investment_pool_expected > lroai_investment_pool_transfer
-        }
-        OR = {
-            lroai_budget_health_is_equal_or_higher = {
-                level = -1
-            }
-            lroai_tax_level_equal_or_lower = {
-                value = 3
-            }
-        }
-    }
-    trigger_else = {
-        OR = {
-            lroai_budget_health_is_equal_or_higher = {
-                level = 0
-            }
-            lroai_tax_level_equal_or_lower = {
-                value = 2
-            }
-        }
-    }
-    lroai_building_construction_sector_spending_value < lroai_building_construction_sector_spending_target
-    lroai_building_construction_sector_spending_expected < lroai_building_construction_sector_spending_excess
+   aroai_current_constructions_points_percent_of_max_wanted < 0.8
     OR = {
         is_player = no
     }
@@ -388,41 +358,20 @@ lroai_evaluate_building_construction_sector = {
         limit = {
             $priority$ >= 1
             $priority$ <= 8
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_construction_sector_cooldown
-                }
-                NOR = {
-                    $priority$ > 5
-                    lroai_building_construction_sector_spending_expected > lroai_building_construction_sector_spending_target
-                }
-            }
         }
         switch = {
             trigger = $priority$
             1 = {
-                lroai_building_construction_sector_spending_value < lroai_building_construction_sector_spending_1
+                aroai_current_constructions_points_percent_of_max_wanted < 0.6
             }
             2 = {
-                lroai_building_construction_sector_spending_value < lroai_building_construction_sector_spending_2
+                aroai_current_constructions_points_percent_of_max_wanted < 0.7
             }
             3 = {
-                lroai_building_construction_sector_spending_value < lroai_building_construction_sector_spending_3
+                aroai_current_constructions_points_percent_of_max_wanted < 0.8
             }
             4 = {
-                lroai_building_construction_sector_spending_value < lroai_building_construction_sector_spending_4
-            }
-            5 = {
-                lroai_building_construction_sector_spending_value < lroai_building_construction_sector_spending_5
-            }
-            6 = {
-                lroai_building_construction_sector_spending_value < lroai_building_construction_sector_spending_6
-            }
-            7 = {
-                lroai_building_construction_sector_spending_value < lroai_building_construction_sector_spending_7
-            }
-            8 = {
-                lroai_building_construction_sector_spending_value < lroai_building_construction_sector_spending_8
+                aroai_current_constructions_points_percent_of_max_wanted < 0.9
             }
             fallback = {
                 always = no
