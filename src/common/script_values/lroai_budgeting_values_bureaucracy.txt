@@ -4,33 +4,6 @@
 
 lroai_building_government_administration_spending_share = {
     value = 0.20
-    multiply = lroai_target_multiplier_with_investment_pool
-    add = {
-        value = 0.05
-        multiply = {
-            value = lroai_country_lost_taxes
-            divide = 0.125
-            min = 0
-            max = 1
-        }
-    }
-    if = {
-        limit = {
-            is_player = yes
-        }
-        if = {
-            limit = {
-                tax_level = high
-            }
-            divide = lroai_high_tax_level_factor
-        }
-        else_if = {
-            limit = {
-                tax_level = very_high
-            }
-            divide = lroai_very_high_tax_level_factor
-        }
-    }
 }
 
 lroai_building_government_administration_spending_target = {

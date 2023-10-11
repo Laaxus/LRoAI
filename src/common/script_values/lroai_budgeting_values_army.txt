@@ -70,23 +70,6 @@ lroai_building_barracks_spending_share = {
             divide = 3
         }
     }
-    if = {
-        limit = {
-            is_player = yes
-        }
-        if = {
-            limit = {
-                tax_level = high
-            }
-            divide = lroai_high_tax_level_factor
-        }
-        else_if = {
-            limit = {
-                tax_level = very_high
-            }
-            divide = lroai_very_high_tax_level_factor
-        }
-    }
 }
 
 lroai_building_barracks_spending_target = {
@@ -97,149 +80,11 @@ lroai_building_barracks_spending_target = {
 lroai_building_barracks_spending_excess = {
     value = lroai_building_barracks_spending_target
     multiply = 1.20
-    if = {
-        limit = {
-            exists = c:EGY
-            this = c:EGY
-            year < 1870
-        }
-        if = {
-            limit = {
-                year < 1850
-            }
-            multiply = 2.5
-        }
-        else = {
-            multiply = {
-                value = 1.0
-                add = {
-                    value = 1870
-                    subtract = year
-                    multiply = 0.075
-                }
-            }
-        }
-    }
-    else_if = {
-        limit = {
-            exists = c:TUR
-            this = c:TUR
-            year < 1870
-        }
-        if = {
-            limit = {
-                year < 1850
-            }
-            multiply = 1.5
-        }
-        else = {
-            multiply = {
-                value = 1.0
-                add = {
-                    value = 1870
-                    subtract = year
-                    multiply = 0.025
-                }
-            }
-        }
-    }
-    else_if = {
-        limit = {
-            exists = c:PRU
-            this = c:PRU
-            year < 1870
-        }
-        if = {
-            limit = {
-                year < 1850
-            }
-            multiply = 1.5
-        }
-        else = {
-            multiply = {
-                value = 1.0
-                add = {
-                    value = 1870
-                    subtract = year
-                    multiply = 0.025
-                }
-            }
-        }
-    }
 }
 
 lroai_building_barracks_spending_ceiling = {
     value = lroai_building_barracks_spending_target
     multiply = 1.40
-    if = {
-        limit = {
-            exists = c:EGY
-            this = c:EGY
-            year < 1870
-        }
-        if = {
-            limit = {
-                year < 1850
-            }
-            multiply = 2.5
-        }
-        else = {
-            multiply = {
-                value = 1.0
-                add = {
-                    value = 1870
-                    subtract = year
-                    multiply = 0.075
-                }
-            }
-        }
-    }
-    else_if = {
-        limit = {
-            exists = c:TUR
-            this = c:TUR
-            year < 1870
-        }
-        if = {
-            limit = {
-                year < 1850
-            }
-            multiply = 1.5
-        }
-        else = {
-            multiply = {
-                value = 1.0
-                add = {
-                    value = 1870
-                    subtract = year
-                    multiply = 0.025
-                }
-            }
-        }
-    }
-    else_if = {
-        limit = {
-            exists = c:PRU
-            this = c:PRU
-            year < 1870
-        }
-        if = {
-            limit = {
-                year < 1850
-            }
-            multiply = 1.5
-        }
-        else = {
-            multiply = {
-                value = 1.0
-                add = {
-                    value = 1870
-                    subtract = year
-                    multiply = 0.025
-                }
-            }
-        }
-    }
 }
 
 lroai_building_barracks_spending_value = {
@@ -400,75 +245,6 @@ lroai_battalion_excess = {
             multiply = 1.20
         }
     }
-    if = {
-        limit = {
-            exists = c:EGY
-            this = c:EGY
-            year < 1870
-        }
-        if = {
-            limit = {
-                year < 1850
-            }
-            multiply = 4.0
-        }
-        else = {
-            multiply = {
-                value = 1.0
-                add = {
-                    value = 1870
-                    subtract = year
-                    multiply = 0.15
-                }
-            }
-        }
-    }
-    else_if = {
-        limit = {
-            exists = c:TUR
-            this = c:TUR
-            year < 1870
-        }
-        if = {
-            limit = {
-                year < 1850
-            }
-            multiply = 2.0
-        }
-        else = {
-            multiply = {
-                value = 1.0
-                add = {
-                    value = 1870
-                    subtract = year
-                    multiply = 0.05
-                }
-            }
-        }
-    }
-    else_if = {
-        limit = {
-            exists = c:PRU
-            this = c:PRU
-            year < 1870
-        }
-        if = {
-            limit = {
-                year < 1850
-            }
-            multiply = 1.5
-        }
-        else = {
-            multiply = {
-                value = 1.0
-                add = {
-                    value = 1870
-                    subtract = year
-                    multiply = 0.025
-                }
-            }
-        }
-    }
 }
 
 lroai_battalion_ceiling = {
@@ -479,75 +255,6 @@ lroai_battalion_ceiling = {
         add = {
             value = lroai_construction_limit_8_6
             multiply = 1.40
-        }
-    }
-    if = {
-        limit = {
-            exists = c:EGY
-            this = c:EGY
-            year < 1870
-        }
-        if = {
-            limit = {
-                year < 1850
-            }
-            multiply = 4.0
-        }
-        else = {
-            multiply = {
-                value = 1.0
-                add = {
-                    value = 1870
-                    subtract = year
-                    multiply = 0.15
-                }
-            }
-        }
-    }
-    else_if = {
-        limit = {
-            exists = c:TUR
-            this = c:TUR
-            year < 1870
-        }
-        if = {
-            limit = {
-                year < 1850
-            }
-            multiply = 2.0
-        }
-        else = {
-            multiply = {
-                value = 1.0
-                add = {
-                    value = 1870
-                    subtract = year
-                    multiply = 0.05
-                }
-            }
-        }
-    }
-    else_if = {
-        limit = {
-            exists = c:PRU
-            this = c:PRU
-            year < 1870
-        }
-        if = {
-            limit = {
-                year < 1850
-            }
-            multiply = 1.5
-        }
-        else = {
-            multiply = {
-                value = 1.0
-                add = {
-                    value = 1870
-                    subtract = year
-                    multiply = 0.025
-                }
-            }
         }
     }
 }

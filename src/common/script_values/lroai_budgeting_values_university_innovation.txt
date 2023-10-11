@@ -138,23 +138,6 @@ lroai_building_university_spending_share = {
             max = 1
         }
     }
-    if = {
-        limit = {
-            is_player = yes
-        }
-        if = {
-            limit = {
-                tax_level = high
-            }
-            divide = lroai_high_tax_level_factor
-        }
-        else_if = {
-            limit = {
-                tax_level = very_high
-            }
-            divide = lroai_very_high_tax_level_factor
-        }
-    }
 }
 
 lroai_building_university_spending_target = {

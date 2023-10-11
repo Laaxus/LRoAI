@@ -39,25 +39,6 @@ lroai_infrastructure_7 = {
 
 lroai_building_port_spending_share = {
     value = 0.10
-    multiply = lroai_target_multiplier_with_high_government_spending
-    multiply = lroai_target_multiplier_with_investment_pool
-    if = {
-        limit = {
-            is_player = yes
-        }
-        if = {
-            limit = {
-                tax_level = high
-            }
-            divide = lroai_high_tax_level_factor
-        }
-        else_if = {
-            limit = {
-                tax_level = very_high
-            }
-            divide = lroai_very_high_tax_level_factor
-        }
-    }
 }
 
 lroai_building_port_spending_target = {
