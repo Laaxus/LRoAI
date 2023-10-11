@@ -1,0 +1,278 @@
+﻿# --------------------------
+# Construction points target
+# --------------------------
+
+lroai_unutilized_workforce_percent_higher_threshold = {
+    value = 0.125
+}
+
+lroai_unutilized_workforce_percent_lower_threshold = {
+    value = 0.050
+}
+
+lroai_unutilized_workforce_percent_total_threshold = {
+    value = lroai_unutilized_workforce_percent_higher_threshold
+    add = lroai_unutilized_workforce_percent_lower_threshold
+}
+
+lroai_unutilized_workforce_percent_total_threshold_halved = {
+    value = lroai_unutilized_workforce_percent_higher_threshold
+    divide = 2
+    add = lroai_unutilized_workforce_percent_lower_threshold
+}
+
+lroai_unutilized_workforce_percent_multiplier = { # = 1 when no workforce, 0 when workforce >= threshold
+    if = {
+        limit = {
+            has_variable = lroai_unutilized_workforce_percent
+        }
+        value = 1.00
+        subtract = {
+            value = var:lroai_unutilized_workforce_percent
+            subtract = lroai_unutilized_workforce_percent_lower_threshold
+            min = 0.00
+            multiply = {
+                value = 1
+                divide = {
+                    value = lroai_unutilized_workforce_percent_higher_threshold
+                    min = 0.01
+                }
+            }
+        }
+        min = 0.00
+    }
+    else = {
+        value = 0.00
+    }
+}
+
+# Income is divided by this to make it equal to high tax income, but it gets back to normal when workforce < threshold
+lroai_building_construction_sector_spending_factor = {
+    value = lroai_high_tax_level_factor
+    add = {
+        value = 1.00
+        subtract = lroai_high_tax_level_factor
+        multiply = lroai_unutilized_workforce_percent_multiplier
+    }
+}
+
+lroai_sum_of_all_fixed_shares_with_excess_and_factor = {
+    value = lroai_building_university_spending_share
+    add = lroai_building_port_spending_share
+    multiply = 1.20
+
+    # For government administration expenses it may be legit to be much higher than share, so we take share
+    # as a basis but overwrite it with actual expenses ratio if needed.
+    add = {
+        value = lroai_building_government_administration_spending_value
+        divide = lroai_country_active_income
+        min = {
+            value = lroai_building_government_administration_spending_share
+            multiply = 1.20
+        }
+    }
+    add = {
+        value = lroai_building_barracks_spending_value
+        divide = lroai_country_active_income
+        min = {
+            value = lroai_building_barracks_spending_share
+            multiply = 1.20
+        }
+    }
+    add = {
+        value = lroai_building_naval_base_spending_value
+        divide = lroai_country_active_income
+        min = {
+            value = lroai_building_naval_base_spending_share
+            multiply = 1.20
+        }
+    }
+
+    # All the shares above are relative to medium tax level, but with construction target tax level is flexible
+    multiply = lroai_building_construction_sector_spending_factor
+}
+
+lroai_building_construction_sector_spending_target = {
+    value = lroai_building_construction_sector_spending_government
+    add = {
+        value = lroai_investment_pool_expected
+        max = {
+            value = lroai_building_construction_sector_spending_government
+
+            #
+            divide = {
+                value = 1.00
+                subtract = lroai_max_percent_of_autonomous_construction_points
+                add = {
+                    value = lroai_max_percent_of_autonomous_construction_points
+                    multiply = lroai_building_construction_sector_share_of_wages_in_expenses
+                }
+                min = 0.01
+            }
+        }
+    }
+}
+
+lroai_building_construction_sector_spending_government = {
+    value = lroai_country_active_income
+    if = {
+        limit = {
+            is_player = no
+        }
+        divide = lroai_building_construction_sector_spending_factor
+    }
+    multiply = {
+        value = 1.00
+        subtract = {
+            value = lroai_building_government_administration_spending_value
+            add = lroai_building_university_spending_value
+            add = lroai_building_port_spending_value
+            add = lroai_building_barracks_spending_value
+            add = lroai_building_naval_base_spending_value
+            divide = {
+                value = lroai_country_active_income
+                if = {
+                    limit = {
+                        is_player = no
+                    }
+                    divide = lroai_building_construction_sector_spending_factor
+                }
+                min = 1
+            }
+        }
+        min = {
+            value = {
+                value = 1.00
+                subtract = lroai_sum_of_all_fixed_shares_with_excess_and_factor
+            }
+            min = 0.10
+        }
+    }
+
+    if = {
+        limit = {
+            is_player = no
+        }
+
+        # Target is multiplied by this so AI spends more, and then spends less when workforce < threshold
+        multiply = {
+            value = 0.900
+            add = {
+                value = 0.325
+                multiply = {
+                    value = 1.00
+                    subtract = lroai_unutilized_workforce_percent_multiplier
+                }
+            }
+        }
+    }
+}
+
+lroai_building_construction_sector_spending_1 = {
+    value = lroai_building_construction_sector_spending_target
+    divide = 1.400
+}
+
+lroai_building_construction_sector_spending_2 = {
+    value = lroai_building_construction_sector_spending_target
+    divide = 1.342
+}
+
+lroai_building_construction_sector_spending_3 = {
+    value = lroai_building_construction_sector_spending_target
+    divide = 1.285
+}
+
+lroai_building_construction_sector_spending_4 = {
+    value = lroai_building_construction_sector_spending_target
+    divide = 1.228
+}
+
+lroai_building_construction_sector_spending_5 = {
+    value = lroai_building_construction_sector_spending_target
+    divide = 1.171
+}
+
+lroai_building_construction_sector_spending_6 = {
+    value = lroai_building_construction_sector_spending_target
+    divide = 1.114
+}
+
+lroai_building_construction_sector_spending_7 = {
+    value = lroai_building_construction_sector_spending_target
+    divide = 1.057
+}
+
+lroai_building_construction_sector_spending_8 = {
+    value = lroai_building_construction_sector_spending_target
+}
+
+lroai_building_construction_sector_spending_paucity = {
+    value = lroai_building_construction_sector_spending_target
+    multiply = 0.80
+}
+
+lroai_building_construction_sector_spending_floor = {
+    value = lroai_building_construction_sector_spending_target
+    multiply = 0.60
+}
+
+lroai_building_construction_sector_spending_excess = {
+    value = lroai_building_construction_sector_spending_target
+    if = {
+        limit = {
+            lroai_are_military_expenses_higher_than_usual = no
+        }
+        multiply = 1.20
+    }
+    else = {
+        multiply = 1.50
+    }
+}
+
+lroai_building_construction_sector_spending_ceiling = {
+    value = lroai_building_construction_sector_spending_target
+    if = {
+        limit = {
+            lroai_are_military_expenses_higher_than_usual = no
+        }
+        multiply = 1.40
+    }
+    else = {
+        multiply = 2.00
+    }
+}
+
+lroai_building_construction_sector_spending_value = {
+    if = {
+        limit = {
+            lroai_building_construction_sector_expenses_per_point > 0
+        }
+        value = lroai_building_construction_sector_expenses_per_point
+        multiply = lroai_construction_points_from_sectors_current
+    }
+    else = {
+        value = 0 ###########
+    }
+    min = 0
+    max = 1000000000 #billion
+}
+
+lroai_building_construction_sector_spending_expected = {
+    value = lroai_building_construction_sector_spending_value
+    add = {
+        if = {
+            limit = {
+                lroai_building_construction_sector_spending_value > 0
+                has_variable = lroai_building_construction_sector_total
+                var:lroai_building_construction_sector_total > 0
+            }
+            value = lroai_building_construction_sector_spending_value
+            divide = var:lroai_building_construction_sector_total
+        }
+        else = {
+            value = 2000
+        }
+        multiply = lroai_construction_limit_5_6
+    }
+}
