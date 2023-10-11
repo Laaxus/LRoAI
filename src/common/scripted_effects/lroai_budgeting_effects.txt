@@ -28,7 +28,7 @@ aroai_manage_tax_and_wage_level = {
 
     # If the country is a player, don't do anything
     if = {
-        limit = { is_player = yes  }
+        limit = { is_player = yes }
         #Do nothing
 
     }

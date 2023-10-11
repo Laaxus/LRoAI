@@ -53,11 +53,6 @@ lroai_construction_points_per_building = {
 
 lroai_construction_points_current = {
     value = modifier:country_construction_add
-    # Is not in the game yet
-    # multiply = {
-    #     value = modifier:country_construction_mult
-    #     add = 1
-    # }
     min = lroai_base_construction_points
 }
 

@@ -19,14 +19,11 @@ lroai_is_construction_allowed = {
         }
         lroai_is_critical_construction_allowed = yes
     }
-    OR = {
-        is_player = no
-    }
+    is_player = no
 }
 
 lroai_is_regular_construction_allowed = {
     OR = {
-        is_player = yes
         scaled_debt < 0.45
         lroai_has_no_construction_sectors = yes
     }
