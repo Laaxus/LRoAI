@@ -1,4 +1,75 @@
-﻿# --------------------------
+﻿#
+# tag           : tag_lroai_total_workforce_next_year
+# Called by     : lroai_max_wanted_constructions_points_from_pop
+# Current number unemployed people + future one (from pop growth this year)
+#
+lroai_total_workforce_next_year = {
+    value = total_population
+
+    # TODO change this to actual country pop growth and workforce ratio
+    multiply = 0.02 # pop_growth
+    multiply = 0.5  # workforce ratio
+
+    add = {
+        if = {
+           limit = {
+                has_variable = lroai_unutilized_workforce
+            }
+            value = var:lroai_unutilized_workforce
+        }
+        else = {
+            value = 0
+        }
+    }
+}
+
+#
+# tag           : tag_lroai_max_wanted_constructions_points_from_pop
+# Called by     : lroai_max_wanted_constructions_points lroai_max_wanted_constructions_depense_from_pop
+# How much construction point is needed to reach full employment this year
+#
+lroai_max_wanted_constructions_points_from_pop = {
+
+    # Number of people we want to employ next year
+    value = lroai_total_workforce_next_year
+
+    # Number of factories we want to build next year
+    divide = 5000 # Average number of employee per factory
+
+    # Number of construction point needed to those factories
+    multiply = construction_cost_very_high # cost of a factory
+
+    # But we want weekly points
+    divide = 52   # Weeks
+}
+
+
+#
+# tag           : tag_lroai_constructions_points_wanted_total_doubled
+# Called by     :
+# Used as a ceiling for construction point. If over, it'll downsize the construction sector.
+# This is a big ceiling, but this is because we use the exact number of construction point we desire, see lroai_free_construction_points.
+# This means that we only "waste" salary. To build and downsize building is unstable.
+# + The ai is controlling pm, so it rarely downsize, the vanilla ai usualy just change the pm.
+#
+lroai_constructions_points_wanted_total_doubled = {
+    value = lroai_construction_points_wanted_total
+    multiply = 2
+    add = 200   # we always could help 200 cp
+}
+
+
+#
+# tag           : tag_lroai_current_constructions_points_percent_of_max_wanted
+# Called by     : lroai_consider_building_construction_sector lroai_evaluate_building_construction_sector
+#
+lroai_current_constructions_points_percent_of_max_wanted = {
+    value =  lroai_construction_points_current
+    divide = lroai_construction_points_wanted_total
+}
+
+
+# --------------------------
 # Construction points target
 # --------------------------
 
