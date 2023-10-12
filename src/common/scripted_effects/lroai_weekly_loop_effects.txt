@@ -24,7 +24,7 @@ lroai_perform_iteration_of_weekly_loop = {
     }
 
     # Calculate per point expenses of construction sectors
-    lroai_calculate_building_construction_sector_expenses_per_point = yes
+    #lroai_calculate_building_construction_sector_expenses_per_point = yes
 
     # Calculate budget surplus with the assumption that construction sectors are fully used
     lroai_calculate_budget_surplus = yes
@@ -772,22 +772,22 @@ lroai_calculate_usage_of_construction_points = {
 
                     # If we have some stored country data, use lroai_usage_of_construction_points_percent value
                     # that relies on variables that will be calculated only later in this weekly loop iteration.
-                    if = {
-                        limit = {
-                            has_variable = lroai_building_construction_sector_expenses_per_point
-                            lroai_building_construction_sector_expenses_per_point > 0
-                        }
-                        value = lroai_usage_of_construction_points_percent
-                    }
+                    #if = {
+                    #    limit = {
+                    #        has_variable = lroai_building_construction_sector_expenses_per_point
+                    #        lroai_building_construction_sector_expenses_per_point > 0
+                    #    }
+                    #    value = lroai_usage_of_construction_points_percent
+                    #}
 
                     # And if not, no idea if you can do something other than gamble
-                    else = {
+                    #else = {
                         value = construction_queue_num_queued_levels
                         divide = {
                             value = lroai_constructions_possible_with_current_points
                             min = 1
                         }
-                    }
+                    #}
                 }
             }
             min = 0
@@ -855,83 +855,6 @@ lroai_count_and_schedule_iterations_of_weekly_loop = {
     }
 }
 
-# Calculate per point expenses of construction sectors
-lroai_calculate_building_construction_sector_expenses_per_point = {
-    
-    # If this week's data is ok, we perform some wonky calculations to roughly account for sector usage and wages level.
-    # Due to no access to real world wage data, these calculations just assume that wages are 1/10 of sector expenses.
-    if = {
-        limit = {
-            OR = {
-                local_var:lroai_building_construction_sector_expenses = 0
-                lroai_construction_points_from_sectors_current = 0
-                local_var:lroai_usage_of_construction_points_percent = 0
-            }
-        }
-        set_local_variable = {
-            name = lroai_building_construction_sector_expenses_per_point
-            value = 0
-        }
-    }
-    else = {
-
-        set_local_variable = {
-            name = lroai_building_construction_sector_expenses_per_point
-            value = {
-
-                # First we take the material 9/10 part, but the exact ratio will be changed if usage is lower than 100%.
-                # The reason is if usage is not full, less materials are being used but wages stay the same. Then divide
-                # it by usage cause the AI should always assume 100% of points are used for budget management stability.
-                value = {
-                    value = local_var:lroai_building_construction_sector_expenses
-                    multiply = {
-                        value = {
-                            value = lroai_building_construction_sector_share_of_goods_in_expenses
-                            multiply = local_var:lroai_usage_of_construction_points_percent
-                        }
-                        divide = {
-                            value = lroai_building_construction_sector_share_of_goods_in_expenses
-                            multiply = local_var:lroai_usage_of_construction_points_percent
-                            add = lroai_building_construction_sector_share_of_wages_in_expenses
-                        }
-                    }
-                    divide = local_var:lroai_usage_of_construction_points_percent
-                }
-
-                # Add wage part, again usage is in the formula so we use right ratio. Then divide it by government wages
-                # multiplier, because AI should assume normal wage level is set for again budget management stability.
-                add = {
-                    value = local_var:lroai_building_construction_sector_expenses
-                    multiply = {
-                        value = lroai_building_construction_sector_share_of_wages_in_expenses
-                        divide = {
-                            value = lroai_building_construction_sector_share_of_goods_in_expenses
-                            multiply = local_var:lroai_usage_of_construction_points_percent
-                            add = lroai_building_construction_sector_share_of_wages_in_expenses
-                        }
-                    }
-                    divide = {
-                        value = 1
-                        add = modifier:country_government_wages_mult
-                    }
-                }
-
-                # Basically we went from raw real world data to all the factors being at 100%.
-                # Then we divide total costs by points from sectors to get cost per point.
-                divide = lroai_construction_points_from_sectors_current
-            }
-        }
-    }
-    
-    lroai_add_local_variable_to_array_variable = {
-        input = lroai_building_construction_sector_expenses_per_point
-        output = lroai_building_construction_sector_expenses_per_point
-        elements = 4
-        zero = 3
-        cleanup = yes
-    }
-}
-
 
 # Budget surplus is calculated as a treasury delta. For any additional values previous week data is used
 # because treasury delta is a byproduct of previous week income and expenses and not this week ones.
@@ -993,7 +916,6 @@ lroai_clear_weekly_loop_variables = {
     remove_variable = lroai_total_building_expenses
     remove_variable = lroai_building_government_administration_spending
     remove_variable = lroai_building_university_spending
-    remove_variable = lroai_building_construction_sector_expenses_per_point
     remove_variable = lroai_building_port_spending
     remove_variable = lroai_building_barracks_spending
     remove_variable = lroai_building_naval_base_spending

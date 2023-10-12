@@ -462,3 +462,4 @@ lroai_fix_error_log_complaining_about_variables = {
     set_variable = lroai_building_type_495_collected_data set_variable = lroai_building_type_496_collected_data
     set_variable = lroai_building_type_497_collected_data set_variable = lroai_building_type_498_collected_data
     set_variable = lroai_building_type_499_collected_data set_variable = lroai_building_type_500_collected_data
+}

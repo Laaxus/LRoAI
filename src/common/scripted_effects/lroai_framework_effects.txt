@@ -1073,4 +1073,3 @@ lroai_perform_for_building_type = {
         }
     }
 }
-}
