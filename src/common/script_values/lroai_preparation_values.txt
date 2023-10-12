@@ -4,7 +4,7 @@
 # It will decrease overtime but lroai_revenue_factor_construction_military will take care of that
 #
 lroai_building_construction_sector_expenses_per_point = {
-   value = 1500 #TODO look at obs games and find a better value
+   value = 1300 #TODO look at obs games and find a better value
 }
 
 # tag : tag_lroai_usage_of_construction_points_by_private_queue
@@ -67,7 +67,6 @@ lroai_private_construction_allocation_mult =  {
     }
     else = {
         value = 0
-        debug_log = "THIS SHOULD NOT HAPPEN"
     }
 }
 
@@ -230,28 +229,6 @@ lroai_usage_of_construction_points_by_private_queue_percent = {
     else = {
         value = lroai_construction_queue_num_queued_private_levels
         divide = lroai_constructions_possible_with_current_points
-    }
-}
-
-lroai_building_construction_sector_expenses_per_point = {
-    if = {
-        limit = {
-            has_variable = lroai_building_construction_sector_expenses_per_point
-            var:lroai_building_construction_sector_expenses_per_point > 0
-        }
-        value = var:lroai_building_construction_sector_expenses_per_point
-        floor = yes
-        divide = {
-            value = var:lroai_building_construction_sector_expenses_per_point
-            subtract = {
-                value = var:lroai_building_construction_sector_expenses_per_point
-                floor = yes 
-            }
-            multiply = 100
-        }
-    }
-    else = {
-        value = 0
     }
 }
 
