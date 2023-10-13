@@ -561,8 +561,7 @@ lroai_consider_building_port = {
     }
 }
 
-lroai_evaluate_building_port = {
-    
+lroai_evaluate_building_port= {
     trigger_if = {
         limit = {
             $priority$ >= 1
@@ -574,204 +573,19 @@ lroai_evaluate_building_port = {
                 $priority$ = 1
             }
         }
-
-        trigger_if = {
-            limit = {
-                $priority$ = 1
-            }
-            always = yes
-        }
-        trigger_else_if = {
-            limit = {
-                $priority$ >= 2
-                $priority$ <= 3
-            }
-            trigger_if = {
-                limit = {
-                    lroai_are_military_expenses_higher_than_usual = no
-                }
-                OR = {
-                    lroai_budget_health_is_equal_or_higher = {
-                        level = -1
-                    }
-                    lroai_tax_level_equal_or_lower = {
-                        value = 3
-                    }
-                }
-            }
-            trigger_else = {
-                OR = {
-                    lroai_budget_health_is_equal_or_higher = {
-                        level = 0
-                    }
-                    lroai_tax_level_equal_or_lower = {
-                        value = 2
-                    }
-                }
-            }
-            lroai_building_port_spending_value < lroai_building_port_spending_excess
-            lroai_building_port_spending_expected < lroai_building_port_spending_ceiling
-            lroai_convoys_current < lroai_convoys_excess
-        }
-        trigger_else_if = {
-            limit = {
-                $priority$ >= 4
-            }
-            OR = {
-                lroai_budget_health_is_equal_or_higher = {
-                    level = 0
-                }
-                lroai_tax_level_equal_or_lower = {
-                    value = 2
-                }
-            }
-            lroai_building_port_spending_value < lroai_building_port_spending_target
-            lroai_building_port_spending_expected < lroai_building_port_spending_excess
-            lroai_convoys_current < lroai_convoys_target
-        }
-        
-        trigger_if = {
-            limit = {
-                $priority$ = 1
-            }
-            lroai_consider_building = {
-                id = 5
-                shortage = 0
-            }
-        }
-        trigger_else_if = {
-            limit = {
-                $priority$ >= 2
-            }
-            lroai_consider_building = {
-                id = 5
-                shortage = 1
-            }
-        }
-        
         switch = {
             trigger = $priority$
             1 = {
-                OR = {
-                    AND = {
-                        lroai_has_variable_list = {
-                            name = lroai_states_of_market_capital_coastline
-                        }
-                        lroai_overseas_connections_are_required = yes
-                        NOT = {
-                            any_in_list = {
-                                variable = lroai_states_of_market_capital_coastline
-                                lroai_has_building = {
-                                    key = building_port
-                                }
-                            }
-                        }
-                        any_in_list = {
-                            variable = lroai_states_of_market_capital_coastline
-                            lroai_sanction_building_port = {
-                                id = 5
-                            }
-                            lroai_sanction_infrastructure = {
-                                key = building_port
-                                conditions = 1
-                                shortage = 0
-                                profitable = 0
-                            }
-                        }
-                    }
-                    any_scope_state = {
-                        is_isolated_from_market = yes
-                        lroai_sanction_building_port = {
-                            id = 5
-                        }
-                        lroai_sanction_infrastructure = {
-                            key = building_port
-                            conditions = 1
-                            shortage = 0
-                            profitable = 0
-                        }
-                    }
-                }
+                lroai_need_additional_ports_critical = yes
             }
             2 = {
-                lroai_has_variable_list = {
-                    name = lroai_states_of_market_capital_coastline
-                }
-                lroai_overseas_connections_are_required = yes
-                any_in_list = {
-                    variable = lroai_states_of_market_capital_coastline
-                    lroai_has_building = {
-                        key = building_port
-                    }
-                    count < lroai_ports_on_market_capital_coastline
-                }
-                any_in_list = {
-                    variable = lroai_states_of_market_capital_coastline
-                    lroai_sanction_building_port = {
-                        id = 5
-                    }
-                    lroai_sanction_infrastructure = {
-                        key = building_port
-                        conditions = 1
-                        shortage = 1
-                        profitable = 0
-                    }
-                }
+                lroai_need_additional_ports_high = yes
             }
             3 = {
-                any_country = {
-                    NOT = {
-                        this = root
-                    }
-                    market.owner = root
-                    any_scope_state = {
-                        is_coastal = yes
-                        infrastructure >= infrastructure_usage
-                        market_access < 1
-                        any_scope_building = {
-                            is_building_type = building_port
-                            level > 0
-                        }
-                    }
-                }
+                lroai_need_additional_ports_medium = yes
             }
             4 = {
-                any_scope_state = {
-                    lroai_infrastructure_balance_percent < lroai_infrastructure_5
-                    lroai_sanction_building_port = {
-                        id = 5
-                    }
-                    lroai_sanction_infrastructure = {
-                        key = building_port
-                        conditions = 0
-                        shortage = 1
-                        profitable = 0
-                    }
-                }
-            }
-            5 = {
-                lroai_convoys_current < lroai_convoys_5
-            }
-            6 = {
-                lroai_convoys_current < lroai_convoys_6
-            }
-            7 = {
-                lroai_convoys_current < lroai_convoys_7
-            }
-            8 = {
-                lroai_convoys_current < lroai_convoys_8
-            }
-            9 = {
-                lroai_convoys_current < lroai_convoys_9
-            }
-            10 = {
-                lroai_convoys_current < lroai_convoys_10
-            }
-            11 = {
-                lroai_convoys_current < lroai_convoys_11
-            }
-            12 = {
-                lroai_convoys_current < lroai_convoys_12
+                lroai_need_additional_ports_low = yes
             }
             fallback = {
                 always = no
@@ -924,36 +738,11 @@ lroai_consider_building_barracks = {
     lroai_building_is_allowed = {
         critical = 0
     }
-    OR = {
-        lroai_budget_health_is_equal_or_higher = {
-            level = -1
-        }
-        lroai_tax_level_equal_or_lower = {
-            value = 3
-        }
+    lroai_consider_building = {
+        id = $id$
+        shortage = 1
     }
-    trigger_if = {
-        limit = {
-            var:lroai_building_barracks_total < lroai_battalion_paucity
-        }
-        lroai_consider_building = {
-            id = $id$
-            shortage = 0
-        }
-    }
-    trigger_else = {
-        lroai_consider_building = {
-            id = $id$
-            shortage = 1
-        }
-    }
-    OR = {
-        var:lroai_building_barracks_total < lroai_battalion_floor
-        AND = {
-            lroai_building_barracks_spending_value < lroai_building_barracks_spending_target
-            lroai_building_barracks_spending_expected < lroai_building_barracks_spending_excess
-        }
-    }
+    lroai_building_barracks_spending_value < lroai_building_barracks_spending_target
     OR = {
         is_player = no
     }
@@ -963,45 +752,33 @@ lroai_evaluate_building_barracks = {
     trigger_if = {
         limit = {
             $priority$ >= 2
-            $priority$ <= 10
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_barracks_cooldown
-                }
-                NOR = {
-                    $priority$ > 5
-                    lroai_building_barracks_spending_expected > lroai_building_barracks_spending_target
-                }
+            $priority$ <= 8
+            NOT = {
+                has_variable = lroai_building_barracks_cooldown
             }
         }
         switch = {
             trigger = $priority$
             2 = {
-                var:lroai_building_barracks_total < lroai_battalion_1
+                lroai_building_barracks_spending_value < lroai_building_barracks_spending_target_70
             }
             3 = {
-                var:lroai_building_barracks_total < lroai_battalion_2
+                lroai_building_barracks_spending_value < lroai_building_barracks_spending_target_75
             }
             4 = {
-                var:lroai_building_barracks_total < lroai_battalion_3
+                lroai_building_barracks_spending_value < lroai_building_barracks_spending_target_80
             }
             5 = {
-                var:lroai_building_barracks_total < lroai_battalion_4
+                lroai_building_barracks_spending_value < lroai_building_barracks_spending_target_85
             }
             6 = {
-                var:lroai_building_barracks_total < lroai_battalion_5
+                lroai_building_barracks_spending_value < lroai_building_barracks_spending_target_90
             }
             7 = {
-                var:lroai_building_barracks_total < lroai_battalion_6
+                lroai_building_barracks_spending_value < lroai_building_barracks_spending_target_95
             }
             8 = {
-                var:lroai_building_barracks_total < lroai_battalion_7
-            }
-            9 = {
-                var:lroai_building_barracks_total < lroai_battalion_8
-            }
-            10 = {
-                var:lroai_building_barracks_total < lroai_battalion_9
+                lroai_building_barracks_spending_value < lroai_building_barracks_spending_target
             }
             fallback = {
                 always = no
@@ -1051,39 +828,11 @@ lroai_consider_building_naval_base = {
     lroai_building_is_allowed = {
         critical = 0
     }
-    OR = {
-        lroai_budget_health_is_equal_or_higher = {
-            level = -1
-        }
-        lroai_tax_level_equal_or_lower = {
-            value = 3
-        }
+    lroai_consider_building = {
+        id = $id$
+        shortage = 1
     }
-    trigger_if = {
-        limit = {
-            var:lroai_building_barracks_total < lroai_flotilla_paucity
-        }
-        lroai_consider_building = {
-            id = $id$
-            shortage = 0
-        }
-    }
-    trigger_else = {
-        lroai_consider_building = {
-            id = $id$
-            shortage = 1
-        }
-    }
-    any_scope_state = {
-        is_coastal = yes
-    }
-    OR = {
-        navy_size < lroai_flotilla_floor
-        AND = {
-            lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target
-            lroai_building_naval_base_spending_expected < lroai_building_naval_base_spending_excess
-        }
-    }
+    lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target
     OR = {
         is_player = no
     }
@@ -1094,44 +843,32 @@ lroai_evaluate_building_naval_base = {
         limit = {
             $priority$ >= 2
             $priority$ <= 10
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_naval_base_cooldown
-                }
-                NOR = {
-                    $priority$ > 5
-                    lroai_building_naval_base_spending_expected > lroai_building_naval_base_spending_target
-                }
+            NOT = {
+                has_variable = lroai_building_naval_base_cooldown
             }
         }
         switch = {
             trigger = $priority$
             2 = {
-                navy_size < lroai_flotilla_1
+                lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target_70
             }
             3 = {
-                navy_size < lroai_flotilla_2
+                lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target_75
             }
             4 = {
-                navy_size < lroai_flotilla_3
+                lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target_80
             }
             5 = {
-                navy_size < lroai_flotilla_4
+                lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target_85
             }
             6 = {
-                navy_size < lroai_flotilla_5
+                lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target_90
             }
             7 = {
-                navy_size < lroai_flotilla_6
+                lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target_95
             }
             8 = {
-                navy_size < lroai_flotilla_7
-            }
-            9 = {
-                navy_size < lroai_flotilla_8
-            }
-            10 = {
-                navy_size < lroai_flotilla_9
+                lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target
             }
             fallback = {
                 always = no

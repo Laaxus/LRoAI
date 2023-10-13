@@ -248,3 +248,41 @@ lroai_convoys_current = {
         add = 1
     }
 }
+
+
+
+lroai_total_convoy_produced_value = {
+     value = root.var:lroai_total_convoy_produced
+}
+
+lroai_total_convoy_required_value = {
+    value =  root.var:lroai_total_convoy_required
+}
+
+lroai_total_convoy_available_value = {
+    value = lroai_total_convoy_produced_value
+    subtract = lroai_total_convoy_required_value
+}
+
+lroai_total_convoy_available_value_ceiling_critical = {
+    value =  lroai_total_convoy_required_value
+    add =  200
+}
+
+lroai_total_convoy_available_value_ceiling_high = {
+    value =  lroai_total_convoy_required_value
+    multiply = 1.1
+    add = 300
+}
+
+lroai_total_convoy_available_value_ceiling_medium = {
+    value =  lroai_total_convoy_required_value
+    multiply = 1.15
+    add = 400
+}
+
+lroai_total_convoy_available_value_ceiling_low = {
+    value =  lroai_total_convoy_required_value
+    multiply = 1.2
+    add = 400
+}
