@@ -252,11 +252,11 @@ lroai_convoys_current = {
 
 
 lroai_total_convoy_produced_value = {
-     value = root.var:lroai_total_convoy_produced
+     value = root.num_convoys_available
 }
 
 lroai_total_convoy_required_value = {
-    value =  root.var:lroai_total_convoy_required
+    value =  root.num_convoys_required
 }
 
 lroai_total_convoy_available_value = {

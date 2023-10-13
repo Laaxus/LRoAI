@@ -57,145 +57,6 @@ lroai_budget_health_is_equal_or_higher = {
     }
 }
 
-lroai_government_wages_are_very_low = {
-    modifier:country_government_wages_mult < -0.25
-}
-
-lroai_government_wages_are_low = {
-    modifier:country_government_wages_mult < -0.10
-    modifier:country_government_wages_mult >= -0.25
-}
-
-lroai_government_wages_are_medium = {
-    modifier:country_government_wages_mult >= -0.10
-    modifier:country_government_wages_mult <= 0.10
-}
-
-lroai_government_wages_are_high = {
-    modifier:country_government_wages_mult > 0.10
-    modifier:country_government_wages_mult <= 0.25
-}
-
-lroai_government_wages_are_very_high = {
-    modifier:country_government_wages_mult > 0.25
-}
-
-lroai_military_wages_are_very_low = {
-    modifier:country_military_wages_mult < -0.25
-}
-
-lroai_military_wages_are_low = {
-    modifier:country_military_wages_mult < -0.10
-    modifier:country_military_wages_mult >= -0.25
-}
-
-lroai_military_wages_are_medium = {
-    modifier:country_military_wages_mult >= -0.10
-    modifier:country_military_wages_mult <= 0.10
-}
-
-lroai_military_wages_are_high = {
-    modifier:country_military_wages_mult > 0.10
-    modifier:country_military_wages_mult <= 0.25
-}
-
-lroai_military_wages_are_very_high = {
-    modifier:country_military_wages_mult > 0.25
-}
-
-lroai_can_cut_government_wages = {
-    AND = {
-        OR = {
-            NOT = {
-                exists = ig:ig_intelligentsia
-            }
-            AND = {
-                exists = ig:ig_intelligentsia
-                ig:ig_intelligentsia = {
-                    OR = {
-                        root = {
-                            NOT = {
-                                lroai_budget_health_is_equal_or_higher = {
-                                    level = -2
-                                }
-                            }
-                        }
-                        AND = {
-                            is_in_government = yes
-                            ig_approval > -3
-                        }
-                        AND = {
-                            is_in_government = no
-                            ig_approval > -8
-                        }
-                        is_marginal = yes
-                    }
-                }
-            }
-        }
-        OR = {
-            NOT = {
-                exists = ig:ig_petty_bourgeoisie
-            }
-            AND = {
-                exists = ig:ig_petty_bourgeoisie
-                ig:ig_petty_bourgeoisie = {
-                    OR = {
-                        root = {
-                            NOT = {
-                                lroai_budget_health_is_equal_or_higher = {
-                                    level = -2
-                                }
-                            }
-                        }
-                        AND = {
-                            is_in_government = yes
-                            ig_approval > -3
-                        }
-                        AND = {
-                            is_in_government = no
-                            ig_approval > -8
-                        }
-                        is_marginal = yes
-                    }
-                }
-            }
-        }
-    }
-}
-
-lroai_can_cut_military_wages = {
-    lroai_is_using_military_forces = no
-    OR = {
-        NOT = {
-            exists = ig:ig_armed_forces
-        }
-        AND = {
-            exists = ig:ig_armed_forces
-            ig:ig_armed_forces = {
-                OR = {
-                    root = {
-                        NOT = {
-                            lroai_budget_health_is_equal_or_higher = {
-                                level = -2
-                            }
-                        }
-                    }
-                    AND = {
-                        is_in_government = yes
-                        ig_approval > -3
-                    }
-                    AND = {
-                        is_in_government = no
-                        ig_approval > -8
-                    }
-                    is_marginal = yes
-                }
-            }
-        }
-    }
-}
-
 lroai_is_using_military_forces = {
     OR = {
         is_at_war = yes
@@ -322,4 +183,38 @@ lroai_tax_level_equal_or_higher = {
     trigger_else = {
         always = no
     }
+}
+
+
+#
+# tag           : tag_lroai_need_additional_ports_critical
+# Called by     : lroai_allocate_building_port lroai_evaluate_building_port
+#
+lroai_need_additional_ports_critical = {
+    lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_critical
+}
+
+
+#
+# tag           : tag_lroai_need_additional_ports_high
+# Called by     : lroai_allocate_building_port lroai_evaluate_building_port
+#
+lroai_need_additional_ports_high = {
+    lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_high
+}
+
+#
+# tag           : tag_lroai_need_additional_ports_medium
+# Called by     : lroai_allocate_building_port lroai_evaluate_building_port
+#
+lroai_need_additional_ports_medium = {
+    lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_medium
+}
+
+#
+# tag           : tag_lroai_need_additional_ports_low
+# Called by     : lroai_allocate_building_port lroai_evaluate_building_port
+#
+lroai_need_additional_ports_low = {
+    lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_low
 }
