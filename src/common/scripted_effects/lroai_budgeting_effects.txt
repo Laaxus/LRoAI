@@ -31,12 +31,20 @@ lroai_manage_tax_and_wage_level = {
         #Do nothing
 
     }
-    # If the country is in debt, set the taxes very high, and the wages very low
+    # If the country is more than 50% in debt, set the taxes very high, and the wages very low
+    else_if = {
+        limit = { scaled_debt > 0.5}
+
+        set_tax_level = very_high
+        set_military_wage_level = very_low
+        set_government_wage_level = very_low
+    }
+    # If the country is in debt, set the taxes very high, and the wages very low except military
     else_if = {
         limit = { scaled_debt > 0}
 
         set_tax_level = very_high
-        set_military_wage_level = very_low
+        set_military_wage_level = medium
         set_government_wage_level = very_low
     }
     # If the country is between 0 and 70% of the gold reserves limit, set the taxes high, and the wages low
@@ -44,7 +52,7 @@ lroai_manage_tax_and_wage_level = {
         limit = { lroai_gold_reserves_percent > 0 lroai_gold_reserves_percent < 0.7}
 
         set_tax_level = high
-        set_military_wage_level = low
+        set_military_wage_level = medium
         set_government_wage_level = low
     }
     # If the country have more than 50% of the gold reserves limit, set the taxes and the wages medium
