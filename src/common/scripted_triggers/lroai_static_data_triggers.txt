@@ -199,47 +199,7 @@ lroai_consider_building_university = {
         id = $id$
         shortage = 1
     }
-    trigger_if = {
-        limit = {
-            lroai_innovation_current < lroai_innovation_target
-            lroai_building_university_total < lroai_building_university_target
-        }
-        trigger_if = {
-            limit = {
-                lroai_are_military_expenses_higher_than_usual = no
-            }
-            OR = {
-                lroai_budget_health_is_equal_or_higher = {
-                    level = -1
-                }
-                lroai_tax_level_equal_or_lower = {
-                    value = 3
-                }
-            }
-        }
-        trigger_else = {
-            OR = {
-                lroai_budget_health_is_equal_or_higher = {
-                    level = 0
-                }
-                lroai_tax_level_equal_or_lower = {
-                    value = 2
-                }
-            }
-        }
-    }
-    trigger_else = {
-        OR = {
-            lroai_budget_health_is_equal_or_higher = {
-                level = 0
-            }
-            lroai_tax_level_equal_or_lower = {
-                value = 2
-            }
-        }
-    }
     lroai_building_university_spending_value < lroai_building_university_spending_target
-    lroai_building_university_spending_expected < lroai_building_university_spending_excess
     OR = {
         is_player = no
     }
@@ -248,67 +208,33 @@ lroai_consider_building_university = {
 lroai_evaluate_building_university = {
     trigger_if = {
         limit = {
-            $priority$ >= 5
-            $priority$ <= 12
+            $priority$ >= 3
+            $priority$ <= 10
             OR = {
                 NOT = {
                     has_variable = lroai_building_university_cooldown
                 }
-                NOR = {
-                    $priority$ > 5
-                    lroai_building_university_spending_expected > lroai_building_university_spending_target
-                }
-            }
-        }
-        OR = {
-            $priority$ > 7
-            AND = {
-                lroai_innovation_current < lroai_innovation_8
-                lroai_building_university_total < lroai_building_university_8
             }
         }
         switch = {
             trigger = $priority$
+            3 = {
+                lroai_building_university_spending_value < lroai_building_university_spending_target_60
+            }
+            4 = {
+                lroai_building_university_spending_value < lroai_building_university_spending_target_70
+            }
             5 = {
-                OR = {
-                    lroai_innovation_current < lroai_innovation_5
-                    lroai_building_university_total < lroai_building_university_5
-                }
+                lroai_building_university_spending_value < lroai_building_university_spending_target_80
             }
             6 = {
-                OR = {
-                    lroai_innovation_current < lroai_innovation_6
-                    lroai_building_university_total < lroai_building_university_6
-                }
+                lroai_building_university_spending_value < lroai_building_university_spending_target_90
             }
             7 = {
-                OR = {
-                    lroai_innovation_current < lroai_innovation_7
-                    lroai_building_university_total < lroai_building_university_7
-                }
-            }
-            8 = {
-                lroai_innovation_current < lroai_innovation_8
-                lroai_building_university_total < lroai_building_university_8
-            }
-            9 = {
-                lroai_innovation_current < lroai_innovation_9
-                lroai_building_university_total < lroai_building_university_9
-            }
-            10 = {
-                lroai_innovation_current < lroai_innovation_10
-                lroai_building_university_total < lroai_building_university_10
-            }
-            11 = {
-                lroai_innovation_current < lroai_innovation_11
-                lroai_building_university_total < lroai_building_university_10
-            }
-            12 = {
-                lroai_innovation_current < lroai_innovation_12
-                lroai_building_university_total < lroai_building_university_10
+                lroai_building_university_spending_value < lroai_building_university_spending_target
             }
             fallback = {
-                always = yes
+                always = no
             }
         }
     }
@@ -412,14 +338,6 @@ lroai_consider_building_railway = {
     has_technology_researched = railways
     lroai_building_is_allowed = {
         critical = 0
-    }
-    OR = {
-        lroai_budget_health_is_equal_or_higher = {
-            level = -2
-        }
-        lroai_tax_level_equal_or_lower = {
-            value = 4
-        }
     }
     OR = {
         is_player = no

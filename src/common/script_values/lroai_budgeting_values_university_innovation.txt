@@ -1,169 +1,35 @@
 ﻿# -----------------
-# Innovation target
-# -----------------
-
-lroai_innovation_5 = {
-    value = lroai_innovation_target
-    divide = 1.90
-}
-
-lroai_innovation_6 = {
-    value = lroai_innovation_target
-    divide = 1.60
-}
-
-lroai_innovation_7 = {
-    value = lroai_innovation_target
-    divide = 1.30
-}
-
-lroai_innovation_8 = {
-    value = lroai_innovation_target
-}
-
-lroai_innovation_9 = {
-    value = lroai_innovation_target
-    multiply = 1.05
-}
-
-lroai_innovation_10 = {
-    value = lroai_innovation_target
-    multiply = 1.10
-}
-
-lroai_innovation_11 = {
-    value = lroai_innovation_target
-    multiply = 1.15
-}
-
-lroai_innovation_12 = {
-    value = lroai_innovation_target
-    multiply = 1.20
-}
-
-lroai_innovation_target = {
-    value = modifier:country_weekly_innovation_max_add
-}
-
-lroai_innovation_paucity = {
-    value = lroai_innovation_target
-    multiply = 0.80
-}
-
-lroai_innovation_floor = {
-    value = lroai_innovation_target
-    multiply = 0.60
-}
-
-lroai_innovation_excess = {
-    value = lroai_innovation_target
-    multiply = 1.1666
-    multiply = 1.20
-    min = {
-        value = lroai_innovation_target
-        add = {
-            if = {
-                limit = {
-                    has_technology_researched = analytical_philosophy
-                }
-                value = 4
-            }
-            else_if = {
-                limit = {
-                    has_technology_researched = dialectics
-                }
-                value = 3
-            }
-            else = {
-                value = 2
-            }
-            multiply = 1.20
-        }
-    }
-}
-
-lroai_innovation_ceiling = {
-    value = lroai_innovation_target
-    multiply = 1.1428
-    multiply = 1.40
-    min = {
-        value = lroai_innovation_target
-        add = {
-            if = {
-                limit = {
-                    has_technology_researched = analytical_philosophy
-                }
-                value = 4
-            }
-            else_if = {
-                limit = {
-                    has_technology_researched = dialectics
-                }
-                value = 3
-            }
-            else = {
-                value = 2
-            }
-            multiply = 1.40
-        }
-    }
-}
-
-lroai_innovation_current = {
-    value = modifier:country_weekly_innovation_add
-    # multiply = {
-        # value = modifier:country_weekly_innovation_mult
-        # add = 1
-    # }
-}
-
-# -----------------
 # University target
 # -----------------
 
 lroai_building_university_spending_share = {
     value = 0.10
-    multiply = lroai_target_multiplier_with_high_government_spending
-    multiply = lroai_target_multiplier_with_investment_pool
-    add = {
-        value = 0.025
-        multiply = {
-            value = 1.10
-            subtract = {
-                value = lroai_innovation_current
-                divide = lroai_innovation_target
-            }
-            multiply = 10
-            min = 0
-            max = 1
-        }
-    }
 }
 
 lroai_building_university_spending_target = {
-    value = lroai_country_active_income
+    value = lroai_revenue_left_for_construction_military
     multiply = lroai_building_university_spending_share
 }
 
-lroai_building_university_spending_paucity = {
+lroai_building_university_spending_target_90 = {
+    value = lroai_building_university_spending_target
+    multiply = 0.90
+}
+
+lroai_building_university_spending_target_80 = {
     value = lroai_building_university_spending_target
     multiply = 0.80
 }
+lroai_building_university_spending_target_70 = {
+    value = lroai_building_university_spending_target
+    multiply = 0.70
+}
 
-lroai_building_university_spending_floor = {
+lroai_building_university_spending_target_60 = {
     value = lroai_building_university_spending_target
     multiply = 0.60
 }
 
-lroai_building_university_spending_excess = {
-    value = lroai_building_university_spending_target
-    multiply = 1.20
-}
-
-lroai_building_university_spending_ceiling = {
-    value = lroai_building_university_spending_target
-    multiply = 1.40
-}
 
 lroai_building_university_spending_value = {
     if = {
@@ -190,86 +56,4 @@ lroai_building_university_spending_value = {
     min = 0
     max = 1000000000 #billion
 }
-
-lroai_building_university_spending_expected = {
-    value = lroai_building_university_spending_value
-    add = {
-        if = {
-            limit = {
-                lroai_building_university_spending_value > 0
-                has_variable = lroai_building_university_total
-                var:lroai_building_university_total > 0
-            }
-            value = lroai_building_university_spending_value
-            divide = var:lroai_building_university_total
-        }
-        else = {
-            value = 1000
-        }
-        multiply = lroai_construction_limit_3_6
-    }
-}
-
-lroai_building_university_5 = {
-    value = lroai_building_university_target
-    divide = 2.80
-}
-
-lroai_building_university_6 = {
-    value = lroai_building_university_target
-    divide = 2.20
-}
-
-lroai_building_university_7 = {
-    value = lroai_building_university_target
-    divide = 1.60
-}
-
-lroai_building_university_8 = {
-    value = lroai_building_university_target
-}
-
-lroai_building_university_9 = {
-    value = lroai_building_university_target
-    multiply = 1.05
-}
-
-lroai_building_university_10 = {
-    value = lroai_building_university_target
-    multiply = 1.10
-}
-
-lroai_building_university_target = {
-    value = lroai_minus_half_unincorporated_population
-    divide = 400000
-    subtract = 1
-    multiply = lroai_target_minus_half_unincorporated_gdp_per_capita_scaling
-}
-
-lroai_building_university_paucity = {
-    value = lroai_building_university_target
-    multiply = 0.80
-}
-
-lroai_building_university_floor = {
-    value = lroai_building_university_target
-    multiply = 0.60
-}
-
-lroai_building_university_excess = {
-    value = lroai_building_university_target
-    multiply = 1.20
-    min = {
-        value = lroai_building_university_target
-        add = 1
-    }
-}
-
-lroai_building_university_ceiling = {
-    value = lroai_building_university_target
-    multiply = 1.40
-    min = {
-        value = lroai_building_university_target
-        add = 1
-    }
 }
