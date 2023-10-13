@@ -3,32 +3,13 @@
 # Flotilla target
 # ---------------
 
-lroai_building_naval_base_spending_share = {
-    value = lroai_military_spending_share
-    multiply = {
+
+lroai_building_naval_base_spending_target = {
+    value       = lroai_military_expense_ideal
+    multiply    = {
         value = 1
         subtract = lroai_building_barracks_vs_naval_base_share
     }
-    multiply = {
-        value = lroai_flotilla_target
-        divide = {
-            value = navy_size
-            min = 1
-        }
-        subtract = 1.10
-        multiply = 5
-        add = 1
-        min = 1.00
-        max = {
-            value = 5
-            divide = 3
-        }
-    }
-}
-
-lroai_building_naval_base_spending_target = {
-    value = lroai_country_active_income
-    multiply = lroai_building_naval_base_spending_share
 }
 
 lroai_building_naval_base_spending_excess = {
@@ -59,189 +40,41 @@ lroai_building_naval_base_spending_value = {
         }
     }
     else = {
-        value = lroai_country_active_income
-        multiply = lroai_building_naval_base_spending_share
+        value = lroai_building_naval_base_spending_target
         multiply = 1.10
     }
     min = 0
     max = 1000000000 #billion
 }
 
-lroai_building_naval_base_spending_expected = {
-    value = lroai_building_naval_base_spending_value
-    add = {
-        if = {
-            limit = {
-                lroai_building_naval_base_spending_value > 0
-                has_variable = lroai_building_naval_base_total
-                var:lroai_building_naval_base_total > 0
-            }
-            value = lroai_building_naval_base_spending_value
-            divide = var:lroai_building_naval_base_total
-        }
-        else = {
-            value = 400
-        }
-        multiply = lroai_construction_limit_5_6
-    }
+
+lroai_building_naval_base_spending_target_70 = {
+    value = lroai_building_naval_base_spending_target
+    multiply = 0.7
 }
 
-lroai_flotilla_1 = {
-    value = lroai_flotilla_target
-    divide = 1.90
+lroai_building_naval_base_spending_target_75 = {
+    value = lroai_building_naval_base_spending_target
+    multiply = 0.75
 }
 
-lroai_flotilla_2 = {
-    value = lroai_flotilla_target
-    divide = 1.75
+lroai_building_naval_base_spending_target_80 = {
+    value = lroai_building_naval_base_spending_target
+    multiply = 0.8
 }
 
-lroai_flotilla_3 = {
-    value = lroai_flotilla_target
-    divide = 1.60
+lroai_building_naval_base_spending_target_85 = {
+    value = lroai_building_naval_base_spending_target
+    multiply = 0.85
 }
 
-lroai_flotilla_4 = {
-    value = lroai_flotilla_target
-    divide = 1.45
+lroai_building_naval_base_spending_target_90 = {
+    value = lroai_building_naval_base_spending_target
+    multiply = 0.9
 }
 
-lroai_flotilla_5 = {
-    value = lroai_flotilla_target
-    divide = 1.30
+lroai_building_naval_base_spending_target_95 = {
+    value = lroai_building_naval_base_spending_target
+    multiply = 0.95
 }
 
-lroai_flotilla_6 = {
-    value = lroai_flotilla_target
-    divide = 1.15
-}
-
-lroai_flotilla_7 = {
-    value = lroai_flotilla_target
-}
-
-lroai_flotilla_8 = {
-    value = lroai_flotilla_target
-    multiply = 1.05
-}
-
-lroai_flotilla_9 = {
-    value = lroai_flotilla_target
-    multiply = 1.10
-}
-
-lroai_flotilla_base = {
-    value = var:lroai_incorporated_coastal_population
-    add = {
-        value = lroai_half_unincorporated_coastal_population
-        # multiply = 7
-        # divide = 9
-    }
-    add = {
-        value = lroai_minus_half_unincorporated_population
-        subtract = var:lroai_incorporated_coastal_population
-        subtract = lroai_half_unincorporated_coastal_population
-        multiply = 4
-        divide = 9
-    }
-    divide = 1000000
-    multiply = 3.50
-    multiply = {
-        value = lroai_target_minus_half_unincorporated_gdp_per_capita_scaling
-        subtract = 1
-        multiply = 3
-        divide = 5
-        add = 1
-    }
-}
-
-lroai_flotilla_average_threat = {
-    if = {
-        limit = {
-            var:lroai_navy_size_equal_to_average_threat > lroai_flotilla_base
-        }
-        value = var:lroai_navy_size_equal_to_average_threat
-        divide = lroai_flotilla_base
-        subtract = 1
-        multiply = {
-            value = var:lroai_navy_size_equal_to_average_threat
-            divide = lroai_flotilla_base
-            subtract = 1
-        }
-        divide = 72
-        add = 0.875
-        max = {
-            value = 4
-            divide = 3
-        }
-    }
-    else = {
-        value = 1
-    }
-}
-
-lroai_flotilla_biggest_threat = {
-    if = {
-        limit = {
-            var:lroai_navy_size_equal_to_biggest_threat < lroai_flotilla_base
-        }
-        value = {
-            value = var:lroai_navy_size_equal_to_biggest_threat
-            multiply = 1.25
-        }
-        divide = lroai_flotilla_base
-        min = 0.50
-        max = 1.00
-    }
-    else = {
-        value = 1
-    }
-}
-
-lroai_flotilla_target = {
-    if = {
-        limit = {
-            var:lroai_incorporated_coastal_population > 0
-        }
-        value = lroai_flotilla_base
-        multiply = lroai_flotilla_average_threat
-        multiply = lroai_flotilla_biggest_threat
-    }
-    else = {
-        value = 0
-    }
-}
-
-lroai_flotilla_excess = {
-    value = lroai_flotilla_target
-    multiply = 1.20
-    min = {
-        value = lroai_flotilla_target
-        add = {
-            value = lroai_construction_limit_5_6
-            multiply = 1.20
-        }
-    }
-}
-
-lroai_flotilla_ceiling = {
-    value = lroai_flotilla_target
-    multiply = 1.40
-    min = {
-        value = lroai_flotilla_target
-        add = {
-            value = lroai_construction_limit_5_6
-            multiply = 1.40
-        }
-    }
-}
-
-lroai_flotilla_paucity = {
-    value = lroai_flotilla_target
-    multiply = 0.80
-}
-
-lroai_flotilla_floor = {
-    value = lroai_flotilla_target
-    multiply = 0.25
-}

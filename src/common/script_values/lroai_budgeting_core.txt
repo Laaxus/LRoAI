@@ -247,16 +247,9 @@ lroai_construction_points_wanted_total = {
         value  = lroai_investment_pool_wanted_spending
         divide = lroai_building_construction_sector_expenses_per_point
     }
+    min = 10
 }
 
-# tag : tag_lroai_military_spending_share
-#
-# The share of income the military sector can use
-#
-lroai_military_spending_share = {
-    value = lroai_military_expense_ideal
-    divide = income
-}
 
 lroai_building_construction_sector_spending_value = {
     if = {
@@ -275,43 +268,15 @@ lroai_building_construction_sector_spending_value = {
 lroai_building_barracks_vs_naval_base_share = {
     if = {
         limit = {
-            has_variable = lroai_building_barracks_total
-            var:lroai_building_barracks_total > 0
-            has_variable = lroai_building_naval_base_total
-            var:lroai_building_naval_base_total > 0
-            has_variable = lroai_building_barracks_spending
-            var:lroai_building_barracks_spending > 0
-            has_variable = lroai_building_naval_base_spending
-            var:lroai_building_naval_base_spending > 0
-        }
-        value = {
-            value = lroai_battalion_target
-            divide = var:lroai_building_barracks_total
-            multiply = var:lroai_building_barracks_spending
-        }
-        divide = {
-            value = {
-                value = lroai_battalion_target
-                divide = var:lroai_building_barracks_total
-                multiply = var:lroai_building_barracks_spending
+            root = {
+                any_scope_state = {
+                    is_coastal = yes
+                }
             }
-            add = {
-                value = lroai_flotilla_target
-                divide = var:lroai_building_naval_base_total
-                multiply = var:lroai_building_naval_base_spending
-            }
-            min = 1
         }
+        value = 0.7
     }
     else = {
-        value = {
-            value = lroai_battalion_target
-            divide = {
-                value = lroai_battalion_target
-                add = lroai_flotilla_target
-                min = 1
-            }
-        }
+        value = 1.0
     }
-    max = 0.80
 }

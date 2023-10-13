@@ -8,73 +8,10 @@ lroai_military_spending_share = {
     multiply = lroai_target_multiplier_with_investment_pool
 }
 
-lroai_building_barracks_vs_naval_base_share = {
-    if = {
-        limit = {
-            has_variable = lroai_building_barracks_total
-            var:lroai_building_barracks_total > 0
-            has_variable = lroai_building_naval_base_total
-            var:lroai_building_naval_base_total > 0
-            has_variable = lroai_building_barracks_spending
-            var:lroai_building_barracks_spending > 0
-            has_variable = lroai_building_naval_base_spending
-            var:lroai_building_naval_base_spending > 0
-        }
-        value = {
-            value = lroai_battalion_target
-            divide = var:lroai_building_barracks_total
-            multiply = var:lroai_building_barracks_spending
-        }
-        divide = {
-            value = {
-                value = lroai_battalion_target
-                divide = var:lroai_building_barracks_total
-                multiply = var:lroai_building_barracks_spending
-            }
-            add = {
-                value = lroai_flotilla_target
-                divide = var:lroai_building_naval_base_total
-                multiply = var:lroai_building_naval_base_spending
-            }
-            min = 1
-        }
-    }
-    else = {
-        value = {
-            value = lroai_battalion_target
-            divide = {
-                value = lroai_battalion_target
-                add = lroai_flotilla_target
-                min = 1
-            }
-        }
-    }
-    max = 0.80
-}
-
-lroai_building_barracks_spending_share = {
-    value = lroai_military_spending_share
-    multiply = lroai_building_barracks_vs_naval_base_share
-    multiply = {
-        value = lroai_battalion_target
-        divide = {
-            value = var:lroai_building_barracks_total
-            min = 1
-        }
-        subtract = 1.10
-        multiply = 5
-        add = 1
-        min = 1.00
-        max = {
-            value = 5
-            divide = 3
-        }
-    }
-}
 
 lroai_building_barracks_spending_target = {
-    value = lroai_country_active_income
-    multiply = lroai_building_barracks_spending_share
+    value       = lroai_military_expense_ideal
+    multiply    = lroai_building_barracks_vs_naval_base_share
 }
 
 lroai_building_barracks_spending_excess = {
@@ -105,8 +42,7 @@ lroai_building_barracks_spending_value = {
         }
     }
     else = {
-        value = lroai_country_active_income
-        multiply = lroai_building_barracks_spending_share
+        value = lroai_building_barracks_spending_target
         multiply = 1.10
     }
     min = 0
@@ -132,139 +68,33 @@ lroai_building_barracks_spending_expected = {
     }
 }
 
-lroai_battalion_1 = {
-    value = lroai_battalion_target
-    divide = 1.90
+lroai_building_barracks_spending_target_70 = {
+    value = lroai_building_barracks_spending_target
+    multiply = 0.7
 }
 
-lroai_battalion_2 = {
-    value = lroai_battalion_target
-    divide = 1.75
+lroai_building_barracks_spending_target_75= {
+    value = lroai_building_barracks_spending_target
+    multiply = 0.75
 }
 
-lroai_battalion_3 = {
-    value = lroai_battalion_target
-    divide = 1.60
+lroai_building_barracks_spending_target_80 = {
+    value = lroai_building_barracks_spending_target
+    multiply = 0.8
 }
 
-lroai_battalion_4 = {
-    value = lroai_battalion_target
-    divide = 1.45
+lroai_building_barracks_spending_target_85 = {
+    value = lroai_building_barracks_spending_target
+    multiply = 0.85
 }
 
-lroai_battalion_5 = {
-    value = lroai_battalion_target
-    divide = 1.30
+lroai_bbuilding_arracks_spending_target_90 = {
+    value = lroai_building_barracks_spending_target
+    multiply = 0.9
 }
 
-lroai_battalion_6 = {
-    value = lroai_battalion_target
-    divide = 1.15
+lroai_building_barracks_spending_target_95 = {
+    value = lroai_building_barracks_spending_target
+    multiply = 0.95
 }
 
-lroai_battalion_7 = {
-    value = lroai_battalion_target
-}
-
-lroai_battalion_8 = {
-    value = lroai_battalion_target
-    multiply = 1.05
-}
-
-lroai_battalion_9 = {
-    value = lroai_battalion_target
-    multiply = 1.10
-}
-
-lroai_battalion_base = {
-    value = lroai_minus_half_unincorporated_population
-    divide = 1000000
-    multiply = 7.50
-    multiply = {
-        value = lroai_target_minus_half_unincorporated_gdp_per_capita_scaling
-        subtract = 1
-        multiply = 3
-        divide = 8
-        add = 1
-    }
-}
-
-lroai_battalion_average_threat = {
-    if = {
-        limit = {
-            var:lroai_army_size_equal_to_average_threat > lroai_battalion_base
-        }
-        value = var:lroai_army_size_equal_to_average_threat
-        divide = lroai_battalion_base
-        subtract = 1
-        multiply = {
-            value = var:lroai_army_size_equal_to_average_threat
-            divide = lroai_battalion_base
-            subtract = 1
-        }
-        divide = 72
-        add = 0.875
-        max = 2.00
-    }
-    else = {
-        value = 1
-    }
-}
-
-lroai_battalion_biggest_threat = {
-    if = {
-        limit = {
-            var:lroai_army_size_equal_to_biggest_threat < lroai_battalion_base
-        }
-        value = {
-            value = var:lroai_army_size_equal_to_biggest_threat
-            multiply = 1.25
-        }
-        divide = lroai_battalion_base
-        min = 0.50
-        max = 1.00
-    }
-    else = {
-        value = 1
-    }
-}
-
-lroai_battalion_target = {
-    value = lroai_battalion_base
-    multiply = lroai_battalion_average_threat
-    multiply = lroai_battalion_biggest_threat
-}
-
-lroai_battalion_excess = {
-    value = lroai_battalion_target
-    multiply = 1.20
-    min = {
-        value = lroai_battalion_target
-        add = {
-            value = lroai_construction_limit_8_6
-            multiply = 1.20
-        }
-    }
-}
-
-lroai_battalion_ceiling = {
-    value = lroai_battalion_target
-    multiply = 1.40
-    min = {
-        value = lroai_battalion_target
-        add = {
-            value = lroai_construction_limit_8_6
-            multiply = 1.40
-        }
-    }
-}
-
-lroai_battalion_paucity = {
-    value = lroai_battalion_target
-    multiply = 0.80
-}
-
-lroai_battalion_floor = {
-    value = lroai_battalion_target
-    multiply = 0.25
-}
