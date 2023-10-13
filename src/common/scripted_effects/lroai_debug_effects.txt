@@ -1,6 +1,6 @@
 ﻿lroai_debug_country = {
-    if = { limit = { this = c:GBR}
-        lroai_debug_construction_values = yes
+    if = { limit = { this = c:FRA}
+        lroai_debug_construction_army = yes
     }
 }
 
@@ -26,6 +26,13 @@ lroai_debug_construction_values = {
     debug_log = "lroai_construction_points_wanted_for_gov                   [THIS.ScriptValue('lroai_construction_points_wanted_for_gov')]"
     debug_log = "lroai_construction_points_wanted_total                     [THIS.ScriptValue('lroai_construction_points_wanted_total')]"
     debug_log = "lroai_current_constructions_points_percent_of_max_wanted   [THIS.ScriptValue('lroai_current_constructions_points_percent_of_max_wanted')]"
+}
+
+lroai_debug_construction_army = {
+    debug_log = "lroai_military_spending_share                              [THIS.ScriptValue('lroai_military_spending_share')]"
+    debug_log = "lroai_building_barracks_vs_naval_base_share                [THIS.ScriptValue('lroai_building_barracks_vs_naval_base_share')]"
+    debug_log = "lroai_building_barracks_spending_target                    [THIS.ScriptValue('lroai_building_barracks_spending_target')]"
+    debug_log = "lroai_building_barracks_spending_value                     [THIS.ScriptValue('lroai_building_barracks_spending_value')]"
 }
 
 
