@@ -56,6 +56,8 @@ lroai_revenue_left_for_construction = {
         value   = lroai_building_barracks_spending_value
         add     = lroai_building_naval_base_spending_value
     }
+
+    multiply = 0.9 # because military value are underestimation
     min = 0
 }
 
@@ -155,7 +157,7 @@ lroai_gold_reserves_percent = {
 #
 lroai_construction_expense_from_budget_maximum = {
     value = lroai_revenue_left_for_construction_military
-    multiply = 0.75
+    multiply = 0.7
 }
 
 # tag : tag_lroai_construction_expense_from_budget_minimum

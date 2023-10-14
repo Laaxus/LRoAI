@@ -7,9 +7,6 @@
         # Barracks
         if = {
             limit = {
-                lroai_tax_level_equal_or_higher = {
-                    value = 3
-                }
                 lroai_is_using_military_forces = no
                 lroai_building_barracks_spending_value >= lroai_building_barracks_spending_excess
             }
@@ -34,9 +31,6 @@
         # Naval base
         if = {
             limit = {
-                lroai_tax_level_equal_or_higher = {
-                    value = 3
-                }
                 lroai_is_using_military_forces = no
                 lroai_building_naval_base_spending_value >= lroai_building_naval_base_spending_excess
             }

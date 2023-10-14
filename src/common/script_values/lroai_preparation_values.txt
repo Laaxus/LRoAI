@@ -4,7 +4,7 @@
 # It will decrease overtime but lroai_revenue_factor_construction_military will take care of that
 #
 lroai_building_construction_sector_expenses_per_point = {
-   value = 1300 #TODO look at obs games and find a better value
+   value = 1500 #TODO look at obs games and find a better value
 }
 
 # tag : tag_lroai_usage_of_construction_points_by_private_queue
