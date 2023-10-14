@@ -48,3 +48,15 @@ lroai_check_if_counter_is_within_limit = {
         }
     }
 }
+
+lroai_is_id_critical = {
+    switch = {
+        trigger = $id$
+
+        1 = { lroai_evaluate_building_government_administration = { priority = 1 } }
+
+        3 = { lroai_evaluate_building_construction_sector = { priority = 1 } }
+
+        fallback = {  always = no }
+    }
+}

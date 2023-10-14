@@ -123,6 +123,16 @@ lroai_compare_building_priority_with_current_highest = {
                 }
                 local_var:lroai_highest_building_priority > lroai_building_type_$id$_collected_data_1
             }
+
+             # If there's no construction points available, but critical construction is allowed, only build critical
+            # buildings
+            OR = {
+                lroai_free_construction_points > 0
+                AND = {
+                    lroai_is_critical_construction_allowed = yes
+                    lroai_is_id_critical = { id = $id$ }
+                }
+            }
         }
         set_local_variable = {
             name = lroai_highest_building_priority
