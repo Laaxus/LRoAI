@@ -33,16 +33,16 @@ lroai_evaluate_building_government_administration = {
         switch = {
             trigger = $priority$
             1 = {
-                lroai_total_bureaucracy_produced_value < lroai_bureaucracy_required_value_critical
+                lroai_bureaucracy_produced_value < lroai_bureaucracy_required_value_critical
             }
             2 = {
-                lroai_total_bureaucracy_produced_value < lroai_bureaucracy_required_value_ceiling_high
+                lroai_bureaucracy_produced_value < lroai_bureaucracy_required_value_ceiling_high
             }
             3 = {
-               lroai_total_bureaucracy_produced_value < lroai_bureaucracy_required_value_ceiling_medium
+               lroai_bureaucracy_produced_value < lroai_bureaucracy_required_value_ceiling_medium
             }
             4 = {
-                lroai_total_bureaucracy_produced_value < lroai_bureaucracy_required_value_ceiling_low
+                lroai_bureaucracy_produced_value < lroai_bureaucracy_required_value_ceiling_low
             }
             fallback = {
                 always = no
