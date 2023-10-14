@@ -11,41 +11,12 @@ lroai_consider_building_government_administration = {
         id = $id$
         shortage = 0
     }
-    OR = {
-        bureaucracy < lroai_bureaucracy_1
-        AND = {
-            trigger_if = {
-                limit = {
-                    lroai_are_military_expenses_higher_than_usual = no
-                }
-                OR = {
-                    lroai_budget_health_is_equal_or_higher = {
-                        level = -1
-                    }
-                    lroai_tax_level_equal_or_lower = {
-                        value = 3
-                    }
-                }
-            }
-            trigger_else = {
-                OR = {
-                    lroai_budget_health_is_equal_or_higher = {
-                        level = 0
-                    }
-                    lroai_tax_level_equal_or_lower = {
-                        value = 2
-                    }
-                }
-            }
-            lroai_building_government_administration_spending_value < lroai_building_government_administration_spending_target
-            lroai_building_government_administration_spending_expected < lroai_building_government_administration_spending_excess
-        }
-    }
-    bureaucracy < lroai_bureaucracy_ceiling
+    lroai_total_bureaucracy_produced_value < lroai_bureaucracy_required_value_ceiling_low
     OR = {
         is_player = no
     }
 }
+
 
 lroai_evaluate_building_government_administration = {
     trigger_if = {
@@ -56,64 +27,22 @@ lroai_evaluate_building_government_administration = {
                 NOT = {
                     has_variable = lroai_building_government_administration_cooldown
                 }
-                NOR = {
-                    $priority$ > 1
-                    lroai_building_government_administration_spending_expected > lroai_building_government_administration_spending_target
-                }
+                $priority$ = 1
             }
         }
         switch = {
             trigger = $priority$
             1 = {
-                bureaucracy < lroai_bureaucracy_1
+                lroai_total_bureaucracy_produced_value < lroai_bureaucracy_required_value_critical
             }
             2 = {
-                OR = {
-                    bureaucracy < lroai_bureaucracy_2
-                    lroai_country_lost_taxes > lroai_country_lost_taxes_2
-                }
+                lroai_total_bureaucracy_produced_value < lroai_bureaucracy_required_value_ceiling_high
             }
             3 = {
-                OR = {
-                    bureaucracy < lroai_bureaucracy_3
-                    lroai_country_lost_taxes > lroai_country_lost_taxes_3
-                }
+               lroai_total_bureaucracy_produced_value < lroai_bureaucracy_required_value_ceiling_medium
             }
             4 = {
-                OR = {
-                    bureaucracy < lroai_bureaucracy_4
-                    lroai_country_lost_taxes > lroai_country_lost_taxes_4
-                }
-            }
-            5 = {
-                OR = {
-                    bureaucracy < lroai_bureaucracy_5
-                    lroai_country_lost_taxes > lroai_country_lost_taxes_5
-                }
-            }
-            6 = {
-                OR = {
-                    bureaucracy < lroai_bureaucracy_6
-                    lroai_country_lost_taxes > lroai_country_lost_taxes_6
-                }
-            }
-            7 = {
-                OR = {
-                    bureaucracy < lroai_bureaucracy_7
-                    lroai_country_lost_taxes > lroai_country_lost_taxes_7
-                }
-            }
-            8 = {
-                OR = {
-                    bureaucracy < lroai_bureaucracy_8
-                    lroai_country_lost_taxes > lroai_country_lost_taxes_8
-                }
-            }
-            9 = {
-                bureaucracy < lroai_bureaucracy_9
-            }
-            10 = {
-                bureaucracy < lroai_bureaucracy_10
+                lroai_total_bureaucracy_produced_value < lroai_bureaucracy_required_value_ceiling_low
             }
             fallback = {
                 always = no

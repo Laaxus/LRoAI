@@ -170,68 +170,41 @@ lroai_bureaucracy_load = {
     divide = lroai_bureaucracy_usage
 }
 
-lroai_bureaucracy_excess = {
-    value = lroai_bureaucracy_target
-    multiply = 1.20
-    min = {
-        value = lroai_bureaucracy_target
-        add = {
-            if = {
-                limit = {
-                    has_technology_researched = central_planning
-                }
-                value = 100
-            }
-            else_if = {
-                limit = {
-                    has_technology_researched = central_archives
-                }
-                value = 65
-            }
-            else_if = {
-                limit = {
-                    has_technology_researched = centralization
-                }
-                value = 50
-            }
-            else = {
-                value = 35
-            }
-        }
-        multiply = 1.20
-    }
-    max = 1000000
+
+
+
+lroai_bureaucracy_produced_value = {
+     value  = root.produced_bureaucracy
 }
 
-lroai_bureaucracy_ceiling = {
-    value = lroai_bureaucracy_target
-    multiply = 1.40
-    min = {
-        value = lroai_bureaucracy_target
-        add = {
-            if = {
-                limit = {
-                    has_technology_researched = central_planning
-                }
-                value = 100
-            }
-            else_if = {
-                limit = {
-                    has_technology_researched = central_archives
-                }
-                value = 65
-            }
-            else_if = {
-                limit = {
-                    has_technology_researched = centralization
-                }
-                value = 50
-            }
-            else = {
-                value = 35
-            }
-        }
-        multiply = 1.40
-    }
-    max = 1000000
+lroai_bureaucracy_available_value = {
+    value   = root.bureaucracy
+}
+
+lroai_bureaucracy_required_value = {
+    value       = root.produced_bureaucracy
+    subtract    = root.bureaucracy
+}
+
+lroai_bureaucracy_required_value_critical = {
+    value =  lroai_bureaucracy_required_value
+    add =  20
+}
+
+lroai_bureaucracy_required_value_ceiling_high = {
+    value =  lroai_bureaucracy_required_value
+    multiply = 1.1
+    add = 30
+}
+
+lroai_bureaucracy_required_value_ceiling_medium = {
+    value =  lroai_bureaucracy_required_value
+    multiply = 1.2
+    add = 40
+}
+
+lroai_bureaucracy_required_value_ceiling_low = {
+    value =  lroai_bureaucracy_required_value
+    multiply = 1.3
+    add = 50
 }
