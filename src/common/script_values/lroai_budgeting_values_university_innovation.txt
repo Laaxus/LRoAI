@@ -49,9 +49,7 @@ lroai_building_university_spending_value = {
         }
     }
     else = {
-        value = lroai_country_active_income
-        multiply = lroai_building_university_spending_share
-        multiply = 1.10
+        value = lroai_building_university_spending_target
     }
     min = 0
     max = 1000000000 #billion

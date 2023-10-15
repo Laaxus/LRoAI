@@ -260,7 +260,8 @@ lroai_building_construction_sector_spending_value = {
         value = var:lroai_previous_building_construction_sector_expenses
     }
     else = {
-        value = 0
+        value = lroai_building_construction_sector_expenses_per_point
+        multiply = lroai_construction_points_from_sectors_current
     }
     min = 0
     max = 1000000000 #billion

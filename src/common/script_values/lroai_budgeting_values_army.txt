@@ -2,13 +2,6 @@
 # Battalion target
 # ----------------
 
-lroai_military_spending_share = {
-    value = 0.30
-    multiply = lroai_target_multiplier_with_high_government_spending
-    multiply = lroai_target_multiplier_with_investment_pool
-}
-
-
 lroai_building_barracks_spending_target = {
     value       = lroai_military_expense_ideal
     multiply    = lroai_building_barracks_vs_naval_base_share

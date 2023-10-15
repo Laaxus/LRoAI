@@ -72,18 +72,3 @@ lroai_current_constructions_points_percent_of_max_wanted = {
     divide = lroai_construction_points_wanted_total
 }
 
-
-lroai_building_construction_sector_spending_value = {
-    if = {
-        limit = {
-            lroai_building_construction_sector_expenses_per_point > 0
-        }
-        value = lroai_building_construction_sector_expenses_per_point
-        multiply = lroai_construction_points_from_sectors_current
-    }
-    else = {
-        value = 0 ###########
-    }
-    min = 0
-    max = 1000000000 #billion
-}

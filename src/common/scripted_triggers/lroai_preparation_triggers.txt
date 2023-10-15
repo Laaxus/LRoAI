@@ -3,14 +3,12 @@ lroai_is_downsizing_allowed = {
     is_player = no
     has_revolution = no
     is_revolutionary = no
-    has_variable = lroai_country_budget_surplus
 }
 
 # Requirements for constructing both special and standard buildings
 lroai_is_construction_allowed = {
     has_revolution = no
     is_revolutionary = no
-    has_variable = lroai_country_budget_surplus
     OR = {
         lroai_day_of_ongoing_iteration = 1
         AND = {

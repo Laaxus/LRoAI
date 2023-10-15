@@ -90,50 +90,8 @@ lroai_max_level_when_using_military_forces = 6
 # Various common factors that affect government building targets
 # --------------------------------------------------------------
 
-# Square GDP per capita of incorporated population + half unincorporated population multiplied by some factor. This is
-# basically what we believe to be a relation between growth of GDP per capita and government building targets, in other
-# words a factor of us being a rich or not so rich country vs how much good stuff we want to have.
-lroai_target_minus_half_unincorporated_gdp_per_capita_scaling = {
-    value = var:lroai_square_root_of_minus_half_unincorporated_gdp_per_capita
-    multiply = 3
-    divide = 4
-    add = {
-        value = 1
-        divide = 4
-    }
-}
-
-# If a country is forced to spend most of its money on government administrations, we need to lower other shares
-lroai_target_multiplier_with_high_government_spending = {
-    value = 1
-    subtract = {
-        value = {
-            value = lroai_building_government_administration_spending_value
-            divide = lroai_country_active_income
-        }
-        divide = {
-            value = lroai_building_government_administration_spending_share
-            multiply = 1.20
-        }
-        subtract = 1
-        min = 0
-        max = 0.75
-    }
-}
 
 
-# If construction is largely sponsored by investment pool, we want to raise non-construction shares
-lroai_target_multiplier_with_investment_pool = {
-    value = 1.00
-    add = {
-        value = 1.20
-        multiply = {
-            value = lroai_investment_pool_expected
-            divide = lroai_country_active_income
-            divide = 0.30
-            min = 0
-            max = 1
-        }
-    }
-}
+
+
 

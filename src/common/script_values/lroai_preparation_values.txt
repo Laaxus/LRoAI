@@ -12,17 +12,9 @@ lroai_building_construction_sector_expenses_per_point = {
 # How many construction points is the private construction sector using
 #
 lroai_usage_of_construction_points_by_private_queue = {
-	if = {
-		limit = {
-			lroai_construction_queue_num_queued_levels <= 0
-		}
-		value = 0
-	}
-	else = {
-		value = lroai_construction_queue_num_queued_private_levels
-		multiply = lroai_construction_points_per_building
-        min = 0
-	}
+    value = construction_queue_num_queued_private_levels
+    multiply = lroai_construction_points_per_building
+    min = 0
 }
 
 # tag : tag_lroai_usage_of_construction_points_by_government_queue
@@ -177,15 +169,8 @@ lroai_constructions_possible_with_current_points = {
 }
 
 lroai_usage_of_construction_points_value = {
-    value = lroai_construction_queue_num_queued_levels
+    value = construction_queue_num_queued_levels
     multiply = lroai_construction_points_per_building
-}
-
-lroai_usage_of_construction_points_percent = {
-    value = lroai_usage_of_construction_points_value
-    divide = lroai_construction_points_current
-    min = 0.00
-    max = 1.00
 }
 
 lroai_expenses_for_one_construction = {
@@ -193,44 +178,6 @@ lroai_expenses_for_one_construction = {
     multiply = lroai_building_construction_sector_expenses_per_point
 }
 
-lroai_construction_queue_num_queued_levels = {
-    value = construction_queue_num_queued_levels
-    if = {
-        limit = {
-            construction_queue_num_queued_private_levels > 0
-        }
-        subtract = construction_queue_num_queued_private_levels
-        add = lroai_construction_queue_num_queued_private_levels
-    }
-}
-
-lroai_construction_queue_num_queued_private_levels = {
-    value = construction_queue_num_queued_private_levels
-    max = {
-        value = lroai_investment_pool_potential
-
-        # Investment pool only cover goods, wages are paid from government money
-        divide = {
-            value = lroai_expenses_for_one_construction
-            multiply = lroai_building_construction_sector_share_of_goods_in_expenses
-            min = 1
-        }
-        round = yes
-    }
-}
-
-lroai_usage_of_construction_points_by_private_queue_percent = {
-    if = {
-        limit = {
-            lroai_construction_queue_num_queued_levels <= 0
-        }
-        value = 0
-    }
-    else = {
-        value = lroai_construction_queue_num_queued_private_levels
-        divide = lroai_constructions_possible_with_current_points
-    }
-}
 
 lroai_building_construction_sector_share_of_wages_in_expenses = 0.10
 

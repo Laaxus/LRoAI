@@ -21,76 +21,14 @@ lroai_downsize_government_administration = {
     }
 }
 
-# University
-lroai_downsize_university = {
-    var:lroai_building_university_level > 0
-    OR = {
-        root = {
-            NOT = {
-                lroai_budget_health_is_equal_or_higher = {
-                    level = -2
-                }
-            }
-            lroai_are_military_expenses_higher_than_usual = no
-        }
-        root = {
-            NOT = {
-                lroai_budget_health_is_equal_or_higher = {
-                    level = -3
-                }
-            }
-        }
-        var:lroai_building_university_level <= lroai_building_university_downsizing_threshold
-    }
-    save_temporary_scope_as = lroai_current_state
-    NOT = {
-        root = {
-            any_scope_state = {
-                var:lroai_building_university_level > 0
-                var:lroai_building_university_level < lroai_current_university_level
-            }
-        }
-    }
-}
 
-# Construction sector
-lroai_downsize_construction_sector = {
-    var:lroai_building_construction_sector_level > 0
-    OR = {
-        root = {
-            NOT = {
-                lroai_budget_health_is_equal_or_higher = {
-                    level = -2
-                }
-            }
-            lroai_are_military_expenses_higher_than_usual = no
-        }
-        root = {
-            NOT = {
-                lroai_budget_health_is_equal_or_higher = {
-                    level = -3
-                }
-            }
-        }
-        var:lroai_building_construction_sector_level <= lroai_building_construction_sector_downsizing_threshold
-    }
-    save_temporary_scope_as = lroai_current_state
-    NOT = {
-        root = {
-            any_scope_state = {
-                var:lroai_building_construction_sector_level > 0
-                var:lroai_building_construction_sector_level < lroai_current_construction_sector_level
-            }
-        }
-    }
-}
 
 # Port
 lroai_downsize_port = {
     var:lroai_building_port_level > 0
     OR = {
         root = {
-            lroai_in_default = yes
+            scaled_debt >= 0.975
         }
         var:lroai_building_port_level <= lroai_building_port_downsizing_threshold
     }

@@ -10,14 +10,6 @@ lroai_perform_iteration_of_weekly_loop = {
         day_1_of_main_loop = $day_1_of_main_loop$
     }
 
-    # Calculate current investment pool transfer, contains initial calculation of budget surplus that is required later
-    lroai_calculate_investment_pool_transfer = {
-        day_1_of_main_loop = $day_1_of_main_loop$
-    }
-    
-    # Calculate percent of construction points used by buildings in the queue
-    lroai_calculate_usage_of_construction_points = yes
-
     # Track how many iterations of weekly loop were performed in this main iteration and schedule next if needed
     lroai_count_and_schedule_iterations_of_weekly_loop = {
         day_1_of_main_loop = $day_1_of_main_loop$
@@ -463,27 +455,6 @@ lroai_weekly_check_of_building_data = {
             days = 3lroai_days_to_keep_short_variables
         }
     }
-    
-    # Write collected building estimates into total expenses variable so we could calculate lroai_country_active_income
-    set_local_variable = {
-        name = lroai_total_building_expenses
-        value = {
-            value = local_var:lroai_building_government_administration_expenses
-            add = local_var:lroai_building_university_expenses
-            add = local_var:lroai_building_construction_sector_expenses
-            add = local_var:lroai_building_port_expenses
-            add = local_var:lroai_building_barracks_expenses
-            add = local_var:lroai_building_naval_base_expenses
-            add = local_var:lroai_building_conscription_center_expenses
-        }
-    }
-    lroai_add_local_variable_to_array_variable = {
-        input = lroai_total_building_expenses
-        output = lroai_total_building_expenses
-        elements = 4
-        zero = 2
-        cleanup = no
-    }
 
     # Garbage collection; we don't need consription center expenses anywhere else
     remove_local_variable = lroai_building_conscription_center_expenses
@@ -592,251 +563,13 @@ lroai_weekly_check_of_building_data = {
     }
 }
 
-# Calculate current investment pool transfer, contains initial calculation of budget surplus that is required later
-lroai_calculate_investment_pool_transfer = {
-
-    # First get raw budget surplus required to calculate investment pool transfer
-    if = {
-        limit = {
-            has_variable = lroai_country_previous_treasury
-            NOR = {
-                lroai_country_current_treasury < lroai_95_percent_of_credit
-                var:lroai_country_previous_treasury < lroai_95_percent_of_credit
-            }
-        }
-        set_local_variable = {
-            name = lroai_country_budget_surplus
-            value = {
-                value = lroai_country_current_treasury
-                subtract = var:lroai_country_previous_treasury
-                max = {
-                    if = {
-                        limit = {
-                            has_variable = lroai_previous_weekly_net_fixed_income
-                        }
-                        value = var:lroai_previous_weekly_net_fixed_income
-                    }
-                    else = {
-                        value = weekly_net_fixed_income
-                    }
-                }
-            }
-        }
-    }
-
-    # TODO proper fallback
-    else = {
-        set_local_variable = {
-            name = lroai_country_budget_surplus
-            value = {
-                value = weekly_net_fixed_income
-            }
-        }
-    }
-
-    # Investment pool transfer = construction goods + raw budget surplus - fixed surplus.
-    # It is assumed that construction expenses were already collected in this iteration of weekly loop,
-    # while fixed surplus is one of these rare values accessible through a trigger.
-    set_local_variable = {
-        name = lroai_investment_pool_transfer
-        value = {
-            if = {
-                limit = {
-                    has_game_rule = autonomous_investment_pool
-                    construction_queue_num_queued_private_levels <= 0
-                }
-                value = 0
-            }
-            else = {
-                if = {
-                    limit = {
-                        has_variable = lroai_previous_building_construction_sector_expenses
-                    }
-                    value = var:lroai_previous_building_construction_sector_expenses
-                }
-                else = {
-                    value = local_var:lroai_building_construction_sector_expenses
-                }
-                multiply = lroai_building_construction_sector_share_of_goods_in_expenses
-                add = local_var:lroai_country_budget_surplus
-                if = {
-                    limit = {
-                        has_variable = lroai_previous_weekly_net_fixed_income
-                    }
-                    subtract = var:lroai_previous_weekly_net_fixed_income
-                }
-                else = {
-                    subtract = weekly_net_fixed_income
-                }
-                min = 0
-            }
-        }
-    }
-
-    lroai_add_local_variable_to_array_variable = {
-        input = lroai_investment_pool_transfer
-        output = lroai_investment_pool_transfer
-        elements = 4
-        zero = 1
-        cleanup = no
-    }
-
-    # Expected investment pool is average over $elements$ months widely used to make budget management more stable
-    if = {
-        limit = {
-            $day_1_of_main_loop$ = yes
-        }
-        set_local_variable = {
-            name = lroai_investment_pool_expected
-            value = {
-                value = lroai_investment_pool_potential
-                round = yes
-            }
-        }
-        lroai_add_local_variable_to_array_variable = {
-            input = lroai_investment_pool_expected
-            output = lroai_investment_pool_expected
-            elements = 15
-            zero = 1
-            cleanup = yes
-        }
-    }
-}
-
-# Calculate percent of construction points used by buildings in the queue
-lroai_calculate_usage_of_construction_points = {
-    set_local_variable = {
-        name = lroai_usage_of_construction_points_percent
-        value = {
-            if = {
-                limit = {
-                    OR = {
-                        construction_queue_num_queued_private_levels <= 0
-                        local_var:lroai_building_construction_sector_expenses <= 0
-                        local_var:lroai_investment_pool_transfer <= 0
-                    }
-                }
-                value = construction_queue_num_queued_levels
-                divide = {
-                    value = lroai_constructions_possible_with_current_points
-                    min = 1
-                }
-            }
-            else = {
-
-                # If there are non-private constructions in the queue
-                if = {
-                    limit = {
-                        construction_queue_num_queued_levels > construction_queue_num_queued_private_levels
-                    }
-                    
-                    # Subtract private constructions of the queue and add them back, but without paused ones
-                    # by comparing investment pool transfer vs government construction expenses.
-                    value = construction_queue_num_queued_levels
-                    subtract = construction_queue_num_queued_private_levels
-                    add = {
-                        value = construction_queue_num_queued_private_levels
-                        max = {
-                            value = construction_queue_num_queued_levels
-                            subtract = construction_queue_num_queued_private_levels
-
-                            # Investment pool only cover goods, wages are paid from government money
-                            divide = {
-                                value = local_var:lroai_building_construction_sector_expenses
-                                subtract = {
-                                    value = local_var:lroai_investment_pool_transfer
-                                    multiply = {
-                                        value = 1
-                                        divide = lroai_building_construction_sector_share_of_goods_in_expenses
-                                    }
-                                }
-                                divide = {
-                                    value = local_var:lroai_investment_pool_transfer
-                                    multiply = {
-                                        value = 1
-                                        divide = lroai_building_construction_sector_share_of_goods_in_expenses
-                                    }
-                                }
-                                min = 0.01
-                            }
-                        }
-                    }
-                    divide = {
-                        value = lroai_constructions_possible_with_current_points
-                        min = 1
-                    }
-                }
-
-                # Otherwise it's really tough
-                else = {
-
-                    # If we have some stored country data, use lroai_usage_of_construction_points_percent value
-                    # that relies on variables that will be calculated only later in this weekly loop iteration.
-                    #if = {
-                    #    limit = {
-                    #        has_variable = lroai_building_construction_sector_expenses_per_point
-                    #        lroai_building_construction_sector_expenses_per_point > 0
-                    #    }
-                    #    value = lroai_usage_of_construction_points_percent
-                    #}
-
-                    # And if not, no idea if you can do something other than gamble
-                    #else = {
-                        value = construction_queue_num_queued_levels
-                        divide = {
-                            value = lroai_constructions_possible_with_current_points
-                            min = 1
-                        }
-                    #}
-                }
-            }
-            min = 0
-            max = 1
-        }
-    }
-}
-
 # Track how many iterations of weekly loop were performed in this main iteration and schedule next if needed
 lroai_count_and_schedule_iterations_of_weekly_loop = {
-
-    # Track average usage of construction points to prohibit queueing more sectors if it's low
     if = {
         limit = {
             $day_1_of_main_loop$ = yes
         }
-        remove_variable = lroai_previous_usage_of_construction_points
-        set_variable = {
-            name = lroai_previous_usage_of_construction_points
-            value = {
-                if = {
-                    limit = {
-                        OR = {
-                            NOT = {
-                                has_variable = lroai_performed_iterations_of_weekly_loop
-                            }
-                            NOT = {
-                                has_variable = lroai_average_usage_of_construction_points
-                            }
-                            var:lroai_performed_iterations_of_weekly_loop < lroai_weeks_in_iteration
-                        }
-                    }
-                    value = 1.00
-                }
-                else = {
-                    value = var:lroai_average_usage_of_construction_points
-                    divide = {
-                        value = var:lroai_performed_iterations_of_weekly_loop
-                        min = 1
-                    }
-                }
-            }
-        }
         remove_variable = lroai_performed_iterations_of_weekly_loop
-        remove_variable = lroai_average_usage_of_construction_points
-    }
-    lroai_add_to_variable = {
-        name = lroai_average_usage_of_construction_points
-        value = local_var:lroai_usage_of_construction_points_percent
     }
 
     # Track number of performed weekly loop iterations and schedule next if it's not last week of main iteration
@@ -860,81 +593,22 @@ lroai_count_and_schedule_iterations_of_weekly_loop = {
 # because treasury delta is a byproduct of previous week income and expenses and not this week ones.
 lroai_calculate_budget_surplus = {
 
-    # Overwrite budget surplus with its modified form, where we always assume construction sectors are used in full
-    set_local_variable = {
-        name = lroai_country_budget_surplus
-        value = {
-            value = local_var:lroai_country_budget_surplus
-            if = {
-                limit = {
-                    has_variable = lroai_previous_building_construction_sector_expenses
-                    has_variable = lroai_previous_building_construction_sector_spending_value
-                    var:lroai_previous_building_construction_sector_spending_value > 0
-                }
-                add = var:lroai_previous_building_construction_sector_expenses
-                subtract = var:lroai_previous_building_construction_sector_spending_value
-            }
-            else_if = {
-                limit = {
-                    has_local_variable = lroai_building_construction_sector_expenses
-                    lroai_building_construction_sector_spending_value > 0
-                }
-                add = local_var:lroai_building_construction_sector_expenses
-                subtract = lroai_building_construction_sector_spending_value
-            }
-        }
-    }
-
-    lroai_add_local_variable_to_array_variable = {
-        input = lroai_country_budget_surplus
-        output = lroai_country_budget_surplus
-        elements = lroai_weeks_in_iteration_minus_1
-        zero = 1
-        cleanup = yes
-    }
-
-    # Variables with previous values
-    set_variable = {
-        name = lroai_country_previous_treasury
-        value = lroai_country_current_treasury
-    }
     set_variable = {
         name = lroai_previous_building_construction_sector_expenses
         value = local_var:lroai_building_construction_sector_expenses
     }
-    set_variable = {
-        name = lroai_previous_building_construction_sector_spending_value
-        value = lroai_building_construction_sector_spending_value
-    }
-    set_variable = {
-        name = lroai_previous_weekly_net_fixed_income
-        value = weekly_net_fixed_income
-    }
 }
 
 lroai_clear_weekly_loop_variables = {
-    remove_variable = lroai_total_building_expenses
     remove_variable = lroai_building_government_administration_spending
     remove_variable = lroai_building_university_spending
     remove_variable = lroai_building_port_spending
     remove_variable = lroai_building_barracks_spending
     remove_variable = lroai_building_naval_base_spending
-    remove_variable = lroai_country_budget_surplus
-    remove_variable = lroai_investment_pool_transfer
 
-    remove_variable = lroai_country_previous_treasury
     remove_variable = lroai_previous_building_construction_sector_expenses
-    remove_variable = lroai_previous_weekly_net_fixed_income
-    remove_variable = lroai_previous_building_construction_sector_spending_value
-    remove_variable = lroai_investment_pool_expected
-    
-    remove_variable = lroai_average_usage_of_construction_points
-    remove_variable = lroai_previous_usage_of_construction_points
 }
 
 lroai_clear_weekly_loop_local_variables = {
-    remove_local_variable = lroai_investment_pool_transfer
-    remove_local_variable = lroai_usage_of_construction_points_percent
-    remove_local_variable = lroai_total_building_expenses
     remove_local_variable = lroai_building_construction_sector_expenses
 }
