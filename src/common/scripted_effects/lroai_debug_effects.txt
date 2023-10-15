@@ -42,6 +42,13 @@ lroai_debug_bureaucracy = {
     debug_log = "lroai_bureaucracy_required_value_ceiling_low               [THIS.ScriptValue('lroai_bureaucracy_required_value_ceiling_low')]"
 }
 
+lroai_debug_downsizing = {
+    debug_log = "lroai_bureaucracy_load                           [THIS.ScriptValue('lroai_bureaucracy_load')]"
+    debug_log = "lroai_bureaucracy_required_value_ceiling_downsize                          [THIS.ScriptValue('lroai_bureaucracy_required_value_ceiling_downsize')]"
+    debug_log = "lroai_bureaucracy_required_value_critical                  [THIS.ScriptValue('lroai_bureaucracy_required_value_critical')]"
+    debug_log = "lroai_bureaucracy_required_value_ceiling_low               [THIS.ScriptValue('lroai_bureaucracy_required_value_ceiling_low')]"
+}
+
 
 lroai_debug_tag = {
 if = { limit = { root = c:GER } debug_log = "This is GER"}
