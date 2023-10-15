@@ -3,6 +3,52 @@
         limit = {
             lroai_bureaucracy_load >= 0.75
         }
+
+        # Bureaucracy
+        if = {
+            limit = {
+                produced_bureaucracy >= lroai_bureaucracy_required_value_ceiling_downsize
+            }
+            random_scope_state = {
+                limit = {
+                    lroai_downsize_government_administration = yes
+                }
+                root = {
+                    change_variable = {
+                        name = lroai_building_government_administration_total
+                        subtract = prev.var:lroai_building_government_administration_level
+                    }
+                }
+                set_variable = {
+                    name = lroai_building_government_administration_level
+                    value = 0
+                }
+                remove_building = building_government_administration
+            }
+        }
+        
+        # Port
+        if = {
+            limit = {
+                lroai_total_convoy_produced_value >= lroai_total_convoy_available_value_downsize
+            }
+            random_scope_state = {
+                limit = {
+                    lroai_downsize_port = yes
+                }
+                root = {
+                    change_variable = {
+                        name = lroai_building_port_total
+                        subtract = prev.var:lroai_building_port_level
+                    }
+                }
+                set_variable = {
+                    name = lroai_building_port_level
+                    value = 0
+                }
+                remove_building = building_port
+            }
+        }
         
         # Barracks
         if = {
