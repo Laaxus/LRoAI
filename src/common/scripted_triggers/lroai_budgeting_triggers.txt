@@ -186,35 +186,3 @@ lroai_tax_level_equal_or_higher = {
 }
 
 
-#
-# tag           : tag_lroai_need_additional_ports_critical
-# Called by     : lroai_allocate_building_port lroai_evaluate_building_port
-#
-lroai_need_additional_ports_critical = {
-    lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_critical
-}
-
-
-#
-# tag           : tag_lroai_need_additional_ports_high
-# Called by     : lroai_allocate_building_port lroai_evaluate_building_port
-#
-lroai_need_additional_ports_high = {
-    lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_high
-}
-
-#
-# tag           : tag_lroai_need_additional_ports_medium
-# Called by     : lroai_allocate_building_port lroai_evaluate_building_port
-#
-lroai_need_additional_ports_medium = {
-    lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_medium
-}
-
-#
-# tag           : tag_lroai_need_additional_ports_low
-# Called by     : lroai_allocate_building_port lroai_evaluate_building_port
-#
-lroai_need_additional_ports_low = {
-    lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_low
-}
