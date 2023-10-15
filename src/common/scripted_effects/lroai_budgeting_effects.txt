@@ -55,8 +55,9 @@ lroai_manage_tax_and_wage_level = {
         set_military_wage_level = medium
         set_government_wage_level = low
     }
-    # If the country have more than 50% of the gold reserves limit, set the taxes and the wages medium
-    else = {
+    # If the country have more than 70% of the gold reserves limit and has almost no unemployed, set the taxes and the wages medium
+    else_if = {
+        limit = {lroai_construction_expense_maximum_from_pop < lroai_construction_expense_from_budget_maximum}
         set_tax_level = medium
         set_military_wage_level = medium
         set_government_wage_level = medium

@@ -751,14 +751,8 @@ lroai_building_university_total = {
     value = var:lroai_building_university_total
 }
 
-lroai_building_government_administration_spending = {
-    value = var:lroai_building_government_administration_spending
-}
 lroai_building_university_spending = {
     value = var:lroai_building_university_spending
-}
-lroai_building_port_spending = {
-    value = var:lroai_building_port_spending
 }
 lroai_building_barracks_spending = {
     value = var:lroai_building_barracks_spending
