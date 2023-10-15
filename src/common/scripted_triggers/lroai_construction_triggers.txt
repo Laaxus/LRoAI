@@ -60,3 +60,473 @@ lroai_is_id_critical = {
         fallback = {  always = no }
     }
 }
+
+
+lroai_resource_total_60 = {
+    OR = {
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 60 }}
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 50 }}
+            any_scope_building = { is_building_type = $resource$ level > 10 }
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 40 }}
+            any_scope_building = { is_building_type = $resource$ level > 20 }
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 30 }}
+            any_scope_building = { is_building_type = $resource$ level > 30 }
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 20 }}
+            any_scope_building = { is_building_type = $resource$ level > 40 }
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 10 }}
+            any_scope_building = { is_building_type = $resource$ level > 50 }
+        }
+
+        AND = {
+            any_scope_building = { is_building_type = $resource$ level > 60 }
+        }
+    }
+}
+
+lroai_resource_total_50 = {
+    OR = {
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 50 }}
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 40 }}
+            any_scope_building = { is_building_type = $resource$ level > 10 }
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 30 }}
+            any_scope_building = { is_building_type = $resource$ level > 20 }
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 20 }}
+            any_scope_building = { is_building_type = $resource$ level > 30 }
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 10 }}
+            any_scope_building = { is_building_type = $resource$ level > 40 }
+        }
+
+        AND = {
+            any_scope_building = { is_building_type = $resource$ level > 50 }
+        }
+    }
+}
+
+lroai_resource_total_40 = {
+    OR = {
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 40 }}
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 30 }}
+            any_scope_building = { is_building_type = $resource$ level > 10 }
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 20 }}
+            any_scope_building = { is_building_type = $resource$ level > 20 }
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 10 }}
+            any_scope_building = { is_building_type = $resource$ level > 30 }
+        }
+
+        AND = {
+            any_scope_building = { is_building_type = $resource$ level > 40 }
+        }
+    }
+}
+
+lroai_resource_total_30 = {
+    OR = {
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 30 }}
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 20 }}
+            any_scope_building = { is_building_type = $resource$ level > 10 }
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 10 }}
+            any_scope_building = { is_building_type = $resource$ level > 20 }
+        }
+
+        AND = {
+            any_scope_building = { is_building_type = $resource$ level > 30 }
+        }
+    }
+}
+
+lroai_resource_total_20 = {
+    OR = {
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 20 }}
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 10 }}
+            any_scope_building = { is_building_type = $resource$ level > 10 }
+        }
+
+        AND = {
+            any_scope_building = { is_building_type = $resource$ level > 20 }
+        }
+    }
+}
+
+lroai_resource_total_10 = {
+    OR = {
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 10 }}
+        }
+
+        AND = {
+            state_region = {remaining_undepleted = { type = $bg$ amount > 5 }}
+            any_scope_building = { is_building_type = $resource$ level > 5 }
+        }
+
+        AND = {
+            any_scope_building = { is_building_type = $resource$ level > 10 }
+        }
+    }
+}
+
+lroai_allocate_iron_coal = {
+    switch = {
+        trigger = $aptitude$
+        1 = {
+            lroai_resource_total_50 = {bg = bg_iron_mining resource = building_iron_mine}
+            lroai_resource_total_50 = {bg = bg_coal_mining resource = building_coal_mine}
+        }
+        2 = {
+            lroai_resource_total_40 = {bg = bg_iron_mining resource = building_iron_mine}
+            lroai_resource_total_40 = {bg = bg_coal_mining resource = building_coal_mine}
+        }
+        3 = {
+            lroai_resource_total_30 = {bg = bg_iron_mining resource = building_iron_mine}
+            lroai_resource_total_30 = {bg = bg_coal_mining resource = building_coal_mine}
+        }
+        4 = {
+            lroai_resource_total_20 = {bg = bg_iron_mining resource = building_iron_mine}
+            lroai_resource_total_20 = {bg = bg_coal_mining resource = building_coal_mine}
+        }
+        5 = {
+            lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}
+            lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}
+        }
+        6 = {
+            Or = {
+                lroai_resource_total_30 = {bg = bg_iron_mining resource = building_iron_mine}
+                lroai_resource_total_60 = {bg = bg_coal_mining resource = building_coal_mine}
+            }
+        }
+        7 = {
+            Or = {
+                lroai_resource_total_20 = {bg = bg_iron_mining resource = building_iron_mine}
+                lroai_resource_total_50 = {bg = bg_coal_mining resource = building_coal_mine}
+            }
+        }
+        8 = {
+            Or = {
+                lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}
+                lroai_resource_total_30 = {bg = bg_coal_mining resource = building_coal_mine}
+            }
+        }
+        9 = {
+            Or = {
+                lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}
+            }
+        }
+        10 = {
+            always = yes
+        }
+        fallback = {
+            always = no
+        }
+    }
+}
+
+lroai_allocate_iron_sulfur = {
+    switch = {
+        trigger = $aptitude$
+        1 = {
+            lroai_resource_total_50 = {bg = bg_iron_mining resource = building_iron_mine}
+            lroai_resource_total_50 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
+        }
+        2 = {
+            lroai_resource_total_40 = {bg = bg_iron_mining resource = building_iron_mine}
+            lroai_resource_total_40 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
+        }
+        3 = {
+            lroai_resource_total_30 = {bg = bg_iron_mining resource = building_iron_mine}
+            lroai_resource_total_30 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
+        }
+        4 = {
+            lroai_resource_total_20 = {bg = bg_iron_mining resource = building_iron_mine}
+            lroai_resource_total_20 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
+        }
+        5 = {
+            lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}
+            lroai_resource_total_10 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
+        }
+        6 = {
+            Or = {
+                lroai_resource_total_60 = {bg = bg_iron_mining resource = building_iron_mine}
+                lroai_resource_total_30 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            }
+        }
+        7 = {
+            Or = {
+                lroai_resource_total_50 = {bg = bg_iron_mining resource = building_iron_mine}
+                lroai_resource_total_20 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            }
+        }
+        8 = {
+            Or = {
+                lroai_resource_total_30 = {bg = bg_iron_mining resource = building_iron_mine}
+                lroai_resource_total_10 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            }
+        }
+        9 = {
+            Or = {
+                lroai_resource_total_10 = {bg = bg_iron_mining resource = building_sulfur_mine}
+            }
+        }
+        10 = {
+            always = yes
+        }
+        fallback = {
+            always = no
+        }
+    }
+}
+
+lroai_allocate_sulfur = {
+    switch = {
+        trigger = $aptitude$
+        1 = {
+            lroai_resource_total_50 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
+
+        }
+        2 = {
+            lroai_resource_total_40 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
+        }
+        3 = {
+            lroai_resource_total_30 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
+        }
+        4 = {
+            lroai_resource_total_20 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
+        }
+        5 = {
+            lroai_resource_total_10 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
+        }
+        6 = {
+            lroai_resource_total_60 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+
+        }
+        7 = {
+            lroai_resource_total_40 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+        }
+        8 = {
+            lroai_resource_total_20 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+        }
+        9 = {
+            lroai_resource_total_10 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+        }
+        10 = {
+            always = yes
+        }
+        fallback = {
+            always = no
+        }
+    }
+}
+
+lroai_allocate_lead = {
+    switch = {
+        trigger = $aptitude$
+        1 = {
+            lroai_resource_total_50 = {bg = bg_lead_mining resource = building_lead_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}}
+
+        }
+        2 = {
+            lroai_resource_total_40 = {bg = bg_lead_mining resource = building_lead_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}}
+        }
+        3 = {
+            lroai_resource_total_30 = {bg = bg_lead_mining resource = building_lead_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}}
+        }
+        4 = {
+            lroai_resource_total_20 = {bg = bg_lead_mining resource = building_lead_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}}
+        }
+        5 = {
+            lroai_resource_total_10 = {bg = bg_lead_mining resource = building_lead_mine}
+            NOT = {lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}}
+        }
+        6 = {
+            lroai_resource_total_60 = {bg = bg_lead_mining resource = building_lead_mine}
+
+        }
+        7 = {
+            lroai_resource_total_40 = {bg = bg_lead_mining resource = building_lead_mine}
+        }
+        8 = {
+            lroai_resource_total_20 = {bg = bg_lead_mining resource = building_lead_mine}
+        }
+        9 = {
+            lroai_resource_total_10 = {bg = bg_lead_mining resource = building_lead_mine}
+        }
+        10 = {
+            always = yes
+        }
+        fallback = {
+            always = no
+        }
+    }
+}
+
+
+lroai_allocate_paper = {
+    switch = {
+        trigger = $aptitude$
+        1 = {
+            any_scope_building = { is_building_type = building_government_administration level > 20 }
+        }
+        2 = {
+            any_scope_building = { is_building_type = building_government_administration level > 10 }
+        }
+        3 = {
+            any_scope_building = { is_building_type = building_government_administration level > 5 }
+        }
+        4 = {
+            any_scope_building = { is_building_type = building_government_administration level > 1 }
+        }
+        5 = {
+            always = yes
+        }
+        fallback = {
+            always = no
+        }
+    }
+}
+
+lroai_allocate_army = {
+    switch = {
+        trigger = $aptitude$
+        1 = {
+            any_scope_building = { is_building_type = building_barracks level > 20 }
+        }
+        2 = {
+            any_scope_building = { is_building_type = building_barracks level > 10 }
+        }
+        3 = {
+            any_scope_building = { is_building_type = building_barracks level > 5 }
+        }
+        4 = {
+            any_scope_building = { is_building_type = building_barracks level > 1 }
+        }
+        5 = {
+            always = yes
+        }
+        fallback = {
+            always = no
+        }
+    }
+}
+
+lroai_allocate_navy = {
+    switch = {
+        trigger = $aptitude$
+        1 = {
+            any_scope_building = { is_building_type = building_naval_base level > 20 }
+        }
+        2 = {
+            any_scope_building = { is_building_type = building_naval_base level > 10 }
+        }
+        3 = {
+            any_scope_building = { is_building_type = building_naval_base level > 5 }
+        }
+        4 = {
+            any_scope_building = { is_building_type = building_naval_base level > 1 }
+        }
+        5 = {
+            is_coastal = yes
+        }
+        6 = {
+            always = yes
+        }
+        fallback = {
+            always = no
+        }
+    }
+}
+
+
+lroai_allocate_soldier = {
+    switch = {
+        trigger = $aptitude$
+        1 = {
+            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
+            NOT = {lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}}
+            NOT = {lroai_resource_total_10 = {bg = bg_sulfur_mining resource = building_sulfur_mine}}
+            NOT = {lroai_resource_total_10 = {bg = bg_lead_mining resource = building_lead_mine}}
+        }
+        2 = {
+            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
+            NOT = {lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}}
+            NOT = {lroai_resource_total_10 = {bg = bg_sulfur_mining resource = building_sulfur_mine}}
+        }
+        3 = {
+            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
+            NOT = {lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}}
+        }
+        4 = {
+            NOT = {lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}}
+        }
+        5 = {
+            always = yes
+        }
+        fallback = {
+            always = no
+        }
+    }
+}
+
+
+

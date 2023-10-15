@@ -5,20 +5,20 @@ var buildings = [ '',
 //  key                                            id    class counter order limit cruc  wforce  alloc   branch  scaling
     ["building_government_administration",         1,    1,    false,  2,    4,    10,   false,  4,      false,  false],
     ["building_university",                        2,    1,    false,  9,    3,    8,    false,  false,  true,   false],
-    ["building_construction_sector",               3,    2,    false,  1,    5,    dc,   false,  false,  true,   false],
+    ["building_construction_sector",               3,    2,    false,  1,    5,    dc,   false,  10,     true,   true],
     ["building_railway",                           4,    2,    false,  3,    5,    99,   false,  7,      false,  false],
     ["building_port",                              5,    2,    false,  3,    3,    99,   false,  5,      false,  false],
-    ["building_barracks",                          6,    3,    false,  9,    8,    8,    false,  2,      false,  false],
-    ["building_naval_base",                        7,    3,    false,  9,    5,    8,    false,  2,      false,  false],
+    ["building_barracks",                          6,    3,    false,  9,    8,    8,    false,  5,      false,  true],
+    ["building_naval_base",                        7,    3,    false,  9,    5,    8,    false,  5,      false,  true],
     ["building_logging_camp",                      8,    4,    false,  5,    5,    dc,   true,   false,  true,   true],
     ["building_fishing_wharf",                     9,    4,    false,  13,   5,    dc,   true,   false,  true,   true],
     ["building_whaling_station",                   10,   4,    false,  5,    5,    dc,   true,   false,  true,   true],
     ["building_rubber_plantation",                 11,   4,    false,  6,    5,    11,   true,   false,  true,   true],
     ["building_oil_rig",                           12,   4,    false,  4,    5,    11,   false,  false,  true,   true],
-    ["building_coal_mine",                         13,   4,    false,  5,    5,    dc,   true,   false,  true,   true],
-    ["building_iron_mine",                         14,   4,    false,  5,    5,    dc,   true,   false,  true,   true],
-    ["building_lead_mine",                         15,   4,    false,  6,    5,    dc,   true,   false,  true,   true],
-    ["building_sulfur_mine",                       16,   4,    false,  5,    5,    dc,   true,   false,  true,   true],
+    ["building_coal_mine",                         13,   4,    false,  5,    5,    dc,   true,   10,     true,   true],
+    ["building_iron_mine",                         14,   4,    false,  5,    5,    dc,   true,   10,     true,   true],
+    ["building_lead_mine",                         15,   4,    false,  6,    5,    dc,   true,   10,     true,   true],
+    ["building_sulfur_mine",                       16,   4,    false,  5,    5,    dc,   true,   5,      true,   true],
     ["building_gold_mine",                         17,   4,    false,  11,   5,    5,    true,   false,  true,   true],
     ["building_rye_farm",                          18,   5,    false,  10,   5,    dc,   true,   false,  true,   true],
     ["building_wheat_farm",                        19,   5,    18,     10,   5,    dc,   true,   false,  true,   true],
@@ -35,26 +35,26 @@ var buildings = [ '',
     ["building_coffee_plantation",                 30,   5,    false,  15,   5,    dc,   true,   false,  true,   true],
     ["building_tobacco_plantation",                31,   5,    false,  14,   5,    dc,   true,   false,  true,   true],
     ["building_opium_plantation",                  32,   5,    false,  11,   5,    dc,   true,   false,  true,   true],
-    ["building_food_industry",                     33,   6,    false,  14,   5,    dc,   true,   false,  true,   true],
-    ["building_textile_mills",                     34,   6,    false,  12,   5,    dc,   true,   false,  true,   true],
-    ["building_furniture_manufacturies",           35,   6,    false,  12,   5,    dc,   true,   false,  true,   true],
-    ["building_glassworks",                        36,   6,    false,  7,    5,    dc,   true,   false,  true,   true],
-    ["building_tooling_workshops",                 37,   6,    false,  4,    5,    dc,   true,   false,  true,   true],
-    ["building_paper_mills",                       38,   6,    false,  6,    5,    dc,   true,   false,  true,   true],
-    ["building_chemical_plants",                   39,   6,    false,  6,    5,    dc,   true,   false,  true,   true],
+    ["building_food_industry",                     33,   6,    false,  14,   5,    dc,   true,   false,  true,   false],
+    ["building_textile_mills",                     34,   6,    false,  12,   5,    dc,   true,   false,  true,   false],
+    ["building_furniture_manufacturies",           35,   6,    false,  12,   5,    dc,   true,   false,  true,   false],
+    ["building_glassworks",                        36,   6,    false,  7,    5,    dc,   true,   10,  true,   true],
+    ["building_tooling_workshops",                 37,   6,    false,  4,    5,    dc,   true,   10,     true,   true],
+    ["building_paper_mills",                       38,   6,    false,  6,    5,    dc,   true,   5,      true,   true],
+    ["building_chemical_plants",                   39,   6,    false,  6,    5,    dc,   true,   10,     true,   true],
     ["building_synthetics_plants",                 40,   6,    25,     12,   5,    dc,   true,   false,  true,   true],
-    ["building_steel_mills",                       41,   6,    false,  6,    5,    dc,   true,   false,  true,   true],
+    ["building_steel_mills",                       41,   6,    false,  6,    5,    dc,   true,   10,     true,   true],
     ["building_motor_industry",                    42,   6,    false,  7,    5,    dc,   true,   false,  true,   true],
     ["building_shipyards",                         43,   6,    false,  8,    5,    dc,   true,   false,  true,   true],
-    ["building_power_plant",                       44,   6,    false,  4,    5,    dc,   true,   false,  true,   true],
+    ["building_power_plant",                       44,   6,    false,  4,    5,    dc,   true,   false,  true,   false],
     ["building_electrics_industry",                45,   6,    false,  8,    5,    dc,   true,   false,  true,   true],
-    ["building_arms_industry",                     46,   6,    false,  7,    5,    dc,   true,   false,  true,   true],
-    ["building_munition_plants",                   47,   6,    false,  7,    5,    dc,   true,   false,  true,   true],
-    ["building_war_machine_industry",              48,   6,    false,  8,    5,    dc,   true,   false,  true,   true],
+    ["building_arms_industry",                     46,   6,    false,  7,    5,    dc,   true,   5,      true,   true],
+    ["building_munition_plants",                   47,   6,    false,  7,    5,    dc,   true,   5,      true,   true],
+    ["building_war_machine_industry",              48,   6,    false,  8,    5,    dc,   true,   5,      true,   true],
     ["building_arts_academy",                      49,   6,    false,  15,   5,    dc,   true,   false,  true,   true],
-    ["building_explosives_factory",                50,   6,    false,  6,    5,    dc,   true,   false,  true,   true],
-    ["building_military_shipyards",                51,   6,    false,  8,    5,    dc,   true,   false,  true,   true],
-    ["building_artillery_foundries",               52,   6,    false,  7,    5,    dc,   true,   false,  true,   true],
+    ["building_explosives_factory",                50,   6,    false,  6,    5,    dc,   true,   10,     true,   true],
+    ["building_military_shipyards",                51,   6,    false,  8,    5,    dc,   true,   6,      true,   true],
+    ["building_artillery_foundries",               52,   6,    false,  7,    5,    dc,   true,   5,      true,   true],
     ["building_vineyard_plantation",               53,   5,    false,  13,   5,    dc,   true,   false,  true,   true],
 ];
 
@@ -112,7 +112,7 @@ Order of buildings
 */
 
 /*
-    Place result code below into an end of the aroai_static_data_effects.txt file
+    Place result code below into an end of the lroai_static_data_effects.txt file
 */
 
 string += `
@@ -121,13 +121,13 @@ string += `
 # -----------------------------------------------------------------------------------\n`;
 
 string += `
-aroai_construct_special_buildings_compatibility = {
+lroai_construct_special_buildings_compatibility = {
     every_in_global_list = {
-        variable = aroai_compatibility_patches
+        variable = lroai_compatibility_patches
         switch = {
             trigger = this`;
     for (var i = 1; i <= numCompatibilityPatches; i++) {
-        part += i + ` = { aroai_construct_special_buildings_` + i + ` = yes }`;
+        part += i + ` = { lroai_construct_special_buildings_` + i + ` = yes }`;
         if (i % 2 == 0 || i == numCompatibilityPatches) {
             string += '\n            ' + part.replace(/\n/g, ' ').replaceAll('    ', ' ').replace(/\s\s+/g, ' ');
             part = '';
@@ -140,7 +140,7 @@ aroai_construct_special_buildings_compatibility = {
 }\n`;
 
 for (var i = 1; i <= numCompatibilityPatches; i++) {
-    part += `aroai_construct_special_buildings_` + i + ` = {}`;
+    part += `lroai_construct_special_buildings_` + i + ` = {}`;
     if (i % 2 == 0 || i == numCompatibilityPatches) {
         string += '\n' + part.replace(/\n/g, ' ').replaceAll('    ', ' ').replace(/\s\s+/g, ' ');
         part = '';
@@ -151,10 +151,10 @@ for (var i = 1; i <= numCompatibilityPatches; i++) {
 string += '\n';
 
 string += `
-aroai_perform_for_every_building_type = {`;
+lroai_perform_for_every_building_type = {`;
     for (var i = 1; i < buildings.length; i++) {
     string += `
-    aroai_perform_for_building_type = {`
+    lroai_perform_for_building_type = {`
     + ` effect = $effect$`
     + ` key = ` + buildings[i][0]
     + ` id = ` + buildings[i][1];
@@ -172,33 +172,33 @@ aroai_perform_for_every_building_type = {`;
     } string += `
     if = {
         limit = {
-            aroai_is_using_compatibility_patches = yes
+            lroai_is_using_compatibility_patches = yes
         }
-        aroai_perform_for_every_building_type_compatibility = { effect = $effect$ }
+        lroai_perform_for_every_building_type_compatibility = { effect = $effect$ }
     }
 }\n`;
 
 string += `
-aroai_perform_for_every_building_type_compatibility = {
+lroai_perform_for_every_building_type_compatibility = {
     every_in_global_list = {
-        variable = aroai_compatibility_patches
+        variable = lroai_compatibility_patches
         switch = {
             trigger = this`;
         for (var i = 1; i <= numCompatibilityPatches; i++) {
             string += `
-            ` + i + ` = { prev = { aroai_perform_for_every_building_type_` + i + ` = { effect = $effect$ } } }`;
+            ` + i + ` = { prev = { lroai_perform_for_every_building_type_` + i + ` = { effect = $effect$ } } }`;
         } string += `
         }
     }
 }\n`;
 
 for (var i = 1; i <= numCompatibilityPatches; i++) {
-    string += `\naroai_perform_for_every_building_type_` + i + ` = { if = { limit = { always = no $effect$ = 0 } } }`;
+    string += `\nlroai_perform_for_every_building_type_` + i + ` = { if = { limit = { always = no $effect$ = 0 } } }`;
 }
 string += '\n';
 
 /*
-    Place result code below into an end of the aroai_static_data_triggers.txt file
+    Place result code below into an end of the lroai_static_data_triggers.txt file
 */
 
 string += `
@@ -207,11 +207,11 @@ string += `
 # ------------------------------------------------------------------------------------\n`;
 
 string += `
-aroai_is_true_for_any_building_type = {
+lroai_is_true_for_any_building_type = {
     OR = {`;
         for (var i = 1; i < buildings.length; i++) {
         string += `
-        aroai_is_true_for_building_type = {`
+        lroai_is_true_for_building_type = {`
         + ` trigger = $trigger$`
         + ` key = ` + buildings[i][0]
         + ` id = ` + buildings[i][1];
@@ -228,24 +228,24 @@ aroai_is_true_for_any_building_type = {
         + ` }`;
         } string += `
         AND = {
-            aroai_is_using_compatibility_patches = yes
-            aroai_is_true_for_any_building_type_compatibility = { trigger = $trigger$ }
+            lroai_is_using_compatibility_patches = yes
+            lroai_is_true_for_any_building_type_compatibility = { trigger = $trigger$ }
         }
     }
 }\n`;
 
 string += `
-aroai_is_true_for_any_building_type_compatibility = {
+lroai_is_true_for_any_building_type_compatibility = {
     OR = {`;
     for (var i = 1; i <= numCompatibilityPatches; i++) {
         string += `
-        aroai_is_true_for_any_building_type_` + i + ` = { trigger = $trigger$ }`;
+        lroai_is_true_for_any_building_type_` + i + ` = { trigger = $trigger$ }`;
     } string += `
     }
 }\n`;
 
 for (var i = 1; i <= numCompatibilityPatches; i++) {
-    string += `\naroai_is_true_for_any_building_type_` + i + ` = { always = no $trigger$ = 0 }`;
+    string += `\nlroai_is_true_for_any_building_type_` + i + ` = { always = no $trigger$ = 0 }`;
 }
 
 console.log(string.substring(1)); // Remove line break at the start

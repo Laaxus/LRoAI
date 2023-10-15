@@ -193,18 +193,23 @@ lroai_bureaucracy_required_value_critical = {
 
 lroai_bureaucracy_required_value_ceiling_high = {
     value =  lroai_bureaucracy_required_value
-    multiply = 1.1
+    multiply = 1.05
     add = 30
 }
 
 lroai_bureaucracy_required_value_ceiling_medium = {
     value =  lroai_bureaucracy_required_value
-    multiply = 1.2
+    multiply = 1.10
     add = 40
 }
 
 lroai_bureaucracy_required_value_ceiling_low = {
     value =  lroai_bureaucracy_required_value
-    multiply = 1.3
+    multiply = 1.15
     add = 50
+}
+
+lroai_bureaucracy_required_value_ceiling_downsize= {
+    value =  lroai_bureaucracy_required_value
+    multiply = 1.3
 }

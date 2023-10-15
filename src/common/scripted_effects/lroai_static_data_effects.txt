@@ -720,12 +720,6 @@ lroai_evaluate_building_fishing_wharf = {
         good = mg:fish
         offset = 0
     }
-    lroai_evaluate_production_building = {
-        id = $id$
-        crucial = $crucial$
-        good = mg:grain
-        offset = 4
-    }
 }
 
 # ---------------

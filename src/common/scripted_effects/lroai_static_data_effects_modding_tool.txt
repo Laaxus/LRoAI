@@ -1,4 +1,4 @@
-﻿#------------------------------------------------------------------------------
+﻿#--------------------------------------------------------------------------------
 # Effects below were generated with a modding tool and should not be changed manually
 # -----------------------------------------------------------------------------------
 
@@ -218,15 +218,15 @@ lroai_perform_for_every_building_type = {
     lroai_perform_for_building_type = { effect = $effect$ key = building_university id = 2
     class = 1 counter = 2 order = 9 limit = 3 crucial = 8 workforce = 0 allocate = 1 branching = 1 scaling = 0 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_construction_sector id = 3
-    class = 2 counter = 3 order = 1 limit = 5 crucial = 5 workforce = 0 allocate = 1 branching = 1 scaling = 0 }
+    class = 2 counter = 3 order = 1 limit = 5 crucial = 5 workforce = 0 allocate = 10 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_railway id = 4
     class = 2 counter = 4 order = 3 limit = 5 crucial = 99 workforce = 0 allocate = 7 branching = 0 scaling = 0 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_port id = 5
     class = 2 counter = 5 order = 3 limit = 3 crucial = 99 workforce = 0 allocate = 5 branching = 0 scaling = 0 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_barracks id = 6
-    class = 3 counter = 6 order = 9 limit = 8 crucial = 8 workforce = 0 allocate = 2 branching = 0 scaling = 0 }
+    class = 3 counter = 6 order = 9 limit = 8 crucial = 8 workforce = 0 allocate = 5 branching = 0 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_naval_base id = 7
-    class = 3 counter = 7 order = 9 limit = 5 crucial = 8 workforce = 0 allocate = 2 branching = 0 scaling = 0 }
+    class = 3 counter = 7 order = 9 limit = 5 crucial = 8 workforce = 0 allocate = 5 branching = 0 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_logging_camp id = 8
     class = 4 counter = 8 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_fishing_wharf id = 9
@@ -238,13 +238,13 @@ lroai_perform_for_every_building_type = {
     lroai_perform_for_building_type = { effect = $effect$ key = building_oil_rig id = 12
     class = 4 counter = 12 order = 4 limit = 5 crucial = 11 workforce = 0 allocate = 2 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_coal_mine id = 13
-    class = 4 counter = 13 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
+    class = 4 counter = 13 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_iron_mine id = 14
-    class = 4 counter = 14 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
+    class = 4 counter = 14 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_lead_mine id = 15
-    class = 4 counter = 15 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
+    class = 4 counter = 15 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_sulfur_mine id = 16
-    class = 4 counter = 16 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
+    class = 4 counter = 16 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 5 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_gold_mine id = 17
     class = 4 counter = 17 order = 11 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_rye_farm id = 18
@@ -278,45 +278,45 @@ lroai_perform_for_every_building_type = {
     lroai_perform_for_building_type = { effect = $effect$ key = building_opium_plantation id = 32
     class = 5 counter = 32 order = 11 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_food_industry id = 33
-    class = 6 counter = 33 order = 14 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 33 order = 14 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_textile_mills id = 34
-    class = 6 counter = 34 order = 12 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 34 order = 12 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_furniture_manufacturies id = 35
-    class = 6 counter = 35 order = 12 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 35 order = 12 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_glassworks id = 36
-    class = 6 counter = 36 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 36 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_tooling_workshops id = 37
-    class = 6 counter = 37 order = 4 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 37 order = 4 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_paper_mills id = 38
-    class = 6 counter = 38 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 38 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 5 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_chemical_plants id = 39
-    class = 6 counter = 39 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 39 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_synthetics_plants id = 40
     class = 6 counter = 25 order = 12 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_steel_mills id = 41
-    class = 6 counter = 41 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 41 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_motor_industry id = 42
     class = 6 counter = 42 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_shipyards id = 43
     class = 6 counter = 43 order = 8 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_power_plant id = 44
-    class = 6 counter = 44 order = 4 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 44 order = 4 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_electrics_industry id = 45
     class = 6 counter = 45 order = 8 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_arms_industry id = 46
-    class = 6 counter = 46 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 46 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 5 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_munition_plants id = 47
-    class = 6 counter = 47 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 47 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 5 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_war_machine_industry id = 48
-    class = 6 counter = 48 order = 8 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 48 order = 8 limit = 5 crucial = 5 workforce = 1 allocate = 5 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_arts_academy id = 49
     class = 6 counter = 49 order = 15 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_explosives_factory id = 50
-    class = 6 counter = 50 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 50 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_military_shipyards id = 51
-    class = 6 counter = 51 order = 8 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 51 order = 8 limit = 5 crucial = 5 workforce = 1 allocate = 6 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_artillery_foundries id = 52
-    class = 6 counter = 52 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+    class = 6 counter = 52 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 5 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_vineyard_plantation id = 53
     class = 5 counter = 53 order = 13 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
     if = {
@@ -736,6 +736,3 @@ lroai_perform_for_every_building_type_197 = { if = { limit = { always = no $effe
 lroai_perform_for_every_building_type_198 = { if = { limit = { always = no $effect$ = 0 } } }
 lroai_perform_for_every_building_type_199 = { if = { limit = { always = no $effect$ = 0 } } }
 lroai_perform_for_every_building_type_200 = { if = { limit = { always = no $effect$ = 0 } } }
-
-
-

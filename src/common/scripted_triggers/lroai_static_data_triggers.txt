@@ -11,7 +11,7 @@ lroai_consider_building_government_administration = {
         id = $id$
         shortage = 0
     }
-    lroai_total_bureaucracy_produced_value < lroai_bureaucracy_required_value_ceiling_low
+    lroai_bureaucracy_produced_value < lroai_bureaucracy_required_value_ceiling_low
     OR = {
         is_player = no
     }
@@ -256,7 +256,7 @@ lroai_sanction_building_construction_sector = {
 }
 
 lroai_allocate_building_construction_sector = {
-    $aptitude$ = 1
+    lroai_allocate_iron_coal = {aptitude = $aptitude$}
 }
 
 # -------
@@ -399,6 +399,7 @@ lroai_consider_building_port = {
     any_scope_state = {
         is_coastal = yes
     }
+    lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_low
     OR = {
         is_player = no
     }
@@ -423,16 +424,16 @@ lroai_evaluate_building_port= {
         switch = {
             trigger = $priority$
             1 = {
-                lroai_need_additional_ports_critical = yes
+                lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_critical
             }
             2 = {
-                lroai_need_additional_ports_high = yes
+                lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_high
             }
             3 = {
-                lroai_need_additional_ports_medium = yes
+                lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_medium
             }
             4 = {
-                lroai_need_additional_ports_low = yes
+                lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_low
             }
             fallback = {
                 always = no
@@ -534,18 +535,7 @@ lroai_sanction_building_barracks = {
 }
 
 lroai_allocate_building_barracks = {
-    switch = {
-        trigger = $aptitude$
-        1 = {
-            lroai_has_non_discriminated_homelanders = yes
-        }
-        2 = {
-            lroai_has_non_discriminated_homelanders = no
-        }
-        fallback = {
-            always = no
-        }
-    }
+    lroai_allocate_soldier = {aptitude = $aptitude$}
 }
 
 # ----------
@@ -625,18 +615,7 @@ lroai_sanction_building_naval_base = {
 }
 
 lroai_allocate_building_naval_base = {
-    switch = {
-        trigger = $aptitude$
-        1 = {
-            lroai_has_non_discriminated_homelanders = yes
-        }
-        2 = {
-            lroai_has_non_discriminated_homelanders = no
-        }
-        fallback = {
-            always = no
-        }
-    }
+    lroai_allocate_soldier = {aptitude = $aptitude$}
 }
 
 # ------------
@@ -829,10 +808,7 @@ lroai_sanction_building_coal_mine = {
 }
 
 lroai_allocate_building_coal_mine = {
-    lroai_allocate_resource = {
-        good = g:coal
-        aptitude = $aptitude$
-    }
+    lroai_allocate_iron_coal = {aptitude = $aptitude$}
 }
 
 # ---------
@@ -862,10 +838,7 @@ lroai_sanction_building_iron_mine = {
 }
 
 lroai_allocate_building_iron_mine = {
-    lroai_allocate_resource = {
-        good = g:iron
-        aptitude = $aptitude$
-    }
+    lroai_allocate_iron_coal = {aptitude = $aptitude$}
 }
 
 # ---------
@@ -895,10 +868,7 @@ lroai_sanction_building_lead_mine = {
 }
 
 lroai_allocate_building_lead_mine = {
-    lroai_allocate_resource = {
-        good = g:lead
-        aptitude = $aptitude$
-    }
+    lroai_allocate_lead = { aptitude = $aptitude$}
 }
 
 # -----------
@@ -928,10 +898,7 @@ lroai_sanction_building_sulfur_mine = {
 }
 
 lroai_allocate_building_sulfur_mine = {
-    lroai_allocate_resource = {
-        good = g:sulfur
-        aptitude = $aptitude$
-    }
+    lroai_allocate_sulfur = {aptitude = $aptitude$}
 }
 
 # ---------
@@ -1593,7 +1560,7 @@ lroai_sanction_building_glassworks = {
 }
 
 lroai_allocate_building_glassworks = {
-    $aptitude$ = 1
+    lroai_allocate_lead = { aptitude = $aptitude$}
 }
 
 # -----------------
@@ -1622,7 +1589,7 @@ lroai_sanction_building_tooling_workshops = {
 }
 
 lroai_allocate_building_tooling_workshops = {
-    $aptitude$ = 1
+    lroai_allocate_iron_coal = {aptitude = $aptitude$}
 }
 
 # -----------
@@ -1651,7 +1618,7 @@ lroai_sanction_building_paper_mills = {
 }
 
 lroai_allocate_building_paper_mills = {
-    $aptitude$ = 1
+    lroai_allocate_paper = {aptitude = $aptitude$}
 }
 
 # ---------------
@@ -1683,7 +1650,7 @@ lroai_sanction_building_chemical_plants = {
 }
 
 lroai_allocate_building_chemical_plants = {
-    $aptitude$ = 1
+    lroai_allocate_iron_sulfur = {aptitude = $aptitude$}
 }
 
 # ----------------
@@ -1747,7 +1714,7 @@ lroai_sanction_building_steel_mills = {
 }
 
 lroai_allocate_building_steel_mills = {
-    $aptitude$ = 1
+    lroai_allocate_iron_coal = {aptitude = $aptitude$}
 }
 
 # --------------
@@ -1905,7 +1872,7 @@ lroai_sanction_building_arms_industry = {
 }
 
 lroai_allocate_building_arms_industry = {
-    $aptitude$ = 1
+    lroai_allocate_army = {aptitude = $aptitude$}
 }
 
 # ---------------
@@ -1937,7 +1904,7 @@ lroai_sanction_building_munition_plants = {
 }
 
 lroai_allocate_building_munition_plants = {
-    $aptitude$ = 1
+    lroai_allocate_army = {aptitude = $aptitude$}
 }
 
 # --------------------
@@ -1969,7 +1936,7 @@ lroai_sanction_building_war_machine_industry = {
 }
 
 lroai_allocate_building_war_machine_industry = {
-    $aptitude$ = 1
+   lroai_allocate_army = {aptitude = $aptitude$}
 }
 
 lroai_is_using_compatibility_patches = {
@@ -2041,7 +2008,7 @@ lroai_sanction_building_explosives_factory = {
 }
 
 lroai_allocate_building_explosives_factory = {
-    $aptitude$ = 1
+    lroai_allocate_sulfur = { aptitude = $aptitude$}
 }
 
 # ---------
@@ -2074,7 +2041,7 @@ lroai_sanction_building_military_shipyards = {
 }
 
 lroai_allocate_building_military_shipyards = {
-    $aptitude$ = 1
+    lroai_allocate_navy = {aptitude = $aptitude$}
 }
 
 
@@ -2104,7 +2071,7 @@ lroai_sanction_building_artillery_foundries = {
 }
 
 lroai_allocate_building_artillery_foundries = {
-    $aptitude$ = 1
+   lroai_allocate_army = {aptitude = $aptitude$}
 }
 
 # ----------
