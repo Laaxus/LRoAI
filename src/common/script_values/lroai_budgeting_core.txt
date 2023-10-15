@@ -113,8 +113,7 @@ lroai_revenue_factor_construction_military = {
 #
 lroai_gold_reserve_scaled_factor = {
     value = lroai_gold_reserves_percent
-    multiply = 10
-    divide = 6
+    multiply = 0.6
     add = 0.7
 }
 
@@ -198,13 +197,13 @@ lroai_investment_pool_net_spending = {
 # tag : tag_lroai_investment_pool_wanted_spending
 #
 # How much money we wished the investment pool would spend.
-# Someti
 #
 lroai_investment_pool_wanted_spending = {
     value = investment_pool_gross_income
     add = {
         value = investment_pool
         divide = 20
+        max = 50000
     }
 }
 
