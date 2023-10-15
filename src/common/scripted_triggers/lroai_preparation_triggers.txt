@@ -24,7 +24,7 @@ lroai_is_construction_allowed = {
 
 lroai_is_regular_construction_allowed = {
     OR = {
-        scaled_debt < 0.45
+        scaled_debt < 0.05
         lroai_has_no_construction_sectors = yes
     }
 }
@@ -35,32 +35,9 @@ lroai_is_regular_construction_allowed = {
 # as well, non-critical government buildings can use it too, but for production buildings minimum priority level is 2.
 lroai_is_critical_construction_allowed = {
     OR = {
-        
-        # Government administration
-        trigger_if = {
-            limit = {
-                lroai_day_of_ongoing_iteration >= 3
-                has_variable = lroai_building_type_1_collected_data
-            }
-            lroai_building_type_1_collected_data_1 = 1
-        }
-        trigger_else = {
-            trigger_if = {
-                limit = {
-                    has_variable = lroai_building_type_1_collected_data
-                }
-                lroai_building_type_1_collected_data_5 <= 0
-            }
-            trigger_else = {
-                NOT = {
-                    any_scope_state = {
-                        any_scope_building = {
-                            is_building_type = building_government_administration
-                            is_under_construction = yes
-                        }
-                    }
-                }
-            }
+
+        AND = {
+            # Government administration
             lroai_consider_building_government_administration = {
                 id = 1
             }
@@ -73,58 +50,8 @@ lroai_is_critical_construction_allowed = {
                 }
             }
         }
-        
-        # Construction sector
-        trigger_if = {
-            limit = {
-                lroai_day_of_ongoing_iteration >= 3
-                has_variable = lroai_building_type_3_collected_data
-            }
-            lroai_building_type_3_collected_data_1 = 1
-        }
-        trigger_else = {
-            trigger_if = {
-                limit = {
-                    has_variable = lroai_building_type_3_collected_data
-                }
-                lroai_building_type_3_collected_data_1 >= 90
-                lroai_building_type_3_collected_data_5 <= 0
-            }
-            trigger_else = {
-                OR = {
-                    any_scope_state = {
-                        filter = {
-                            market_access >= 0.80
-                            any_scope_building = {
-                                is_building_type = building_construction_sector
-                                level > 0
-                            }
-                        }
-                        percent >= 0.90
-                        any_scope_building = {
-                            is_building_type = building_construction_sector
-                            building_has_goods_shortage = no
-                        }
-                    }
-                    NOT = {
-                        any_scope_state = {
-                            market_access >= 0.80
-                            any_scope_building = {
-                                is_building_type = building_construction_sector
-                                level > 0
-                            }
-                        }
-                    }
-                }
-                NOT = {
-                    any_scope_state = {
-                        any_scope_building = {
-                            is_building_type = building_construction_sector
-                            is_under_construction = yes
-                        }
-                    }
-                }
-            }
+
+        AND = {
             lroai_consider_building_construction_sector = {
                 id = 3
             }
@@ -137,44 +64,20 @@ lroai_is_critical_construction_allowed = {
                 }
             }
         }
-        
-        # Port
-        trigger_if = {
-            limit = {
-                lroai_day_of_ongoing_iteration >= 3
-                has_variable = lroai_building_type_5_collected_data
-            }
-            lroai_building_type_5_collected_data_1 = 1
-        }
-        trigger_else = {
-            trigger_if = {
-                limit = {
-                    has_variable = lroai_building_type_5_collected_data
-                }
-                lroai_building_type_5_collected_data_5 <= 0
-            }
-            trigger_else = {
-                NOT = {
-                    any_scope_state = {
-                        any_scope_building = {
-                            is_building_type = building_port
-                            is_under_construction = yes
-                        }
-                    }
-                }
-            }
+
+        AND = {
             lroai_consider_building_port = {
-                id = 5
-            }
-            lroai_evaluate_building_port = {
-                priority = 1
-            }
-            any_scope_state = {
-                lroai_sanction_building_port = {
-                    id = 5
-                }
-            }
-        }
+               id = 5
+           }
+           lroai_evaluate_building_port = {
+               priority = 1
+           }
+           any_scope_state = {
+               lroai_sanction_building_port = {
+                   id = 5
+               }
+           }
+       }
     }
 }
 

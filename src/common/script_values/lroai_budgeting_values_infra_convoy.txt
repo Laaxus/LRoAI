@@ -286,3 +286,9 @@ lroai_total_convoy_available_value_ceiling_low = {
     multiply = 1.2
     add = 400
 }
+
+lroai_total_convoy_available_value_downsize = {
+    value =  lroai_total_convoy_required_value
+    multiply = 1.4
+    add = 400
+}
