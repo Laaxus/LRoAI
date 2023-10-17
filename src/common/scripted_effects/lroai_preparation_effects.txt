@@ -1,163 +1,18 @@
-﻿# Find army and navy average and biggest threat numbers
-lroai_determine_highest_and_average_military_threat = {
-    
-    # Set up variables
-    set_variable = {
-        name = lroai_army_size_equal_to_average_threat
-        value = 0
-    }
-    set_variable = {
-        name = lroai_navy_size_equal_to_average_threat
-        value = 0
-    }
-    set_variable = {
-        name = lroai_army_size_equal_to_biggest_threat
-        value = 0
-    }
-    set_variable = {
-        name = lroai_navy_size_equal_to_biggest_threat
-        value = 0
-    }
-    
-    # Get 6 countries with highest army power projection and find an average of their army power projections
-    ordered_country = {
-        order_by = lroai_army_power_projection_with_conscription
-        max = 6
-        root = {
-            change_variable = {
-                name = lroai_army_size_equal_to_average_threat
-                add = prev.lroai_army_power_projection_with_conscription
-            }
-        }
-
-        # Find the highest army power projection out of all countries except root
-        if = {
-            limit = {
-                NOT = {
-                    this = root
-                }
-                root.var:lroai_army_size_equal_to_biggest_threat < lroai_army_power_projection_with_conscription
-            }
-            root = {
-                set_variable = {
-                    name = lroai_army_size_equal_to_biggest_threat
-                    value = prev.lroai_army_power_projection_with_conscription
-                }
-            }
-        }
-    }
-    change_variable = {
-        name = lroai_army_size_equal_to_average_threat
-        divide = 6
-    }
-
-    # Get 6 countries with highest navy power projection and find an average of their navy power projections
-    ordered_country = {
-        order_by = lroai_navy_power_projection
-        max = 6
-        root = {
-            change_variable = {
-                name = lroai_navy_size_equal_to_average_threat
-                add = prev.lroai_navy_power_projection
-            }
-        }
-
-        # Find the highest navy power projection out of all countries except root
-        if = {
-            limit = {
-                NOT = {
-                    this = root
-                }
-                root.var:lroai_navy_size_equal_to_biggest_threat < lroai_navy_power_projection
-            }
-            root = {
-                set_variable = {
-                    name = lroai_navy_size_equal_to_biggest_threat
-                    value = prev.lroai_navy_power_projection
-                }
-            }
-        }
-    }
-    change_variable = {
-        name = lroai_navy_size_equal_to_average_threat
-        divide = 6
-    }
-    
-    # Transform every variable from power projection to the amount of barracks and naval bases
-    # we need to have in our country in order to match this power projection.
-    set_variable = {
-        name = lroai_army_size_equal_to_average_threat
-        value = {
-            value = var:lroai_army_size_equal_to_average_threat
-            if = {
-                limit = {
-                    has_variable = lroai_building_barracks_total
-                    var:lroai_building_barracks_total > 0
-                    lroai_army_power_projection > 0
-                }
-                subtract = lroai_conscription_power_projection
-                divide = {
-                    value = lroai_army_power_projection
-                    divide = var:lroai_building_barracks_total
-                }
-            }
-        }
-    }
-    set_variable = {
-        name = lroai_army_size_equal_to_biggest_threat
-        value = {
-            value = var:lroai_army_size_equal_to_biggest_threat
-            if = {
-                limit = {
-                    has_variable = lroai_building_barracks_total
-                    var:lroai_building_barracks_total > 0
-                    lroai_army_power_projection > 0
-                }
-                subtract = lroai_conscription_power_projection
-                divide = {
-                    value = lroai_army_power_projection
-                    divide = var:lroai_building_barracks_total
-                }
-            }
-        }
-    }
-    set_variable = {
-        name = lroai_navy_size_equal_to_average_threat
-        value = {
-            value = var:lroai_navy_size_equal_to_average_threat
-            if = {
-                limit = {
-                    navy_size > 0
-                    lroai_navy_power_projection > 0
-                }
-                divide = {
-                    value = lroai_navy_power_projection
-                    divide = navy_size
-                }
-            }
-        }
-    }
-    set_variable = {
-        name = lroai_navy_size_equal_to_biggest_threat
-        value = {
-            value = var:lroai_navy_size_equal_to_biggest_threat
-            if = {
-                limit = {
-                    navy_size > 0
-                    lroai_navy_power_projection > 0
-                }
-                divide = {
-                    value = lroai_navy_power_projection
-                    divide = navy_size
-                }
-            }
-        }
-    }
-}
-
-# A huge mess of different stuff combined together for performance reasons mostly in a form of
+﻿# A huge mess of different stuff combined together for performance reasons mostly in a form of
 # reducing calls of stuff like every_scope_state and every_scope_building to the minimum possible.
 lroai_collect_data_for_construction_and_downsizing = {
+    if = {
+        limit = {
+            lroai_is_downsizing_allowed = yes
+        }
+        set_local_variable = lroai_downsizing_is_allowed
+    }
+    if = {
+        limit = {
+            lroai_is_construction_allowed = yes
+        }
+        set_local_variable = lroai_construction_is_allowed
+    }
     
     # Set up variables to calculate incorporated and coastal values
     set_variable = {
@@ -880,13 +735,7 @@ lroai_collect_data_for_construction_and_downsizing = {
     if = {
         limit = {
             has_local_variable = lroai_construction_is_allowed
-            NOR = {
-                AND = {
-                    lroai_is_regular_construction_allowed = yes
-                    lroai_free_construction_points > 0
-                }
-                lroai_is_critical_construction_allowed = yes
-            }
+            lroai_free_construction_points <= 0
         }
         remove_local_variable = lroai_construction_is_allowed
     }
@@ -1132,6 +981,8 @@ lroai_collect_data_for_construction_and_downsizing = {
             }
         }
     }
+    remove_local_variable = lroai_downsizing_is_allowed
+    remove_local_variable = lroai_construction_is_allowed
 }
 
 # ---------------------------------------------------------------------------------------------------------------------

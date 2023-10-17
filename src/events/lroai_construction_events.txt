@@ -24,7 +24,7 @@ lroai_construction_events.1 = {
         else = {
             if = {
                 limit = {
-                    lroai_has_free_construction_points = yes
+                    lroai_free_construction_points > 0
                 }
                 lroai_choose_building_type_to_construct = yes
             }

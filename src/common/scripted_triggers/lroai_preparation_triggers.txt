@@ -9,13 +9,9 @@ lroai_is_downsizing_allowed = {
 lroai_is_construction_allowed = {
     has_revolution = no
     is_revolutionary = no
-    OR = {
-        lroai_day_of_ongoing_iteration = 1
-        AND = {
-            lroai_is_regular_construction_allowed = yes
-            lroai_free_construction_points > 0
-        }
-        lroai_is_critical_construction_allowed = yes
+    AND = {
+        lroai_is_regular_construction_allowed = yes
+        lroai_free_construction_points > 0
     }
     is_player = no
 }

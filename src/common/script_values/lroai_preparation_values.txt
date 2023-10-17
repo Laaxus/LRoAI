@@ -4,26 +4,30 @@
 # It will decrease overtime but lroai_revenue_factor_construction_military will take care of that
 #
 lroai_building_construction_sector_expenses_per_point = {
-   value = 1200 #TODO look at obs games and find a better value
+   if = {
+        limit = { has_variable = lroai_previous_cost_per_construction_point}
+        value = root.var:lroai_previous_cost_per_construction_point
+   }
+   else = {
+        value = 1200
+   }
 }
 
-# tag : tag_lroai_usage_of_construction_points_by_private_queue
-#
-# How many construction points is the private construction sector using
-#
-lroai_usage_of_construction_points_by_private_queue = {
-    value = construction_queue_num_queued_private_levels
-    multiply = lroai_construction_points_per_building
-    min = 0
-}
 
 # tag : tag_lroai_usage_of_construction_points_by_government_queue
 #
 # How many construction points is the public construction sector using
 #
 lroai_usage_of_construction_points_by_government_queue = {
-    value = lroai_usage_of_construction_points_value
-    subtract = lroai_usage_of_construction_points_by_private_queue
+    value = construction_queue_num_queued_government_levels
+    multiply = lroai_construction_points_per_building
+    max = {
+        value = lroai_construction_points_current
+        multiply = {
+             value = 1
+             subtract = lroai_private_construction_allocation_mult
+        }
+    }
     min = 0
 }
 
@@ -77,12 +81,6 @@ lroai_free_construction_points = {
     multiply = {
         value = 1
         subtract = lroai_private_construction_allocation_mult
-    }
-
-    # but if the private sectors
-    min = {
-        value = lroai_construction_points_current
-        subtract = lroai_usage_of_construction_points_by_private_queue
     }
 
     # With this, we no longer need to downsize construction sector, it'll only use as many points as we desire.
@@ -171,6 +169,8 @@ lroai_constructions_possible_with_current_points = {
 lroai_usage_of_construction_points_value = {
     value = construction_queue_num_queued_levels
     multiply = lroai_construction_points_per_building
+    min = 1
+    max = lroai_construction_points_current
 }
 
 lroai_expenses_for_one_construction = {

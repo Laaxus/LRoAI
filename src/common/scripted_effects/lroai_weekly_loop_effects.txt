@@ -16,13 +16,67 @@ lroai_perform_iteration_of_weekly_loop = {
     }
 
     # Calculate per point expenses of construction sectors
-    #lroai_calculate_building_construction_sector_expenses_per_point = yes
+    lroai_calculate_building_construction_sector_expenses_per_point = yes
 
-    # Calculate budget surplus with the assumption that construction sectors are fully used
-    lroai_calculate_budget_surplus = yes
+    lroai_track_downsizing_cycle = yes
+
+
+    # data needed for construction and downsizing
+    lroai_collect_data_for_construction_and_downsizing = yes
+    lroai_collect_coastlines_of_market_capital_and_overseas_lands = yes
+
+    if = { limit = { $day_1_of_main_loop$ = yes }
+        # Change tax level and government wages if needed
+        lroai_manage_tax_and_wage_level = yes
+        lroai_start_downsizing = yes
+    }
+
+    lroai_start_construction = yes
 
     # Garbage collection
     lroai_clear_weekly_loop_local_variables = yes
+}
+
+
+lroai_track_downsizing_cycle = {
+     # Track cycles since last check of data that is used in downsizing of production buildings
+    if = {
+        limit = {
+            OR = {
+                NOT = {
+                    has_variable = lroai_iterations_since_production_downsizing
+                }
+                var:lroai_iterations_since_production_downsizing < lroai_max_iterations_since_production_downsizing
+            }
+        }
+        lroai_add_to_variable = {
+            name = lroai_iterations_since_production_downsizing
+            value = 1
+        }
+    }
+}
+
+lroai_start_downsizing = {
+
+    # Perform downsizing and immediately clear variables that won't be needed in construction
+    if = {
+        limit = { lroai_is_downsizing_allowed = yes }
+        lroai_downsize_excessive_buildings = yes
+    }
+    lroai_clear_downsizing_variables = yes
+}
+
+lroai_start_construction = {
+    # Start construction if it is still allowed or clear variables otherwise
+    if = {
+        limit = {
+            lroai_is_construction_allowed = yes
+        }
+        trigger_event = {
+            id = lroai_evaluation_events.1
+            days = 1
+        }
+    }
 }
 
 # Add a week of progress to elements of lroai_ongoing_constructions
@@ -495,12 +549,64 @@ lroai_count_and_schedule_iterations_of_weekly_loop = {
 
 # Budget surplus is calculated as a treasury delta. For any additional values previous week data is used
 # because treasury delta is a byproduct of previous week income and expenses and not this week ones.
-lroai_calculate_budget_surplus = {
+lroai_calculate_building_construction_sector_expenses_per_point = {
+
 
     set_variable = {
         name = lroai_previous_building_construction_sector_expenses
+        value = 1200
+    }
+
+    if = { limit = { NOT = {has_variable = lroai_previous_cost_per_construction_point} }
+        set_variable = {
+            name = lroai_previous_cost_per_construction_point
+            value = 1200
+        }
+     }
+
+    set_variable = {
+        name = lroai_temporary_cost_per_construction_point
+        value = {
+            value = local_var:lroai_building_construction_sector_expenses
+            divide = lroai_usage_of_construction_points_value
+        }
+    }
+    set_variable = {
+        name = lroai_temporary_construction_sector_expenses
         value = local_var:lroai_building_construction_sector_expenses
     }
+    if = { limit = {construction_queue_num_queued_government_levels = 0}
+            #do nothing
+        }
+    else_if = {
+        limit = {var:lroai_temporary_cost_per_construction_point > var:lroai_previous_cost_per_construction_point}
+
+        set_variable = {
+            name = lroai_previous_cost_per_construction_point
+            value = {
+                value = var:lroai_previous_cost_per_construction_point
+                multiply = 0.9
+                add = {
+                    value = var:lroai_temporary_cost_per_construction_point
+                    multiply = 0.1
+                }
+            }
+        }
+    }
+    else = {
+        set_variable = {
+            name = lroai_previous_cost_per_construction_point
+            value = {
+                value = var:lroai_previous_cost_per_construction_point
+                multiply = 0.99
+                add = {
+                    value = var:lroai_temporary_cost_per_construction_point
+                    multiply = 0.01
+                }
+            }
+        }
+    }
+
 }
 
 lroai_clear_weekly_loop_variables = {

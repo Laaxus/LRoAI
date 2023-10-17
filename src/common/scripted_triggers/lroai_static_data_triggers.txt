@@ -202,7 +202,7 @@ lroai_consider_building_construction_sector = {
         id = $id$
         shortage = 1
     }
-   lroai_current_constructions_points_percent_of_max_wanted < 1.1
+   lroai_current_constructions_points_percent_of_max_wanted < 1.2
     OR = {
         is_player = no
     }
@@ -217,19 +217,19 @@ lroai_evaluate_building_construction_sector = {
         switch = {
             trigger = $priority$
             1 = {
-                lroai_current_constructions_points_percent_of_max_wanted < 0.6
-            }
-            2 = {
-                lroai_current_constructions_points_percent_of_max_wanted < 0.7
-            }
-            3 = {
                 lroai_current_constructions_points_percent_of_max_wanted < 0.8
             }
-            4 = {
+            2 = {
                 lroai_current_constructions_points_percent_of_max_wanted < 0.9
             }
+            3 = {
+                lroai_current_constructions_points_percent_of_max_wanted < 1.0
+            }
+            4 = {
+                lroai_current_constructions_points_percent_of_max_wanted < 1.1
+            }
             5 = {
-                lroai_current_constructions_points_percent_of_max_wanted >= 0.9
+                lroai_current_constructions_points_percent_of_max_wanted >= 1.1
             }
             fallback = {
                 always = no
