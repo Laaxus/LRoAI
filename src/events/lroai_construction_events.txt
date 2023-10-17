@@ -26,6 +26,9 @@ lroai_construction_events.1 = {
                 limit = {
                     lroai_free_construction_points > 0
                 }
+                lroai_perform_for_every_building_type = {
+                    effect = 5 # lroai_check_priority_of_building
+                }
                 lroai_choose_building_type_to_construct = yes
             }
             else = {

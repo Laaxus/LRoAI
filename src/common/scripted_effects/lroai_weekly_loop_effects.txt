@@ -73,7 +73,7 @@ lroai_start_construction = {
             lroai_is_construction_allowed = yes
         }
         trigger_event = {
-            id = lroai_evaluation_events.1
+            id = lroai_construction_events.1
             days = 1
         }
     }
