@@ -896,11 +896,6 @@ lroai_clear_country_cycle_variables = {
 
 lroai_clear_country_iteration_variables = {
     
-    remove_variable = lroai_army_size_equal_to_average_threat
-    remove_variable = lroai_navy_size_equal_to_average_threat
-    remove_variable = lroai_army_size_equal_to_biggest_threat
-    remove_variable = lroai_navy_size_equal_to_biggest_threat
-    
     remove_variable = lroai_incorporated_population
     remove_variable = lroai_total_coastal_population
     remove_variable = lroai_incorporated_coastal_population

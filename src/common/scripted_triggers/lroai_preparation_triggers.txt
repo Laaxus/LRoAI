@@ -96,13 +96,6 @@ lroai_has_no_construction_sectors = {
     }
 }
 
-lroai_has_free_construction_points = {
-    OR = {
-        lroai_free_construction_points > 0
-        lroai_is_critical_construction_allowed = yes
-    }
-}
-
 lroai_overseas_connections_are_required = {
     OR = {
         lroai_has_variable_list = {

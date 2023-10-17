@@ -11,12 +11,6 @@
     }
 }
 
-lroai_are_military_expenses_higher_than_usual = {
-    OR = {
-        has_variable = lroai_military_expenses_are_higher_than_usual
-        lroai_is_using_military_forces = yes
-    }
-}
 
 lroai_tax_level_equal_or_lower = {
     trigger_if = {
