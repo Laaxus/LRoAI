@@ -1,7 +1,6 @@
 ﻿# Find a building type with highest priority + order pair and try to construct it
 lroai_choose_building_type_to_construct = {
 
-    lroai_debug_country = yes
 
     # Set local variable that equals to highest priority, note that highest means lower number
     lroai_perform_for_every_building_type = {
@@ -281,7 +280,7 @@ lroai_perform_branching_of_allocation_list = {
 # Takes list of states as input, chooses in which one of them to start construction and queues 1 level of building
 lroai_start_building_construction = {
 
-    if = {limit = {$crucial$ = 0} #do nothing}
+    if = { limit = { always = no  $crucial$ = 0  }  } # We do not use crucial
 
     # If we got there, then construction is successful (for lroai_choose_building_type_to_construct)
     set_local_variable = {
