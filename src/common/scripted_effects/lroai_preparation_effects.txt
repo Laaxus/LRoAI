@@ -32,12 +32,6 @@ lroai_collect_data_for_construction_and_downsizing = {
         value = 0
     }
     
-    # Set up variables to calculate desired bureaucracy
-    set_variable = {
-        name = lroai_surplus_bureaucracy_target
-        value = 0
-    }
-    
     # Set up variables to calculate median construction efficiency
     set_local_variable = {
         name = lroai_num_construction_efficiency_values
@@ -126,21 +120,7 @@ lroai_collect_data_for_construction_and_downsizing = {
                 }
             }
         }
-        
-        # Find the biggest unincorporated state to calculate desired bureaucracy
-        if = {
-            limit = {
-                is_incorporated = no
-                incorporation_progress <= 0
-                root.var:lroai_surplus_bureaucracy_target < state_population
-            }
-            root = {
-                set_variable = {
-                    name = lroai_surplus_bureaucracy_target
-                    value = prev.state_population
-                }
-            }
-        }
+
         
         # Base for available workforce is unemployed population, subsistence and excessive buildings are added later
         set_variable = {
@@ -325,23 +305,6 @@ lroai_collect_data_for_construction_and_downsizing = {
     }
     remove_local_variable = lroai_num_construction_efficiency_values
     clear_local_variable_list = lroai_construction_efficiency_values
-
-    # Calculate desired bureaucracy, lroai_surplus_bureaucracy_target = the most expensive state to integrate
-    change_variable = {
-        name = lroai_surplus_bureaucracy_target
-        divide = 5000 # Divide state population by a very approximate divisor to get incorporation bureaucracy cost
-    }
-
-    # Set variable to institution bureaucracy cost if it is higher than state incorporation cost
-    if = {
-        limit = {
-            var:lroai_surplus_bureaucracy_target < lroai_institution_bureaucracy_cost
-        }
-        set_variable = {
-            name = lroai_surplus_bureaucracy_target
-            value = lroai_institution_bureaucracy_cost
-        }
-    }
     
     # Set up country scope variables with government building levels
     set_variable = {
@@ -352,16 +315,6 @@ lroai_collect_data_for_construction_and_downsizing = {
         name = lroai_building_university_total
         value = 0
     }
-    # Counted in weekly loop
-    # set_variable = {
-        # name = lroai_building_construction_sector_total
-        # value = 0
-    # }
-    # Not needed as of now
-    # set_variable = {
-    #     name = lroai_railway_total
-    #     value = 0
-    # }
     set_variable = {
         name = lroai_building_port_total
         value = 0
@@ -717,18 +670,6 @@ lroai_collect_data_for_construction_and_downsizing = {
         }
     }
     remove_local_variable = lroai_potential_workforce
-    
-    # Some square root calculations that are required
-    lroai_calculate_square_root = {
-        precision = 2
-        input = lroai_minus_half_unincorporated_gdp_per_capita
-        output = lroai_square_root_of_minus_half_unincorporated_gdp_per_capita
-    }
-    lroai_calculate_square_root = {
-        precision = 1
-        input = lroai_construction_points_current
-        output = lroai_square_root_of_construction_points
-    }
     
     # Recheck if we actually should construct new buildings with all the new data.
     # There's some good reason for this that I can't recall now.

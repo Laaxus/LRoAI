@@ -1,17 +1,6 @@
 ﻿lroai_simultaneous_constructions = {
     value = lroai_construction_points_current
     divide = lroai_construction_points_per_building
-    max = {
-        value = lroai_millions_of_minus_half_unincorporated_population
-        multiply = 1.15
-    }
-}
-
-lroai_simultaneously_developed = {
-    value = root.var:lroai_square_root_of_construction_points
-    divide = 20
-    floor = yes
-    add = 1
 }
 
 lroai_states_for_new_buildings = {

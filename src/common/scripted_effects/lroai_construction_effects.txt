@@ -314,16 +314,11 @@ lroai_start_building_construction = {
                         }
                         OR = {
 
-                            # Either this is a state with one of the highest levels of this building type in a country
-                            any_scope_state = {
-                                var:lroai_building_type_occupied_levels > lroai_current_lroai_building_type_occupied_levels
-                                count < lroai_simultaneously_developed
-                            }
-
                             # Or there are no states with higher level in this list
                             NOT = {
                                 any_in_list = {
                                     variable = $states$
+                                    has_variable = aroai_building_type_occupied_levels
                                     var:lroai_building_type_occupied_levels > lroai_current_lroai_building_type_occupied_levels
                                 }
                             }
