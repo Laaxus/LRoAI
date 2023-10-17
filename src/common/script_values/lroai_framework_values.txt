@@ -1,8 +1,4 @@
-﻿lroai_csr_square = {
-    value = local_var:lroai_csr_square
-}
-
-lroai_weeks_in_iteration = 4
+﻿lroai_weeks_in_iteration = 4
 
 lroai_weeks_in_iteration_minus_1 = {
     value = lroai_weeks_in_iteration

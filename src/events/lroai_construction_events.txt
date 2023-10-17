@@ -22,18 +22,10 @@ lroai_construction_events.1 = {
             lroai_clear_country_iteration_variables = yes
         }
         else = {
-            if = {
-                limit = {
-                    lroai_free_construction_points > 0
-                }
-                lroai_perform_for_every_building_type = {
-                    effect = 5 # lroai_check_priority_of_building
-                }
-                lroai_choose_building_type_to_construct = yes
+            lroai_perform_for_every_building_type = {
+                effect = 5 # lroai_check_priority_of_building
             }
-            else = {
-                lroai_clear_country_iteration_variables = yes
-            }
+            lroai_choose_building_type_to_construct = yes
         }
     }
 }
