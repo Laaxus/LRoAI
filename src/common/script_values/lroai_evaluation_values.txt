@@ -62,33 +62,7 @@ lroai_supply_vs_demand_level = {
 # When military forces are being used, we limit construction of military buildings case demand is higher than usual
 lroai_max_level_when_using_military_forces = 6
 
-# ----------------------------------------------
-# General info about government building targets
-# ----------------------------------------------
 
-# Government buildings don't produce goods in most cases, so you can't judge them by productivity or whatever, you need
-# to establish some special measure of how important are they and how much of them a country needs. To solve this two
-# values are introduced for each government building, share and target.
-
-# Share is % of budget income of a country that it can spend on this building weekly to pay for wages and input good.
-# Usually it's pretty rigid, roughly set to what works the best, but with some dynamic factors added in more cases.
-# For example, government administration share is higher when tax capacity is low country-wide. Construction sector
-# is special in a sense that it has no base or fixed share, instead it just takes all what's left after other shares.
-# Please note that for AI shares are always calculated for normal tax and wage level, otherwise it would be unstable.
-# Again consruction sector are special here, they always assume high tax level at the beginning for faster development
-# of economy, but when a country won't have much free workforce left, sector will demand less and less money, down to
-# normal tax level and even a bit below it.
-
-# Target is arbitrary value on how much stuff a country wants to have, be it spare bureaucracy, innovation, battalions,
-# convoys, everything. Except construction sectors, of course. They have no target. Anyways, targets are calculated by
-# some random ass formulas, most of the time in some form of population multiplied by some form of GDP per capita, with
-# a bunch of other factors thrown in. If country is below target, but expenses already exceed share, it won't construct
-# more in most cases, so share acts as a limiter. If country reached target but not share, it may build some more of
-# this building cause why not if they are rich enough for that.
-
-# --------------------------------------------------------------
-# Various common factors that affect government building targets
-# --------------------------------------------------------------
 
 
 
