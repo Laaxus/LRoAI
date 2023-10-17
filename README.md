@@ -1,6 +1,12 @@
 ## Announcement
 
-This mod is updated to 1.5.2.
+This mod is updated to 1.5.3.
+
+version 0.3.0 released.
+
+Lot of things changed, but I would still recommend to stick to vanilla ai for now.
+
+The ai is now much better at managing its money, I can finally focus on what the ai build and where!
 
 ## Description
 
