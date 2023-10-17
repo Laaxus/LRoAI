@@ -57,7 +57,7 @@ lroai_evaluate_building_government_administration = {
 lroai_sanction_building_government_administration = {
     lroai_sanction_government = {
         key = building_government_administration
-        conditions = 0
+        
         shortage = 0
         profitable = 0
     }
@@ -175,7 +175,7 @@ lroai_evaluate_building_university = {
 lroai_sanction_building_university = {
     lroai_sanction_government = {
         key = building_university 
-        conditions = 0
+        
         shortage = 1
         profitable = 0
     }
@@ -245,7 +245,7 @@ lroai_sanction_building_construction_sector = {
     var:lroai_building_construction_sector_level < lroai_state_construction_sector_limit
     lroai_sanction_government = {
         key = building_construction_sector 
-        conditions = 0
+        
         shortage = 1
         profitable = 0
     }
@@ -311,7 +311,7 @@ lroai_evaluate_building_railway = {
             any_scope_state = {
                 lroai_sanction_infrastructure = {
                     key = building_railway 
-                    conditions = 0
+                    
                     shortage = 1
                     profitable = 0
                 }
@@ -322,7 +322,7 @@ lroai_evaluate_building_railway = {
             any_scope_state = {
                 lroai_sanction_infrastructure = {
                     key = building_railway 
-                    conditions = 0
+                    
                     shortage = 1
                     profitable = 0
                 }
@@ -341,7 +341,7 @@ lroai_evaluate_building_railway = {
 lroai_sanction_building_railway = {
     lroai_sanction_infrastructure = {
         key = building_railway 
-        conditions = 0
+        
         shortage = 1
         profitable = 0
     }
@@ -524,7 +524,7 @@ lroai_sanction_building_barracks = {
     var:lroai_building_barracks_level < lroai_state_barracks_limit
     lroai_sanction_infrastructure = {
         key = building_barracks
-        conditions = 0
+        
         shortage = 1
         profitable = 0
     }
@@ -604,7 +604,7 @@ lroai_sanction_building_naval_base = {
     var:lroai_building_naval_base_level < lroai_state_naval_base_limit
     lroai_sanction_infrastructure = {
         key = building_naval_base
-        conditions = 0
+        
         shortage = 1
         profitable = 0
     }
@@ -637,7 +637,7 @@ lroai_sanction_building_logging_camp = {
         key = building_logging_camp
         id = $id$
         resource = bg_logging
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -669,7 +669,7 @@ lroai_sanction_building_fishing_wharf = {
         key = building_fishing_wharf
         id = $id$
         resource = bg_fishing
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -702,7 +702,7 @@ lroai_sanction_building_whaling_station = {
         key = building_whaling_station
         id = $id$
         resource = bg_whaling
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -735,7 +735,7 @@ lroai_sanction_building_rubber_plantation = {
         key = building_rubber_plantation
         id = $id$
         resource = bg_rubber
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -768,7 +768,7 @@ lroai_sanction_building_oil_rig = {
         key = building_oil_rig
         id = $id$
         resource = bg_oil_extraction
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -801,7 +801,7 @@ lroai_sanction_building_coal_mine = {
         key = building_coal_mine
         id = $id$
         resource = bg_coal_mining
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -831,7 +831,7 @@ lroai_sanction_building_iron_mine = {
         key = building_iron_mine
         id = $id$
         resource = bg_iron_mining
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -861,7 +861,7 @@ lroai_sanction_building_lead_mine = {
         key = building_lead_mine
         id = $id$
         resource = bg_lead_mining
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -891,7 +891,7 @@ lroai_sanction_building_sulfur_mine = {
         key = building_sulfur_mine
         id = $id$
         resource = bg_sulfur_mining
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -921,7 +921,7 @@ lroai_sanction_building_gold_mine = {
         key = building_gold_mine
         id = $id$
         resource = bg_gold_mining
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -955,7 +955,7 @@ lroai_sanction_building_rye_farm = {
         id = $id$
         resource = bg_rye_farms
         cipher = 1
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -989,7 +989,7 @@ lroai_sanction_building_wheat_farm = {
         id = $id$
         resource = bg_wheat_farms
         cipher = 2
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1023,7 +1023,7 @@ lroai_sanction_building_rice_farm = {
         id = $id$
         resource = bg_rice_farms
         cipher = 3
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1057,7 +1057,7 @@ lroai_sanction_building_maize_farm = {
         id = $id$
         resource = bg_maize_farms
         cipher = 4
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1091,7 +1091,7 @@ lroai_sanction_building_millet_farm = {
         id = $id$
         resource = bg_millet_farms
         cipher = 5
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1125,7 +1125,7 @@ lroai_sanction_building_livestock_ranch = {
         id = $id$
         resource = bg_livestock_ranches
         cipher = 10
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1159,7 +1159,7 @@ lroai_sanction_building_cotton_plantation = {
         id = $id$
         resource = bg_cotton_plantations
         cipher = 20
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1193,7 +1193,7 @@ lroai_sanction_building_dye_plantation = {
         id = $id$
         resource = bg_dye_plantations
         cipher = 100
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1227,7 +1227,7 @@ lroai_sanction_building_silk_plantation = {
         id = $id$
         resource = bg_silk_plantations
         cipher = 200
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1261,7 +1261,7 @@ lroai_sanction_building_banana_plantation = {
         id = $id$
         resource = bg_banana_plantations
         cipher = 1000
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1295,7 +1295,7 @@ lroai_sanction_building_sugar_plantation = {
         id = $id$
         resource = bg_sugar_plantations
         cipher = 2000
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1329,7 +1329,7 @@ lroai_sanction_building_tea_plantation = {
         id = $id$
         resource = bg_tea_plantations
         cipher = 10000
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1363,7 +1363,7 @@ lroai_sanction_building_coffee_plantation = {
         id = $id$
         resource = bg_coffee_plantations
         cipher = 20000
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1397,7 +1397,7 @@ lroai_sanction_building_tobacco_plantation = {
         id = $id$
         resource = bg_tobacco_plantations
         cipher = 100000
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1434,7 +1434,7 @@ lroai_sanction_building_opium_plantation = {
         id = $id$
         resource = bg_opium_plantations
         cipher = 200000
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1466,7 +1466,7 @@ lroai_sanction_building_food_industry = {
     lroai_sanction_industry = {
         key = building_food_industry
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1495,7 +1495,7 @@ lroai_sanction_building_textile_mills = {
     lroai_sanction_industry = {
         key = building_textile_mills
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1524,7 +1524,7 @@ lroai_sanction_building_furniture_manufacturies = {
     lroai_sanction_industry = {
         key = building_furniture_manufacturies
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1553,7 +1553,7 @@ lroai_sanction_building_glassworks = {
     lroai_sanction_industry = {
         key = building_glassworks
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1582,7 +1582,7 @@ lroai_sanction_building_tooling_workshops = {
     lroai_sanction_industry = {
         key = building_tooling_workshops
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1611,7 +1611,7 @@ lroai_sanction_building_paper_mills = {
     lroai_sanction_industry = {
         key = building_paper_mills
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1643,7 +1643,7 @@ lroai_sanction_building_chemical_plants = {
     lroai_sanction_industry = {
         key = building_chemical_plants
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1675,7 +1675,7 @@ lroai_sanction_building_synthetics_plants = {
     lroai_sanction_industry = {
         key = building_synthetics_plants
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1707,7 +1707,7 @@ lroai_sanction_building_steel_mills = {
     lroai_sanction_industry = {
         key = building_steel_mills
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1739,7 +1739,7 @@ lroai_sanction_building_motor_industry = {
     lroai_sanction_industry = {
         key = building_motor_industry
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1772,7 +1772,7 @@ lroai_sanction_building_shipyards = {
     lroai_sanction_industry = {
         key = building_shipyards
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1804,7 +1804,7 @@ lroai_sanction_building_power_plant = {
     lroai_sanction_industry = {
         key = building_power_plant
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1836,7 +1836,7 @@ lroai_sanction_building_electrics_industry = {
     lroai_sanction_industry = {
         key = building_electrics_industry
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1865,7 +1865,7 @@ lroai_sanction_building_arms_industry = {
     lroai_sanction_industry = {
         key = building_arms_industry
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1897,7 +1897,7 @@ lroai_sanction_building_munition_plants = {
     lroai_sanction_industry = {
         key = building_munition_plants
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1929,7 +1929,7 @@ lroai_sanction_building_war_machine_industry = {
     lroai_sanction_industry = {
         key = building_war_machine_industry
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -1964,7 +1964,7 @@ lroai_sanction_building_arts_academy = {
     lroai_sanction_industry = {
         key = building_arts_academy
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -2001,7 +2001,7 @@ lroai_sanction_building_explosives_factory = {
     lroai_sanction_industry = {
         key = building_explosives_factory
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -2034,7 +2034,7 @@ lroai_sanction_building_military_shipyards = {
     lroai_sanction_industry = {
         key = building_military_shipyards
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -2064,7 +2064,7 @@ lroai_sanction_building_artillery_foundries = {
     lroai_sanction_industry = {
         key = building_artillery_foundries
         id = $id$
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
@@ -2095,7 +2095,7 @@ lroai_sanction_building_vineyard_plantation = {
         id = $id$
         resource = bg_vineyard_plantation
         cipher = 2
-        conditions = 0
+        
         shortage = 1
         profitable = 1
     }
