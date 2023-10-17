@@ -214,7 +214,60 @@ lroai_resource_total_10 = {
     }
 }
 
+lroai_has_resource = {
+    OR = {
+        state_region = {remaining_undepleted = { type = $bg$ amount > 1 }}
+        any_scope_building = { is_building_type = $resource$ level > 1 }
+    }
+}
+
+lroai_allocate_iron = {
+    switch = {
+        trigger = $aptitude$
+        1 = {
+            lroai_has_resource = {bg = bg_iron_mining resource = building_iron_mine}
+            OR = {
+                lroai_has_resource = {bg = bg_coal_mining resource = building_coal_mine}
+                lroai_has_resource = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            }
+        }
+        2 = {
+            lroai_has_resource = {bg = bg_iron_mining resource = building_iron_mine}
+        }
+        3 = {
+            always = yes
+        }
+        fallback = {
+            always = no
+        }
+    }
+}
+
 lroai_allocate_iron_coal = {
+    switch = {
+        trigger = $aptitude$
+        1 = {
+            lroai_has_resource = {bg = bg_iron_mining resource = building_iron_mine}
+            lroai_has_resource = {bg = bg_coal_mining resource = building_coal_mine}
+
+        }
+        2 = {
+            lroai_has_resource = {bg = bg_iron_mining resource = building_iron_mine}
+        }
+        3 = {
+            lroai_has_resource = {bg = bg_coal_mining resource = building_coal_mine}
+        }
+        4 = {
+            always = yes
+        }
+        fallback = {
+            always = no
+        }
+    }
+}
+
+
+lroai_allocate_iron_coal_2 = {
     switch = {
         trigger = $aptitude$
         1 = {
@@ -270,6 +323,29 @@ lroai_allocate_iron_coal = {
 }
 
 lroai_allocate_iron_sulfur = {
+    switch = {
+        trigger = $aptitude$
+        1 = {
+            lroai_has_resource = {bg = bg_iron_mining resource = building_iron_mine}
+            lroai_has_resource= {bg = bg_sulfur_mining resource = building_sulfur_mine}
+
+        }
+        2 = {
+            lroai_has_resource = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+        }
+        3 = {
+            lroai_has_resource = {bg = bg_iron_mining resource = building_iron_mine}
+        }
+        4 = {
+            always = yes
+        }
+        fallback = {
+            always = no
+        }
+    }
+}
+
+lroai_allocate_iron_sulfur_2 = {
     switch = {
         trigger = $aptitude$
         1 = {
@@ -333,6 +409,28 @@ lroai_allocate_sulfur = {
     switch = {
         trigger = $aptitude$
         1 = {
+            lroai_has_resource = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            OR = {
+                lroai_has_resource = {bg = bg_coal_mining resource = building_coal_mine}
+                lroai_has_resource = {bg = bg_iron_mining resource = building_iron_mine}
+            }
+        }
+        2 = {
+            lroai_has_resource = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+        }
+        3 = {
+            always = yes
+        }
+        fallback = {
+            always = no
+        }
+    }
+}
+
+lroai_allocate_sulfur_2 = {
+    switch = {
+        trigger = $aptitude$
+        1 = {
             lroai_resource_total_50 = {bg = bg_sulfur_mining resource = building_sulfur_mine}
             NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
 
@@ -376,6 +474,39 @@ lroai_allocate_sulfur = {
 }
 
 lroai_allocate_lead = {
+    switch = {
+        trigger = $aptitude$
+        1 = {
+            lroai_has_resource = {bg = bg_lead_mining resource = building_lead_mine}
+            NOR = {
+                lroai_has_resource = {bg = bg_coal_mining resource = building_coal_mine}
+                lroai_has_resource = {bg = bg_iron_mining resource = building_iron_mine}
+                lroai_has_resource = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            }
+        }
+        2 = {
+            lroai_has_resource = {bg = bg_lead_mining resource = building_lead_mine}
+            NOR = {
+                lroai_has_resource = {bg = bg_coal_mining resource = building_coal_mine}
+                lroai_has_resource = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            }
+        }
+        3 = {
+            lroai_has_resource = {bg = bg_lead_mining resource = building_lead_mine}
+            NOT = {
+                lroai_has_resource = {bg = bg_sulfur_mining resource = building_sulfur_mine}
+            }
+        }
+        4 = {
+            lroai_has_resource = {bg = bg_lead_mining resource = building_lead_mine}
+        }
+        fallback = {
+            always = no
+        }
+    }
+}
+
+lroai_allocate_lead_2 = {
     switch = {
         trigger = $aptitude$
         1 = {
@@ -502,22 +633,22 @@ lroai_allocate_soldier = {
     switch = {
         trigger = $aptitude$
         1 = {
-            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
-            NOT = {lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}}
-            NOT = {lroai_resource_total_10 = {bg = bg_sulfur_mining resource = building_sulfur_mine}}
-            NOT = {lroai_resource_total_10 = {bg = bg_lead_mining resource = building_lead_mine}}
+            NOT = {lroai_has_resource = {bg = bg_coal_mining resource = building_coal_mine}}
+            NOT = {lroai_has_resource = {bg = bg_iron_mining resource = building_iron_mine}}
+            NOT = {lroai_has_resource = {bg = bg_sulfur_mining resource = building_sulfur_mine}}
+            NOT = {lroai_has_resource = {bg = bg_lead_mining resource = building_lead_mine}}
         }
         2 = {
-            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
-            NOT = {lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}}
-            NOT = {lroai_resource_total_10 = {bg = bg_sulfur_mining resource = building_sulfur_mine}}
+            NOT = {lroai_has_resource = {bg = bg_coal_mining resource = building_coal_mine}}
+            NOT = {lroai_has_resource = {bg = bg_iron_mining resource = building_iron_mine}}
+            NOT = {lroai_has_resource = {bg = bg_sulfur_mining resource = building_sulfur_mine}}
         }
         3 = {
-            NOT = {lroai_resource_total_10 = {bg = bg_coal_mining resource = building_coal_mine}}
-            NOT = {lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}}
+            NOT = {lroai_has_resource = {bg = bg_coal_mining resource = building_coal_mine}}
+            NOT = {lroai_has_resource = {bg = bg_iron_mining resource = building_iron_mine}}
         }
         4 = {
-            NOT = {lroai_resource_total_10 = {bg = bg_iron_mining resource = building_iron_mine}}
+            NOT = {lroai_has_resource = {bg = bg_iron_mining resource = building_iron_mine}}
         }
         5 = {
             always = yes

@@ -838,7 +838,7 @@ lroai_sanction_building_iron_mine = {
 }
 
 lroai_allocate_building_iron_mine = {
-    lroai_allocate_iron_coal = {aptitude = $aptitude$}
+    lroai_allocate_iron = {aptitude = $aptitude$}
 }
 
 # ---------
