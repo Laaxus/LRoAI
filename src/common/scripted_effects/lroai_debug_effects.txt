@@ -1,8 +1,9 @@
 ﻿lroai_debug_country = {
-    if = { limit = { this = c:GBR}
-        lroai_debug_bureaucracy = yes
+    if = { limit = { this = c:SPA}
+        lroai_debug_collected_data = yes
     }
 }
+
 
 lroai_debug_budgeting_core = {
     debug_log = "lroai_construction_points_wanted_for_gov               [THIS.ScriptValue('lroai_construction_points_wanted_for_gov')]"
@@ -12,7 +13,7 @@ lroai_debug_budgeting_core = {
     debug_log = "lroai_building_construction_sector_expenses_per_point  [THIS.ScriptValue('lroai_building_construction_sector_expenses_per_point')]"
     debug_log = "lroai_max_wanted_constructions_points_from_pop         [THIS.ScriptValue('lroai_max_wanted_constructions_points_from_pop')]"
     debug_log = "lroai_investment_pool_net_spending                     [THIS.ScriptValue('lroai_investment_pool_net_spending')]"
-    lroai_debug_budgeting_revenue_left = yes
+    lroai_debug_construction_point = yes
 }
 
 lroai_debug_budgeting_revenue_left = {
@@ -26,6 +27,10 @@ lroai_debug_construction_values = {
     debug_log = "lroai_construction_points_wanted_for_gov                   [THIS.ScriptValue('lroai_construction_points_wanted_for_gov')]"
     debug_log = "lroai_construction_points_wanted_total                     [THIS.ScriptValue('lroai_construction_points_wanted_total')]"
     debug_log = "lroai_current_constructions_points_percent_of_max_wanted   [THIS.ScriptValue('lroai_current_constructions_points_percent_of_max_wanted')]"
+    debug_log = "lroai_previous_cost_per_construction_point                 [THIS.Var('lroai_previous_cost_per_construction_point').GetValue]"
+    debug_log = "lroai_temporary_cost_per_construction_point                [THIS.Var('lroai_temporary_cost_per_construction_point').GetValue]"
+    debug_log = "lroai_temporary_construction_sector_expenses               [THIS.Var('lroai_temporary_construction_sector_expenses').GetValue]"
+    debug_log = "lroai_usage_of_construction_points_value                   [THIS.ScriptValue('llroai_usage_of_construction_points_value')]"
 }
 
 lroai_debug_construction_army = {
@@ -49,6 +54,74 @@ lroai_debug_downsizing = {
     debug_log = "lroai_bureaucracy_required_value_ceiling_low               [THIS.ScriptValue('lroai_bureaucracy_required_value_ceiling_low')]"
 }
 
+lroai_debug_construction_points = {
+    set_variable = { name = fkthis value = construction_queue_num_queued_government_levels}
+    debug_log = "construction queue gov level               [THIS.Var('fkthis').GetValue]"
+    debug_log = "lroai_free_construction_points                             [THIS.ScriptValue('lroai_free_construction_points')]"
+    debug_log = "lroai_construction_points_current                             [THIS.ScriptValue('lroai_construction_points_current')]"
+    debug_log = "lroai_private_construction_allocation_mult                            [THIS.ScriptValue('lroai_private_construction_allocation_mult')]"
+    debug_log = "lroai_usage_of_construction_points_by_private_queue                          [THIS.ScriptValue('lroai_usage_of_construction_points_by_private_queue')]"
+    debug_log = "lroai_construction_points_wanted_for_gov                          [THIS.ScriptValue('lroai_construction_points_wanted_for_gov')]"
+    debug_log = "lroai_usage_of_construction_points_by_government_queue                        [THIS.ScriptValue('lroai_usage_of_construction_points_by_government_queue')]"
+    debug_log = "lroai_usage_of_construction_points_value                         [THIS.ScriptValue('lroai_usage_of_construction_points_value')]"
+    debug_log = "lroai_construction_points_per_building                        [THIS.ScriptValue('lroai_construction_points_per_building')]"
+}
+
+lroai_debug_collected_data = {
+    debug_log = "lroai_building_type_1_collected_data [THIS.ScriptValue('lroai_building_type_1_collected_data')]"
+    debug_log = "lroai_building_type_2_collected_data [THIS.ScriptValue('lroai_building_type_2_collected_data')]"
+    debug_log = "lroai_building_type_3_collected_data [THIS.ScriptValue('lroai_building_type_3_collected_data')]"
+    debug_log = "lroai_building_type_4_collected_data [THIS.ScriptValue('lroai_building_type_4_collected_data')]"
+    debug_log = "lroai_building_type_5_collected_data [THIS.ScriptValue('lroai_building_type_5_collected_data')]"
+    debug_log = "lroai_building_type_6_collected_data [THIS.ScriptValue('lroai_building_type_6_collected_data')]"
+    debug_log = "lroai_building_type_7_collected_data [THIS.ScriptValue('lroai_building_type_7_collected_data')]"
+    debug_log = "lroai_building_type_8_collected_data [THIS.ScriptValue('lroai_building_type_8_collected_data')]"
+    debug_log = "lroai_building_type_9_collected_data [THIS.ScriptValue('lroai_building_type_9_collected_data')]"
+    debug_log = "lroai_building_type_10_collected_data [THIS.ScriptValue('lroai_building_type_10_collected_data')]"
+    debug_log = "lroai_building_type_11_collected_data [THIS.ScriptValue('lroai_building_type_11_collected_data')]"
+    debug_log = "lroai_building_type_12_collected_data [THIS.ScriptValue('lroai_building_type_12_collected_data')]"
+    debug_log = "lroai_building_type_13_collected_data [THIS.ScriptValue('lroai_building_type_13_collected_data')]"
+    debug_log = "lroai_building_type_14_collected_data [THIS.ScriptValue('lroai_building_type_14_collected_data')]"
+    debug_log = "lroai_building_type_15_collected_data [THIS.ScriptValue('lroai_building_type_15_collected_data')]"
+    debug_log = "lroai_building_type_16_collected_data [THIS.ScriptValue('lroai_building_type_16_collected_data')]"
+    debug_log = "lroai_building_type_17_collected_data [THIS.ScriptValue('lroai_building_type_17_collected_data')]"
+    debug_log = "lroai_building_type_18_collected_data [THIS.ScriptValue('lroai_building_type_18_collected_data')]"
+    debug_log = "lroai_building_type_19_collected_data [THIS.ScriptValue('lroai_building_type_19_collected_data')]"
+    debug_log = "lroai_building_type_20_collected_data [THIS.ScriptValue('lroai_building_type_20_collected_data')]"
+    debug_log = "lroai_building_type_21_collected_data [THIS.ScriptValue('lroai_building_type_21_collected_data')]"
+    debug_log = "lroai_building_type_22_collected_data [THIS.ScriptValue('lroai_building_type_22_collected_data')]"
+    debug_log = "lroai_building_type_23_collected_data [THIS.ScriptValue('lroai_building_type_23_collected_data')]"
+    debug_log = "lroai_building_type_24_collected_data [THIS.ScriptValue('lroai_building_type_24_collected_data')]"
+    debug_log = "lroai_building_type_25_collected_data [THIS.ScriptValue('lroai_building_type_25_collected_data')]"
+    debug_log = "lroai_building_type_26_collected_data [THIS.ScriptValue('lroai_building_type_26_collected_data')]"
+    debug_log = "lroai_building_type_27_collected_data [THIS.ScriptValue('lroai_building_type_27_collected_data')]"
+    debug_log = "lroai_building_type_28_collected_data [THIS.ScriptValue('lroai_building_type_28_collected_data')]"
+    debug_log = "lroai_building_type_29_collected_data [THIS.ScriptValue('lroai_building_type_29_collected_data')]"
+    debug_log = "lroai_building_type_30_collected_data [THIS.ScriptValue('lroai_building_type_30_collected_data')]"
+    debug_log = "lroai_building_type_31_collected_data [THIS.ScriptValue('lroai_building_type_31_collected_data')]"
+    debug_log = "lroai_building_type_32_collected_data [THIS.ScriptValue('lroai_building_type_32_collected_data')]"
+    debug_log = "lroai_building_type_33_collected_data [THIS.ScriptValue('lroai_building_type_33_collected_data')]"
+    debug_log = "lroai_building_type_34_collected_data [THIS.ScriptValue('lroai_building_type_34_collected_data')]"
+    debug_log = "lroai_building_type_35_collected_data [THIS.ScriptValue('lroai_building_type_35_collected_data')]"
+    debug_log = "lroai_building_type_36_collected_data [THIS.ScriptValue('lroai_building_type_36_collected_data')]"
+    debug_log = "lroai_building_type_37_collected_data [THIS.ScriptValue('lroai_building_type_37_collected_data')]"
+    debug_log = "lroai_building_type_38_collected_data [THIS.ScriptValue('lroai_building_type_38_collected_data')]"
+    debug_log = "lroai_building_type_39_collected_data [THIS.ScriptValue('lroai_building_type_39_collected_data')]"
+    debug_log = "lroai_building_type_40_collected_data [THIS.ScriptValue('lroai_building_type_40_collected_data')]"
+    debug_log = "lroai_building_type_41_collected_data [THIS.ScriptValue('lroai_building_type_41_collected_data')]"
+    debug_log = "lroai_building_type_42_collected_data [THIS.ScriptValue('lroai_building_type_42_collected_data')]"
+    debug_log = "lroai_building_type_43_collected_data [THIS.ScriptValue('lroai_building_type_43_collected_data')]"
+    debug_log = "lroai_building_type_44_collected_data [THIS.ScriptValue('lroai_building_type_44_collected_data')]"
+    debug_log = "lroai_building_type_45_collected_data [THIS.ScriptValue('lroai_building_type_45_collected_data')]"
+    debug_log = "lroai_building_type_46_collected_data [THIS.ScriptValue('lroai_building_type_46_collected_data')]"
+    debug_log = "lroai_building_type_47_collected_data [THIS.ScriptValue('lroai_building_type_47_collected_data')]"
+    debug_log = "lroai_building_type_48_collected_data [THIS.ScriptValue('lroai_building_type_48_collected_data')]"
+    debug_log = "lroai_building_type_49_collected_data [THIS.ScriptValue('lroai_building_type_49_collected_data')]"
+    debug_log = "lroai_building_type_50_collected_data [THIS.ScriptValue('lroai_building_type_50_collected_data')]"
+    debug_log = "lroai_building_type_51_collected_data [THIS.ScriptValue('lroai_building_type_51_collected_data')]"
+    debug_log = "lroai_building_type_52_collected_data [THIS.ScriptValue('lroai_building_type_52_collected_data')]"
+    debug_log = "lroai_building_type_53_collected_data [THIS.ScriptValue('lroai_building_type_53_collected_data')]"
+}
 
 lroai_debug_tag = {
 if = { limit = { root = c:GER } debug_log = "This is GER"}
