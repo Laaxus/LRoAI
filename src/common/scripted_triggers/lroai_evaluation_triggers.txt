@@ -69,38 +69,11 @@ lroai_building_can_be_expanded = {
 
 # Conditions: 0 = new and expanding, 1 = only new, 2 = only expanding
 lroai_sanction_building = {
-    trigger_if = {
-        limit = {
-            $conditions$ = 0
-        }
-        OR = {
-            NOT = {
-                lroai_has_building = {
-                    key = $key$
-                }
-            }
-            any_scope_building = {
-                is_building_type = $key$
-                lroai_building_can_be_expanded = {
-                    shortage = $shortage$
-                    profitable = $profitable$
-                }
-            }
-        }
-    }
-    trigger_else_if = {
-        limit = {
-            $conditions$ = 1
-        }
+    OR = {
         NOT = {
             lroai_has_building = {
                 key = $key$
             }
-        }
-    }
-    trigger_else_if = {
-        limit = {
-            $conditions$ = 2
         }
         any_scope_building = {
             is_building_type = $key$
@@ -110,8 +83,9 @@ lroai_sanction_building = {
             }
         }
     }
-    trigger_else = {
-        always = no
+     OR = {
+        $conditions$ = 0
+        always = yes
     }
 }
 
@@ -143,54 +117,18 @@ lroai_sanction_resource = {
             amount > 0
         }
     }
-    trigger_if = {
-        limit = {
-            $conditions$ = 0
-        }
-        OR = {
-            AND = {
-                NOT = {
-                    lroai_has_building = {
-                        key = $key$
-                    }
-                }
-                has_potential_resource = $resource$
-                OR = {
-                    $profitable$ = 0
-                    root.lroai_building_type_$id$_collected_data_4 = 1
+    OR = {
+        AND = {
+            NOT = {
+                lroai_has_building = {
+                    key = $key$
                 }
             }
-            any_scope_building = {
-                is_building_type = $key$
-                lroai_building_can_be_expanded = {
-                    shortage = $shortage$
-                    profitable = $profitable$
-                }
-                OR = {
-                    $profitable$ = 0
-                    lroai_productivity_formatted >= root.lroai_building_type_$id$_collected_data_3
-                }
+            has_potential_resource = $resource$
+            OR = {
+                $profitable$ = 0
+                root.lroai_building_type_$id$_collected_data_4 = 1
             }
-        }
-    }
-    trigger_else_if = {
-        limit = {
-            $conditions$ = 1
-        }
-        NOT = {
-            lroai_has_building = {
-                key = $key$
-            }
-        }
-        has_potential_resource = $resource$
-        OR = {
-            $profitable$ = 0
-            root.lroai_building_type_$id$_collected_data_4 = 1
-        }
-    }
-    trigger_else_if = {
-        limit = {
-            $conditions$ = 2
         }
         any_scope_building = {
             is_building_type = $key$
@@ -204,8 +142,9 @@ lroai_sanction_resource = {
             }
         }
     }
-    trigger_else = {
-        always = no
+    OR = {
+        $conditions$ = 0
+        always = yes
     }
 }
 
