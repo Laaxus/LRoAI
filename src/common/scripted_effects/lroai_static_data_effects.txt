@@ -1828,20 +1828,11 @@ lroai_evaluate_building_military_shipyards = {
                 lroai_building_type_$id$_collected_data_4 >= 3
             }
         }
-        if = {
-            limit = {
-                OR = {
-                    lroai_is_using_military_forces = no
-                    market.mg:manowars.lroai_supply_vs_demand_level <= lroai_max_level_when_using_military_forces
-                }
-            }
-            lroai_evaluate_production_building = {
-                id = $id$
-
-                good = mg:manowars
-                offset = 0
-            }
-        }
+        lroai_evaluate_production_building = {
+             id = $id$
+             good = mg:manowars
+             offset = 0
+         }
     }
     if = {
         limit = {
@@ -1853,19 +1844,10 @@ lroai_evaluate_building_military_shipyards = {
                 lroai_building_type_$id$_collected_data_4 >= 3
             }
         }
-        if = {
-            limit = {
-                OR = {
-                    lroai_is_using_military_forces = no
-                    market.mg:ironclads.lroai_supply_vs_demand_level <= lroai_max_level_when_using_military_forces
-                }
-            }
-            lroai_evaluate_production_building = {
-                id = $id$
-
-                good = mg:ironclads
-                offset = 0
-            }
+        lroai_evaluate_production_building = {
+            id = $id$
+            good = mg:ironclads
+            offset = 0
         }
     }
 }

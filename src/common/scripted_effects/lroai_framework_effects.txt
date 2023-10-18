@@ -856,7 +856,6 @@ lroai_perform_for_building_type = {
             lroai_check_priority_of_building = {
                 key = $key$
                 id = $id$
-                class = $class$
                 counter = $counter$
                 allocate = $allocate$
                 limit = $limit$

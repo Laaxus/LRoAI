@@ -1457,14 +1457,6 @@ lroai_find_building_type_median_productivity_and_profitability = {
             }
         }
     }
-
-    # If no buildings of this type were added to the list, then we don't have the data, thus no restrictions
-    else = {
-        change_variable = {
-            name = lroai_building_type_$id$_collected_data
-            add = 9999999 # Cells 2, 3, 4
-        }
-    }
 }
 
 # Excessive means high occupancy but is not productive, abandoned means low occupancy and can't hire more
