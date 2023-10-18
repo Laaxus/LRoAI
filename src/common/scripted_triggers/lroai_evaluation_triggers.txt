@@ -119,20 +119,12 @@ lroai_sanction_resource = {
                 }
             }
             has_potential_resource = $resource$
-            OR = {
-                $profitable$ = 0
-                root.lroai_building_type_$id$_collected_data_4 = 1
-            }
         }
         any_scope_building = {
             is_building_type = $key$
             lroai_building_can_be_expanded = {
                 shortage = $shortage$
                 profitable = $profitable$
-            }
-            OR = {
-                $profitable$ = 0
-                lroai_productivity_formatted >= root.lroai_building_type_$id$_collected_data_3
             }
         }
     }
@@ -181,20 +173,12 @@ lroai_sanction_agriculture = {
             lroai_check_agriculture_resource = {
                 cipher = $cipher$
             }
-            OR = {
-                $profitable$ = 0
-                root.lroai_building_type_$id$_collected_data_4 = 1
-            }
         }
         any_scope_building = {
             is_building_type = $key$
             lroai_building_can_be_expanded = {
                 shortage = $shortage$
                 profitable = $profitable$
-            }
-            OR = {
-                $profitable$ = 0
-                lroai_productivity_formatted >= root.lroai_building_type_$id$_collected_data_3
             }
         }
     }
@@ -203,15 +187,9 @@ lroai_sanction_agriculture = {
 # Industry buildings
 lroai_sanction_industry = {
     OR = {
-        AND = {
-            NOT = {
-                lroai_has_building = {
-                    key = $key$
-                }
-            }
-            OR = {
-                $profitable$ = 0
-                root.lroai_building_type_$id$_collected_data_4 = 1
+        NOT = {
+            lroai_has_building = {
+                key = $key$
             }
         }
         any_scope_building = {
@@ -219,10 +197,6 @@ lroai_sanction_industry = {
             lroai_building_can_be_expanded = {
                 shortage = $shortage$
                 profitable = $profitable$
-            }
-            OR = {
-                $profitable$ = 0
-                lroai_productivity_formatted >= root.lroai_building_type_$id$_collected_data_3
             }
         }
     }
