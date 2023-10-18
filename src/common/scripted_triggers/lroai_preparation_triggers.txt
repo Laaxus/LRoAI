@@ -127,7 +127,7 @@ lroai_has_enough_infrastructure = {
 
 # Is profitable right now and (hopefully) in a near future
 lroai_building_is_profitable = {
-    lroai_profit_per_occupied_level >= lroai_20_percent_of_average_profit
+    weekly_profit >= 0
     cash_reserves_ratio >= 0.10
 }
 

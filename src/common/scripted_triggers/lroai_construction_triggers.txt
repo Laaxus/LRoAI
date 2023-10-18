@@ -2,7 +2,6 @@
     owner = root
     OR = {
         $workforce$ = 0
-        root.lroai_building_type_$id$_collected_data_2 <= $crucial$
         lroai_available_workforce >= lroai_required_workforce
     }
     OR = {

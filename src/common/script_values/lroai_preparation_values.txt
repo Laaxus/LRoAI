@@ -283,16 +283,7 @@ lroai_unemployed_population = {
 }
 
 lroai_sufficient_occupancy = {
-    value = level
-    subtract = {
-        value = 1
-        add = {
-            value = 0.1
-            multiply = level
-        }
-    }
-    divide = level
-    min = 0.4
+    value = 0.5
 }
 
 lroai_occupied_levels = {
