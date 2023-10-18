@@ -336,7 +336,15 @@ lroai_check_priority_of_building = {
             value = 0
         }
     }
-    
+    lroai_perform_allocation = {
+        id = $id$
+        key = $key$
+        counter = $counter$
+        limit = $limit$
+    }
+}
+
+lroai_perform_allocation = {
     # If building type has some priority, perform allocation, checking which states are best suitable for construction
     if = {
         limit = {
@@ -373,20 +381,8 @@ lroai_check_priority_of_building = {
                         }
 
                         # ...and is either suitable, or construction of this building type is crucial...
-                        root = {
-                            OR = {
-                                AND = {
-                                    lroai_has_variable_list = {
-                                        name = lroai_states_suitable_for_construction
-                                    }
-                                    is_target_in_variable_list = {
-                                        name = lroai_states_suitable_for_construction
-                                        target = prev
-                                    }
-                                }
-                                lroai_building_type_$id$_collected_data_2 <= $crucial$
-                            }
-                        }
+                        lroai_has_enough_infrastructure = yes
+                        lroai_has_enough_workforce = yes
                     }
 
                     # ...then check it for every condition set in allocate trigger from static data of this building
@@ -410,10 +406,10 @@ lroai_check_priority_of_building = {
                     else_if = { limit = { $allocate$ >= 9 lroai_allocate_$key$ = { aptitude = 9 } } root = {
                     add_to_variable_list = { name = lroai_building_type_$id$_allocation_9 target = prev } } }
                     else_if = { limit = { $allocate$ >= 10 lroai_allocate_$key$ = { aptitude = 10 } } root = {
-                    add_to_variable_list = { name = lroai_building_type_$id$_allocation_10 target = prev } } } 
+                    add_to_variable_list = { name = lroai_building_type_$id$_allocation_10 target = prev } } }
                 }
             }
-            
+
             # If no allocation lists were formed, no state can host this building
             if = {
                 limit = {
@@ -494,12 +490,6 @@ lroai_evaluate_with_custom_trigger = {
         }
         if = {
             limit = {
-                OR = {
-                    $crucial$ >= lroai_current_priority
-                    lroai_has_variable_list = {
-                        name = lroai_states_suitable_for_construction
-                    }
-                }
 
                 # We're forced to make key-id pairs cause dynamic name leads to a billion startup errors
                 switch = {
@@ -643,15 +633,6 @@ lroai_evaluate_production_building = {
         
         if = {
             limit = {
-
-                # If construction of this building type is crucial or there are suitable states...
-                OR = {
-                    local_var:lroai_evaluated_supply_vs_demand_level <= $crucial$
-                    lroai_has_variable_list = {
-                        name = lroai_states_suitable_for_construction
-                    }
-                }
-
                 # ...and there's no higher saved priority, e.g. from other goods of the building
                 OR = {
                     NOT = {
