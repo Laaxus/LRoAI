@@ -316,7 +316,7 @@ lroai_start_building_construction = {
                             NOT = {
                                 any_in_list = {
                                     variable = $states$
-                                    has_variable = aroai_building_type_occupied_levels
+                                    has_variable = lroai_building_type_occupied_levels
                                     var:lroai_building_type_occupied_levels > lroai_current_lroai_building_type_occupied_levels
                                 }
                             }

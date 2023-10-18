@@ -163,7 +163,6 @@ lroai_perform_for_every_building_type = {`;
     + ` counter = ` + (buildings[i][3] === false ? buildings[i][1] : buildings[i][3])
     + ` order = ` + buildings[i][4]
     + ` limit = ` + buildings[i][5]
-    + ` crucial = ` + buildings[i][6]
     + ` workforce = ` + (buildings[i][7] === true ? '1' : '0')
     + ` allocate = ` + (buildings[i][8] === false ? classes[buildings[i][2]][2] : buildings[i][8])
     + ` branching = ` + (buildings[i][9] === true ? '1' : '0')
@@ -220,7 +219,6 @@ lroai_is_true_for_any_building_type = {
         + ` counter = ` + (buildings[i][3] === false ? buildings[i][1] : buildings[i][3])
         + ` order = ` + buildings[i][4]
         + ` limit = ` + buildings[i][5]
-        + ` crucial = ` + buildings[i][6]
         + ` workforce = ` + (buildings[i][7] === true ? '1' : '0')
         + ` allocate = ` + (buildings[i][8] === false ? classes[buildings[i][2]][2] : buildings[i][8])
         + ` branching = ` + (buildings[i][9] === true ? '1' : '0')

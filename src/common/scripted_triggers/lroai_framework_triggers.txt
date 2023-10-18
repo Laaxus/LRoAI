@@ -72,7 +72,6 @@ lroai_is_true_for_building_type = {
         $counter$ = 1
         $order$ = 1
         $limit$ = 1
-        $crucial$ = 1
         $workforce$ = 1
         $allocate$ = 1
         $branching$ = 1

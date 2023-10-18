@@ -1,115 +1,116 @@
-﻿# ------------------------------------------------------------------------------------
+﻿
+# ------------------------------------------------------------------------------------
 # Triggers below were generated with a modding tool and should not be changed manually
 # ------------------------------------------------------------------------------------
 
 lroai_is_true_for_any_building_type = {
     OR = {
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_government_administration id = 1
-        class = 1 counter = 1 order = 2 limit = 4 crucial = 10 workforce = 0 allocate = 4 branching = 0 scaling = 0 }
+        class = 1 counter = 1 order = 2 limit = 4 workforce = 0 allocate = 4 branching = 0 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_university id = 2
-        class = 1 counter = 2 order = 9 limit = 3 crucial = 8 workforce = 0 allocate = 1 branching = 1 scaling = 0 }
+        class = 1 counter = 2 order = 9 limit = 3 workforce = 0 allocate = 1 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_construction_sector id = 3
-        class = 2 counter = 3 order = 1 limit = 5 crucial = 5 workforce = 0 allocate = 10 branching = 1 scaling = 0 }
+        class = 2 counter = 3 order = 1 limit = 5 workforce = 0 allocate = 10 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_railway id = 4
-        class = 2 counter = 4 order = 3 limit = 5 crucial = 99 workforce = 0 allocate = 7 branching = 0 scaling = 0 }
+        class = 2 counter = 4 order = 3 limit = 5 workforce = 0 allocate = 7 branching = 0 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_port id = 5
-        class = 2 counter = 5 order = 3 limit = 3 crucial = 99 workforce = 0 allocate = 5 branching = 0 scaling = 0 }
+        class = 2 counter = 5 order = 3 limit = 3 workforce = 0 allocate = 5 branching = 0 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_barracks id = 6
-        class = 3 counter = 6 order = 9 limit = 8 crucial = 8 workforce = 0 allocate = 5 branching = 0 scaling = 1 }
+        class = 3 counter = 6 order = 9 limit = 8 workforce = 0 allocate = 5 branching = 0 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_naval_base id = 7
-        class = 3 counter = 7 order = 9 limit = 5 crucial = 8 workforce = 0 allocate = 5 branching = 0 scaling = 1 }
+        class = 3 counter = 7 order = 9 limit = 5 workforce = 0 allocate = 5 branching = 0 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_logging_camp id = 8
-        class = 4 counter = 8 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 4 counter = 8 order = 5 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_fishing_wharf id = 9
-        class = 4 counter = 9 order = 13 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 4 counter = 9 order = 13 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_whaling_station id = 10
-        class = 4 counter = 10 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
+        class = 4 counter = 10 order = 5 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_rubber_plantation id = 11
-        class = 4 counter = 11 order = 6 limit = 5 crucial = 11 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
+        class = 4 counter = 11 order = 6 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_oil_rig id = 12
-        class = 4 counter = 12 order = 4 limit = 5 crucial = 11 workforce = 0 allocate = 2 branching = 1 scaling = 1 }
+        class = 4 counter = 12 order = 4 limit = 5 workforce = 0 allocate = 2 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_coal_mine id = 13
-        class = 4 counter = 13 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
+        class = 4 counter = 13 order = 5 limit = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_iron_mine id = 14
-        class = 4 counter = 14 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
+        class = 4 counter = 14 order = 5 limit = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_lead_mine id = 15
-        class = 4 counter = 15 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
+        class = 4 counter = 15 order = 6 limit = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_sulfur_mine id = 16
-        class = 4 counter = 16 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 5 branching = 1 scaling = 0 }
+        class = 4 counter = 16 order = 5 limit = 5 workforce = 1 allocate = 5 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_gold_mine id = 17
-        class = 4 counter = 17 order = 11 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 4 counter = 17 order = 11 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_rye_farm id = 18
-        class = 5 counter = 18 order = 10 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 18 order = 10 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_wheat_farm id = 19
-        class = 5 counter = 18 order = 10 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 18 order = 10 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_rice_farm id = 20
-        class = 5 counter = 18 order = 10 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 18 order = 10 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_maize_farm id = 21
-        class = 5 counter = 18 order = 10 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 18 order = 10 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_millet_farm id = 22
-        class = 5 counter = 18 order = 10 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 18 order = 10 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_livestock_ranch id = 23
-        class = 5 counter = 23 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 23 order = 5 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_cotton_plantation id = 24
-        class = 5 counter = 23 order = 5 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 23 order = 5 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_dye_plantation id = 25
-        class = 5 counter = 25 order = 11 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 25 order = 11 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_silk_plantation id = 26
-        class = 5 counter = 26 order = 11 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 26 order = 11 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_banana_plantation id = 27
-        class = 5 counter = 27 order = 13 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 27 order = 13 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_sugar_plantation id = 28
-        class = 5 counter = 28 order = 13 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 28 order = 13 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_tea_plantation id = 29
-        class = 5 counter = 29 order = 15 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 29 order = 15 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_coffee_plantation id = 30
-        class = 5 counter = 30 order = 15 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 30 order = 15 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_tobacco_plantation id = 31
-        class = 5 counter = 31 order = 14 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 31 order = 14 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_opium_plantation id = 32
-        class = 5 counter = 32 order = 11 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        class = 5 counter = 32 order = 11 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_food_industry id = 33
-        class = 6 counter = 33 order = 14 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
+        class = 6 counter = 33 order = 14 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_textile_mills id = 34
-        class = 6 counter = 34 order = 12 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
+        class = 6 counter = 34 order = 12 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_furniture_manufacturies id = 35
-        class = 6 counter = 35 order = 12 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
+        class = 6 counter = 35 order = 12 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_glassworks id = 36
-        class = 6 counter = 36 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
+        class = 6 counter = 36 order = 7 limit = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_tooling_workshops id = 37
-        class = 6 counter = 37 order = 4 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
+        class = 6 counter = 37 order = 4 limit = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_paper_mills id = 38
-        class = 6 counter = 38 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 5 branching = 1 scaling = 0 }
+        class = 6 counter = 38 order = 6 limit = 5 workforce = 1 allocate = 5 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_chemical_plants id = 39
-        class = 6 counter = 39 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
+        class = 6 counter = 39 order = 6 limit = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_synthetics_plants id = 40
-        class = 6 counter = 25 order = 12 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+        class = 6 counter = 25 order = 12 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_steel_mills id = 41
-        class = 6 counter = 41 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
+        class = 6 counter = 41 order = 6 limit = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_motor_industry id = 42
-        class = 6 counter = 42 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+        class = 6 counter = 42 order = 7 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_shipyards id = 43
-        class = 6 counter = 43 order = 8 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+        class = 6 counter = 43 order = 8 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_power_plant id = 44
-        class = 6 counter = 44 order = 4 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
+        class = 6 counter = 44 order = 4 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_electrics_industry id = 45
-        class = 6 counter = 45 order = 8 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+        class = 6 counter = 45 order = 8 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_arms_industry id = 46
-        class = 6 counter = 46 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 5 branching = 1 scaling = 0 }
+        class = 6 counter = 46 order = 7 limit = 5 workforce = 1 allocate = 5 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_munition_plants id = 47
-        class = 6 counter = 47 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 5 branching = 1 scaling = 0 }
+        class = 6 counter = 47 order = 7 limit = 5 workforce = 1 allocate = 5 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_war_machine_industry id = 48
-        class = 6 counter = 48 order = 8 limit = 5 crucial = 5 workforce = 1 allocate = 5 branching = 1 scaling = 0 }
+        class = 6 counter = 48 order = 8 limit = 5 workforce = 1 allocate = 5 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_arts_academy id = 49
-        class = 6 counter = 49 order = 15 limit = 5 crucial = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+        class = 6 counter = 49 order = 15 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_explosives_factory id = 50
-        class = 6 counter = 50 order = 6 limit = 5 crucial = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
+        class = 6 counter = 50 order = 6 limit = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_military_shipyards id = 51
-        class = 6 counter = 51 order = 8 limit = 5 crucial = 5 workforce = 1 allocate = 6 branching = 1 scaling = 1 }
+        class = 6 counter = 51 order = 8 limit = 5 workforce = 1 allocate = 6 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_artillery_foundries id = 52
-        class = 6 counter = 52 order = 7 limit = 5 crucial = 5 workforce = 1 allocate = 5 branching = 1 scaling = 0 }
+        class = 6 counter = 52 order = 7 limit = 5 workforce = 1 allocate = 5 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_vineyard_plantation id = 53
-        class = 5 counter = 53 order = 13 limit = 5 crucial = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
+        class = 5 counter = 53 order = 13 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
         AND = {
             lroai_is_using_compatibility_patches = yes
             lroai_is_true_for_any_building_type_compatibility = { trigger = $trigger$ }
@@ -522,4 +523,3 @@ lroai_is_true_for_any_building_type_197 = { always = no $trigger$ = 0 }
 lroai_is_true_for_any_building_type_198 = { always = no $trigger$ = 0 }
 lroai_is_true_for_any_building_type_199 = { always = no $trigger$ = 0 }
 lroai_is_true_for_any_building_type_200 = { always = no $trigger$ = 0 }
-

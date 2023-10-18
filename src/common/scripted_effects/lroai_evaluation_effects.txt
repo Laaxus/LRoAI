@@ -50,9 +50,7 @@ lroai_check_priority_of_building = {
                             NOT = {
                                 has_variable = lroai_building_type_$id$_collected_data
                             }
-                            lroai_half_of_average_between_level_and_productivity <= $crucial$
                             AND = {
-                                lroai_average_between_level_and_productivity <= $crucial$
                                 lroai_building_type_$id$_collected_data_2 >= 10
                             }
                             lroai_building_type_$id$_collected_data_2 >= 20
@@ -228,26 +226,6 @@ lroai_check_priority_of_building = {
                         41 = { set_local_variable = { name = lroai_saved_productivity_requirement_level
                         value = { value = lroai_median_building_productivity multiply = 14.5 floor = yes } } }
                     }
-
-                    # Divide required productivity by some factor if constructing this building type is crucial
-                    if = {
-                        limit = {
-                            lroai_half_of_average_between_level_and_productivity <= $crucial$
-                        }
-                        change_local_variable = {
-                            name = lroai_saved_productivity_requirement_level
-                            divide = 1.30
-                        }
-                    }
-                    else_if = {
-                        limit = {
-                            lroai_average_between_level_and_productivity <= $crucial$
-                        }
-                        change_local_variable = {
-                            name = lroai_saved_productivity_requirement_level
-                            divide = 1.15
-                        }
-                    }
                     
                     # If both productivity and profitability are high enough compared to required, allow new buildings
                     if = {
@@ -378,7 +356,7 @@ lroai_perform_allocation = {
                         # ...meets basic requirements for this building type to get constructed...
                         lroai_sanction_$key$ = yes
 
-                        # ...and is either suitable, or construction of this building type is crucial...
+                        # ...and is suitable
                         lroai_has_enough_infrastructure = yes
                         lroai_has_enough_workforce = yes
                     }

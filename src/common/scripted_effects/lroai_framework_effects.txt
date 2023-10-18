@@ -858,7 +858,6 @@ lroai_perform_for_building_type = {
                 id = $id$
                 class = $class$
                 counter = $counter$
-                crucial = $crucial$
                 allocate = $allocate$
                 limit = $limit$
             }
