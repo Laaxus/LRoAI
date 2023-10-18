@@ -23,10 +23,8 @@ aroai_filter_and_sort_states_from_allocation_lists = {
                 limit = {
                     NOT = {
                         aroai_requirements_for_construction_in_state = {
-                            id = $id$
                             class = $class$
                             workforce = $workforce$
-                            crucial = $crucial$
                         }
                     }
                 }
@@ -75,7 +73,6 @@ for (var i = 1; i <= 10; i++) {
                 id = $id$
                 class = $class$
                 workforce = $workforce$
-                crucial = $crucial$
                 index_1 = ` + j + `
                 index_2 = ` + (i + j) + `
                 index_3 = ` + ((i * 2) + j) + `

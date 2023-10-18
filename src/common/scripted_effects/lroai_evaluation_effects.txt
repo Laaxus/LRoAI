@@ -27,7 +27,6 @@ lroai_check_priority_of_building = {
         # Perform evaluation using static data set specifically for this building type in its own effect
         lroai_evaluate_$key$ = {
             id = $id$
-            crucial = $crucial$
         }
 
         # Evaluation of government buildings is self-sufficient, while production buildings rely on the following script
@@ -341,6 +340,7 @@ lroai_check_priority_of_building = {
         key = $key$
         counter = $counter$
         limit = $limit$
+        allocate = $allocate$
     }
 }
 
@@ -376,9 +376,7 @@ lroai_perform_allocation = {
                     limit = {
 
                         # ...meets basic requirements for this building type to get constructed...
-                        lroai_sanction_$key$ = {
-                            id = $id$
-                        }
+                        lroai_sanction_$key$ = yes
 
                         # ...and is either suitable, or construction of this building type is crucial...
                         lroai_has_enough_infrastructure = yes

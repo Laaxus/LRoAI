@@ -610,7 +610,6 @@ lroai_check_production_methods_of_building_type = {
 lroai_evaluate_building_government_administration = {
     lroai_evaluate_with_custom_trigger = {
         id = $id$
-        crucial = $crucial$
     }
 }
 
@@ -621,7 +620,6 @@ lroai_evaluate_building_government_administration = {
 lroai_evaluate_building_university = {
     lroai_evaluate_with_custom_trigger = {
         id = $id$
-        crucial = $crucial$
     }
 }
 
@@ -632,7 +630,6 @@ lroai_evaluate_building_university = {
 lroai_evaluate_building_construction_sector = {
     lroai_evaluate_with_custom_trigger = {
         id = $id$
-        crucial = $crucial$
     }
 }
 
@@ -643,7 +640,6 @@ lroai_evaluate_building_construction_sector = {
 lroai_evaluate_building_railway = {
     lroai_evaluate_with_custom_trigger = {
         id = $id$
-        crucial = $crucial$
     }
 }
 
@@ -654,7 +650,6 @@ lroai_evaluate_building_railway = {
 lroai_evaluate_building_port = {
     lroai_evaluate_with_custom_trigger = {
         id = $id$
-        crucial = $crucial$
     }
 }
 
@@ -665,7 +660,6 @@ lroai_evaluate_building_port = {
 lroai_evaluate_building_barracks = {
     lroai_evaluate_with_custom_trigger = {
         id = $id$
-        crucial = $crucial$
     }
 }
 
@@ -676,7 +670,6 @@ lroai_evaluate_building_barracks = {
 lroai_evaluate_building_naval_base = {
     lroai_evaluate_with_custom_trigger = {
         id = $id$
-        crucial = $crucial$
     }
 }
 
@@ -687,7 +680,6 @@ lroai_evaluate_building_naval_base = {
 lroai_evaluate_building_logging_camp = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:wood
         offset = 0
     }
@@ -702,7 +694,6 @@ lroai_evaluate_building_logging_camp = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
             good = mg:hardwood
             offset = 0
         }
@@ -716,7 +707,6 @@ lroai_evaluate_building_logging_camp = {
 lroai_evaluate_building_fishing_wharf = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:fish
         offset = 0
     }
@@ -729,13 +719,11 @@ lroai_evaluate_building_fishing_wharf = {
 lroai_evaluate_building_whaling_station = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:oil
         offset = 0
     }
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:meat
         offset = 6
     }
@@ -748,7 +736,6 @@ lroai_evaluate_building_whaling_station = {
 lroai_evaluate_building_rubber_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:rubber
         offset = 0
     }
@@ -784,7 +771,6 @@ lroai_evaluate_building_oil_rig = {
     else = {
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
             good = mg:oil
             offset = 0
         }
@@ -798,7 +784,6 @@ lroai_evaluate_building_oil_rig = {
 lroai_evaluate_building_coal_mine = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:coal
         offset = 0
     }
@@ -811,7 +796,6 @@ lroai_evaluate_building_coal_mine = {
 lroai_evaluate_building_iron_mine = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:iron
         offset = 0
     }
@@ -824,7 +808,6 @@ lroai_evaluate_building_iron_mine = {
 lroai_evaluate_building_lead_mine = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:lead
         offset = 0
     }
@@ -837,7 +820,6 @@ lroai_evaluate_building_lead_mine = {
 lroai_evaluate_building_sulfur_mine = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:sulfur
         offset = 0
     }
@@ -878,7 +860,6 @@ lroai_evaluate_building_gold_mine = {
 lroai_evaluate_building_rye_farm = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:grain
         offset = 0
     }
@@ -894,7 +875,6 @@ lroai_evaluate_building_rye_farm = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
             good = mg:liquor
             offset = 6
         }
@@ -908,7 +888,6 @@ lroai_evaluate_building_rye_farm = {
 lroai_evaluate_building_wheat_farm = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:grain
         offset = 0
     }
@@ -921,7 +900,6 @@ lroai_evaluate_building_wheat_farm = {
 lroai_evaluate_building_rice_farm = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:grain
         offset = 0
     }
@@ -934,26 +912,8 @@ lroai_evaluate_building_rice_farm = {
 lroai_evaluate_building_maize_farm = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:grain
         offset = 0
-    }
-    if = {
-        limit = {
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_type_$id$_collected_data
-                }
-                lroai_building_type_$id$_collected_data_4 = 2
-                lroai_building_type_$id$_collected_data_4 >= 3
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-            crucial = $crucial$
-            good = mg:wine
-            offset = 6
-        }
     }
 }
 
@@ -964,7 +924,6 @@ lroai_evaluate_building_maize_farm = {
 lroai_evaluate_building_millet_farm = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:grain
         offset = 0
     }
@@ -977,13 +936,11 @@ lroai_evaluate_building_millet_farm = {
 lroai_evaluate_building_livestock_ranch = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:fabric
         offset = 0
     }
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:meat
         offset = 0
     }
@@ -996,7 +953,6 @@ lroai_evaluate_building_livestock_ranch = {
 lroai_evaluate_building_cotton_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:fabric
         offset = 0
     }
@@ -1009,7 +965,6 @@ lroai_evaluate_building_cotton_plantation = {
 lroai_evaluate_building_dye_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:dye
         offset = 0
     }
@@ -1022,7 +977,6 @@ lroai_evaluate_building_dye_plantation = {
 lroai_evaluate_building_silk_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:silk
         offset = 0
     }
@@ -1035,15 +989,8 @@ lroai_evaluate_building_silk_plantation = {
 lroai_evaluate_building_banana_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:fruit
         offset = 0
-    }
-    lroai_evaluate_production_building = {
-        id = $id$
-        crucial = $crucial$
-        good = mg:grain
-        offset = 4
     }
 }
 
@@ -1054,7 +1001,6 @@ lroai_evaluate_building_banana_plantation = {
 lroai_evaluate_building_sugar_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:sugar
         offset = 0
     }
@@ -1067,19 +1013,16 @@ lroai_evaluate_building_sugar_plantation = {
 lroai_evaluate_building_tea_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:tea
         offset = 0
     }
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:coffee
         offset = 4
     }
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:wine
         offset = 4
     }
@@ -1092,19 +1035,16 @@ lroai_evaluate_building_tea_plantation = {
 lroai_evaluate_building_coffee_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:coffee
         offset = 0
     }
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:tea
         offset = 4
     }
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:wine
         offset = 4
     }
@@ -1117,13 +1057,11 @@ lroai_evaluate_building_coffee_plantation = {
 lroai_evaluate_building_tobacco_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:tobacco
         offset = 0
     }
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:liquor
         offset = 4
     }
@@ -1135,7 +1073,6 @@ lroai_evaluate_building_tobacco_plantation = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
             good = mg:opium
             offset = 4
         }
@@ -1149,19 +1086,16 @@ lroai_evaluate_building_tobacco_plantation = {
 lroai_evaluate_building_opium_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:opium
         offset = 0
     }
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:liquor
         offset = 4
     }
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:tobacco
         offset = 4
     }
@@ -1174,7 +1108,6 @@ lroai_evaluate_building_opium_plantation = {
 lroai_evaluate_building_food_industry = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:groceries
         offset = 0
     }
@@ -1190,13 +1123,11 @@ lroai_evaluate_building_food_industry = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
             good = mg:liquor
             offset = 0
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
             good = mg:tobacco
             offset = 4
         }
@@ -1208,7 +1139,6 @@ lroai_evaluate_building_food_industry = {
             }
             lroai_evaluate_production_building = {
                 id = $id$
-                crucial = $crucial$
                 good = mg:opium
                 offset = 4
             }
@@ -1223,7 +1153,6 @@ lroai_evaluate_building_food_industry = {
 lroai_evaluate_building_textile_mills = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:clothes
         offset = 0
     }
@@ -1238,7 +1167,6 @@ lroai_evaluate_building_textile_mills = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
             good = mg:luxury_clothes
             offset = 0
         }
@@ -1252,7 +1180,6 @@ lroai_evaluate_building_textile_mills = {
 lroai_evaluate_building_furniture_manufacturies = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:furniture
         offset = 0
     }
@@ -1267,7 +1194,6 @@ lroai_evaluate_building_furniture_manufacturies = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
             good = mg:luxury_furniture
             offset = 0
         }
@@ -1281,7 +1207,6 @@ lroai_evaluate_building_furniture_manufacturies = {
 lroai_evaluate_building_glassworks = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:glass
         offset = 0
     }
@@ -1296,7 +1221,6 @@ lroai_evaluate_building_glassworks = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
             good = mg:porcelain
             offset = 0
         }
@@ -1310,7 +1234,6 @@ lroai_evaluate_building_glassworks = {
 lroai_evaluate_building_tooling_workshops = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:tools
         offset = 0
     }
@@ -1323,7 +1246,6 @@ lroai_evaluate_building_tooling_workshops = {
 lroai_evaluate_building_paper_mills = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
         good = mg:paper
         offset = 0
     }
@@ -1336,7 +1258,7 @@ lroai_evaluate_building_paper_mills = {
 lroai_evaluate_building_chemical_plants = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
+
         good = mg:fertilizer
         offset = 0
     }
@@ -1351,7 +1273,7 @@ lroai_evaluate_building_chemical_plants = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
+
             good = mg:explosives
             offset = 0
         }
@@ -1365,7 +1287,7 @@ lroai_evaluate_building_chemical_plants = {
 lroai_evaluate_building_synthetics_plants = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
+
         good = mg:dye
         offset = 0
     }
@@ -1380,7 +1302,7 @@ lroai_evaluate_building_synthetics_plants = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
+
             good = mg:silk
             offset = 0
         }
@@ -1394,7 +1316,7 @@ lroai_evaluate_building_synthetics_plants = {
 lroai_evaluate_building_steel_mills = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
+
         good = mg:steel
         offset = 0
     }
@@ -1407,7 +1329,7 @@ lroai_evaluate_building_steel_mills = {
 lroai_evaluate_building_motor_industry = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
+
         good = mg:engines
         offset = 0
     }
@@ -1423,7 +1345,7 @@ lroai_evaluate_building_motor_industry = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
+
             good = mg:automobiles
             offset = 0
         }
@@ -1447,7 +1369,7 @@ lroai_evaluate_building_shipyards = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
+
             good = mg:clippers
             offset = 0
         }
@@ -1464,7 +1386,7 @@ lroai_evaluate_building_shipyards = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
+
             good = mg:steamers
             offset = 0
         }
@@ -1498,7 +1420,7 @@ lroai_evaluate_building_power_plant = {
     else = {
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
+
             good = mg:electricity
             offset = 0
         }
@@ -1512,7 +1434,7 @@ lroai_evaluate_building_power_plant = {
 lroai_evaluate_building_electrics_industry = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
+
         good = mg:telephones
         offset = 0
     }
@@ -1528,7 +1450,7 @@ lroai_evaluate_building_electrics_industry = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
+
             good = mg:radios
             offset = 0
         }
@@ -1549,7 +1471,7 @@ lroai_evaluate_building_arms_industry = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
+
             good = mg:small_arms
             offset = 0
         }
@@ -1570,7 +1492,7 @@ lroai_evaluate_building_munition_plants = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
+
             good = mg:ammunition
             offset = 0
         }
@@ -1591,7 +1513,7 @@ lroai_evaluate_building_war_machine_industry = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
+
             good = mg:aeroplanes
             offset = 0
         }
@@ -1612,7 +1534,7 @@ lroai_evaluate_building_war_machine_industry = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
+
             good = mg:tanks
             offset = 0
         }
@@ -1626,7 +1548,7 @@ lroai_evaluate_building_war_machine_industry = {
 lroai_evaluate_building_arts_academy = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
+
         good = mg:fine_art
         offset = 0
     }
@@ -1864,7 +1786,7 @@ lroai_construct_special_buildings = {
 lroai_evaluate_building_vineyard_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
+
         good = mg:vine
         offset = 0
     }
@@ -1885,7 +1807,7 @@ lroai_evaluate_building_artillery_foundries = {
         }
         lroai_evaluate_production_building = {
             id = $id$
-            crucial = $crucial$
+
             good = mg:artillery
             offset = 0
         }
@@ -1916,7 +1838,7 @@ lroai_evaluate_building_military_shipyards = {
             }
             lroai_evaluate_production_building = {
                 id = $id$
-                crucial = $crucial$
+
                 good = mg:manowars
                 offset = 0
             }
@@ -1941,7 +1863,7 @@ lroai_evaluate_building_military_shipyards = {
             }
             lroai_evaluate_production_building = {
                 id = $id$
-                crucial = $crucial$
+
                 good = mg:ironclads
                 offset = 0
             }
@@ -1956,7 +1878,7 @@ lroai_evaluate_building_military_shipyards = {
 lroai_evaluate_building_explosives_factory = {
     lroai_evaluate_production_building = {
         id = $id$
-        crucial = $crucial$
+
         good = mg:explosives
         offset = 0
     }

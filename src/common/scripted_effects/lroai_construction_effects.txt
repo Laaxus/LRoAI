@@ -218,10 +218,8 @@ lroai_perform_branching_of_allocation_list = {
         variable = lroai_building_type_$id$_allocation_$index_1$
         limit = {
             lroai_requirements_for_construction_in_state = {
-                id = $id$
                 class = $class$
                 workforce = $workforce$
-                crucial = $crucial$
             }
         }
         if = {
