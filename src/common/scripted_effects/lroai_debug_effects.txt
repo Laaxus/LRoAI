@@ -1,6 +1,6 @@
 ﻿lroai_debug_country = {
-    if = { limit = { this = c:SPA}
-        lroai_debug_collected_data = yes
+    if = { limit = { this = c:FRA}
+        debug_log = "HELLO FRA"
     }
 }
 

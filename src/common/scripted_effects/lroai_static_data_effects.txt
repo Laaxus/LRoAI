@@ -683,21 +683,6 @@ lroai_evaluate_building_logging_camp = {
         good = mg:wood
         offset = 0
     }
-    if = {
-        limit = {
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_type_$id$_collected_data
-                }
-                lroai_building_type_$id$_collected_data_4 >= 1
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-            good = mg:hardwood
-            offset = 0
-        }
-    }
 }
 
 # -------------
@@ -746,34 +731,10 @@ lroai_evaluate_building_rubber_plantation = {
 # -------
 
 lroai_evaluate_building_oil_rig = {
-    if = {
-        limit = {
-            any_scope_state = {
-                has_potential_resource = bg_oil_extraction
-            }
-            NOT = {
-                has_variable = lroai_building_type_$id$_collected_data
-            }
-        }
-        set_local_variable = {
-            name = lroai_saved_priority_level
-            value = 2
-        }
-        set_local_variable = {
-            name = lroai_saved_supply_vs_demand_level
-            value = 1
-        }
-        set_local_variable = {
-            name = lroai_saved_productivity_requirement_level
-            value = 1
-        }
-    }
-    else = {
-        lroai_evaluate_production_building = {
-            id = $id$
-            good = mg:oil
-            offset = 0
-        }
+    lroai_evaluate_production_building = {
+        id = $id$
+        good = mg:oil
+        offset = 0
     }
 }
 
@@ -862,22 +823,6 @@ lroai_evaluate_building_rye_farm = {
         good = mg:grain
         offset = 0
     }
-    if = {
-        limit = {
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_type_$id$_collected_data
-                }
-                lroai_building_type_$id$_collected_data_4 = 1
-                lroai_building_type_$id$_collected_data_4 >= 3
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-            good = mg:liquor
-            offset = 6
-        }
-    }
 }
 
 # ----------
@@ -933,11 +878,6 @@ lroai_evaluate_building_millet_farm = {
 # ---------------
 
 lroai_evaluate_building_livestock_ranch = {
-    lroai_evaluate_production_building = {
-        id = $id$
-        good = mg:fabric
-        offset = 0
-    }
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:meat
@@ -1015,16 +955,6 @@ lroai_evaluate_building_tea_plantation = {
         good = mg:tea
         offset = 0
     }
-    lroai_evaluate_production_building = {
-        id = $id$
-        good = mg:coffee
-        offset = 4
-    }
-    lroai_evaluate_production_building = {
-        id = $id$
-        good = mg:wine
-        offset = 4
-    }
 }
 
 # -----------------
@@ -1036,16 +966,6 @@ lroai_evaluate_building_coffee_plantation = {
         id = $id$
         good = mg:coffee
         offset = 0
-    }
-    lroai_evaluate_production_building = {
-        id = $id$
-        good = mg:tea
-        offset = 4
-    }
-    lroai_evaluate_production_building = {
-        id = $id$
-        good = mg:wine
-        offset = 4
     }
 }
 
@@ -1059,23 +979,6 @@ lroai_evaluate_building_tobacco_plantation = {
         good = mg:tobacco
         offset = 0
     }
-    lroai_evaluate_production_building = {
-        id = $id$
-        good = mg:liquor
-        offset = 4
-    }
-    if = {
-        limit = {
-            NOT = {
-                is_banning_goods = g:opium
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-            good = mg:opium
-            offset = 4
-        }
-    }
 }
 
 # ----------------
@@ -1087,16 +990,6 @@ lroai_evaluate_building_opium_plantation = {
         id = $id$
         good = mg:opium
         offset = 0
-    }
-    lroai_evaluate_production_building = {
-        id = $id$
-        good = mg:liquor
-        offset = 4
-    }
-    lroai_evaluate_production_building = {
-        id = $id$
-        good = mg:tobacco
-        offset = 4
     }
 }
 
@@ -1110,39 +1003,6 @@ lroai_evaluate_building_food_industry = {
         good = mg:groceries
         offset = 0
     }
-    if = {
-        limit = {
-            has_technology_researched = distillation
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_type_$id$_collected_data
-                }
-                lroai_building_type_$id$_collected_data_4 >= 1
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-            good = mg:liquor
-            offset = 0
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-            good = mg:tobacco
-            offset = 4
-        }
-        if = {
-            limit = {
-                NOT = {
-                    is_banning_goods = g:opium
-                }
-            }
-            lroai_evaluate_production_building = {
-                id = $id$
-                good = mg:opium
-                offset = 4
-            }
-        }
-    }
 }
 
 # -------------
@@ -1154,21 +1014,6 @@ lroai_evaluate_building_textile_mills = {
         id = $id$
         good = mg:clothes
         offset = 0
-    }
-    if = {
-        limit = {
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_type_$id$_collected_data
-                }
-                lroai_building_type_$id$_collected_data_4 >= 1
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-            good = mg:luxury_clothes
-            offset = 0
-        }
     }
 }
 
@@ -1182,21 +1027,6 @@ lroai_evaluate_building_furniture_manufacturies = {
         good = mg:furniture
         offset = 0
     }
-    if = {
-        limit = {
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_type_$id$_collected_data
-                }
-                lroai_building_type_$id$_collected_data_4 >= 1
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-            good = mg:luxury_furniture
-            offset = 0
-        }
-    }
 }
 
 # ----------
@@ -1208,21 +1038,6 @@ lroai_evaluate_building_glassworks = {
         id = $id$
         good = mg:glass
         offset = 0
-    }
-    if = {
-        limit = {
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_type_$id$_collected_data
-                }
-                lroai_building_type_$id$_collected_data_4 >= 1
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-            good = mg:porcelain
-            offset = 0
-        }
     }
 }
 
@@ -1261,22 +1076,6 @@ lroai_evaluate_building_chemical_plants = {
         good = mg:fertilizer
         offset = 0
     }
-    if = {
-        limit = {
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_type_$id$_collected_data
-                }
-                lroai_building_type_$id$_collected_data_4 >= 1
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-
-            good = mg:explosives
-            offset = 0
-        }
-    }
 }
 
 # ----------------
@@ -1286,25 +1085,8 @@ lroai_evaluate_building_chemical_plants = {
 lroai_evaluate_building_synthetics_plants = {
     lroai_evaluate_production_building = {
         id = $id$
-
         good = mg:dye
         offset = 0
-    }
-    if = {
-        limit = {
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_type_$id$_collected_data
-                }
-                lroai_building_type_$id$_collected_data_4 >= 1
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-
-            good = mg:silk
-            offset = 0
-        }
     }
 }
 
@@ -1315,7 +1097,6 @@ lroai_evaluate_building_synthetics_plants = {
 lroai_evaluate_building_steel_mills = {
     lroai_evaluate_production_building = {
         id = $id$
-
         good = mg:steel
         offset = 0
     }
@@ -1328,26 +1109,8 @@ lroai_evaluate_building_steel_mills = {
 lroai_evaluate_building_motor_industry = {
     lroai_evaluate_production_building = {
         id = $id$
-
         good = mg:engines
         offset = 0
-    }
-    if = {
-        limit = {
-            has_technology_researched = combustion_engine
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_type_$id$_collected_data
-                }
-                lroai_building_type_$id$_collected_data_4 >= 1
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-
-            good = mg:automobiles
-            offset = 0
-        }
     }
 }
 
@@ -1397,32 +1160,11 @@ lroai_evaluate_building_shipyards = {
 # -----------
 
 lroai_evaluate_building_power_plant = {
-    if = {
-        limit = {
-            NOT = {
-                has_variable = lroai_building_type_$id$_collected_data
-            }
-        }
-        set_local_variable = {
-            name = lroai_saved_priority_level
-            value = 2
-        }
-        set_local_variable = {
-            name = lroai_saved_supply_vs_demand_level
-            value = 1
-        }
-        set_local_variable = {
-            name = lroai_saved_productivity_requirement_level
-            value = 1
-        }
-    }
-    else = {
-        lroai_evaluate_production_building = {
-            id = $id$
+    lroai_evaluate_production_building = {
+        id = $id$
 
-            good = mg:electricity
-            offset = 0
-        }
+        good = mg:electricity
+        offset = 0
     }
 }
 
@@ -1433,26 +1175,8 @@ lroai_evaluate_building_power_plant = {
 lroai_evaluate_building_electrics_industry = {
     lroai_evaluate_production_building = {
         id = $id$
-
         good = mg:telephones
         offset = 0
-    }
-    if = {
-        limit = {
-            has_technology_researched = radio
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_type_$id$_collected_data
-                }
-                lroai_building_type_$id$_collected_data_4 >= 1
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-
-            good = mg:radios
-            offset = 0
-        }
     }
 }
 
@@ -1461,19 +1185,10 @@ lroai_evaluate_building_electrics_industry = {
 # -------------
 
 lroai_evaluate_building_arms_industry = {
-    if = {
-        limit = {
-            OR = {
-                lroai_is_using_military_forces = no
-                market.mg:small_arms.lroai_supply_vs_demand_level <= lroai_max_level_when_using_military_forces
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-
-            good = mg:small_arms
-            offset = 0
-        }
+    lroai_evaluate_production_building = {
+        id = $id$
+        good = mg:small_arms
+        offset = 0
     }
 }
 
@@ -1482,19 +1197,10 @@ lroai_evaluate_building_arms_industry = {
 # ---------------
 
 lroai_evaluate_building_munition_plants = {
-    if = {
-        limit = {
-            OR = {
-                lroai_is_using_military_forces = no
-                market.mg:ammunition.lroai_supply_vs_demand_level <= lroai_max_level_when_using_military_forces
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-
-            good = mg:ammunition
-            offset = 0
-        }
+    lroai_evaluate_production_building = {
+        id = $id$
+        good = mg:ammunition
+        offset = 0
     }
 }
 
@@ -1503,41 +1209,12 @@ lroai_evaluate_building_munition_plants = {
 # --------------------
 
 lroai_evaluate_building_war_machine_industry = {
-    if = {
-        limit = {
-            OR = {
-                lroai_is_using_military_forces = no
-                market.mg:aeroplanes.lroai_supply_vs_demand_level <= lroai_max_level_when_using_military_forces
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
+   lroai_evaluate_production_building = {
+       id = $id$
 
-            good = mg:aeroplanes
-            offset = 0
-        }
-    }
-    if = {
-        limit = {
-            has_technology_researched = mobile_armor
-            OR = {
-                NOT = {
-                    has_variable = lroai_building_type_$id$_collected_data
-                }
-                lroai_building_type_$id$_collected_data_4 >= 1
-            }
-            OR = {
-                lroai_is_using_military_forces = no
-                market.mg:tanks.lroai_supply_vs_demand_level <= lroai_max_level_when_using_military_forces
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
-
-            good = mg:tanks
-            offset = 0
-        }
-    }
+       good = mg:aeroplanes
+       offset = 0
+   }
 }
 
 # ------------
@@ -1547,7 +1224,6 @@ lroai_evaluate_building_war_machine_industry = {
 lroai_evaluate_building_arts_academy = {
     lroai_evaluate_production_building = {
         id = $id$
-
         good = mg:fine_art
         offset = 0
     }
@@ -1785,7 +1461,6 @@ lroai_construct_special_buildings = {
 lroai_evaluate_building_vineyard_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
-
         good = mg:vine
         offset = 0
     }
@@ -1797,19 +1472,11 @@ lroai_evaluate_building_vineyard_plantation = {
 # -------------
 
 lroai_evaluate_building_artillery_foundries = {
-    if = {
-        limit = {
-            OR = {
-                lroai_is_using_military_forces = no
-                market.mg:artillery.lroai_supply_vs_demand_level <= lroai_max_level_when_using_military_forces
-            }
-        }
-        lroai_evaluate_production_building = {
-            id = $id$
+    lroai_evaluate_production_building = {
+        id = $id$
 
-            good = mg:artillery
-            offset = 0
-        }
+        good = mg:artillery
+        offset = 0
     }
 }
 
@@ -1859,7 +1526,6 @@ lroai_evaluate_building_military_shipyards = {
 lroai_evaluate_building_explosives_factory = {
     lroai_evaluate_production_building = {
         id = $id$
-
         good = mg:explosives
         offset = 0
     }

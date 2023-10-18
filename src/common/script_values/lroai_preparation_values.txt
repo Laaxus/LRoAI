@@ -707,10 +707,6 @@ lroai_current_priority = {
     value = local_var:lroai_current_priority
 }
 
-lroai_evaluated_priority_level = {
-    value = local_var:lroai_evaluated_priority_level
-}
-
 lroai_current_lroai_building_type_occupied_levels = {
     value = scope:lroai_current_state.var:lroai_building_type_occupied_levels
 }

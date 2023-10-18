@@ -325,96 +325,61 @@ lroai_evaluate_production_building = {
     # Get supply vs demand level of the good
     market = {
         $good$ = {
-            set_local_variable = {
+            set_variable = {
                 name = lroai_evaluated_supply_vs_demand_level
                 value = lroai_supply_vs_demand_level
             }
         }
     }
-    
-    if = {
-        limit = {
 
-            # Level is valid
-            local_var:lroai_evaluated_supply_vs_demand_level > 0
-            local_var:lroai_evaluated_supply_vs_demand_level < 99
-
-            # Despite $id$ being passed, we don't need it yet, but it may be required in future versions of the effect
-            OR = { 
-                always = yes
-                $id$ = 0
-            }
-        }
-
-        # Add weight to priority, note that min weight is 1 and min supply vs demand level is 1, so min priority is 2,
-        # cause priority 1 is actually soft-reserved for (in most cases) critical construction of government buildings.
-        set_local_variable = {
-            name = lroai_evaluated_priority_level
-            value = {
-                value = local_var:lroai_evaluated_supply_vs_demand_level
-            }
-        }
-        
-        if = {
-            limit = {
-                # ...and there's no higher saved priority, e.g. from other goods of the building
-                OR = {
-                    NOT = {
-                        has_local_variable = lroai_saved_priority_level
-                    }
-                    local_var:lroai_saved_priority_level > lroai_evaluated_priority_level
-                }
-            }
-
-            # Save evaluated priority
-            set_local_variable = {
-                name = lroai_saved_priority_level
-                value = local_var:lroai_evaluated_priority_level
-            }
-
-            # Save supply vs demand level
-            set_local_variable = {
-                name = lroai_saved_supply_vs_demand_level
-                value = local_var:lroai_evaluated_supply_vs_demand_level
-            }
-
-            # Save productivity requirement, which is supply vs demand level with productivity offset
-            set_local_variable = {
-                name = lroai_saved_productivity_requirement_level
-                value = {
-                    value = local_var:lroai_evaluated_supply_vs_demand_level
-                    add = $offset$
-                }
-            }
-        }
-        
-        # Garbage collection
-        remove_local_variable = lroai_evaluated_priority_level
-    }
-
-    # Garbage collection
-    remove_local_variable = lroai_evaluated_supply_vs_demand_level
+   set_variable = {
+        name = temp_data
+        value = 0
+   }
 
 
     if = {
         limit = {
-            has_local_variable = lroai_saved_priority_level
-            has_local_variable = lroai_saved_supply_vs_demand_level
-            has_local_variable = lroai_saved_productivity_requirement_level
+            var:lroai_evaluated_supply_vs_demand_level > 0
+            var:lroai_evaluated_supply_vs_demand_level < 99
         }
 
-        set_variable = {
-            name = lroai_building_type_$id$_collected_data
-            value = {
-
-                # Cell 1
-                value = {
-                    value = local_var:lroai_saved_priority_level
+        if = { limit = { $id$ >= 18 has_variable = lroai_building_type_$id$_collected_data}
+            change_variable = {
+                name = temp_data
+                add = {
+                    # Cell 1
+                    value = var:lroai_median_building_profitability
+                    multiply = 100
+                    divide = lroai_building_type_$id$_collected_data_3
+                    subtract = $offset$
+                    min = 2
                     divide = 100
                 }
+            }
+            debug_log = "lroai_median_building_profitability        [THIS.Var('lroai_median_building_profitability').GetValue]"
+            debug_log = "lroai_evaluated_supply_vs_demand_level     [THIS.Var('lroai_evaluated_supply_vs_demand_level').GetValue]"
+            debug_log = "temp_data                                  [THIS.Var('temp_data').GetValue]"
+        }
+        else = {
+            change_variable = {
+                name = temp_data
+                add = {
+                    # Cell 1
+                    value = var:lroai_evaluated_supply_vs_demand_level
+                    subtract = $offset$
+                    min = 2
+                    divide = 100
+                }
+            }
+        }
+
+        change_variable = {
+            name = temp_data
+            add = {
 
                 # Cell 2
-                add = 0
+                value = 0
 
                 # Cell 3
                 add = {
@@ -423,43 +388,34 @@ lroai_evaluate_production_building = {
                 }
             }
         }
-        # Set a new version of collected data variable preserving required data if it already exists
-        if = {
-            limit = {
-                has_variable = lroai_building_type_$id$_collected_data
-            }
-
-            change_variable = {
-                name = lroai_building_type_$id$_collected_data
-
-                # Cell 5
-                add = {
-                     value = lroai_building_type_$id$_collected_data_5
-                     multiply = 10000000
-                 }
-            }
-        }
     }
 
-    # If building evaluation gave us nothing, but building type variable exists, ensure it contains only counter
-    else_if = {
+    # Set a new version of collected data variable preserving required data if it already exists
+    if = {
         limit = {
             has_variable = lroai_building_type_$id$_collected_data
         }
-        set_variable = { name = abcd value = $id}
-        debug_log = "TEST abcd [THIS.Var('abcd').GetValue]"
-        remove_variable = abcd
+
+        change_variable = {
+            name = temp_data
+
+            # Cell 5
+            add = {
+                 value = lroai_building_type_$id$_collected_data_5
+                 multiply = 10000000
+             }
+        }
+    }
+
+    if = {
+        limit = { var:temp_data > 0}
         set_variable = {
             name = lroai_building_type_$id$_collected_data
-            value = {
-                value = lroai_building_type_$id$_collected_data_5
-                multiply = 10000000
-            }
+            value = var:temp_data
         }
     }
 
     # Garbage collection
-    remove_local_variable = lroai_saved_priority_level
-    remove_local_variable = lroai_saved_supply_vs_demand_level
-    remove_local_variable = lroai_saved_productivity_requirement_level
+    remove_variable = temp_data
+    remove_variable = lroai_evaluated_supply_vs_demand_level
 }
