@@ -606,7 +606,7 @@ lroai_calculate_building_construction_sector_expenses_per_point = {
             }
         }
     }
-
+    remove_variable = lroai_temporary_construction_sector_expenses
 }
 
 lroai_clear_weekly_loop_variables = {
