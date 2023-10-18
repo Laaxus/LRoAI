@@ -886,7 +886,6 @@ lroai_perform_for_building_type = {
                         class = $class$
                         counter = $counter$
                         scaling = $scaling$
-                        crucial = $crucial$
                         branching = $branching$
                         allocate = $allocate$
                         workforce = $workforce$

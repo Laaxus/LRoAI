@@ -50,19 +50,16 @@ lroai_has_non_discriminated_homelanders = {
 
 lroai_building_can_be_expanded = {
     can_queue_building_levels = 1
-    OR = {
-        level <= 0
-        AND = {
-            level >= 1
-            occupancy >= lroai_sufficient_occupancy
-            OR = {
-                $shortage$ = 0
-                building_has_goods_shortage = no
-            }
-            OR = {
-                $profitable$ = 0
-                lroai_building_is_profitable = yes
-            }
+    AND = {
+        level >= 1
+        occupancy >= lroai_sufficient_occupancy
+        OR = {
+            $shortage$ = 0
+            building_has_goods_shortage = no
+        }
+        OR = {
+            $profitable$ = 0
+            lroai_building_is_profitable = yes
         }
     }
 }
@@ -77,10 +74,7 @@ lroai_sanction_building = {
         }
         any_scope_building = {
             is_building_type = $key$
-            lroai_building_can_be_expanded = {
-                shortage = $shortage$
-                profitable = $profitable$
-            }
+            can_queue_building_levels = 1
         }
     }
 }
@@ -89,8 +83,6 @@ lroai_sanction_building = {
 lroai_sanction_government = {
     lroai_sanction_building = {
         key = $key$
-        shortage = $shortage$
-        profitable = $profitable$
     }
 }
 
@@ -98,8 +90,6 @@ lroai_sanction_government = {
 lroai_sanction_infrastructure = {
     lroai_sanction_building = {
         key = $key$
-        shortage = $shortage$
-        profitable = $profitable$
     }
 }
 
@@ -122,10 +112,7 @@ lroai_sanction_resource = {
         }
         any_scope_building = {
             is_building_type = $key$
-            lroai_building_can_be_expanded = {
-                shortage = $shortage$
-                profitable = $profitable$
-            }
+            can_queue_building_levels = 1
         }
     }
 }
@@ -160,10 +147,6 @@ lroai_sanction_agriculture = {
         }
     }
     OR = {
-        always = yes
-        has_potential_resource = $resource$
-    }
-    OR = {
         AND = {
             NOT = {
                 lroai_has_building = {
@@ -176,10 +159,7 @@ lroai_sanction_agriculture = {
         }
         any_scope_building = {
             is_building_type = $key$
-            lroai_building_can_be_expanded = {
-                shortage = $shortage$
-                profitable = $profitable$
-            }
+            can_queue_building_levels = 1
         }
     }
 }
@@ -194,10 +174,7 @@ lroai_sanction_industry = {
         }
         any_scope_building = {
             is_building_type = $key$
-            lroai_building_can_be_expanded = {
-                shortage = $shortage$
-                profitable = $profitable$
-            }
+            can_queue_building_levels = 1
         }
     }
 }

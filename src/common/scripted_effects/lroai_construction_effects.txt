@@ -186,7 +186,6 @@ lroai_choose_states_to_start_construction = {
             branching = $branching$
             allocate = $allocate$
             workforce = $workforce$
-            crucial = $crucial$
             limit = $limit$
             scaling = $scaling$
         }
@@ -277,8 +276,6 @@ lroai_perform_branching_of_allocation_list = {
 
 # Takes list of states as input, chooses in which one of them to start construction and queues 1 level of building
 lroai_start_building_construction = {
-
-    if = { limit = { always = no  $crucial$ = 0  }  } # We do not use crucial
 
     # If we got there, then construction is successful (for lroai_choose_building_type_to_construct)
     set_local_variable = {

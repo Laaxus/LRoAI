@@ -38,7 +38,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
         }
@@ -81,7 +81,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
         }
@@ -124,7 +124,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
         }
@@ -167,7 +167,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
         }
@@ -210,7 +210,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
         }
@@ -253,7 +253,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
         }
@@ -296,7 +296,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
         }
@@ -339,7 +339,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
         }
@@ -382,7 +382,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
         }
@@ -425,7 +425,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
         }
@@ -457,7 +457,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -478,7 +478,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -499,7 +499,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -520,7 +520,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             clear_variable_list = lroai_building_type_$id$_branch_1
@@ -563,7 +563,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -584,7 +584,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -605,7 +605,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -626,7 +626,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -647,7 +647,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -668,7 +668,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -689,7 +689,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -710,7 +710,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             clear_variable_list = lroai_building_type_$id$_branch_1
@@ -766,7 +766,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -787,7 +787,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -808,7 +808,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -829,7 +829,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -850,7 +850,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -871,7 +871,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -892,7 +892,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -913,7 +913,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -934,7 +934,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -955,7 +955,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -976,7 +976,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -997,7 +997,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             clear_variable_list = lroai_building_type_$id$_branch_1
@@ -1066,7 +1066,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1087,7 +1087,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1108,7 +1108,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1129,7 +1129,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1150,7 +1150,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1171,7 +1171,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1192,7 +1192,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1213,7 +1213,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1234,7 +1234,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1255,7 +1255,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1276,7 +1276,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1297,7 +1297,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1318,7 +1318,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1339,7 +1339,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1360,7 +1360,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1381,7 +1381,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             clear_variable_list = lroai_building_type_$id$_branch_1
@@ -1463,7 +1463,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1484,7 +1484,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1505,7 +1505,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1526,7 +1526,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1547,7 +1547,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1568,7 +1568,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1589,7 +1589,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1610,7 +1610,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1631,7 +1631,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1652,7 +1652,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1673,7 +1673,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1694,7 +1694,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1715,7 +1715,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1736,7 +1736,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1757,7 +1757,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1778,7 +1778,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1799,7 +1799,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1820,7 +1820,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1841,7 +1841,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1862,7 +1862,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             clear_variable_list = lroai_building_type_$id$_branch_1
@@ -1957,7 +1957,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1978,7 +1978,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -1999,7 +1999,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2020,7 +2020,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2041,7 +2041,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2062,7 +2062,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2083,7 +2083,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2104,7 +2104,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2125,7 +2125,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2146,7 +2146,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2167,7 +2167,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2188,7 +2188,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2209,7 +2209,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2230,7 +2230,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2251,7 +2251,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2272,7 +2272,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2293,7 +2293,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2314,7 +2314,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2335,7 +2335,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2356,7 +2356,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2377,7 +2377,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2398,7 +2398,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2419,7 +2419,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2440,7 +2440,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             clear_variable_list = lroai_building_type_$id$_branch_1
@@ -2548,7 +2548,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2569,7 +2569,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2590,7 +2590,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2611,7 +2611,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2632,7 +2632,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2653,7 +2653,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2674,7 +2674,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2695,7 +2695,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2716,7 +2716,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2737,7 +2737,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2758,7 +2758,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2779,7 +2779,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2800,7 +2800,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2821,7 +2821,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2842,7 +2842,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2863,7 +2863,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2884,7 +2884,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2905,7 +2905,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2926,7 +2926,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2947,7 +2947,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2968,7 +2968,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -2989,7 +2989,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3010,7 +3010,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3031,7 +3031,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3052,7 +3052,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3073,7 +3073,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3094,7 +3094,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3115,7 +3115,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             clear_variable_list = lroai_building_type_$id$_branch_1
@@ -3236,7 +3236,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3257,7 +3257,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3278,7 +3278,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3299,7 +3299,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3320,7 +3320,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3341,7 +3341,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3362,7 +3362,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3383,7 +3383,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3404,7 +3404,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3425,7 +3425,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3446,7 +3446,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3467,7 +3467,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3488,7 +3488,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3509,7 +3509,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3530,7 +3530,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3551,7 +3551,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3572,7 +3572,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3593,7 +3593,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3614,7 +3614,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3635,7 +3635,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3656,7 +3656,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3677,7 +3677,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3698,7 +3698,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3719,7 +3719,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3740,7 +3740,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3761,7 +3761,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3782,7 +3782,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3803,7 +3803,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3824,7 +3824,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3845,7 +3845,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3866,7 +3866,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -3887,7 +3887,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             clear_variable_list = lroai_building_type_$id$_branch_1
@@ -4021,7 +4021,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4042,7 +4042,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4063,7 +4063,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4084,7 +4084,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4105,7 +4105,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4126,7 +4126,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4147,7 +4147,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4168,7 +4168,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4189,7 +4189,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4210,7 +4210,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4231,7 +4231,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4252,7 +4252,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4273,7 +4273,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4294,7 +4294,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4315,7 +4315,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4336,7 +4336,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4357,7 +4357,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4378,7 +4378,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4399,7 +4399,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4420,7 +4420,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4441,7 +4441,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4462,7 +4462,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4483,7 +4483,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4504,7 +4504,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4525,7 +4525,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4546,7 +4546,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4567,7 +4567,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4588,7 +4588,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4609,7 +4609,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4630,7 +4630,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4651,7 +4651,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4672,7 +4672,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4693,7 +4693,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4714,7 +4714,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4735,7 +4735,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4756,7 +4756,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             clear_variable_list = lroai_building_type_$id$_branch_1
@@ -4903,7 +4903,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4924,7 +4924,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4945,7 +4945,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4966,7 +4966,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -4987,7 +4987,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5008,7 +5008,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5029,7 +5029,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5050,7 +5050,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5071,7 +5071,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5092,7 +5092,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5113,7 +5113,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5134,7 +5134,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5155,7 +5155,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5176,7 +5176,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5197,7 +5197,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5218,7 +5218,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5239,7 +5239,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5260,7 +5260,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5281,7 +5281,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5302,7 +5302,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5323,7 +5323,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5344,7 +5344,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5365,7 +5365,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5386,7 +5386,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5407,7 +5407,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5428,7 +5428,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5449,7 +5449,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5470,7 +5470,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5491,7 +5491,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5512,7 +5512,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5533,7 +5533,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5554,7 +5554,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5575,7 +5575,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5596,7 +5596,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5617,7 +5617,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5638,7 +5638,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5659,7 +5659,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5680,7 +5680,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5701,7 +5701,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             if = {
@@ -5722,7 +5722,7 @@ lroai_filter_and_sort_states_from_allocation_lists = {
                     scaling = $scaling$
                     limit = $limit$
                     workforce = $workforce$
-                    crucial = $crucial$
+                    
                 }
             }
             clear_variable_list = lroai_building_type_$id$_branch_1

@@ -847,7 +847,6 @@ lroai_evaluate_building_gold_mine = {
             OR = {
                 always = yes
                 $id$ = 0
-                $crucial$ = 0
             }
         }
     }
