@@ -257,10 +257,17 @@ lroai_evaluate_building_railway = {
         2 = {
             any_scope_state = {
                 OR = {
-                    lroai_infrastructure_balance_percent < 1.02
+                    AND = {
+                        lroai_infrastructure_balance_percent < 1.02
+                        any_scope_building = {
+                            is_building_type = building_railway
+                            occupancy > 0.95
+                        }
+                    }
                     any_scope_building = {
                         is_building_type = building_railway
-                        weekly_profit > 0
+                        earnings > 5
+                        occupancy > 0.95
                     }
                 }
             }
@@ -275,6 +282,20 @@ lroai_sanction_building_railway = {
     lroai_sanction_infrastructure = {
         key = building_railway
     }
+    OR = {
+        AND = {
+            lroai_infrastructure_balance_percent < 1.02
+            any_scope_building = {
+                is_building_type = building_railway
+                occupancy > 0.95
+            }
+        }
+        any_scope_building = {
+            is_building_type = building_railway
+            earnings > 5
+            occupancy > 0.95
+        }
+    }
 }
 
 lroai_allocate_building_railway = {
@@ -282,15 +303,19 @@ lroai_allocate_building_railway = {
         trigger = $aptitude$
         1 = {
             OR = {
-                lroai_infrastructure_balance_percent < 1.02
+                AND = {
+                    lroai_infrastructure_balance_percent < 1.02
+                    any_scope_building = {
+                        is_building_type = building_railway
+                        occupancy > 0.95
+                    }
+                }
                 any_scope_building = {
                     is_building_type = building_railway
-                    weekly_profit > 0
+                    earnings > 5
+                    occupancy > 0.95
                 }
             }
-        }
-        2 = {
-            always = yes
         }
         fallback = {
             always = no
