@@ -252,56 +252,18 @@ lroai_consider_building_railway = {
 }
 
 lroai_evaluate_building_railway = {
-    trigger_if = {
-        limit = {
-            OR = {
-                $priority$ = 1
-                $priority$ = 5
-            }
-        }
-        lroai_consider_building = {
-            id = 4
-            shortage = 1
-        }
-    }
-    trigger_else_if = {
-        limit = {
-            OR = {
-                $priority$ = 9
-                $priority$ = 16
-            }
-        }
-        lroai_consider_building = {
-            id = 4
-            shortage = 1
-        }
-    }
-    trigger_else = {
-        always = no
-    }
     switch = {
         trigger = $priority$
-        1 = {
+        2 = {
             any_scope_state = {
-                lroai_sanction_infrastructure = {
-                    key = building_railway
+                OR = {
+                    lroai_infrastructure_balance_percent < 1.02
+                    any_scope_building = {
+                        is_building_type = building_railway
+                        weekly_profit > 0
+                    }
                 }
-                lroai_infrastructure_balance_percent < lroai_infrastructure_4
             }
-        }
-        5 = {
-            any_scope_state = {
-                lroai_sanction_infrastructure = {
-                    key = building_railway
-                }
-                lroai_infrastructure_balance_percent < lroai_infrastructure_5
-            }
-        }
-        9 = {
-            market.mg:transportation.lroai_supply_vs_demand_level >= 5
-        }
-        16 = {
-            market.mg:transportation.lroai_supply_vs_demand_level >= 9
         }
     }
 }
@@ -316,27 +278,16 @@ lroai_allocate_building_railway = {
     switch = {
         trigger = $aptitude$
         1 = {
-            lroai_infrastructure_balance_percent < lroai_infrastructure_1
+            OR = {
+                lroai_infrastructure_balance_percent < 1.02
+                any_scope_building = {
+                    is_building_type = building_railway
+                    weekly_profit > 0
+                }
+            }
         }
         2 = {
-            lroai_infrastructure_balance_percent < lroai_infrastructure_2
-        }
-        3 = {
-            lroai_infrastructure_balance_percent < lroai_infrastructure_3
-        }
-        4 = {
-            lroai_infrastructure_balance_percent < lroai_infrastructure_4
-        }
-        5 = {
-            lroai_infrastructure_balance_percent < lroai_infrastructure_5
-        }
-        6 = {
-            lroai_infrastructure_balance_percent >= lroai_infrastructure_5
-            lroai_infrastructure_balance_percent < lroai_infrastructure_6
-        }
-        7 = {
-            lroai_infrastructure_balance_percent >= lroai_infrastructure_6
-            lroai_infrastructure_balance_percent < lroai_infrastructure_7
+            always = yes
         }
         fallback = {
             always = no

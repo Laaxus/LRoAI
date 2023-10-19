@@ -457,9 +457,15 @@ lroai_infrastructure_per_level_of_railway = {
     value = 0
     if = {
         limit = {
-            has_active_production_method = pm_diesel_trains
+            has_active_production_method = pm_early_trains
         }
-        add = 40
+        add = 20
+    }
+    else_if = {
+        limit = {
+            has_active_production_method = pm_steam_trains
+        }
+        add = 25
     }
     else_if = {
         limit = {
@@ -467,16 +473,11 @@ lroai_infrastructure_per_level_of_railway = {
         }
         add = 30
     }
-    else = {
-        add = 20
-    }
-    if = {
+    else_if = {
         limit = {
-            NOT = {
-                has_active_production_method = pm_no_passenger_trains
-            }
+            has_active_production_method = pm_diesel_trains
         }
-        subtract = 5
+        add = 40
     }
 }
 
