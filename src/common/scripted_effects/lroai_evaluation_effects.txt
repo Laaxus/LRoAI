@@ -325,9 +325,11 @@ lroai_evaluate_production_building = {
     # Get supply vs demand level of the good
     market = {
         $good$ = {
-            set_variable = {
-                name = lroai_evaluated_supply_vs_demand_level
-                value = lroai_supply_vs_demand_level
+            root = {
+                set_variable = {
+                    name = lroai_evaluated_supply_vs_demand_level
+                    value = prev.lroai_supply_vs_demand_level
+                }
             }
         }
     }
@@ -344,24 +346,23 @@ lroai_evaluate_production_building = {
             var:lroai_evaluated_supply_vs_demand_level < 99
         }
 
-        if = { limit = { $id$ >= 18 has_variable = lroai_building_type_$id$_collected_data}
+        if = { limit = { $id$ >= 18 has_variable = lroai_building_type_$id$_collected_data lroai_building_type_$id$_collected_data_3 > 0}
             change_variable = {
                 name = temp_data
                 add = {
                     # Cell 1
-                    value = var:lroai_median_building_profitability
+                    value = var:lroai_median_building_productivity
                     multiply = 100
                     divide = lroai_building_type_$id$_collected_data_3
                     subtract = $offset$
                     min = 2
+                    max = 99
                     divide = 100
                 }
             }
-            debug_log = "lroai_median_building_profitability        [THIS.Var('lroai_median_building_profitability').GetValue]"
-            debug_log = "lroai_evaluated_supply_vs_demand_level     [THIS.Var('lroai_evaluated_supply_vs_demand_level').GetValue]"
-            debug_log = "temp_data                                  [THIS.Var('temp_data').GetValue]"
         }
         else = {
+
             change_variable = {
                 name = temp_data
                 add = {
@@ -395,7 +396,6 @@ lroai_evaluate_production_building = {
         limit = {
             has_variable = lroai_building_type_$id$_collected_data
         }
-
         change_variable = {
             name = temp_data
 

@@ -681,7 +681,7 @@ lroai_evaluate_building_logging_camp = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:wood
-        offset = 0
+        offset = 8
     }
 }
 
@@ -710,7 +710,7 @@ lroai_evaluate_building_whaling_station = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:meat
-        offset = 6
+        offset = 0
     }
 }
 
@@ -746,7 +746,7 @@ lroai_evaluate_building_coal_mine = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:coal
-        offset = 0
+        offset = 8
     }
 }
 
@@ -758,7 +758,7 @@ lroai_evaluate_building_iron_mine = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:iron
-        offset = 0
+        offset = 8
     }
 }
 
@@ -1001,7 +1001,7 @@ lroai_evaluate_building_food_industry = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:groceries
-        offset = 0
+        offset = 1
     }
 }
 
@@ -1013,7 +1013,7 @@ lroai_evaluate_building_textile_mills = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:clothes
-        offset = 0
+        offset = 3
     }
 }
 
@@ -1025,7 +1025,7 @@ lroai_evaluate_building_furniture_manufacturies = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:furniture
-        offset = 0
+        offset = 3
     }
 }
 
@@ -1037,7 +1037,7 @@ lroai_evaluate_building_glassworks = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:glass
-        offset = 0
+        offset = 3
     }
 }
 
@@ -1049,7 +1049,7 @@ lroai_evaluate_building_tooling_workshops = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:tools
-        offset = 0
+        offset = 4
     }
 }
 
@@ -1061,7 +1061,7 @@ lroai_evaluate_building_paper_mills = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:paper
-        offset = 0
+        offset = 3
     }
 }
 
@@ -1098,7 +1098,7 @@ lroai_evaluate_building_steel_mills = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:steel
-        offset = 0
+        offset = 3
     }
 }
 
