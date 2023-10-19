@@ -7,7 +7,7 @@ lroai_is_true_for_any_building_type = {
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_government_administration id = 1
         class = 1 counter = 1 order = 2 limit = 4 workforce = 0 allocate = 4 branching = 0 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_university id = 2
-        class = 1 counter = 2 order = 9 limit = 3 workforce = 0 allocate = 1 branching = 1 scaling = 0 }
+        class = 1 counter = 2 order = 4 limit = 3 workforce = 0 allocate = 1 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_construction_sector id = 3
         class = 2 counter = 3 order = 1 limit = 5 workforce = 0 allocate = 10 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_railway id = 4

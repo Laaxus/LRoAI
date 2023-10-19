@@ -4,7 +4,7 @@ var buildings = [ '',
 //  [0]                                            [1]   [2]   [3]     [4]   [5]   [6]   [7]     [8]     [9]     [10]
 //  key                                            id    class counter order limit cruc  wforce  alloc   branch  scaling
     ["building_government_administration",         1,    1,    false,  2,    4,    10,   false,  4,      false,  false],
-    ["building_university",                        2,    1,    false,  9,    3,    8,    false,  false,  true,   false],
+    ["building_university",                        2,    1,    false,  4,    3,    8,    false,  false,  true,   false],
     ["building_construction_sector",               3,    2,    false,  1,    5,    dc,   false,  10,     true,   false],
     ["building_railway",                           4,    2,    false,  3,    5,    99,   false,  7,      false,  false],
     ["building_port",                              5,    2,    false,  3,    3,    99,   false,  5,      false,  false],
