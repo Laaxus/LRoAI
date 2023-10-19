@@ -130,7 +130,7 @@ lroai_consider_building_university = {
 lroai_evaluate_building_university = {
     trigger_if = {
         limit = {
-            $priority$ >= 3
+            $priority$ >= 2
             $priority$ <= 10
             OR = {
                 NOT = {
@@ -140,19 +140,13 @@ lroai_evaluate_building_university = {
         }
         switch = {
             trigger = $priority$
-            3 = {
-                lroai_building_university_spending_value < lroai_building_university_spending_target_60
-            }
-            4 = {
-                lroai_building_university_spending_value < lroai_building_university_spending_target_70
-            }
-            5 = {
+            2 = {
                 lroai_building_university_spending_value < lroai_building_university_spending_target_80
             }
-            6 = {
+            3 = {
                 lroai_building_university_spending_value < lroai_building_university_spending_target_90
             }
-            7 = {
+            4 = {
                 lroai_building_university_spending_value < lroai_building_university_spending_target
             }
             fallback = {
