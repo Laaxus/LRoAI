@@ -346,47 +346,7 @@ lroai_power_per_battalion = {
     }
 }
 
-lroai_conscription_power_projection = {
-    if = {
-        limit = {
-            has_variable = lroai_building_conscription_center_total
-            var:lroai_building_conscription_center_total > 0
-        }
-        value = var:lroai_building_conscription_center_total
-        multiply = lroai_power_per_battalion
-        multiply = define:NAI|CONSCRIPTION_ESTIMATED_MILITARY_POWER_MULT
-    }
-    else = {
-        value = 0
-    }
-}
 
-lroai_army_power_projection_with_conscription = {
-    value = lroai_army_power_projection
-    add = lroai_conscription_power_projection
-}
-
-lroai_navy_power_projection = {
-    value = modifier:country_navy_power_projection_add
-    multiply = {
-        value = modifier:country_navy_power_projection_mult
-        add = 1
-    }
-}
-
-lroai_power_per_flotilla = {
-    if = {
-        limit = {
-            navy_size > 0
-            lroai_navy_power_projection > 0
-        }
-        value = lroai_navy_power_projection
-        divide = navy_size
-    }
-    else = {
-        value = 1
-    }
-}
 
 lroai_institution_bureaucracy_cost = {
     value = var:lroai_incorporated_population
