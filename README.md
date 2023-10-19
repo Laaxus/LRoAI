@@ -1,12 +1,13 @@
 ## Announcement
 
-This mod is updated to 1.5.3.
+This mod is updated to 1.5.4.
 
-version 0.3.0 released.
+version 0.4.0 released.
 
-Lot of things changed, but I would still recommend to stick to vanilla ai for now.
+Currently rewriting the building decision process from scratch.
+Released this version as an hotfix for 1.5.4
 
-The ai is now much better at managing its money, I can finally focus on what the ai build and where!
+Once a hotfix is released, I would recommend going back to vanilla ai for now (unless you like it the way it currently is ofcourse).
 
 ## Description
 
