@@ -265,6 +265,9 @@ lroai_evaluate_building_railway = {
                 }
             }
         }
+        fallback = {
+            always = no
+        }
     }
 }
 
