@@ -1,6 +1,7 @@
 ﻿lroai_debug_country = {
-    if = { limit = { this = c:FRA}
-       lroai_debug_collected_data = yes
+    if = { limit = { this = c:SPA}
+       lroai_debug_budgeting_core = yes
+       lroai_debug_construction_values = yes
     }
 }
 
@@ -29,7 +30,8 @@ lroai_debug_construction_values = {
     debug_log = "lroai_previous_cost_per_construction_point                 [THIS.Var('lroai_previous_cost_per_construction_point').GetValue]"
     debug_log = "lroai_temporary_cost_per_construction_point                [THIS.Var('lroai_temporary_cost_per_construction_point').GetValue]"
     debug_log = "lroai_temporary_construction_sector_expenses               [THIS.Var('lroai_temporary_construction_sector_expenses').GetValue]"
-    debug_log = "lroai_usage_of_construction_points_value                   [THIS.ScriptValue('llroai_usage_of_construction_points_value')]"
+    debug_log = "lroai_usage_of_construction_points_value                   [THIS.ScriptValue('lroai_usage_of_construction_points_value')]"
+    debug_log = "lroai_free_construction_points                             [THIS.ScriptValue('lroai_free_construction_points')]"
 }
 
 lroai_debug_construction_army = {
