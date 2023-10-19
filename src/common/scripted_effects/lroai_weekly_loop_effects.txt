@@ -32,6 +32,10 @@ lroai_perform_iteration_of_weekly_loop = {
         lroai_collect_coastlines_of_market_capital_and_overseas_lands = yes
         lroai_manage_tax_and_wage_level = yes
         lroai_start_downsizing = yes
+
+        lroai_perform_for_every_building_type = {
+            effect = 5 # lroai_check_priority_of_building
+        }
     }
 
     lroai_start_construction = yes
