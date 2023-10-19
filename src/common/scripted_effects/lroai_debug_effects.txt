@@ -6,6 +6,7 @@
 }
 
 
+
 lroai_debug_budgeting_core = {
     debug_log = "lroai_construction_points_wanted_for_gov               [THIS.ScriptValue('lroai_construction_points_wanted_for_gov')]"
     debug_log = "lroai_construction_expense_ideal                       [THIS.ScriptValue('lroai_construction_expense_ideal')]"
