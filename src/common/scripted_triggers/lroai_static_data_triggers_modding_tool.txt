@@ -1,5 +1,4 @@
-﻿
-# ------------------------------------------------------------------------------------
+﻿# ------------------------------------------------------------------------------------
 # Triggers below were generated with a modding tool and should not be changed manually
 # ------------------------------------------------------------------------------------
 
@@ -84,13 +83,13 @@ lroai_is_true_for_any_building_type = {
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_chemical_plants id = 39
         class = 6 counter = 39 order = 6 limit = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_synthetics_plants id = 40
-        class = 6 counter = 25 order = 12 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+        class = 6 counter = 25 order = 12 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_steel_mills id = 41
         class = 6 counter = 41 order = 6 limit = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_motor_industry id = 42
         class = 6 counter = 42 order = 7 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_shipyards id = 43
-        class = 6 counter = 43 order = 8 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
+        class = 6 counter = 43 order = 8 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_power_plant id = 44
         class = 6 counter = 44 order = 4 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_electrics_industry id = 45
@@ -104,13 +103,13 @@ lroai_is_true_for_any_building_type = {
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_arts_academy id = 49
         class = 6 counter = 49 order = 15 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_explosives_factory id = 50
-        class = 6 counter = 50 order = 6 limit = 5 workforce = 1 allocate = 10 branching = 1 scaling = 1 }
+        class = 6 counter = 50 order = 6 limit = 5 workforce = 1 allocate = 10 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_military_shipyards id = 51
-        class = 6 counter = 51 order = 8 limit = 5 workforce = 1 allocate = 6 branching = 1 scaling = 1 }
+        class = 6 counter = 51 order = 8 limit = 5 workforce = 1 allocate = 6 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_artillery_foundries id = 52
         class = 6 counter = 52 order = 7 limit = 5 workforce = 1 allocate = 5 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_vineyard_plantation id = 53
-        class = 5 counter = 53 order = 13 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 1 }
+        class = 5 counter = 53 order = 13 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         AND = {
             lroai_is_using_compatibility_patches = yes
             lroai_is_true_for_any_building_type_compatibility = { trigger = $trigger$ }
