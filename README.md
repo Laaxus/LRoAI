@@ -19,7 +19,11 @@ My goal is to completely rewrite it, step by step, to make it better and provide
 
 ## Current performance vs ai
 
-Running an obs game right now.
+![Roadmap](/img/lroai_overview.png)
+
+Vanilla (1.5.3) vs LRoAI 0.4.3 (1.5.4)
+
+
 
 ## Installation
 #### Official release
