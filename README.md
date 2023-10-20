@@ -2,12 +2,12 @@
 
 This mod is updated to 1.5.4.
 
-version 0.4.0 released.
+version 0.4.2 released.
+
+0.4.2 is a WIP version of my dev build, released as an hotfix for 1.5.4
+As far I know, there should be no major bug in this version, but there might be.
 
 Currently rewriting the building decision process from scratch.
-Released this version as an hotfix for 1.5.4
-
-Once a hotfix is released, I would recommend going back to vanilla ai for now (unless you like it the way it currently is ofcourse).
 
 ## Description
 
@@ -17,9 +17,9 @@ The original mod description was : "**ARoAI** is a mod that focuses on making th
 
 My goal is to completely rewrite it, step by step, to make it better and provide clear documentation so that the community can keep it going when I eventually step back.
 
-## Current state of the roadmap
+## Current performance vs ai
 
-![Roadmap](/img/lroai_overview.png)
+Running an obs game right now.
 
 ## Installation
 #### Official release
