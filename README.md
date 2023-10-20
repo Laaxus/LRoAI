@@ -19,7 +19,7 @@ My goal is to completely rewrite it, step by step, to make it better and provide
 
 ## Current performance vs ai
 
-![Roadmap](/img/lroai_overview.png)
+![Roadmap](/img/lroai_comp_0.4.3.png)
 
 Vanilla (1.5.3) vs LRoAI 0.4.3 (1.5.4)
 
