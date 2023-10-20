@@ -1,4 +1,5 @@
-﻿# ------------------------------------------------------------------------------------
+﻿
+# ------------------------------------------------------------------------------------
 # Triggers below were generated with a modding tool and should not be changed manually
 # ------------------------------------------------------------------------------------
 
@@ -48,17 +49,17 @@ lroai_is_true_for_any_building_type = {
         class = 5 counter = 18 order = 10 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_millet_farm id = 22
         class = 5 counter = 18 order = 10 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_livestock_ranch id = 23
+        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_sugar_plantation id = 23
+        class = 5 counter = 23 order = 13 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_livestock_ranch id = 24
+        class = 5 counter = 24 order = 5 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_cotton_plantation id = 25
         class = 5 counter = 23 order = 5 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_cotton_plantation id = 24
-        class = 5 counter = 23 order = 5 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_dye_plantation id = 25
-        class = 5 counter = 25 order = 11 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_silk_plantation id = 26
+        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_dye_plantation id = 26
         class = 5 counter = 26 order = 11 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_banana_plantation id = 27
-        class = 5 counter = 27 order = 13 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
-        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_sugar_plantation id = 28
+        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_silk_plantation id = 27
+        class = 5 counter = 27 order = 11 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
+        lroai_is_true_for_building_type = { trigger = $trigger$ key = building_banana_plantation id = 28
         class = 5 counter = 28 order = 13 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }
         lroai_is_true_for_building_type = { trigger = $trigger$ key = building_tea_plantation id = 29
         class = 5 counter = 29 order = 15 limit = 5 workforce = 1 allocate = 2 branching = 1 scaling = 0 }

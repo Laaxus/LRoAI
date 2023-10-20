@@ -821,7 +821,7 @@ lroai_evaluate_building_rye_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 0
+        offset = 4
     }
 }
 
@@ -833,7 +833,7 @@ lroai_evaluate_building_wheat_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 0
+        offset = 4
     }
 }
 
@@ -845,7 +845,7 @@ lroai_evaluate_building_rice_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 0
+        offset = 4
     }
 }
 
@@ -857,7 +857,7 @@ lroai_evaluate_building_maize_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 0
+        offset = 4
     }
 }
 
@@ -869,7 +869,19 @@ lroai_evaluate_building_millet_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 0
+        offset = 4
+    }
+}
+
+# ----------------
+# Sugar plantation
+# ----------------
+
+lroai_evaluate_building_sugar_plantation = {
+    lroai_evaluate_production_building = {
+        id = $id$
+        good = mg:sugar
+        offset = 6
     }
 }
 
@@ -933,17 +945,7 @@ lroai_evaluate_building_banana_plantation = {
     }
 }
 
-# ----------------
-# Sugar plantation
-# ----------------
 
-lroai_evaluate_building_sugar_plantation = {
-    lroai_evaluate_production_building = {
-        id = $id$
-        good = mg:sugar
-        offset = 0
-    }
-}
 
 # --------------
 # Tea plantation
@@ -1001,7 +1003,7 @@ lroai_evaluate_building_food_industry = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:groceries
-        offset = 1
+        offset = 3
     }
 }
 
