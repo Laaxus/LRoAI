@@ -1,18 +1,7 @@
 ﻿# A huge mess of different stuff combined together for performance reasons mostly in a form of
 # reducing calls of stuff like every_scope_state and every_scope_building to the minimum possible.
 lroai_collect_data_for_construction_and_downsizing = {
-    if = {
-        limit = {
-            lroai_is_downsizing_allowed = yes
-        }
-        set_local_variable = lroai_downsizing_is_allowed
-    }
-    if = {
-        limit = {
-            lroai_is_construction_allowed = yes
-        }
-        set_local_variable = lroai_construction_is_allowed
-    }
+
     
     # Set up variables to calculate incorporated and coastal values
     set_variable = {
@@ -671,15 +660,7 @@ lroai_collect_data_for_construction_and_downsizing = {
     }
     remove_local_variable = lroai_potential_workforce
     
-    # Recheck if we actually should construct new buildings with all the new data.
-    # There's some good reason for this that I can't recall now.
-    if = {
-        limit = {
-            has_local_variable = lroai_construction_is_allowed
-            lroai_free_construction_points <= 0
-        }
-        remove_local_variable = lroai_construction_is_allowed
-    }
+
     
     # Set up variables for median productivity and profitability
     set_variable = {
@@ -690,224 +671,185 @@ lroai_collect_data_for_construction_and_downsizing = {
         name = lroai_median_building_profitability
         value = 0
     }
-    
-    # Calculate median productivity and profitability
-    if = {
 
-        # But only if we have something else allowed other than critical construction and government downsizing
+    # Set variables to track lists of values
+    set_local_variable = {
+        name = lroai_num_productivity_values
+        value = 0
+    }
+    set_local_variable = {
+        name = lroai_num_profitability_values
+        value = 0
+    }
+
+    # Add positive values of production building to lists. Non-positive productivity and profitability are ignored,
+    # as these medians are used only to evaluate if a new building is worthy of being constructed, if it will be on
+    # par and competitive in general economy of a country, so we want to compare it only against other productive
+    # buildings, thus non-positive productivity and profitability values are excluded from median calculations.
+    every_scope_building = {
         limit = {
-            OR = {
-                AND = {
-                    has_local_variable = lroai_construction_is_allowed
-                    lroai_is_regular_construction_allowed = yes
-                }
-                lroai_is_production_downsizing_allowed = yes
+            lroai_occupied_levels > 0
+            is_subsistence_building = no
+            is_government_funded = no
+            NOR = {
+                is_building_group = bg_trade
+                is_building_group = bg_service
+                is_building_group = bg_monuments
+                is_building_group = bg_monuments_hidden
             }
         }
-        
-        # Set variables to track lists of values
-        set_local_variable = {
-            name = lroai_num_productivity_values
-            value = 0
-        }
-        set_local_variable = {
-            name = lroai_num_profitability_values
-            value = 0
-        }
-        
-        # Add positive values of production building to lists. Non-positive productivity and profitability are ignored,
-        # as these medians are used only to evaluate if a new building is worthy of being constructed, if it will be on
-        # par and competitive in general economy of a country, so we want to compare it only against other productive
-        # buildings, thus non-positive productivity and profitability values are excluded from median calculations.
-        every_scope_building = {
-            limit = {
-                lroai_occupied_levels > 0
-                is_subsistence_building = no
-                is_government_funded = no
-                NOR = {
-                    is_building_group = bg_trade
-                    is_building_group = bg_service
-                    is_building_group = bg_monuments
-                    is_building_group = bg_monuments_hidden
-                }
-            }
-            
-            # Productivity
-            if = {
-                limit = {
-                    earnings > 0
-                }
-                root = {
 
-                    # You can't add same value to a list multiple times, so we add id to it that we'll throw away later
-                    set_local_variable = {
-                        name = lroai_formatted_productivity
-                        value = {
-                            value = prev.earnings
-                            multiply = 100
-                            floor = yes
-                            max = 99999
-                            multiply = 10000
-                            add = {
-                                value = local_var:lroai_num_productivity_values
-                                divide = 100
-                            }
-                        }
-                    }
-                    
-                    # Productivity value of a building is added to the list once for every X levels of this buildings,
-                    # as we actually want to get median productivity of building level rather than entire building, but
-                    # it would be a bit too expensive, thus we use some divisor that doesn't affect results too much.
-                    set_local_variable = {
-                        name = lroai_num_times_to_add_value_to_list
-                        value = {
-                            value = prev.lroai_occupied_levels
-                            divide = 4
-                        }
-                    }
-                    while = {
-                        limit = {
-                            local_var:lroai_num_times_to_add_value_to_list > 0
-                        }
-                        add_to_variable_list = {
-                            name = lroai_productivity_values
-                            target = local_var:lroai_formatted_productivity
-                        }
-                        change_local_variable = {
-                            name = lroai_formatted_productivity
-                            add = 0.01
-                        }
-                        change_local_variable = {
-                            name = lroai_num_productivity_values
-                            add = 1
-                        }
-                        change_local_variable = {
-                            name = lroai_num_times_to_add_value_to_list
-                            subtract = 1
-                        }
-                    }
-                    remove_local_variable = lroai_formatted_productivity
-                    remove_local_variable = lroai_num_times_to_add_value_to_list
-                }
-                
-                # Profitability
-                if = {
-                    limit = {
-                        weekly_profit > 0
-                    }
-                    root = {
-
-                        # For profitability we don't need any fancy transformations, just old good get value from
-                        # a scope using a trigger, thus we'll just add a building itself to the list to do it later.
-                        add_to_variable_list = {
-                            name = lroai_profitability_values
-                            target = prev
-                        }
-                        change_local_variable = {
-                            name = lroai_num_profitability_values
-                            add = 1
-                        }
-                    }
-                }
-            }
-        }
-        
-        # Find median productivity
+        # Productivity
         if = {
             limit = {
-                local_var:lroai_num_productivity_values > 0
+                earnings > 0
             }
-            set_local_variable = {
-                name = lroai_num_productivity_values
-                value = {
-                    value = local_var:lroai_num_productivity_values
-                    divide = 2
-                    floor = yes
-                }
-            }
-            ordered_in_list = {
-                variable = lroai_productivity_values
-                order_by = this
-                position = local_var:lroai_num_productivity_values
-                root = {
-                    set_variable = {
-                        name = lroai_median_building_productivity
-                        value = {
-                            value = prev
-                            divide = 10000
-                            floor = yes
+            root = {
+
+                # You can't add same value to a list multiple times, so we add id to it that we'll throw away later
+                set_local_variable = {
+                    name = lroai_formatted_productivity
+                    value = {
+                        value = prev.earnings
+                        multiply = 100
+                        floor = yes
+                        max = 99999
+                        multiply = 10000
+                        add = {
+                            value = local_var:lroai_num_productivity_values
                             divide = 100
                         }
                     }
                 }
-            }
-        }
-        clear_variable_list = lroai_productivity_values
-        remove_local_variable = lroai_num_productivity_values
-        
-        # Find median profitability
-        if = {
-            limit = {
-                local_var:lroai_num_profitability_values > 0
-            }
-            set_local_variable = {
-                name = lroai_num_profitability_values
-                value = {
-                    value = local_var:lroai_num_profitability_values
-                    divide = 2
-                    floor = yes
+
+                # Productivity value of a building is added to the list once for every X levels of this buildings,
+                # as we actually want to get median productivity of building level rather than entire building, but
+                # it would be a bit too expensive, thus we use some divisor that doesn't affect results too much.
+                set_local_variable = {
+                    name = lroai_num_times_to_add_value_to_list
+                    value = {
+                        value = prev.lroai_occupied_levels
+                        divide = 4
+                    }
                 }
+                while = {
+                    limit = {
+                        local_var:lroai_num_times_to_add_value_to_list > 0
+                    }
+                    add_to_variable_list = {
+                        name = lroai_productivity_values
+                        target = local_var:lroai_formatted_productivity
+                    }
+                    change_local_variable = {
+                        name = lroai_formatted_productivity
+                        add = 0.01
+                    }
+                    change_local_variable = {
+                        name = lroai_num_productivity_values
+                        add = 1
+                    }
+                    change_local_variable = {
+                        name = lroai_num_times_to_add_value_to_list
+                        subtract = 1
+                    }
+                }
+                remove_local_variable = lroai_formatted_productivity
+                remove_local_variable = lroai_num_times_to_add_value_to_list
             }
-            ordered_in_list = {
-                variable = lroai_profitability_values
-                order_by = lroai_profit_per_occupied_level
-                position = local_var:lroai_num_profitability_values
+
+            # Profitability
+            if = {
+                limit = {
+                    weekly_profit > 0
+                }
                 root = {
-                    set_variable = {
-                        name = lroai_median_building_profitability
-                        value = prev.lroai_profit_per_occupied_level
+
+                    # For profitability we don't need any fancy transformations, just old good get value from
+                    # a scope using a trigger, thus we'll just add a building itself to the list to do it later.
+                    add_to_variable_list = {
+                        name = lroai_profitability_values
+                        target = prev
+                    }
+                    change_local_variable = {
+                        name = lroai_num_profitability_values
+                        add = 1
                     }
                 }
             }
         }
-        clear_variable_list = lroai_profitability_values
-        remove_local_variable = lroai_num_profitability_values
     }
-    
-    # Collect building data type by type, collected data depends on what actions are allowed for performance reasons
+
+    # Find median productivity
     if = {
         limit = {
-            has_local_variable = lroai_construction_is_allowed
-            lroai_is_production_downsizing_allowed = yes
+            local_var:lroai_num_productivity_values > 0
         }
-        lroai_perform_for_every_building_type = {
-            effect = 1 # lroai_collect_data_for_all_buildings_of_type
+        set_local_variable = {
+            name = lroai_num_productivity_values
+            value = {
+                value = local_var:lroai_num_productivity_values
+                divide = 2
+                floor = yes
+            }
         }
-        set_variable = {
-            name = lroai_iterations_since_production_downsizing
-            value = 0
+        ordered_in_list = {
+            variable = lroai_productivity_values
+            order_by = this
+            position = local_var:lroai_num_productivity_values
+            root = {
+                set_variable = {
+                    name = lroai_median_building_productivity
+                    value = {
+                        value = prev
+                        divide = 10000
+                        floor = yes
+                        divide = 100
+                    }
+                }
+            }
         }
     }
-    else_if = {
+    clear_variable_list = lroai_productivity_values
+    remove_local_variable = lroai_num_productivity_values
+
+    # Find median profitability
+    if = {
         limit = {
-            has_local_variable = lroai_construction_is_allowed
+            local_var:lroai_num_profitability_values > 0
         }
-        lroai_perform_for_every_building_type = {
-            effect = 2 # lroai_collect_data_except_workforce_for_all_buildings_of_type
+        set_local_variable = {
+            name = lroai_num_profitability_values
+            value = {
+                value = local_var:lroai_num_profitability_values
+                divide = 2
+                floor = yes
+            }
+        }
+        ordered_in_list = {
+            variable = lroai_profitability_values
+            order_by = lroai_profit_per_occupied_level
+            position = local_var:lroai_num_profitability_values
+            root = {
+                set_variable = {
+                    name = lroai_median_building_profitability
+                    value = prev.lroai_profit_per_occupied_level
+                }
+            }
         }
     }
-    else_if = {
-        limit = {
-            lroai_is_production_downsizing_allowed = yes
-        }
-        lroai_perform_for_every_building_type = {
-            effect = 3 # lroai_collect_only_workforce_data_for_all_buildings_of_type
-        }
-        set_variable = {
-            name = lroai_iterations_since_production_downsizing
-            value = 0
-        }
+    clear_variable_list = lroai_profitability_values
+    remove_local_variable = lroai_num_profitability_values
+
+    
+
+    lroai_perform_for_every_building_type = {
+        effect = 1 # lroai_collect_data_for_all_buildings_of_type
     }
+    set_variable = {
+        name = lroai_iterations_since_production_downsizing
+        value = 0
+    }
+
     
     # Collect states that meet requirements of being suitable for construction
     every_scope_state = {
@@ -922,8 +864,7 @@ lroai_collect_data_for_construction_and_downsizing = {
             }
         }
     }
-    remove_local_variable = lroai_downsizing_is_allowed
-    remove_local_variable = lroai_construction_is_allowed
+
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -1207,47 +1148,6 @@ lroai_collect_data_except_workforce_for_all_buildings_of_type = {
         }
         remove_local_variable = lroai_num_buildings_of_current_type
         clear_variable_list = lroai_buildings_of_current_type
-    }
-}
-
-# Check if building is excessive or abandoned
-lroai_collect_only_workforce_data_for_all_buildings_of_type = {
-
-    # But only is workforce is true, of course
-    if = {
-        limit = {
-            $workforce$ = 1
-        }
-
-        # Get every building of the type in the country
-        every_scope_building = {
-            limit = {
-                is_building_type = $key$
-            }
-
-            # Remove level 0 buildings that are not under construction as it's just a junk that happens to survive
-            if = {
-                limit = {
-                    level <= 0
-                    is_under_construction = no
-                }
-                state = {
-                    remove_building = $key$
-                }
-            }
-
-            # This data collection makes sense only for active buildings
-            else_if = {
-                limit = {
-                    level > 0
-                }
-
-                # Check if building is not productive but has a lot of workers or if it is nearly empty
-                lroai_check_if_building_is_excessive_or_abandoned = {
-                    id = $id$
-                }
-            }
-        }
     }
 }
 

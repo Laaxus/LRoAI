@@ -839,13 +839,6 @@ lroai_perform_for_building_type = {
                 counter = $counter$
             }
         }
-        3 = {
-            lroai_collect_only_workforce_data_for_all_buildings_of_type = {
-                key = $key$
-                id = $id$
-                workforce = $workforce$
-            }
-        }
         4 = {
             lroai_downsize_production_building = {
                 key = $key$
