@@ -144,9 +144,9 @@ lroai_is_production_downsizing_allowed = {
     NOT = {
         has_law = law_type:law_laissez_faire
     }
-    has_local_variable = lroai_downsizing_is_allowed
+    lroai_is_downsizing_allowed = yes
     OR = {
-        has_local_variable = lroai_construction_is_allowed
+        lroai_is_construction_allowed = yes
         AND = {
             has_variable = lroai_iterations_since_production_downsizing
             var:lroai_iterations_since_production_downsizing >= lroai_max_iterations_since_production_downsizing
