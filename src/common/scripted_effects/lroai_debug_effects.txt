@@ -1,7 +1,6 @@
 ﻿lroai_debug_country = {
-    if = { limit = { this = c:SPA}
-       lroai_debug_budgeting_core = yes
-       lroai_debug_construction_values = yes
+    if = { limit = { this = c:FRA}
+       lroai_debug_collected_data_named = yes
     }
 }
 
@@ -123,6 +122,62 @@ lroai_debug_collected_data = {
     debug_log = "lroai_building_type_51_collected_data [THIS.Var('lroai_building_type_51_collected_data').GetValue]"
     debug_log = "lroai_building_type_52_collected_data [THIS.Var('lroai_building_type_52_collected_data').GetValue]"
     debug_log = "lroai_building_type_53_collected_data [THIS.Var('lroai_building_type_53_collected_data').GetValue]"
+}
+
+lroai_debug_collected_data_named = {
+    debug_log = "government_administration [THIS.Var('lroai_building_type_1_collected_data').GetValue]"
+    debug_log = "university [THIS.Var('lroai_building_type_2_collected_data').GetValue]"
+    debug_log = "construction_sector [THIS.Var('lroai_building_type_3_collected_data').GetValue]"
+    debug_log = "railway [THIS.Var('lroai_building_type_4_collected_data').GetValue]"
+    debug_log = "port [THIS.Var('lroai_building_type_5_collected_data').GetValue]"
+    debug_log = "baracks [THIS.Var('lroai_building_type_6_collected_data').GetValue]"
+    debug_log = "naval_base [THIS.Var('lroai_building_type_7_collected_data').GetValue]"
+    debug_log = "logging_camp [THIS.Var('lroai_building_type_8_collected_data').GetValue]"
+    debug_log = "fishing_wharf [THIS.Var('lroai_building_type_9_collected_data').GetValue]"
+    debug_log = "whaling_station [THIS.Var('lroai_building_type_10_collected_data').GetValue]"
+    debug_log = "rubber_plantation [THIS.Var('lroai_building_type_11_collected_data').GetValue]"
+    debug_log = "oil_rig [THIS.Var('lroai_building_type_12_collected_data').GetValue]"
+    debug_log = "coal_mine [THIS.Var('lroai_building_type_13_collected_data').GetValue]"
+    debug_log = "iron_mine [THIS.Var('lroai_building_type_14_collected_data').GetValue]"
+    debug_log = "lead_mine [THIS.Var('lroai_building_type_15_collected_data').GetValue]"
+    debug_log = "sulfur_mine [THIS.Var('lroai_building_type_16_collected_data').GetValue]"
+    debug_log = "gold_mine [THIS.Var('lroai_building_type_17_collected_data').GetValue]"
+    debug_log = "rye_farm [THIS.Var('lroai_building_type_18_collected_data').GetValue]"
+    debug_log = "wheat_farm [THIS.Var('lroai_building_type_19_collected_data').GetValue]"
+    debug_log = "rice_farm [THIS.Var('lroai_building_type_20_collected_data').GetValue]"
+    debug_log = "maize_farm [THIS.Var('lroai_building_type_21_collected_data').GetValue]"
+    debug_log = "millet_farm [THIS.Var('lroai_building_type_22_collected_data').GetValue]"
+    debug_log = "sugar_plantation [THIS.Var('lroai_building_type_23_collected_data').GetValue]"
+    debug_log = "ranch [THIS.Var('lroai_building_type_24_collected_data').GetValue]"
+    debug_log = "cotton_plantation [THIS.Var('lroai_building_type_25_collected_data').GetValue]"
+    debug_log = "dye_plantation [THIS.Var('lroai_building_type_26_collected_data').GetValue]"
+    debug_log = "silk_plantation [THIS.Var('lroai_building_type_27_collected_data').GetValue]"
+    debug_log = "banana_plantation [THIS.Var('lroai_building_type_28_collected_data').GetValue]"
+    debug_log = "tea_plantation [THIS.Var('lroai_building_type_29_collected_data').GetValue]"
+    debug_log = "coffee_plantation [THIS.Var('lroai_building_type_30_collected_data').GetValue]"
+    debug_log = "tobacco_plantation [THIS.Var('lroai_building_type_31_collected_data').GetValue]"
+    debug_log = "opium_plantation [THIS.Var('lroai_building_type_32_collected_data').GetValue]"
+    debug_log = "food_industry [THIS.Var('lroai_building_type_33_collected_data').GetValue]"
+    debug_log = "textile_mills [THIS.Var('lroai_building_type_34_collected_data').GetValue]"
+    debug_log = "furniture_manufacturies [THIS.Var('lroai_building_type_35_collected_data').GetValue]"
+    debug_log = "glassworks [THIS.Var('lroai_building_type_36_collected_data').GetValue]"
+    debug_log = "tooling_workshops [THIS.Var('lroai_building_type_37_collected_data').GetValue]"
+    debug_log = "paper_mills [THIS.Var('lroai_building_type_38_collected_data').GetValue]"
+    debug_log = "chemical_plants [THIS.Var('lroai_building_type_39_collected_data').GetValue]"
+    debug_log = "synthetics_plants [THIS.Var('lroai_building_type_40_collected_data').GetValue]"
+    debug_log = "steel_mills [THIS.Var('lroai_building_type_41_collected_data').GetValue]"
+    debug_log = "motor_industry [THIS.Var('lroai_building_type_42_collected_data').GetValue]"
+    debug_log = "shipyards [THIS.Var('lroai_building_type_43_collected_data').GetValue]"
+    debug_log = "power_plant [THIS.Var('lroai_building_type_44_collected_data').GetValue]"
+    debug_log = "electrics_industry [THIS.Var('lroai_building_type_45_collected_data').GetValue]"
+    debug_log = "arms_industry [THIS.Var('lroai_building_type_46_collected_data').GetValue]"
+    debug_log = "munition_plants [THIS.Var('lroai_building_type_47_collected_data').GetValue]"
+    debug_log = "war_machine_industry [THIS.Var('lroai_building_type_48_collected_data').GetValue]"
+    debug_log = "arts_academy [THIS.Var('lroai_building_type_49_collected_data').GetValue]"
+    debug_log = "explosives_factory [THIS.Var('lroai_building_type_50_collected_data').GetValue]"
+    debug_log = "military_shipyards [THIS.Var('lroai_building_type_51_collected_data').GetValue]"
+    debug_log = "artillery_foundries [THIS.Var('lroai_building_type_52_collected_data').GetValue]"
+    debug_log = "vineyard_plantation [THIS.Var('lroai_building_type_53_collected_data').GetValue]"
 }
 
 lroai_debug_tag = {
