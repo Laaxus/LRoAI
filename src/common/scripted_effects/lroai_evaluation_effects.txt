@@ -328,9 +328,40 @@ lroai_evaluate_production_building = {
             root = {
                 set_variable = {
                     name = lroai_evaluated_supply_vs_demand_level
-                    value = prev.lroai_supply_vs_demand_level
+                    value = {
+                        value = prev.lroai_supply_vs_demand_level
+                        subtract = $offset$
+                        round = yes
+                        min = $priority_limit$
+                        max = 99
+                    }
                 }
             }
+        }
+    }
+
+    if = { limit = { has_variable = lroai_building_type_$id$_collected_data lroai_building_type_$id$_collected_data_3 > 0}
+        set_variable = {
+            name = lroai_evaluated_productivity_level
+            value = {
+                # Cell 1
+                value = 10
+                add = var:lroai_median_building_productivity
+                subtract = {
+                    value = lroai_building_type_$id$_collected_data_3
+                    divide = 10
+                }
+                subtract = $offset$
+                round = yes
+                min = $priority_limit$
+                max = 99
+            }
+        }
+    }
+    else = {
+        set_variable = {
+            name = lroai_evaluated_productivity_level
+            value = 0
         }
     }
 
@@ -346,59 +377,46 @@ lroai_evaluate_production_building = {
             var:lroai_evaluated_supply_vs_demand_level < 99
         }
 
-        if = { limit = { $id$ >= 24 has_variable = lroai_building_type_$id$_collected_data lroai_building_type_$id$_collected_data_3 > 0}
+        if = { limit = { $id$ >= 24  var:lroai_evaluated_productivity_level> 0}
             change_variable = {
                 name = temp_data
+                # Cell 1
                 add = {
-                    # Cell 1
-                    value = var:lroai_median_building_productivity
-                    multiply = 100
-                    divide = lroai_building_type_$id$_collected_data_3
-                    subtract = $offset$
-                    min = 2
-                    max = 99
+                    value = var:lroai_evaluated_productivity_level
                     divide = 100
                 }
             }
         }
         else = {
-
             change_variable = {
                 name = temp_data
+                # Cell 1
                 add = {
-                    # Cell 1
                     value = var:lroai_evaluated_supply_vs_demand_level
-                    subtract = $offset$
-                    min = 2
                     divide = 100
-                }
-            }
-        }
-
-        change_variable = {
-            name = temp_data
-            add = {
-
-                # Cell 2
-                value = 0
-
-                # Cell 3
-                add = {
-                    value = 0
-                    multiply = 100
                 }
             }
         }
     }
 
-    # Set a new version of collected data variable preserving required data if it already exists
-    if = {
-        limit = {
-            has_variable = lroai_building_type_$id$_collected_data
-        }
+    change_variable = {
+        name = temp_data
+        # Cell 2
+        add = 0
+    }
+
+    if = { limit = { has_variable = lroai_building_type_$id$_collected_data}
         change_variable = {
             name = temp_data
+            # Cell 3
+            add = {
+                value = lroai_building_type_$id$_collected_data_3
+                multiply = 100
+            }
+        }
 
+        change_variable = {
+            name = temp_data
             # Cell 5
             add = {
                  value = lroai_building_type_$id$_collected_data_5
@@ -407,15 +425,13 @@ lroai_evaluate_production_building = {
         }
     }
 
-    if = {
-        limit = { var:temp_data > 0}
-        set_variable = {
-            name = lroai_building_type_$id$_collected_data
-            value = var:temp_data
-        }
+    set_variable = {
+        name = lroai_building_type_$id$_collected_data
+        value = var:temp_data
     }
 
     # Garbage collection
     remove_variable = temp_data
     remove_variable = lroai_evaluated_supply_vs_demand_level
+    remove_variable = lroai_evaluated_productivity_level
 }

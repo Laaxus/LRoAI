@@ -1,4 +1,225 @@
-﻿# Check if a building uses a certain production method and write data into variable
+﻿# -----------------
+# Special buildings
+# -----------------
+
+lroai_construct_special_buildings = {
+    set_variable = lroai_tried_special_buildings
+
+    # Suez Canal
+    if = {
+        limit = {
+            has_technology_researched = colonization
+            owns_treaty_port_in = STATE_SINAI
+            has_variable = suez_survey_complete
+            NOT = {
+                s:STATE_SINAI = {
+                    any_scope_state = {
+                        any_scope_building = {
+                            is_building_type = building_suez_canal
+                        }
+                    }
+                }
+            }
+        }
+        set_local_variable = {
+            name = lroai_started_building_construction
+            value = yes
+            days = lroai_days_to_keep_short_variables
+        }
+        s:STATE_SINAI = {
+            random_scope_state = {
+                limit = {
+                    owner = root
+                }
+                start_building_construction = building_suez_canal
+            }
+        }
+    }
+
+    # Panama Canal
+    if = {
+        limit = {
+            has_technology_researched = civilizing_mission
+            owns_treaty_port_in = STATE_PANAMA
+            has_variable = panama_survey_complete
+            NOT = {
+                s:STATE_PANAMA = {
+                    any_scope_state = {
+                        any_scope_building = {
+                            is_building_type = building_panama_canal
+                        }
+                    }
+                }
+            }
+        }
+        set_local_variable = {
+            name = lroai_started_building_construction
+            value = yes
+            days = lroai_days_to_keep_short_variables
+        }
+        s:STATE_PANAMA = {
+            random_scope_state = {
+                limit = {
+                    owner = root
+                }
+                start_building_construction = building_panama_canal
+            }
+        }
+    }
+
+    # Big Ben
+    if = {
+        limit = {
+            s:STATE_HOME_COUNTIES = {
+                any_scope_state = {
+                    owner = root
+                }
+                NOT = {
+                    any_scope_state = {
+                        any_scope_building = {
+                            is_building_type = building_big_ben
+                        }
+                    }
+                }
+            }
+        }
+        set_local_variable = {
+            name = lroai_started_building_construction
+            value = yes
+            days = lroai_days_to_keep_short_variables
+        }
+        s:STATE_HOME_COUNTIES = {
+            random_scope_state = {
+                limit = {
+                    owner = root
+                }
+                start_building_construction = building_big_ben
+            }
+        }
+    }
+
+    # Eiffel Tower
+    if = {
+        limit = {
+            has_technology_researched = steel_frame_buildings
+            s:STATE_ILE_DE_FRANCE = {
+                any_scope_state = {
+                    owner = root
+                }
+                NOT = {
+                    any_scope_state = {
+                        any_scope_building = {
+                            is_building_type = building_eiffel_tower
+                        }
+                    }
+                }
+            }
+        }
+        set_local_variable = {
+            name = lroai_started_building_construction
+            value = yes
+            days = lroai_days_to_keep_short_variables
+        }
+        s:STATE_ILE_DE_FRANCE = {
+            random_scope_state = {
+                limit = {
+                    owner = root
+                }
+                start_building_construction = building_eiffel_tower
+            }
+        }
+    }
+
+    # Statue of Liberty
+    if = {
+        limit = {
+            has_technology_researched = steel_frame_buildings
+            s:STATE_NEW_YORK = {
+                any_scope_state = {
+                    owner = root
+                }
+                NOT = {
+                    any_scope_state = {
+                        any_scope_building = {
+                            is_building_type = building_statue_of_liberty
+                        }
+                    }
+                }
+            }
+        }
+        set_local_variable = {
+            name = lroai_started_building_construction
+            value = yes
+            days = lroai_days_to_keep_short_variables
+        }
+        s:STATE_NEW_YORK = {
+            random_scope_state = {
+                limit = {
+                    owner = root
+                }
+                start_building_construction = building_statue_of_liberty
+            }
+        }
+    }
+
+    # Mosque of Djenne
+    if = {
+        limit = {
+            s:STATE_EASTERN_MALI = {
+                any_scope_state = {
+                    owner = root
+                }
+                NOT = {
+                    any_scope_state = {
+                        any_scope_building = {
+                            is_building_type = building_mosque_of_djenne
+                        }
+                    }
+                }
+            }
+        }
+        set_local_variable = {
+            name = lroai_started_building_construction
+            value = yes
+            days = lroai_days_to_keep_short_variables
+        }
+        s:STATE_EASTERN_MALI = {
+            random_scope_state = {
+                limit = {
+                    owner = root
+                }
+                start_building_construction = building_mosque_of_djenne
+            }
+        }
+    }
+
+    # Skyscraper
+    random_scope_state = {
+        limit = {
+            has_modifier = skyscraper_site
+            NOT = {
+                any_scope_building = {
+                    is_building_type = building_skyscraper
+                }
+            }
+        }
+        set_local_variable = {
+            name = lroai_started_building_construction
+            value = yes
+            days = lroai_days_to_keep_short_variables
+        }
+        start_building_construction = building_skyscraper
+    }
+
+    if = {
+        limit = {
+            lroai_is_using_compatibility_patches = yes
+        }
+        lroai_construct_special_buildings_compatibility = yes
+    }
+}
+
+# Check if a building uses a certain production method and write data into variable
 lroai_check_production_methods_of_building_type = {
     root = {
         switch = {
@@ -681,7 +902,8 @@ lroai_evaluate_building_logging_camp = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:wood
-        offset = 8
+        offset = 0
+        priority_limit = 2
     }
 }
 
@@ -694,6 +916,7 @@ lroai_evaluate_building_fishing_wharf = {
         id = $id$
         good = mg:fish
         offset = 0
+        priority_limit = 5
     }
 }
 
@@ -706,11 +929,13 @@ lroai_evaluate_building_whaling_station = {
         id = $id$
         good = mg:oil
         offset = 0
+        priority_limit = 6
     }
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:meat
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -723,6 +948,7 @@ lroai_evaluate_building_rubber_plantation = {
         id = $id$
         good = mg:rubber
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -735,6 +961,7 @@ lroai_evaluate_building_oil_rig = {
         id = $id$
         good = mg:oil
         offset = 0
+        priority_limit = 2
     }
 }
 
@@ -746,7 +973,8 @@ lroai_evaluate_building_coal_mine = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:coal
-        offset = 8
+        offset = 0
+        priority_limit = 2
     }
 }
 
@@ -758,7 +986,8 @@ lroai_evaluate_building_iron_mine = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:iron
-        offset = 8
+        offset = 0
+        priority_limit = 2
     }
 }
 
@@ -771,6 +1000,7 @@ lroai_evaluate_building_lead_mine = {
         id = $id$
         good = mg:lead
         offset = 0
+        priority_limit = 4
     }
 }
 
@@ -783,6 +1013,7 @@ lroai_evaluate_building_sulfur_mine = {
         id = $id$
         good = mg:sulfur
         offset = 0
+        priority_limit = 4
     }
 }
 
@@ -791,25 +1022,11 @@ lroai_evaluate_building_sulfur_mine = {
 # ---------
 
 lroai_evaluate_building_gold_mine = {
-    set_local_variable = {
-        name = lroai_saved_priority_level
-        value = 6
-    }
-    set_local_variable = {
-        name = lroai_saved_supply_vs_demand_level
-        value = 5
-    }
-    set_local_variable = {
-        name = lroai_saved_productivity_requirement_level
-        value = 5
-    }
-    if = {
-        limit = {
-            OR = {
-                always = yes
-                $id$ = 0
-            }
-        }
+    lroai_evaluate_production_building = {
+        id = $id$
+        good = mg:gold
+        offset = 4
+        priority_limit = 2
     }
 }
 
@@ -821,7 +1038,8 @@ lroai_evaluate_building_rye_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 4
+        offset = 0
+        priority_limit = 4
     }
 }
 
@@ -833,7 +1051,8 @@ lroai_evaluate_building_wheat_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 4
+        offset = 0
+        priority_limit = 4
     }
 }
 
@@ -845,7 +1064,8 @@ lroai_evaluate_building_rice_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 4
+        offset = 0
+        priority_limit = 4
     }
 }
 
@@ -857,7 +1077,8 @@ lroai_evaluate_building_maize_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 4
+        offset = 0
+        priority_limit = 4
     }
 }
 
@@ -869,7 +1090,8 @@ lroai_evaluate_building_millet_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 4
+        offset = 0
+        priority_limit = 4
     }
 }
 
@@ -881,7 +1103,8 @@ lroai_evaluate_building_sugar_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:sugar
-        offset = 6
+        offset = 0
+        priority_limit = 4
     }
 }
 
@@ -894,6 +1117,7 @@ lroai_evaluate_building_livestock_ranch = {
         id = $id$
         good = mg:meat
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -906,6 +1130,7 @@ lroai_evaluate_building_cotton_plantation = {
         id = $id$
         good = mg:fabric
         offset = 0
+        priority_limit = 4
     }
 }
 
@@ -918,6 +1143,7 @@ lroai_evaluate_building_dye_plantation = {
         id = $id$
         good = mg:dye
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -930,6 +1156,7 @@ lroai_evaluate_building_silk_plantation = {
         id = $id$
         good = mg:silk
         offset = 0
+        priority_limit = 5
     }
 }
 
@@ -942,6 +1169,7 @@ lroai_evaluate_building_banana_plantation = {
         id = $id$
         good = mg:fruit
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -956,6 +1184,7 @@ lroai_evaluate_building_tea_plantation = {
         id = $id$
         good = mg:tea
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -968,6 +1197,7 @@ lroai_evaluate_building_coffee_plantation = {
         id = $id$
         good = mg:coffee
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -980,6 +1210,7 @@ lroai_evaluate_building_tobacco_plantation = {
         id = $id$
         good = mg:tobacco
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -992,6 +1223,7 @@ lroai_evaluate_building_opium_plantation = {
         id = $id$
         good = mg:opium
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -1003,7 +1235,8 @@ lroai_evaluate_building_food_industry = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:groceries
-        offset = 3
+        offset = 0
+        priority_limit = 4
     }
 }
 
@@ -1015,7 +1248,8 @@ lroai_evaluate_building_textile_mills = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:clothes
-        offset = 3
+        offset = 0
+        priority_limit = 4
     }
 }
 
@@ -1027,7 +1261,8 @@ lroai_evaluate_building_furniture_manufacturies = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:furniture
-        offset = 3
+        offset = 0
+        priority_limit = 4
     }
 }
 
@@ -1039,7 +1274,8 @@ lroai_evaluate_building_glassworks = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:glass
-        offset = 3
+        offset = 0
+        priority_limit = 4
     }
 }
 
@@ -1051,7 +1287,8 @@ lroai_evaluate_building_tooling_workshops = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:tools
-        offset = 4
+        offset = 0
+        priority_limit = 3
     }
 }
 
@@ -1063,7 +1300,8 @@ lroai_evaluate_building_paper_mills = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:paper
-        offset = 3
+        offset = 0
+        priority_limit = 4
     }
 }
 
@@ -1074,9 +1312,9 @@ lroai_evaluate_building_paper_mills = {
 lroai_evaluate_building_chemical_plants = {
     lroai_evaluate_production_building = {
         id = $id$
-
         good = mg:fertilizer
         offset = 0
+        priority_limit = 4
     }
 }
 
@@ -1089,6 +1327,7 @@ lroai_evaluate_building_synthetics_plants = {
         id = $id$
         good = mg:dye
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -1100,7 +1339,8 @@ lroai_evaluate_building_steel_mills = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:steel
-        offset = 3
+        offset = 0
+        priority_limit = 3
     }
 }
 
@@ -1113,6 +1353,7 @@ lroai_evaluate_building_motor_industry = {
         id = $id$
         good = mg:engines
         offset = 0
+        priority_limit = 3
     }
 }
 
@@ -1136,6 +1377,7 @@ lroai_evaluate_building_shipyards = {
 
             good = mg:clippers
             offset = 0
+            priority_limit = 6
         }
     }
     if = {
@@ -1153,6 +1395,7 @@ lroai_evaluate_building_shipyards = {
 
             good = mg:steamers
             offset = 0
+            priority_limit = 6
         }
     }
 }
@@ -1167,6 +1410,7 @@ lroai_evaluate_building_power_plant = {
 
         good = mg:electricity
         offset = 0
+        priority_limit = 5
     }
 }
 
@@ -1179,6 +1423,7 @@ lroai_evaluate_building_electrics_industry = {
         id = $id$
         good = mg:telephones
         offset = 0
+        priority_limit = 5
     }
 }
 
@@ -1191,6 +1436,7 @@ lroai_evaluate_building_arms_industry = {
         id = $id$
         good = mg:small_arms
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -1203,6 +1449,7 @@ lroai_evaluate_building_munition_plants = {
         id = $id$
         good = mg:ammunition
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -1216,6 +1463,7 @@ lroai_evaluate_building_war_machine_industry = {
 
        good = mg:aeroplanes
        offset = 0
+       priority_limit = 6
    }
 }
 
@@ -1228,227 +1476,7 @@ lroai_evaluate_building_arts_academy = {
         id = $id$
         good = mg:fine_art
         offset = 0
-    }
-}
-
-# -----------------
-# Special buildings
-# -----------------
-
-lroai_construct_special_buildings = {
-    set_variable = lroai_tried_special_buildings
-
-    # Suez Canal
-    if = {
-        limit = {
-            has_technology_researched = colonization
-            owns_treaty_port_in = STATE_SINAI
-            has_variable = suez_survey_complete
-            NOT = {
-                s:STATE_SINAI = {
-                    any_scope_state = {
-                        any_scope_building = {
-                            is_building_type = building_suez_canal
-                        }
-                    }
-                }
-            }
-        }
-        set_local_variable = {
-            name = lroai_started_building_construction
-            value = yes
-            days = lroai_days_to_keep_short_variables
-        }
-        s:STATE_SINAI = {
-            random_scope_state = {
-                limit = {
-                    owner = root
-                }
-                start_building_construction = building_suez_canal
-            }
-        }
-    }
-    
-    # Panama Canal
-    if = {
-        limit = {
-            has_technology_researched = civilizing_mission
-            owns_treaty_port_in = STATE_PANAMA
-            has_variable = panama_survey_complete
-            NOT = {
-                s:STATE_PANAMA = {
-                    any_scope_state = {
-                        any_scope_building = {
-                            is_building_type = building_panama_canal
-                        }
-                    }
-                }
-            }
-        }
-        set_local_variable = {
-            name = lroai_started_building_construction
-            value = yes
-            days = lroai_days_to_keep_short_variables
-        }
-        s:STATE_PANAMA = {
-            random_scope_state = {
-                limit = {
-                    owner = root
-                }
-                start_building_construction = building_panama_canal
-            }
-        }
-    }
-    
-    # Big Ben
-    if = {
-        limit = {
-            s:STATE_HOME_COUNTIES = {
-                any_scope_state = {
-                    owner = root
-                }
-                NOT = {
-                    any_scope_state = {
-                        any_scope_building = {
-                            is_building_type = building_big_ben
-                        }
-                    }
-                }
-            }
-        }
-        set_local_variable = {
-            name = lroai_started_building_construction
-            value = yes
-            days = lroai_days_to_keep_short_variables
-        }
-        s:STATE_HOME_COUNTIES = {
-            random_scope_state = {
-                limit = {
-                    owner = root
-                }
-                start_building_construction = building_big_ben
-            }
-        }
-    }
-    
-    # Eiffel Tower
-    if = {
-        limit = {
-            has_technology_researched = steel_frame_buildings
-            s:STATE_ILE_DE_FRANCE = {
-                any_scope_state = {
-                    owner = root
-                }
-                NOT = {
-                    any_scope_state = {
-                        any_scope_building = {
-                            is_building_type = building_eiffel_tower
-                        }
-                    }
-                }
-            }
-        }
-        set_local_variable = {
-            name = lroai_started_building_construction
-            value = yes
-            days = lroai_days_to_keep_short_variables
-        }
-        s:STATE_ILE_DE_FRANCE = {
-            random_scope_state = {
-                limit = {
-                    owner = root
-                }
-                start_building_construction = building_eiffel_tower
-            }
-        }
-    }
-    
-    # Statue of Liberty
-    if = {
-        limit = {
-            has_technology_researched = steel_frame_buildings
-            s:STATE_NEW_YORK = {
-                any_scope_state = {
-                    owner = root
-                }
-                NOT = {
-                    any_scope_state = {
-                        any_scope_building = {
-                            is_building_type = building_statue_of_liberty
-                        }
-                    }
-                }
-            }
-        }
-        set_local_variable = {
-            name = lroai_started_building_construction
-            value = yes
-            days = lroai_days_to_keep_short_variables
-        }
-        s:STATE_NEW_YORK = {
-            random_scope_state = {
-                limit = {
-                    owner = root
-                }
-                start_building_construction = building_statue_of_liberty
-            }
-        }
-    }
-    
-    # Mosque of Djenne
-    if = {
-        limit = {
-            s:STATE_EASTERN_MALI = {
-                any_scope_state = {
-                    owner = root
-                }
-                NOT = {
-                    any_scope_state = {
-                        any_scope_building = {
-                            is_building_type = building_mosque_of_djenne
-                        }
-                    }
-                }
-            }
-        }
-        set_local_variable = {
-            name = lroai_started_building_construction
-            value = yes
-            days = lroai_days_to_keep_short_variables
-        }
-        s:STATE_EASTERN_MALI = {
-            random_scope_state = {
-                limit = {
-                    owner = root
-                }
-                start_building_construction = building_mosque_of_djenne
-            }
-        }
-    }
-    
-    # Skyscraper
-    random_scope_state = {
-        limit = {
-            has_modifier = skyscraper_site
-            NOT = {
-                any_scope_building = {
-                    is_building_type = building_skyscraper
-                }
-            }
-        }
-        set_local_variable = {
-            name = lroai_started_building_construction
-            value = yes
-            days = lroai_days_to_keep_short_variables
-        }
-        start_building_construction = building_skyscraper
-    }
-    
-    if = {
-        limit = {
-            lroai_is_using_compatibility_patches = yes
-        }
-        lroai_construct_special_buildings_compatibility = yes
+        priority_limit = 6
     }
 }
 
@@ -1465,6 +1493,7 @@ lroai_evaluate_building_vineyard_plantation = {
         id = $id$
         good = mg:vine
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -1479,6 +1508,7 @@ lroai_evaluate_building_artillery_foundries = {
 
         good = mg:artillery
         offset = 0
+        priority_limit = 6
     }
 }
 
@@ -1501,6 +1531,7 @@ lroai_evaluate_building_military_shipyards = {
              id = $id$
              good = mg:manowars
              offset = 0
+             priority_limit = 6
          }
     }
     if = {
@@ -1517,6 +1548,7 @@ lroai_evaluate_building_military_shipyards = {
             id = $id$
             good = mg:ironclads
             offset = 0
+            priority_limit = 6
         }
     }
 }
@@ -1530,6 +1562,7 @@ lroai_evaluate_building_explosives_factory = {
         id = $id$
         good = mg:explosives
         offset = 0
+        priority_limit = 4
     }
 }
 
