@@ -256,20 +256,24 @@ lroai_evaluate_building_railway = {
         trigger = $priority$
         2 = {
             any_scope_state = {
-                OR = {
-                    AND = {
-                        lroai_infrastructure_balance_percent < 1.00
-                        any_scope_building = {
-                            is_building_type = building_railway
-                            occupancy > 0.95
-                        }
-                    }
+                AND = {
+                    lroai_infrastructure_balance_percent < 1.00
                     any_scope_building = {
                         is_building_type = building_railway
-                        earnings > 5
                         occupancy > 0.95
-                        weekly_profit > 500
+                        is_under_construction = no
                     }
+                }
+            }
+        }
+        6 = {
+            any_scope_state = {
+                any_scope_building = {
+                    is_building_type = building_railway
+                    earnings > 5
+                    occupancy > 0.95
+                    weekly_profit > 500
+                    is_under_construction = no
                 }
             }
         }
@@ -289,6 +293,7 @@ lroai_sanction_building_railway = {
             any_scope_building = {
                 is_building_type = building_railway
                 occupancy > 0.95
+                is_under_construction = no
             }
         }
         any_scope_building = {
@@ -296,6 +301,7 @@ lroai_sanction_building_railway = {
             earnings > 5
             occupancy > 0.95
             weekly_profit > 500
+            is_under_construction = no
         }
     }
 }
@@ -304,19 +310,22 @@ lroai_allocate_building_railway = {
     switch = {
         trigger = $aptitude$
         1 = {
-            OR = {
-                AND = {
-                    lroai_infrastructure_balance_percent < 1.02
-                    any_scope_building = {
-                        is_building_type = building_railway
-                        occupancy > 0.95
-                    }
-                }
+            AND = {
+                lroai_infrastructure_balance_percent < 1.02
                 any_scope_building = {
                     is_building_type = building_railway
-                    earnings > 5
                     occupancy > 0.95
+                    is_under_construction = no
                 }
+            }
+        }
+        2 = {
+            any_scope_building = {
+                is_building_type = building_railway
+                earnings > 5
+                occupancy > 0.95
+                weekly_profit > 500
+                is_under_construction = no
             }
         }
         fallback = {
