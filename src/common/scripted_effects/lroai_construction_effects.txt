@@ -197,11 +197,14 @@ lroai_choose_states_to_start_construction = {
     }
 
     # Set building type priority to 0 so we don't process it anymore in this iteration
-    change_variable = {
-        name = lroai_building_type_$id$_collected_data
-        subtract = {
-            value = lroai_building_type_$id$_collected_data_1
-            divide = 100
+    if = {
+        limit = { $id$ > 1 } #everything but construction sector
+        change_variable = {
+            name = lroai_building_type_$id$_collected_data
+            subtract = {
+                value = lroai_building_type_$id$_collected_data_1
+                divide = 100
+            }
         }
     }
 }
