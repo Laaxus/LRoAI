@@ -3,3 +3,10 @@
     lroai_stalemate_war_prevention_enabled = {}
     lroai_stalemate_war_prevention_disabled = {}
 }
+
+lroai_autobuild_for_players = {
+    default = lroai_autobuild_for_players_allowed
+    lroai_autobuild_for_players_allowed = {}
+    lroai_autobuild_for_players_prohibited = {}
+
+}

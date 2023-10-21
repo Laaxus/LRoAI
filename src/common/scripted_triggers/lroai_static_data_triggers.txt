@@ -258,7 +258,7 @@ lroai_evaluate_building_railway = {
             any_scope_state = {
                 OR = {
                     AND = {
-                        lroai_infrastructure_balance_percent < 1.00
+                        lroai_infrastructure_balance_percent < 1.02
                         any_scope_building = {
                             is_building_type = building_railway
                             occupancy > 0.95
@@ -268,7 +268,6 @@ lroai_evaluate_building_railway = {
                         is_building_type = building_railway
                         earnings > 5
                         occupancy > 0.95
-                        weekly_profit > 500
                     }
                 }
             }
@@ -285,7 +284,7 @@ lroai_sanction_building_railway = {
     }
     OR = {
         AND = {
-            lroai_infrastructure_balance_percent < 1.00
+            lroai_infrastructure_balance_percent < 1.02
             any_scope_building = {
                 is_building_type = building_railway
                 occupancy > 0.95
@@ -295,7 +294,6 @@ lroai_sanction_building_railway = {
             is_building_type = building_railway
             earnings > 5
             occupancy > 0.95
-            weekly_profit > 500
         }
     }
 }

@@ -1,0 +1,237 @@
+﻿namespace = lroai_autobuild_events
+
+# Autobuild settings called by lroai_open_autobuild_settings decision
+lroai_autobuild_events.1 = {
+    type = country_event
+    placement = root
+
+    title = lroai_autobuild_events.1.t
+    desc = lroai_autobuild_events.1.d
+    flavor = lroai_autobuild_events.1.f
+
+    duration = 1
+
+    event_image = {
+        video = "gfx/event_pictures/unspecific_gears_pistons.bk2"
+    }
+
+    on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+    on_opened_soundeffect = ""
+
+    icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+    trigger = {}
+
+    immediate = {
+        lroai_renew_variable = {
+            name = lroai_autobuild_settings
+            days = 30
+        }
+    }
+    
+    option = {
+        name = lroai_autobuild_events.1.1a
+        trigger = {
+            NOT = {
+                has_variable = lroai_autobuild
+            }
+        }
+        set_variable = lroai_autobuild
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    option = {
+        name = lroai_autobuild_events.1.1b
+        trigger = {
+            has_variable = lroai_autobuild
+        }
+        remove_variable = lroai_autobuild
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    
+    option = {
+        name = lroai_autobuild_events.1.2a
+        trigger = {
+            NOT = {
+                has_variable = lroai_autobuild_government_administration
+            }
+        }
+        set_variable = lroai_autobuild_government_administration
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    option = {
+        name = lroai_autobuild_events.1.2b
+        trigger = {
+            has_variable = lroai_autobuild_government_administration
+        }
+        remove_variable = lroai_autobuild_government_administration
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    
+    option = {
+        name = lroai_autobuild_events.1.3a
+        trigger = {
+            NOT = {
+                has_variable = lroai_autobuild_university
+            }
+        }
+        set_variable = lroai_autobuild_university
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    option = {
+        name = lroai_autobuild_events.1.3b
+        trigger = {
+            has_variable = lroai_autobuild_university
+        }
+        remove_variable = lroai_autobuild_university
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    
+    option = {
+        name = lroai_autobuild_events.1.4a
+        trigger = {
+            NOT = {
+                has_variable = lroai_autobuild_construction_sector
+            }
+        }
+        set_variable = lroai_autobuild_construction_sector
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    option = {
+        name = lroai_autobuild_events.1.4b
+        trigger = {
+            has_variable = lroai_autobuild_construction_sector
+        }
+        remove_variable = lroai_autobuild_construction_sector
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    
+    option = {
+        name = lroai_autobuild_events.1.5a
+        trigger = {
+            NOT = {
+                has_variable = lroai_autobuild_railway
+            }
+        }
+        set_variable = lroai_autobuild_railway
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    option = {
+        name = lroai_autobuild_events.1.5b
+        trigger = {
+            has_variable = lroai_autobuild_railway
+        }
+        remove_variable = lroai_autobuild_railway
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    
+    option = {
+        name = lroai_autobuild_events.1.6a
+        trigger = {
+            NOT = {
+                has_variable = lroai_autobuild_port
+            }
+        }
+        set_variable = lroai_autobuild_port
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    option = {
+        name = lroai_autobuild_events.1.6b
+        trigger = {
+            has_variable = lroai_autobuild_port
+        }
+        remove_variable = lroai_autobuild_port
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    
+    option = {
+        name = lroai_autobuild_events.1.7a
+        trigger = {
+            NOT = {
+                has_variable = lroai_autobuild_barracks
+            }
+        }
+        set_variable = lroai_autobuild_barracks
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    option = {
+        name = lroai_autobuild_events.1.7b
+        trigger = {
+            has_variable = lroai_autobuild_barracks
+        }
+        remove_variable = lroai_autobuild_barracks
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    
+    option = {
+        name = lroai_autobuild_events.1.8a
+        trigger = {
+            NOT = {
+                has_variable = lroai_autobuild_naval_base
+            }
+        }
+        set_variable = lroai_autobuild_naval_base
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    option = {
+        name = lroai_autobuild_events.1.8b
+        trigger = {
+            has_variable = lroai_autobuild_naval_base
+        }
+        remove_variable = lroai_autobuild_naval_base
+        trigger_event = {
+            id = lroai_autobuild_events.1
+            popup = yes
+        }
+    }
+    
+    option = {
+        name = lroai_autobuild_events.1.x
+        default_option = yes
+        remove_variable = lroai_autobuild_settings
+    }
+}

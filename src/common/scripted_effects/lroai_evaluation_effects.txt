@@ -346,7 +346,7 @@ lroai_evaluate_production_building = {
             var:lroai_evaluated_supply_vs_demand_level < 99
         }
 
-        if = { limit = { $id$ >= 24 has_variable = lroai_building_type_$id$_collected_data lroai_building_type_$id$_collected_data_3 > 0}
+        if = { limit = { $id$ >= 18 has_variable = lroai_building_type_$id$_collected_data lroai_building_type_$id$_collected_data_3 > 0}
             change_variable = {
                 name = temp_data
                 add = {
