@@ -902,7 +902,7 @@ lroai_evaluate_building_logging_camp = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:wood
-        offset = 0
+        offset = 2
         priority_limit = 2
     }
 }
@@ -973,7 +973,7 @@ lroai_evaluate_building_coal_mine = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:coal
-        offset = 0
+        offset = 2
         priority_limit = 2
     }
 }
@@ -986,7 +986,7 @@ lroai_evaluate_building_iron_mine = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:iron
-        offset = 0
+        offset = 2
         priority_limit = 2
     }
 }
@@ -1287,7 +1287,7 @@ lroai_evaluate_building_tooling_workshops = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:tools
-        offset = 0
+        offset = 1
         priority_limit = 3
     }
 }
@@ -1339,7 +1339,7 @@ lroai_evaluate_building_steel_mills = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:steel
-        offset = 0
+        offset = 1
         priority_limit = 3
     }
 }
