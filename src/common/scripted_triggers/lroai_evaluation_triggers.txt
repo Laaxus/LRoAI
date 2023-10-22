@@ -175,6 +175,7 @@ lroai_sanction_industry = {
         any_scope_building = {
             is_building_type = $key$
             can_queue_building_levels = 1
+            occupancy > 0.9
         }
     }
 }

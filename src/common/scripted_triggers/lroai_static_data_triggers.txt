@@ -257,11 +257,19 @@ lroai_evaluate_building_railway = {
         2 = {
             any_scope_state = {
                 AND = {
-                    lroai_infrastructure_balance_percent < 1.00
-                    any_scope_building = {
-                        is_building_type = building_railway
-                        occupancy > 0.95
-                        is_under_construction = no
+                    lroai_infrastructure_balance_percent < 1.05
+                    OR = {
+                        NOT = {
+                            any_scope_building = {
+                                is_building_type = building_railway
+                                level > 0
+                            }
+                        }
+                        any_scope_building = {
+                            is_building_type = building_railway
+                            occupancy > 0.95
+                            is_under_construction = no
+                        }
                     }
                 }
             }
@@ -289,11 +297,19 @@ lroai_sanction_building_railway = {
     }
     OR = {
         AND = {
-            lroai_infrastructure_balance_percent < 1.00
-            any_scope_building = {
-                is_building_type = building_railway
-                occupancy > 0.95
-                is_under_construction = no
+            lroai_infrastructure_balance_percent < 1.05
+            OR = {
+                NOT = {
+                    any_scope_building = {
+                        is_building_type = building_railway
+                        level > 0
+                    }
+                }
+                any_scope_building = {
+                    is_building_type = building_railway
+                    occupancy > 0.95
+                    is_under_construction = no
+                }
             }
         }
         any_scope_building = {
@@ -311,11 +327,19 @@ lroai_allocate_building_railway = {
         trigger = $aptitude$
         1 = {
             AND = {
-                lroai_infrastructure_balance_percent < 1.02
-                any_scope_building = {
-                    is_building_type = building_railway
-                    occupancy > 0.95
-                    is_under_construction = no
+                lroai_infrastructure_balance_percent < 1.05
+                OR = {
+                    NOT = {
+                        any_scope_building = {
+                            is_building_type = building_railway
+                            level > 0
+                        }
+                    }
+                    any_scope_building = {
+                        is_building_type = building_railway
+                        occupancy > 0.95
+                        is_under_construction = no
+                    }
                 }
             }
         }
@@ -566,10 +590,7 @@ lroai_sanction_building_logging_camp = {
 }
 
 lroai_allocate_building_logging_camp = {
-    lroai_allocate_resource = {
-        good = g:wood
-        aptitude = $aptitude$
-    }
+    $aptitude$ = 1
 }
 
 # -------------
@@ -710,7 +731,39 @@ lroai_sanction_building_coal_mine = {
 }
 
 lroai_allocate_building_coal_mine = {
-    lroai_allocate_iron_coal = {aptitude = $aptitude$}
+    trigger_if = {
+        limit = {
+            any_scope_state = {
+                OR = {
+                    state_region = {remaining_undepleted = { type = bg_coal_mining amount > 0 }}
+                    NOT = { any_scope_building = { is_building_type = building_coal_mine level >= 1 } }
+                }
+            }
+        }
+        $aptitude$ = 1
+    }
+    trigger_else_if = {
+        limit = { root = {has_variable = lroai_building_type_13_collected_data lroai_building_type_13_collected_data_3 > 0} }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                any_scope_building = {
+                    is_building_type = building_coal_mine
+                    earnings > root.lroai_building_type_13_collected_data_3
+                    occupancy > 95
+                }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else = {
+        $aptitude$ = 1
+    }
 }
 
 # ---------
@@ -736,7 +789,39 @@ lroai_sanction_building_iron_mine = {
 }
 
 lroai_allocate_building_iron_mine = {
-    lroai_allocate_iron = {aptitude = $aptitude$}
+    trigger_if = {
+        limit = {
+            any_scope_state = {
+                OR = {
+                    state_region = {remaining_undepleted = { type = bg_iron_mining amount > 0 }}
+                    NOT = { any_scope_building = { is_building_type = building_iron_mine level >= 1 } }
+                }
+            }
+        }
+        $aptitude$ = 1
+    }
+    trigger_else_if = {
+        limit = { root = {has_variable = lroai_building_type_14_collected_data lroai_building_type_14_collected_data_3 > 0} }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                any_scope_building = {
+                    is_building_type = building_iron_mine
+                    earnings > root.lroai_building_type_14_collected_data_3
+                    occupancy > 95
+                }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else = {
+        $aptitude$ = 1
+    }
 }
 
 # ---------
@@ -762,7 +847,39 @@ lroai_sanction_building_lead_mine = {
 }
 
 lroai_allocate_building_lead_mine = {
-    lroai_allocate_lead = { aptitude = $aptitude$}
+    trigger_if = {
+        limit = {
+            any_scope_state = {
+                OR = {
+                    state_region = {remaining_undepleted = { type = bg_lead_mining amount > 0 }}
+                    NOT = { any_scope_building = { is_building_type = building_lead_mine level >= 1 } }
+                }
+            }
+        }
+        $aptitude$ = 1
+    }
+    trigger_else_if = {
+        limit = { root = {has_variable = lroai_building_type_15_collected_data lroai_building_type_15_collected_data_3 > 0} }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                any_scope_building = {
+                    is_building_type = building_lead_mine
+                    earnings > root.lroai_building_type_15_collected_data_3
+                    occupancy > 95
+                }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else = {
+        $aptitude$ = 1
+    }
 }
 
 # -----------
@@ -788,7 +905,39 @@ lroai_sanction_building_sulfur_mine = {
 }
 
 lroai_allocate_building_sulfur_mine = {
-    lroai_allocate_sulfur = {aptitude = $aptitude$}
+    trigger_if = {
+        limit = {
+            any_scope_state = {
+                OR = {
+                    state_region = {remaining_undepleted = { type = bg_sulfur_mining amount > 0 }}
+                    NOT = { any_scope_building = { is_building_type = building_sulfur_mine level >= 1 } }
+                }
+            }
+        }
+        $aptitude$ = 1
+    }
+    trigger_else_if = {
+        limit = { root = {has_variable = lroai_building_type_16_collected_data lroai_building_type_16_collected_data_3 > 0} }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                any_scope_building = {
+                    is_building_type = building_sulfur_mine
+                    earnings > root.lroai_building_type_16_collected_data_3
+                    occupancy > 95
+                }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else = {
+        $aptitude$ = 1
+    }
 }
 
 # ---------
@@ -1355,7 +1504,49 @@ lroai_sanction_building_glassworks = {
 }
 
 lroai_allocate_building_glassworks = {
-    lroai_allocate_lead = { aptitude = $aptitude$}
+    trigger_if = {
+        limit = {
+            any_scope_state = {
+                has_potential_resource = bg_lead_mining
+                NOT = { any_scope_building = { is_building_type = building_glassworks level >= 1 } }
+            }
+        }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                has_potential_resource = bg_lead_mining
+                NOT = { any_scope_building = { is_building_type = building_glassworks level >= 1 } }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else_if = {
+        limit = { root = {has_variable = lroai_building_type_36_collected_data lroai_building_type_36_collected_data_3 > 0} }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                any_scope_building = {
+                    is_building_type = building_glassworks
+                    earnings > root.lroai_building_type_36_collected_data_3
+                    occupancy > 95
+                }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else = {
+        $aptitude$ = 1
+    }
 }
 
 # -----------------
@@ -1380,7 +1571,55 @@ lroai_sanction_building_tooling_workshops = {
 }
 
 lroai_allocate_building_tooling_workshops = {
-    lroai_allocate_iron_coal = {aptitude = $aptitude$}
+    trigger_if = {
+        limit = {
+            any_scope_state = {
+                OR = {
+                    has_potential_resource = bg_coal_mining
+                    has_potential_resource = bg_iron_mining
+                }
+                NOT = { any_scope_building = { is_building_type = building_tooling_workshops level >= 1 } }
+            }
+        }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                OR = {
+                    has_potential_resource = bg_coal_mining
+                    has_potential_resource = bg_iron_mining
+                }
+                NOT = { any_scope_building = { is_building_type = building_tooling_workshops level >= 1 } }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else_if = {
+        limit = { root = {has_variable = lroai_building_type_37_collected_data lroai_building_type_37_collected_data_3 > 0} }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                any_scope_building = {
+                    is_building_type = building_tooling_workshops
+                    earnings > root.lroai_building_type_37_collected_data_3
+                    occupancy > 95
+                }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else = {
+        $aptitude$ = 1
+    }
 }
 
 # -----------
@@ -1433,7 +1672,55 @@ lroai_sanction_building_chemical_plants = {
 }
 
 lroai_allocate_building_chemical_plants = {
-    lroai_allocate_iron_sulfur = {aptitude = $aptitude$}
+    trigger_if = {
+        limit = {
+            any_scope_state = {
+                OR = {
+                    has_potential_resource = bg_sulfur_mining
+                    has_potential_resource = bg_iron_mining
+                }
+                NOT = { any_scope_building = { is_building_type = building_chemical_plants level >= 1 } }
+            }
+        }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                OR = {
+                    has_potential_resource = bg_sulfur_mining
+                    has_potential_resource = bg_iron_mining
+                }
+                NOT = { any_scope_building = { is_building_type = building_chemical_plants level >= 1 } }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else_if = {
+        limit = { root = {has_variable = lroai_building_type_39_collected_data lroai_building_type_39_collected_data_3 > 0} }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                any_scope_building = {
+                    is_building_type = building_chemical_plants
+                    earnings > root.lroai_building_type_39_collected_data_3
+                    occupancy > 95
+                }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else = {
+        $aptitude$ = 1
+    }
 }
 
 # ----------------
@@ -1489,7 +1776,55 @@ lroai_sanction_building_steel_mills = {
 }
 
 lroai_allocate_building_steel_mills = {
-    lroai_allocate_iron_coal = {aptitude = $aptitude$}
+    trigger_if = {
+        limit = {
+            any_scope_state = {
+                OR = {
+                    has_potential_resource = bg_coal_mining
+                    has_potential_resource = bg_iron_mining
+                }
+                NOT = { any_scope_building = { is_building_type = building_steel_mills level >= 1 } }
+            }
+        }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                OR = {
+                    has_potential_resource = bg_coal_mining
+                    has_potential_resource = bg_iron_mining
+                }
+                NOT = { any_scope_building = { is_building_type = building_steel_mills level >= 1 } }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else_if = {
+        limit = { root = {has_variable = lroai_building_type_41_collected_data lroai_building_type_41_collected_data_3 > 0} }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                any_scope_building = {
+                    is_building_type = building_steel_mills
+                    earnings > root.lroai_building_type_41_collected_data_3
+                    occupancy > 95
+                }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else = {
+        $aptitude$ = 1
+    }
 }
 
 # --------------
@@ -1747,7 +2082,55 @@ lroai_sanction_building_explosives_factory = {
 }
 
 lroai_allocate_building_explosives_factory = {
-    lroai_allocate_sulfur = { aptitude = $aptitude$}
+   trigger_if = {
+        limit = {
+            any_scope_state = {
+                OR = {
+                    has_potential_resource = bg_sulfur_mining
+                    has_potential_resource = bg_iron_mining
+                }
+                NOT = { any_scope_building = { is_building_type = building_explosives_factory level >= 1 } }
+            }
+        }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                OR = {
+                    has_potential_resource = bg_sulfur_mining
+                    has_potential_resource = bg_iron_mining
+                }
+                NOT = { any_scope_building = { is_building_type = building_explosives_factory level >= 1 } }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else_if = {
+        limit = { root = {has_variable = lroai_building_type_50_collected_data lroai_building_type_50_collected_data_3 > 0} }
+        switch = {
+            trigger = $aptitude$
+            1 = {
+                any_scope_building = {
+                    is_building_type = building_explosives_factory
+                    earnings > root.lroai_building_type_50_collected_data_3
+                    occupancy > 95
+                }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
+    }
+    trigger_else = {
+        $aptitude$ = 1
+    }
 }
 
 # ---------
