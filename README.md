@@ -39,7 +39,7 @@ I'll make it officially available on the steam workshop, paradox mods and parado
 5) Open launcher and add the mod to your playset or create a new playset with it if you don't have one.
 
 It should look like this :
-![files](https://imgur.com/YUlRute)
+![files](/img/arborescence.png)
 
 ## Dev Diaries
 
