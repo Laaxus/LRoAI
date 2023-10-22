@@ -38,6 +38,9 @@ I'll make it officially available on the steam workshop, paradox mods and parado
 4) Place your "Laaxus Revision of AI" folder here.
 5) Open launcher and add the mod to your playset or create a new playset with it if you don't have one.
 
+It should look like this :
+![files](https://imgur.com/YUlRute)
+
 ## Dev Diaries
 
 - Dev Diary 0 : [A New Beginning](https://laaxus.github.io/2023-10-10-the-beginning/)
