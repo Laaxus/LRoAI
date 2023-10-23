@@ -153,7 +153,7 @@ law_tenant_farmers = {
 	} 
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 50
 		
 		if = {
 			limit = { 
@@ -243,7 +243,7 @@ law_commercialized_agriculture = {
 	} 
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 100 #LRoAI
 		
 		if = {
 			limit = { 
@@ -331,7 +331,7 @@ law_homesteading = {
 	} 
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 100 #LRoAI
 		
 		if = {
 			limit = { 

@@ -244,7 +244,7 @@ law_public_schools = {
 	} 
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 100 #LRoAI
 		
 		if = {
 			limit = { 

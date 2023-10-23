@@ -205,7 +205,7 @@ law_presidential_republic = {
 	}
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 50 #LRoAI
 		
 		if = {
 			limit = { 
@@ -281,7 +281,7 @@ law_parliamentary_republic = {
 	}
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 100 #LRoAI
 		
 		if = {
 			limit = { 

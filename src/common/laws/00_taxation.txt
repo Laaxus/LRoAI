@@ -263,7 +263,7 @@ law_per_capita_based_taxation = {
 	} 
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 50 #LRoAI
 		
 		if = {
 			limit = { 
@@ -347,7 +347,7 @@ law_proportional_taxation = {
 	} 
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 100 #LRoAI
 		
 		if = {
 			limit = { 
@@ -430,7 +430,7 @@ law_graduated_taxation = {
 	} 
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 100 #LRoAI
 		
 		if = {
 			limit = { 

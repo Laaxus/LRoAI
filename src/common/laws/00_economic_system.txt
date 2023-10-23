@@ -165,7 +165,7 @@ law_interventionism = {
 	}
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 100 #LRoAI
 		
 		if = {
 			limit = { 
@@ -274,7 +274,7 @@ law_agrarianism = {
 	}
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 100 #LRoAI
 		
 		if = {
 			limit = { 
@@ -500,7 +500,7 @@ law_laissez_faire = {
 	} 
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 100 #LRoAI
 		
 		if = {
 			limit = { 

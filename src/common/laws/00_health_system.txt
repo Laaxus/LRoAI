@@ -137,7 +137,7 @@ law_private_health_insurance = {
 	} 	
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 100 #LRoAI
 		
 		if = {
 			limit = { 
@@ -189,7 +189,7 @@ law_public_health_insurance = {
 	} 
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 200 #LRoAI
 		
 		if = {
 			limit = { 
