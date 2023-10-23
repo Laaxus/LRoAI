@@ -743,7 +743,7 @@ lroai_allocate_building_coal_mine = {
         $aptitude$ = 1
     }
     trigger_else_if = {
-        limit = { root = {has_variable = lroai_building_type_13_collected_data lroai_building_type_13_collected_data_3 > 0} }
+        limit = { root.lroai_building_type_13_collected_data_3 > 0 }
         switch = {
             trigger = $aptitude$
             1 = {
@@ -801,7 +801,7 @@ lroai_allocate_building_iron_mine = {
         $aptitude$ = 1
     }
     trigger_else_if = {
-        limit = { root = {has_variable = lroai_building_type_14_collected_data lroai_building_type_14_collected_data_3 > 0} }
+        limit = { root.lroai_building_type_14_collected_data_3 > 0 }
         switch = {
             trigger = $aptitude$
             1 = {
@@ -859,7 +859,7 @@ lroai_allocate_building_lead_mine = {
         $aptitude$ = 1
     }
     trigger_else_if = {
-        limit = { root = {has_variable = lroai_building_type_15_collected_data lroai_building_type_15_collected_data_3 > 0} }
+        limit = { root.lroai_building_type_15_collected_data_3 > 0 }
         switch = {
             trigger = $aptitude$
             1 = {
@@ -917,7 +917,7 @@ lroai_allocate_building_sulfur_mine = {
         $aptitude$ = 1
     }
     trigger_else_if = {
-        limit = { root = {has_variable = lroai_building_type_16_collected_data lroai_building_type_16_collected_data_3 > 0} }
+        limit = { root.lroai_building_type_16_collected_data_3 > 0 }
         switch = {
             trigger = $aptitude$
             1 = {
@@ -1526,7 +1526,7 @@ lroai_allocate_building_glassworks = {
         }
     }
     trigger_else_if = {
-        limit = { root = {has_variable = lroai_building_type_36_collected_data lroai_building_type_36_collected_data_3 > 0} }
+        limit = { root.lroai_building_type_36_collected_data_3 > 0 }
         switch = {
             trigger = $aptitude$
             1 = {
@@ -1599,7 +1599,7 @@ lroai_allocate_building_tooling_workshops = {
         }
     }
     trigger_else_if = {
-        limit = { root = {has_variable = lroai_building_type_37_collected_data lroai_building_type_37_collected_data_3 > 0} }
+        limit = { root.lroai_building_type_37_collected_data_3 > 0 }
         switch = {
             trigger = $aptitude$
             1 = {
@@ -1700,7 +1700,7 @@ lroai_allocate_building_chemical_plants = {
         }
     }
     trigger_else_if = {
-        limit = { root = {has_variable = lroai_building_type_39_collected_data lroai_building_type_39_collected_data_3 > 0} }
+        limit = { root.lroai_building_type_39_collected_data_3 > 0 }
         switch = {
             trigger = $aptitude$
             1 = {
@@ -1804,7 +1804,7 @@ lroai_allocate_building_steel_mills = {
         }
     }
     trigger_else_if = {
-        limit = { root = {has_variable = lroai_building_type_41_collected_data lroai_building_type_41_collected_data_3 > 0} }
+        limit = { root.lroai_building_type_41_collected_data_3 > 0 }
         switch = {
             trigger = $aptitude$
             1 = {
@@ -2110,7 +2110,7 @@ lroai_allocate_building_explosives_factory = {
         }
     }
     trigger_else_if = {
-        limit = { root = {has_variable = lroai_building_type_50_collected_data lroai_building_type_50_collected_data_3 > 0} }
+        limit = { root.lroai_building_type_50_collected_data_3 > 0 }
         switch = {
             trigger = $aptitude$
             1 = {
