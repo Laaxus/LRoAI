@@ -200,11 +200,7 @@ lroai_investment_pool_net_spending = {
 #
 lroai_investment_pool_wanted_spending = {
     value = investment_pool_gross_income
-    add = {
-        value = investment_pool
-        divide = 20
-        max = 50000
-    }
+    multiply = 1.2
 }
 
 # tag : tag_lroai_construction_expense_ideal
