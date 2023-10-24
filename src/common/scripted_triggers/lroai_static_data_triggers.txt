@@ -182,7 +182,8 @@ lroai_consider_building_construction_sector = {
         id = $id$
         shortage = 1
     }
-   lroai_current_constructions_points_percent_of_max_wanted < 1.2
+   lroai_current_constructions_points_percent_of_max_wanted < 1.1
+   lroai_is_building_construction_sector_allowed = yes
     OR = {
         is_player = no
     }
@@ -193,23 +194,24 @@ lroai_evaluate_building_construction_sector = {
         limit = {
             $priority$ >= 1
             $priority$ <= 8
+
         }
         switch = {
             trigger = $priority$
             1 = {
-                lroai_current_constructions_points_percent_of_max_wanted < 0.8
+                lroai_current_constructions_points_percent_of_max_wanted < 0.7
             }
             2 = {
-                lroai_current_constructions_points_percent_of_max_wanted < 0.9
+                lroai_current_constructions_points_percent_of_max_wanted < 0.8
             }
             3 = {
-                lroai_current_constructions_points_percent_of_max_wanted < 1.0
+                lroai_current_constructions_points_percent_of_max_wanted < 0.9
             }
             4 = {
-                lroai_current_constructions_points_percent_of_max_wanted < 1.1
+                lroai_current_constructions_points_percent_of_max_wanted < 1.0
             }
             5 = {
-                lroai_current_constructions_points_percent_of_max_wanted >= 1.1
+                lroai_current_constructions_points_percent_of_max_wanted >= 1.0
             }
             fallback = {
                 always = no
@@ -262,11 +264,11 @@ lroai_evaluate_building_railway = {
                         NOT = {
                             any_scope_building = {
                                 is_building_type = building_railway
-                                level > 0
                             }
                         }
                         any_scope_building = {
                             is_building_type = building_railway
+                            level > 0
                             occupancy > 0.95
                             is_under_construction = no
                         }
@@ -302,11 +304,11 @@ lroai_sanction_building_railway = {
                 NOT = {
                     any_scope_building = {
                         is_building_type = building_railway
-                        level > 0
                     }
                 }
                 any_scope_building = {
                     is_building_type = building_railway
+                    level > 0
                     occupancy > 0.95
                     is_under_construction = no
                 }
@@ -332,11 +334,11 @@ lroai_allocate_building_railway = {
                     NOT = {
                         any_scope_building = {
                             is_building_type = building_railway
-                            level > 0
                         }
                     }
                     any_scope_building = {
                         is_building_type = building_railway
+                        level > 0
                         occupancy > 0.95
                         is_under_construction = no
                     }
