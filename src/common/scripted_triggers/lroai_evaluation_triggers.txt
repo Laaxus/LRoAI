@@ -339,3 +339,9 @@ lroai_allocate_agriculture = {
         always = no
     }
 }
+
+lroai_is_building_construction_sector_allowed = {
+    market.mg:tools.lroai_supply_vs_demand_level >= 3
+    market.mg:iron.lroai_supply_vs_demand_level >= 3
+    market.mg:wood.lroai_supply_vs_demand_level >= 3
+}
