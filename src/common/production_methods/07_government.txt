@@ -262,7 +262,7 @@ pm_secular_bureaucrats = {
 		}
 	}
 
-	ai_weight = 100
+	ai_value = 10000
 }
 
 pm_religious_bureaucrats = {
@@ -383,7 +383,7 @@ pm_secular_academia = {
 		}
 	}
 
-	ai_weight = 100
+	ai_value = 10000
 }
 
 pm_religious_academia = {

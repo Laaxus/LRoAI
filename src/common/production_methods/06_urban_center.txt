@@ -253,7 +253,7 @@ pm_free_urban_clergy = {
 		}
 	}
 
-	ai_weight = 100
+	ai_value = 10000
 }
 
 pm_no_urban_clergy = {
@@ -273,7 +273,7 @@ pm_no_urban_clergy = {
 		}
 	}
 
-	ai_weight = 200
+	ai_value = 20000
 }
 
 pm_traditional_art = {
