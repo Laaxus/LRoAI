@@ -902,7 +902,7 @@ lroai_evaluate_building_logging_camp = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:wood
-        offset = 2
+        offset = 4
         priority_limit = 2
     }
 }
@@ -973,7 +973,7 @@ lroai_evaluate_building_coal_mine = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:coal
-        offset = 2
+        offset = 4
         priority_limit = 2
     }
 }
@@ -986,7 +986,7 @@ lroai_evaluate_building_iron_mine = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:iron
-        offset = 2
+        offset = 4
         priority_limit = 2
     }
 }
@@ -1236,7 +1236,7 @@ lroai_evaluate_building_food_industry = {
         id = $id$
         good = mg:groceries
         offset = 0
-        priority_limit = 4
+        priority_limit = 6
     }
 }
 
@@ -1249,7 +1249,7 @@ lroai_evaluate_building_textile_mills = {
         id = $id$
         good = mg:clothes
         offset = 0
-        priority_limit = 4
+        priority_limit = 6
     }
 }
 
@@ -1262,7 +1262,7 @@ lroai_evaluate_building_furniture_manufacturies = {
         id = $id$
         good = mg:furniture
         offset = 0
-        priority_limit = 4
+        priority_limit = 6
     }
 }
 
@@ -1275,7 +1275,7 @@ lroai_evaluate_building_glassworks = {
         id = $id$
         good = mg:glass
         offset = 0
-        priority_limit = 4
+        priority_limit = 6
     }
 }
 
@@ -1288,7 +1288,7 @@ lroai_evaluate_building_tooling_workshops = {
         id = $id$
         good = mg:tools
         offset = 1
-        priority_limit = 3
+        priority_limit = 4
     }
 }
 
@@ -1301,7 +1301,7 @@ lroai_evaluate_building_paper_mills = {
         id = $id$
         good = mg:paper
         offset = 0
-        priority_limit = 4
+        priority_limit = 6
     }
 }
 
@@ -1314,7 +1314,7 @@ lroai_evaluate_building_chemical_plants = {
         id = $id$
         good = mg:fertilizer
         offset = 0
-        priority_limit = 4
+        priority_limit = 6
     }
 }
 
@@ -1327,7 +1327,7 @@ lroai_evaluate_building_synthetics_plants = {
         id = $id$
         good = mg:dye
         offset = 0
-        priority_limit = 6
+        priority_limit = 8
     }
 }
 
@@ -1340,7 +1340,7 @@ lroai_evaluate_building_steel_mills = {
         id = $id$
         good = mg:steel
         offset = 1
-        priority_limit = 3
+        priority_limit = 4
     }
 }
 
@@ -1377,7 +1377,7 @@ lroai_evaluate_building_shipyards = {
 
             good = mg:clippers
             offset = 0
-            priority_limit = 6
+            priority_limit = 8
         }
     }
     if = {
@@ -1395,7 +1395,7 @@ lroai_evaluate_building_shipyards = {
 
             good = mg:steamers
             offset = 0
-            priority_limit = 6
+            priority_limit = 8
         }
     }
 }
@@ -1410,7 +1410,7 @@ lroai_evaluate_building_power_plant = {
 
         good = mg:electricity
         offset = 0
-        priority_limit = 5
+        priority_limit = 7
     }
 }
 
@@ -1423,7 +1423,7 @@ lroai_evaluate_building_electrics_industry = {
         id = $id$
         good = mg:telephones
         offset = 0
-        priority_limit = 5
+        priority_limit = 7
     }
 }
 
@@ -1436,7 +1436,7 @@ lroai_evaluate_building_arms_industry = {
         id = $id$
         good = mg:small_arms
         offset = 0
-        priority_limit = 6
+        priority_limit = 8
     }
 }
 
@@ -1449,7 +1449,7 @@ lroai_evaluate_building_munition_plants = {
         id = $id$
         good = mg:ammunition
         offset = 0
-        priority_limit = 6
+        priority_limit = 8
     }
 }
 
@@ -1463,7 +1463,7 @@ lroai_evaluate_building_war_machine_industry = {
 
        good = mg:aeroplanes
        offset = 0
-       priority_limit = 6
+       priority_limit = 8
    }
 }
 
@@ -1476,7 +1476,7 @@ lroai_evaluate_building_arts_academy = {
         id = $id$
         good = mg:fine_art
         offset = 0
-        priority_limit = 6
+        priority_limit = 8
     }
 }
 
@@ -1493,7 +1493,7 @@ lroai_evaluate_building_vineyard_plantation = {
         id = $id$
         good = mg:wine
         offset = 0
-        priority_limit = 6
+        priority_limit = 8
     }
 }
 
@@ -1562,7 +1562,7 @@ lroai_evaluate_building_explosives_factory = {
         id = $id$
         good = mg:explosives
         offset = 0
-        priority_limit = 4
+        priority_limit = 6
     }
 }
 
