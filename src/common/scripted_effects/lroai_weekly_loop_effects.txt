@@ -4,10 +4,7 @@ lroai_perform_iteration_of_weekly_loop = {
     # Add a week of progress to elements of lroai_ongoing_constructions
     lroai_add_progress_to_ongoing_constructions = yes
 
-
-    if = { limit = { $day_1_of_main_loop$ = yes }
-        lroai_clear_country_iteration_variables = yes
-    }
+    lroai_clear_country_iteration_variables = yes
 
     # Collect expenses data from buildings and perform a bunch of calculations and transformations using it, with
     # total levels, shortages and ongoing constructions also being collected on day 1 of economy cycle iteration.
@@ -25,18 +22,21 @@ lroai_perform_iteration_of_weekly_loop = {
 
     lroai_track_downsizing_cycle = yes
 
+    lroai_collect_data_for_construction_and_downsizing = yes
+    lroai_manage_tax_and_wage_level = yes
+
     if = { limit = { $day_1_of_main_loop$ = yes }
         # Change tax level and government wages if needed
         # data needed for construction and downsizing
-        lroai_collect_data_for_construction_and_downsizing = yes
         lroai_collect_coastlines_of_market_capital_and_overseas_lands = yes
-        lroai_manage_tax_and_wage_level = yes
         lroai_start_downsizing = yes
-
-        lroai_perform_for_every_building_type = {
-            effect = 5 # lroai_check_priority_of_building
-        }
     }
+
+    lroai_perform_for_every_building_type = {
+        effect = 5 # lroai_check_priority_of_building
+    }
+
+    lroai_debug_country = yes
 
     lroai_start_construction = yes
 
