@@ -1,13 +1,13 @@
 ## Announcement
 
-This mod is updated to 1.5.4.
+This mod is updated to 1.5.5.
 
-version 0.4.2 released.
+version 0.5.0 released.
 
-0.4.2 is a WIP version of my dev build, released as an hotfix for 1.5.4
-As far I know, there should be no major bug in this version, but there might be.
+I'm quite happy with the decision process I've built.
+Performance got worse, it is a known issue.
 
-Currently rewriting the building decision process from scratch.
+I'll exclusively work on performance, code cleaning and debugging for 0.6
 
 ## Description
 
@@ -19,11 +19,9 @@ My goal is to completely rewrite it, step by step, to make it better and provide
 
 ## Current performance vs ai
 
-![Roadmap](/img/lroai_comp_0.4.3.png)
+![Roadmap](/img/lroai_comp_0.5.0.png)
 
-Vanilla (1.5.3) vs LRoAI 0.4.3 (1.5.4)
-
-
+Vanilla (1.5.5) vs LRoAI 0.5.0 (1.5.5)
 
 ## Installation
 #### Official release
