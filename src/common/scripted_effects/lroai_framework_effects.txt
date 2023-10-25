@@ -672,8 +672,6 @@ lroai_clear_country_cycle_variables = {
 }
 
 lroai_clear_country_iteration_variables = {
-    
-    remove_variable = lroai_unutilized_workforce_percent
 
     remove_variable = lroai_median_building_productivity
     

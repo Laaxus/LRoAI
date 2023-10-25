@@ -17,29 +17,38 @@ lroai_perform_iteration_of_weekly_loop = {
         day_1_of_main_loop = $day_1_of_main_loop$
     }
 
-    # Calculate per point expenses of construction sectors
     lroai_calculate_building_construction_sector_expenses_per_point = yes
-
     lroai_track_downsizing_cycle = yes
-
-    lroai_collect_data_for_construction_and_downsizing = yes
     lroai_manage_tax_and_wage_level = yes
 
+
+    if = {
+        limit = {
+            OR = {
+                lroai_is_construction_allowed = yes
+                $day_1_of_main_loop$ = yes
+            }
+         }
+        lroai_collect_data_for_construction_and_downsizing = yes
+    }
+
     if = { limit = { $day_1_of_main_loop$ = yes }
-        # Change tax level and government wages if needed
-        # data needed for construction and downsizing
         lroai_collect_coastlines_of_market_capital_and_overseas_lands = yes
         lroai_start_downsizing = yes
     }
 
-    lroai_perform_for_every_building_type = {
-        effect = 5 # lroai_check_priority_of_building
+     if = {
+        limit = {
+            OR = {
+                lroai_is_construction_allowed = yes
+                $day_1_of_main_loop$ = yes
+            }
+         }
+         lroai_perform_for_every_building_type = {
+            effect = 5 # lroai_check_priority_of_building
+        }
+         lroai_start_construction = yes
     }
-
-    lroai_debug_country = yes
-
-    lroai_start_construction = yes
-
 }
 
 

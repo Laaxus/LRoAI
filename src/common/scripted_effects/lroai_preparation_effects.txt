@@ -149,12 +149,11 @@ lroai_collect_data_for_construction_and_downsizing = {
                                     is_building_type = building_subsistence_rice_paddies
                                 }
                             }
-                            multiply = 10000 # Rice paddies have ~10k workers per level
+                            multiply = 9750
                         }
                         else = {
-                            multiply = 5000 # All the other ones have ~5k workers per level
+                            multiply = 4750
                         }
-                        multiply = 0.90 # But not all of them are peasants
                     }
                 }
             }
@@ -344,37 +343,6 @@ lroai_collect_data_for_construction_and_downsizing = {
     
     # Set up variables to calculate unutilized workforce ratio
     set_variable = {
-        name = lroai_unutilized_workforce_percent
-        value = 0
-    }
-    set_local_variable = {
-        name = lroai_potential_workforce
-        value = 0
-    }
-
-    # For every state add available workforce to unutilized and working adult population to potential
-    every_scope_state = {
-        root = {
-            change_variable = {
-                name = lroai_unutilized_workforce_percent
-                add = prev.lroai_available_workforce
-            }
-            change_local_variable = {
-                name = lroai_potential_workforce
-                add = {
-                    value = prev.state_population
-                    multiply = {
-                        value = define:NPops|WORKING_ADULT_RATIO_BASE
-                        add = prev.modifier:state_working_adult_ratio_add
-                        multiply = 0.90
-                    }
-                }
-            }
-        }
-    }
-    
-    # Set up variables to calculate unutilized workforce ratio
-    set_variable = {
         name = lroai_unutilized_workforce
         value = 0
     }
@@ -383,57 +351,11 @@ lroai_collect_data_for_construction_and_downsizing = {
             change_variable = {
                 name = lroai_unutilized_workforce
                 add = {
-                    value = prev.state_population
-                    multiply = prev.state_unemployment_rate
+                    value = prev.lroai_available_workforce
                 }
             }
         }
     }
-    every_scope_building = {
-        limit = {
-            level > 0			# Active buildings only
-        }
-        # Add occupation of subsistence building to available workforce in its state
-        if = {
-            limit = {
-                is_subsistence_building = yes
-            }
-            root = {
-                change_variable = {
-                    name = lroai_unutilized_workforce
-                    add = {
-                        value = prev.lroai_occupied_levels
-                        if = {
-                            limit = {
-                                prev = {
-                                    is_building_type = building_subsistence_rice_paddies
-                                }
-                            }
-                            multiply = 9750
-                        }
-                        else = {
-                            multiply = 4750
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    # Calculate unutilized workforce percent
-    set_variable = {
-        name = lroai_unutilized_workforce_percent
-        value = {
-            value = var:lroai_unutilized_workforce_percent
-            divide = {
-                value = local_var:lroai_potential_workforce
-                min = 1
-            }
-            min = 0
-            max = 1
-        }
-    }
-    remove_local_variable = lroai_potential_workforce
     
 
     

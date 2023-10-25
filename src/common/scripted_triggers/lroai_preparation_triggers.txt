@@ -10,7 +10,10 @@ lroai_is_construction_allowed = {
     has_revolution = no
     is_revolutionary = no
     AND = {
-        lroai_is_regular_construction_allowed = yes
+        OR = {
+            scaled_debt < 0.05
+            lroai_construction_points_current = lroai_base_construction_points
+        }
         lroai_free_construction_points > 0
     }
     is_player = no
@@ -108,24 +111,3 @@ lroai_building_is_profitable = {
     cash_reserves_ratio >= 0.10
 }
 
-
-# Building is almost empty and thus unneeded
-lroai_building_is_abandoned = {
-    level > 0
-    occupancy < 0.40
-}
-
-lroai_is_production_downsizing_allowed = {
-    NOT = {
-        has_law = law_type:law_laissez_faire
-    }
-    lroai_is_downsizing_allowed = yes
-    OR = {
-        lroai_is_construction_allowed = yes
-        AND = {
-            has_variable = lroai_iterations_since_production_downsizing
-            var:lroai_iterations_since_production_downsizing >= lroai_max_iterations_since_production_downsizing
-        }
-    }
-    var:lroai_unutilized_workforce_percent < lroai_unutilized_workforce_percent_total_threshold
-}
