@@ -243,6 +243,7 @@ lroai_available_workforce = {
         }
         multiply = 5000
     }
+    min = 0
 }
 
 lroai_required_workforce = {
