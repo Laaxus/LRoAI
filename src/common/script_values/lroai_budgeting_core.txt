@@ -248,21 +248,6 @@ lroai_construction_points_wanted_total = {
 }
 
 
-lroai_building_construction_sector_spending_value = {
-    if = {
-        limit = {
-            has_variable = lroai_previous_building_construction_sector_expenses
-        }
-        value = var:lroai_previous_building_construction_sector_expenses
-    }
-    else = {
-        value = lroai_building_construction_sector_expenses_per_point
-        multiply = lroai_construction_points_from_sectors_current
-    }
-    min = 0
-    max = 1000000000 #billion
-}
-
 lroai_building_barracks_vs_naval_base_share = {
     if = {
         limit = {

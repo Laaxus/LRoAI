@@ -182,66 +182,6 @@ lroai_check_if_state_region_has_agriculture_resource = {
     }
 }
 
-# Normally this stuff is counted during building cycle, but every country depends on counts of all the other ones
-# for military calculations, so we just count them all at game start.
-lroai_count_barracks_and_conscription_centers_of_all_countries = {
-    if = {
-        limit = {
-            NOT = {
-                has_global_variable = lroai_barracks_and_conscription_centers_were_counted
-            }
-        }
-        set_global_variable = lroai_barracks_and_conscription_centers_were_counted
-        every_country = {
-            limit = {
-                lroai_is_country_allowed = yes
-            }
-            set_variable = {
-                name = lroai_building_barracks_total
-                value = 0
-            }
-            set_variable = {
-                name = lroai_building_conscription_center_total
-                value = 0
-            }
-            every_scope_building = {
-                if = {
-                    limit = {
-                        is_building_type = building_barracks
-                    }
-                    owner = {
-                        change_variable = {
-                            name = lroai_building_barracks_total
-                            add = prev.level
-                        }
-                    }
-                }
-                else_if = {
-                    limit = {
-                        is_building_type = building_conscription_center
-                    }
-                    owner = {
-                        change_variable = {
-                            name = lroai_building_conscription_center_total
-                            add = prev.level
-                        }
-                    }
-                }
-            }
-        }
-
-        # This is just a hack to avoid error log complaining about variables never being set, this never executes.
-        if = {
-            limit = {
-                NOT = {
-                    has_global_variable = lroai_barracks_and_conscription_centers_were_counted
-                }
-            }
-            lroai_fix_error_log_complaining_about_variables = yes
-        }
-    }
-}
-
 # At game start we should give every country date of next iteration.
 # A lot of weightning is done to ensure even distribution and to reduce load in first months of the game.
 # while = { random_country = { } } is used instead of every_country = { } to avoid results being deterministic.
@@ -721,9 +661,6 @@ lroai_add_local_variable_to_array_variable = {
 
 lroai_clear_country_cycle_variables = {
     remove_variable = lroai_date_of_next_iteration
-    remove_variable = lroai_building_construction_sector_total
-    remove_variable = lroai_building_barracks_total
-    remove_variable = lroai_building_conscription_center_total
 
     every_scope_state = {
         clear_variable_list = lroai_ongoing_constructions
@@ -736,32 +673,15 @@ lroai_clear_country_cycle_variables = {
 
 lroai_clear_country_iteration_variables = {
     
-    remove_variable = lroai_incorporated_population
-    remove_variable = lroai_total_coastal_population
-    remove_variable = lroai_incorporated_coastal_population
-    remove_variable = lroai_incorporated_gdp
-    
-    remove_variable = lroai_chinese_population
-    remove_variable = lroai_indian_population
-    
     remove_variable = lroai_unutilized_workforce_percent
 
-    remove_variable = lroai_median_building_profitability
     remove_variable = lroai_median_building_productivity
     
     remove_variable = lroai_num_states_of_market_capital_coastline
     clear_variable_list = lroai_states_of_market_capital_coastline
     clear_variable_list = lroai_coastline_of_overseas_lands
     clear_variable_list = lroai_safe_to_delete_ports_in_overseas_lands
-    
-    # Variables from downsizing that are used in building as well
-    remove_variable = lroai_building_government_administration_total
-    remove_variable = lroai_building_university_total
-    remove_variable = lroai_building_construction_sector_total
-    #remove_variable = lroai_railway_total
-    remove_variable = lroai_building_port_total
-    #remove_variable = lroai_building_barracks_total
-    remove_variable = lroai_building_naval_base_total
+
     
     clear_variable_list = lroai_states_suitable_for_construction
     
@@ -829,21 +749,6 @@ lroai_perform_for_building_type = {
                 key = $key$
                 id = $id$
                 counter = $counter$
-                workforce = $workforce$
-            }
-        }
-        2 = {
-            lroai_collect_data_except_workforce_for_all_buildings_of_type = {
-                key = $key$
-                id = $id$
-                counter = $counter$
-            }
-        }
-        4 = {
-            lroai_downsize_production_building = {
-                key = $key$
-                id = $id$
-                workforce = $workforce$
             }
         }
         5 = {

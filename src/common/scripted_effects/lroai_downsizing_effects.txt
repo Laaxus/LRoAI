@@ -13,12 +13,6 @@
                 limit = {
                     lroai_downsize_government_administration = yes
                 }
-                root = {
-                    change_variable = {
-                        name = lroai_building_government_administration_total
-                        subtract = prev.var:lroai_building_government_administration_level
-                    }
-                }
                 set_variable = {
                     name = lroai_building_government_administration_level
                     value = 0
@@ -35,12 +29,6 @@
             random_scope_state = {
                 limit = {
                     lroai_downsize_port = yes
-                }
-                root = {
-                    change_variable = {
-                        name = lroai_building_port_total
-                        subtract = prev.var:lroai_building_port_level
-                    }
                 }
                 set_variable = {
                     name = lroai_building_port_level
@@ -60,12 +48,6 @@
                 limit = {
                     lroai_downsize_barracks = yes
                 }
-                root = {
-                    change_variable = {
-                        name = lroai_building_barracks_total
-                        subtract = prev.var:lroai_building_barracks_level
-                    }
-                }
                 set_variable = {
                     name = lroai_building_barracks_level
                     value = 0
@@ -84,12 +66,6 @@
                 limit = {
                     lroai_downsize_naval_base = yes
                 }
-                root = {
-                    change_variable = {
-                        name = lroai_building_naval_base_total
-                        subtract = prev.var:lroai_building_naval_base_level
-                    }
-                }
                 set_variable = {
                     name = lroai_building_naval_base_level
                     value = 0
@@ -98,52 +74,12 @@
             }
         }
     }
-    
-    if = {
-        limit = {
-            lroai_is_production_downsizing_allowed = yes
-        }
-        lroai_perform_for_every_building_type = {
-            effect = 4 # lroai_downsize_production_building
-        }
-    }
-}
-
-# Downsizing of production buildings based on variables set in lroai_check_if_building_is_excessive_or_abandoned
-lroai_downsize_production_building = {
-    if = {
-        limit = {
-            $workforce$ = 1
-        }
-        if = {
-            limit = {
-                has_variable = lroai_building_type_$id$_is_abandoned # Country scope flag
-            }
-
-            # Get a state out of ones where a building of this type should be downsizing with the lowest occupied levels
-            ordered_scope_state = {
-                limit = {
-                    has_variable = lroai_building_type_$id$_is_abandoned
-                    var:lroai_building_type_$id$_is_abandoned >= 60000000 # More than 6 iterations
-                }
-                order_by = {
-                    value = 70000000
-                    subtract = var:lroai_building_type_$id$_is_abandoned # Variable itself looks like 60000001.42
-                }
-                position = 0 # Lowest occupied levels
-                remove_building = $key$
-                remove_variable = lroai_building_type_$id$_is_abandoned
-            }
-            remove_variable = lroai_building_type_$id$_is_abandoned
-        }
-    }
 }
 
 # Clear variables used in downsizing but not in construction
 lroai_clear_downsizing_variables = {
     every_scope_state = {
         remove_variable = lroai_building_government_administration_level
-        remove_variable = lroai_building_university_level
         #remove_variable = lroai_railway_level
         remove_variable = lroai_building_conscription_center_occupancy
     }

@@ -28,12 +28,6 @@ lroai_downsize_port = {
     var:lroai_building_port_level > 0
     OR = {
         root = {
-            scaled_debt >= 0.975
-        }
-        var:lroai_building_port_level <= lroai_building_port_downsizing_threshold
-    }
-    OR = {
-        root = {
             lroai_overseas_connections_are_required = no
         }
         AND = {
@@ -110,7 +104,6 @@ lroai_downsize_port = {
 # Barracks
 lroai_downsize_barracks = {
     var:lroai_building_barracks_level > 0
-    var:lroai_building_barracks_level <= lroai_building_barracks_downsizing_threshold
     save_temporary_scope_as = lroai_current_state
     NOT = {
         root = {
@@ -125,7 +118,6 @@ lroai_downsize_barracks = {
 # Naval base
 lroai_downsize_naval_base = {
     var:lroai_building_naval_base_level > 0
-    var:lroai_building_naval_base_level <= lroai_building_naval_base_downsizing_threshold
     save_temporary_scope_as = lroai_current_state
     NOT = {
         root = {

@@ -202,88 +202,6 @@ lroai_building_construction_sector_share_of_goods_in_expenses = {
 
 lroai_max_percent_of_autonomous_construction_points = 0.90
 
-lroai_millions_of_incorporated_population = {
-    value = var:lroai_incorporated_population
-    divide = 1000000
-}
-
-lroai_millions_of_minus_half_unincorporated_population = {
-    value = lroai_minus_half_unincorporated_population
-    divide = 1000000
-}
-
-lroai_millions_of_gdp = {
-    value = gdp
-    divide = 1000000
-}
-
-lroai_half_total_population = {
-    value = total_population
-    divide = 2
-}
-
-lroai_unincorporated_population = {
-    value = total_population
-    subtract = var:lroai_incorporated_population
-}
-
-lroai_unincorporated_coastal_population = {
-    value = var:lroai_total_coastal_population
-    subtract = var:lroai_incorporated_coastal_population
-}
-
-lroai_half_unincorporated_coastal_population = {
-    value = lroai_unincorporated_coastal_population
-    divide = 2
-}
-
-lroai_minus_half_unincorporated_population = {
-    value = total_population
-    subtract = {
-        value = lroai_unincorporated_population
-        divide = 2
-        min = 0
-    }
-}
-
-lroai_minus_half_unincorporated_coastal_population = {
-    value = var:lroai_total_coastal_population
-    subtract = lroai_half_unincorporated_coastal_population
-}
-
-lroai_minus_half_unincorporated_gdp = {
-    value = gdp
-    subtract = {
-        value = gdp
-        subtract = var:lroai_incorporated_gdp
-        divide = 2
-        min = 0
-    }
-}
-
-lroai_gdp_per_capita = {
-    value = gdp
-    divide = {
-        value = total_population
-        min = 1
-    }
-}
-
-lroai_incorporated_gdp_per_capita = {
-    value = var:lroai_incorporated_gdp
-    divide = {
-        value = var:lroai_incorporated_population
-        min = 1
-    }
-}
-
-lroai_minus_half_unincorporated_gdp_per_capita = {
-    value = lroai_minus_half_unincorporated_gdp
-    divide = {
-        value = lroai_minus_half_unincorporated_population
-        min = 1
-    }
-}
 
 lroai_unemployed_population = {
     value = state_population
@@ -343,27 +261,7 @@ lroai_army_power_projection = {
     }
 }
 
-lroai_power_per_battalion = {
-    if = {
-        limit = {
-            has_variable = lroai_building_barracks_total
-            var:lroai_building_barracks_total > 0
-            lroai_army_power_projection > 0
-        }
-        value = lroai_army_power_projection
-        divide = var:lroai_building_barracks_total
-    }
-    else = {
-        value = 1
-    }
-}
 
-
-
-lroai_institution_bureaucracy_cost = {
-    value = var:lroai_incorporated_population
-    divide = 100000
-}
 
 lroai_infrastructure_balance_value = {
     value = infrastructure
@@ -555,60 +453,6 @@ lroai_tax_capacity_from_government_administration = {
     multiply = occupancy
 }
 
-lroai_building_government_administration_downsizing_threshold = {
-    value = root.var:lroai_building_government_administration_total
-    multiply = 0.35
-}
-
-lroai_building_construction_sector_downsizing_threshold = {
-    value = root.var:lroai_building_construction_sector_total
-    multiply = 0.50
-}
-
-lroai_building_university_downsizing_threshold = {
-    value = root.var:lroai_building_university_total
-    multiply = 0.50
-}
-
-lroai_building_port_downsizing_threshold = {
-    value = root.var:lroai_building_port_total
-    multiply = 0.50
-}
-
-lroai_building_barracks_downsizing_threshold = {
-    value = root.var:lroai_building_barracks_total
-    multiply = 0.50
-}
-
-lroai_building_naval_base_downsizing_threshold = {
-    value = root.var:lroai_building_naval_base_total
-    multiply = 0.50
-}
-
-lroai_median_building_profitability = {
-    if = {
-        limit = {
-            root = {
-                has_variable = lroai_median_building_profitability
-            }
-        }
-        value = root.var:lroai_median_building_profitability
-    }
-    else = {
-        value = 0
-    }
-}
-
-lroai_10_percent_of_average_profit = {
-    value = lroai_median_building_profitability
-    multiply = 0.10
-}
-
-lroai_20_percent_of_average_profit = {
-    value = lroai_median_building_profitability
-    multiply = 0.20
-}
-
 lroai_productivity_without_scaling = {
     value = earnings
     divide = {
@@ -687,10 +531,6 @@ lroai_current_government_administration_level = {
     value = scope:lroai_current_state.var:lroai_building_government_administration_level
 }
 
-lroai_current_university_level = {
-    value = scope:lroai_current_state.var:lroai_building_university_level
-}
-
 lroai_current_construction_sector_level = {
     value = scope:lroai_current_state.var:lroai_building_construction_sector_level
 }
@@ -707,9 +547,7 @@ lroai_current_naval_base_level = {
     value = scope:lroai_current_state.var:lroai_building_naval_base_level
 }
 
-lroai_building_university_total = {
-    value = var:lroai_building_university_total
-}
+
 
 lroai_building_university_spending = {
     value = var:lroai_building_university_spending

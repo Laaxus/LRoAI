@@ -19,7 +19,7 @@ lroai_is_construction_allowed = {
 lroai_is_regular_construction_allowed = {
     OR = {
         scaled_debt < 0.05
-        lroai_has_no_construction_sectors = yes
+        lroai_construction_points_current = lroai_base_construction_points
     }
 }
 
@@ -69,23 +69,6 @@ lroai_is_critical_construction_allowed = {
     }
 }
 
-lroai_has_no_construction_sectors = {
-    trigger_if = {
-        limit = {
-            has_variable = lroai_building_construction_sector_total
-        }
-        var:lroai_building_construction_sector_total <= 0
-    }
-    trigger_else = {
-        NOT = {
-            any_scope_building = {
-                is_building_type = building_construction_sector
-                level > 0
-            }
-        }
-    }
-}
-
 lroai_overseas_connections_are_required = {
     OR = {
         lroai_has_variable_list = {
@@ -125,14 +108,6 @@ lroai_building_is_profitable = {
     cash_reserves_ratio >= 0.10
 }
 
-# Building is larger than it should be
-lroai_building_is_excessive = {
-    OR = {
-        lroai_profit_per_occupied_level < lroai_10_percent_of_average_profit
-        earnings < lroai_75_percent_of_average_productivity
-    }
-    occupancy >= 0.40
-}
 
 # Building is almost empty and thus unneeded
 lroai_building_is_abandoned = {

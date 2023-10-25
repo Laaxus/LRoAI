@@ -42,24 +42,6 @@ lroai_building_barracks_spending_value = {
     max = 1000000000 #billion
 }
 
-lroai_building_barracks_spending_expected = {
-    value = lroai_building_barracks_spending_value
-    add = {
-        if = {
-            limit = {
-                lroai_building_barracks_spending_value > 0
-                has_variable = lroai_building_barracks_total
-                var:lroai_building_barracks_total > 0
-            }
-            value = lroai_building_barracks_spending_value
-            divide = var:lroai_building_barracks_total
-        }
-        else = {
-            value = 400
-        }
-        multiply = lroai_construction_limit_8_6
-    }
-}
 
 lroai_building_barracks_spending_target_70 = {
     value = lroai_building_barracks_spending_target

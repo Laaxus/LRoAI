@@ -36,7 +36,6 @@ lroai_framework_events.1 = {
 
         # Once per game
         lroai_set_date_of_next_iteration_for_all_countries = yes
-        lroai_count_barracks_and_conscription_centers_of_all_countries = yes
 
         # Once per day
         lroai_refresh_list_of_compatibility_patches = yes
