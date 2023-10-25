@@ -1,6 +1,6 @@
 ﻿lroai_building_is_allowed = {
     OR = {
-        lroai_is_regular_construction_allowed = yes
+        lroai_is_regular_construction_allowed = yes #TODO check if we can delete this
         AND = {
             $critical$ = 1
             lroai_evaluate_building_government_administration = {

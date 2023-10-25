@@ -19,6 +19,29 @@ lroai_collect_data_for_construction_and_downsizing = {
         }
 
 
+        # Set up state scope variables with government building levels
+        set_variable = { # Downsizing only
+            name = lroai_building_government_administration_level
+            value = 0
+        }
+        set_variable = {
+            name = lroai_building_construction_sector_level
+            value = 0
+        }
+        set_variable = {
+            name = lroai_building_port_level
+            value = 0
+        }
+        set_variable = {
+            name = lroai_building_barracks_level
+            value = 0
+        }
+        set_variable = {
+            name = lroai_building_naval_base_level
+            value = 0
+        }
+
+
         # To calculate median construction efficiency a value of the state is added to the list multiple times
         # depending on how big it is, so that small states have much less influence on the median.
         set_local_variable = {
@@ -65,32 +88,6 @@ lroai_collect_data_for_construction_and_downsizing = {
                 subtract = 1
             }
         }
-        
-        # Set up state scope variables with government building levels
-        set_variable = { # Downsizing only
-            name = lroai_building_government_administration_level
-            value = 0
-        }
-        set_variable = {
-            name = lroai_building_construction_sector_level
-            value = 0
-        }
-        set_variable = {
-            name = lroai_building_port_level
-            value = 0
-        }
-        set_variable = {
-            name = lroai_building_barracks_level
-            value = 0
-        }
-        set_variable = {
-            name = lroai_building_naval_base_level
-            value = 0
-        }
-        set_variable = {
-            name = lroai_building_conscription_center_occupancy
-            value = 0
-        }
     }
 
     # Get median value from the list of construction efficiency values
@@ -133,212 +130,8 @@ lroai_collect_data_for_construction_and_downsizing = {
             level > 0 # Active buildings only
         }
 
-        # Add occupation of subsistence building to available workforce in its state
-        if = {
-            limit = {
-                is_subsistence_building = yes
-            }
-            state = {
-                change_variable = {
-                    name = lroai_available_workforce
-                    add = {
-                        value = prev.lroai_occupied_levels
-                        if = {
-                            limit = {
-                                prev = {
-                                    is_building_type = building_subsistence_rice_paddies
-                                }
-                            }
-                            multiply = 9750
-                        }
-                        else = {
-                            multiply = 4750
-                        }
-                    }
-                }
-            }
-        }
-
-        # Government administration
-        else_if = {
-            limit = {
-                is_building_type = building_government_administration
-            }
-            root = {
-
-                # Renew cooldown if there's government administration under construction
-                if = {
-                    limit = {
-                        has_variable = lroai_building_government_administration_cooldown
-                        prev = {
-                            is_under_construction = yes
-                        }
-                    }
-                    lroai_renew_variable = {
-                        name = lroai_building_government_administration_cooldown
-                        days = lroai_days_in_building_cooldown
-                    }
-                }
-            }
-
-            # Add level to state scope variable
-            state = {
-                change_variable = {
-                    name = lroai_building_government_administration_level
-                    add = prev.level
-                }
-            }
-        }
-
-        # University
-        else_if = {
-            limit = {
-                is_building_type = building_university
-            }
-            root = {
-                if = {
-                    limit = {
-                        has_variable = lroai_building_university_cooldown
-                        prev = {
-                            is_under_construction = yes
-                        }
-                    }
-                    lroai_renew_variable = {
-                        name = lroai_building_university_cooldown
-                        days = lroai_days_in_building_cooldown
-                    }
-                }
-            }
-        }
-
-        # Construction sector
-        else_if = {
-            limit = {
-                is_building_type = building_construction_sector
-            }
-            root = {
-                if = {
-                    limit = {
-                        has_variable = lroai_building_construction_sector_cooldown
-                        prev = {
-                            is_under_construction = yes
-                        }
-                    }
-                    lroai_renew_variable = {
-                        name = lroai_building_construction_sector_cooldown
-                        days = lroai_days_in_building_cooldown
-                    }
-                }
-            }
-            state = {
-                change_variable = {
-                    name = lroai_building_construction_sector_level
-                    add = prev.level
-                }
-            }
-        }
-
-        # Railway
-        else_if = {
-            limit = {
-                is_building_type = building_railway
-            }
-            # Nothing as of now
-        }
-
-        # Port
-        else_if = {
-            limit = {
-                is_building_type = building_port
-            }
-            root = {
-                if = {
-                    limit = {
-                        has_variable = lroai_building_port_cooldown
-                        prev = {
-                            is_under_construction = yes
-                        }
-                    }
-                    lroai_renew_variable = {
-                        name = lroai_building_port_cooldown
-                        days = lroai_days_in_building_cooldown
-                    }
-                }
-            }
-            state = {
-                change_variable = {
-                    name = lroai_building_port_level
-                    add = prev.level
-                }
-            }
-        }
-
-        # Naval base
-        else_if = {
-            limit = {
-                is_building_type = building_naval_base
-            }
-            root = {
-                if = {
-                    limit = {
-                        has_variable = lroai_building_naval_base_cooldown
-                        prev = {
-                            is_under_construction = yes
-                        }
-                    }
-                    lroai_renew_variable = {
-                        name = lroai_building_naval_base_cooldown
-                        days = lroai_days_in_building_cooldown
-                    }
-                }
-            }
-            state = {
-                change_variable = {
-                    name = lroai_building_naval_base_level
-                    add = prev.level
-                }
-            }
-        }
-
-        # Barracks
-        else_if = {
-            limit = {
-                is_building_type = building_barracks
-            }
-            root = {
-                if = {
-                    limit = {
-                        has_variable = lroai_building_barracks_cooldown
-                        prev = {
-                            is_under_construction = yes
-                        }
-                    }
-                    lroai_renew_variable = {
-                        name = lroai_building_barracks_cooldown
-                        days = lroai_days_in_building_cooldown
-                    }
-                }
-            }
-            state = {
-                change_variable = {
-                    name = lroai_building_barracks_level
-                    add = prev.level
-                }
-            }
-        }
-
-        # Conscription center
-        else_if = {
-            limit = {
-                is_building_type = building_conscription_center
-            }
-            state = {
-                change_variable = {
-                    name = lroai_building_conscription_center_occupancy
-                    add = prev.occupancy
-                }
-            }
-        }
+        lroai_add_peasants_to_available_workforce = yes
+        lroai_renew_cooldowns_and_calculate_gov_building_level = yes
     }
     
     # Set up variables to calculate unutilized workforce ratio
@@ -356,137 +149,11 @@ lroai_collect_data_for_construction_and_downsizing = {
             }
         }
     }
-    
 
-    
-    # Set up variables for median productivity and profitability
-    set_variable = {
-        name = lroai_median_building_productivity
-        value = 0
-    }
-
-    # Set variables to track lists of values
-    set_local_variable = {
-        name = lroai_num_productivity_values
-        value = 0
-    }
-
-    # Add positive values of production building to lists. Non-positive productivity and profitability are ignored,
-    # as these medians are used only to evaluate if a new building is worthy of being constructed, if it will be on
-    # par and competitive in general economy of a country, so we want to compare it only against other productive
-    # buildings, thus non-positive productivity and profitability values are excluded from median calculations.
-    every_scope_building = {
-        limit = {
-            lroai_occupied_levels > 0
-            is_subsistence_building = no
-            is_government_funded = no
-            NOR = {
-                is_building_group = bg_trade
-                is_building_group = bg_service
-                is_building_group = bg_monuments
-                is_building_group = bg_monuments_hidden
-            }
-        }
-
-        # Productivity
-        if = {
-            limit = {
-                earnings > 0
-            }
-            root = {
-
-                # You can't add same value to a list multiple times, so we add id to it that we'll throw away later
-                set_local_variable = {
-                    name = lroai_formatted_productivity
-                    value = {
-                        value = prev.earnings
-                        multiply = 100
-                        floor = yes
-                        max = 99999
-                        multiply = 10000
-                        add = {
-                            value = local_var:lroai_num_productivity_values
-                            divide = 100
-                        }
-                    }
-                }
-
-                # Productivity value of a building is added to the list once for every X levels of this buildings,
-                # as we actually want to get median productivity of building level rather than entire building, but
-                # it would be a bit too expensive, thus we use some divisor that doesn't affect results too much.
-                set_local_variable = {
-                    name = lroai_num_times_to_add_value_to_list
-                    value = {
-                        value = prev.lroai_occupied_levels
-                        divide = 4
-                    }
-                }
-                while = {
-                    limit = {
-                        local_var:lroai_num_times_to_add_value_to_list > 0
-                    }
-                    add_to_variable_list = {
-                        name = lroai_productivity_values
-                        target = local_var:lroai_formatted_productivity
-                    }
-                    change_local_variable = {
-                        name = lroai_formatted_productivity
-                        add = 0.01
-                    }
-                    change_local_variable = {
-                        name = lroai_num_productivity_values
-                        add = 1
-                    }
-                    change_local_variable = {
-                        name = lroai_num_times_to_add_value_to_list
-                        subtract = 1
-                    }
-                }
-                remove_local_variable = lroai_formatted_productivity
-                remove_local_variable = lroai_num_times_to_add_value_to_list
-            }
-        }
-    }
-
-    # Find median productivity
-    if = {
-        limit = {
-            local_var:lroai_num_productivity_values > 0
-        }
-        set_local_variable = {
-            name = lroai_num_productivity_values
-            value = {
-                value = local_var:lroai_num_productivity_values
-                divide = 2
-                floor = yes
-            }
-        }
-        ordered_in_list = {
-            variable = lroai_productivity_values
-            order_by = this
-            position = local_var:lroai_num_productivity_values
-            root = {
-                set_variable = {
-                    name = lroai_median_building_productivity
-                    value = {
-                        value = prev
-                        divide = 10000
-                        floor = yes
-                        divide = 100
-                    }
-                }
-            }
-        }
-    }
-    clear_variable_list = lroai_productivity_values
-    remove_local_variable = lroai_num_productivity_values
+    lroai_find_median_building_productivity = yes
 
     lroai_perform_for_every_building_type = {
         effect = 1 # lroai_collect_data_for_all_buildings_of_type
-    }
-    set_variable = {
-        name = lroai_iterations_since_production_downsizing
-        value = 0
     }
 
     
@@ -869,6 +536,318 @@ lroai_collect_states_of_same_owner_connected_by_land = {
                     }
                     else = {
                         clear_variable_list = lroai_current_ring_of_states
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+lroai_find_median_building_productivity = {
+
+    # Set up variables for median productivity and profitability
+    set_variable = {
+        name = lroai_median_building_productivity
+        value = 0
+    }
+
+    # Set variables to track lists of values
+    set_local_variable = {
+        name = lroai_num_productivity_values
+        value = 0
+    }
+
+    # Add positive values of production building to lists. Non-positive productivity and profitability are ignored,
+    # as these medians are used only to evaluate if a new building is worthy of being constructed, if it will be on
+    # par and competitive in general economy of a country, so we want to compare it only against other productive
+    # buildings, thus non-positive productivity and profitability values are excluded from median calculations.
+    every_scope_building = {
+        limit = {
+            lroai_occupied_levels > 0
+            is_subsistence_building = no
+            is_government_funded = no
+            NOR = {
+                is_building_group = bg_trade
+                is_building_group = bg_service
+                is_building_group = bg_monuments
+                is_building_group = bg_monuments_hidden
+            }
+        }
+
+        # Productivity
+        if = {
+            limit = {
+                earnings > 0
+            }
+            root = {
+
+                # You can't add same value to a list multiple times, so we add id to it that we'll throw away later
+                set_local_variable = {
+                    name = lroai_formatted_productivity
+                    value = {
+                        value = prev.earnings
+                        multiply = 100
+                        floor = yes
+                        max = 99999
+                        multiply = 10000
+                        add = {
+                            value = local_var:lroai_num_productivity_values
+                            divide = 100
+                        }
+                    }
+                }
+
+                # Productivity value of a building is added to the list once for every X levels of this buildings,
+                # as we actually want to get median productivity of building level rather than entire building, but
+                # it would be a bit too expensive, thus we use some divisor that doesn't affect results too much.
+                set_local_variable = {
+                    name = lroai_num_times_to_add_value_to_list
+                    value = {
+                        value = prev.lroai_occupied_levels
+                        divide = 4
+                    }
+                }
+                while = {
+                    limit = {
+                        local_var:lroai_num_times_to_add_value_to_list > 0
+                    }
+                    add_to_variable_list = {
+                        name = lroai_productivity_values
+                        target = local_var:lroai_formatted_productivity
+                    }
+                    change_local_variable = {
+                        name = lroai_formatted_productivity
+                        add = 0.01
+                    }
+                    change_local_variable = {
+                        name = lroai_num_productivity_values
+                        add = 1
+                    }
+                    change_local_variable = {
+                        name = lroai_num_times_to_add_value_to_list
+                        subtract = 1
+                    }
+                }
+                remove_local_variable = lroai_formatted_productivity
+                remove_local_variable = lroai_num_times_to_add_value_to_list
+            }
+        }
+    }
+
+    # Find median productivity
+    if = {
+        limit = {
+            local_var:lroai_num_productivity_values > 0
+        }
+        set_local_variable = {
+            name = lroai_num_productivity_values
+            value = {
+                value = local_var:lroai_num_productivity_values
+                divide = 2
+                floor = yes
+            }
+        }
+        ordered_in_list = {
+            variable = lroai_productivity_values
+            order_by = this
+            position = local_var:lroai_num_productivity_values
+            root = {
+                set_variable = {
+                    name = lroai_median_building_productivity
+                    value = {
+                        value = prev
+                        divide = 10000
+                        floor = yes
+                        divide = 100
+                    }
+                }
+            }
+        }
+    }
+    clear_variable_list = lroai_productivity_values
+    remove_local_variable = lroai_num_productivity_values
+}
+
+
+lroai_renew_cooldowns_and_calculate_gov_building_level = {
+
+    # Government administration
+    if = {
+        limit = {
+            is_building_type = building_government_administration
+        }
+        root = {
+
+            # Renew cooldown if there's government administration under construction
+            if = {
+                limit = {
+                    has_variable = lroai_building_government_administration_cooldown
+                    prev = {
+                        is_under_construction = yes
+                    }
+                }
+                lroai_renew_variable = {
+                    name = lroai_building_government_administration_cooldown
+                    days = lroai_days_in_building_cooldown
+                }
+            }
+        }
+
+        # Add level to state scope variable
+        state = {
+            change_variable = {
+                name = lroai_building_government_administration_level
+                add = prev.level
+            }
+        }
+    }
+
+    # University
+    else_if = {
+        limit = {
+            is_building_type = building_university
+        }
+        root = {
+            if = {
+                limit = {
+                    has_variable = lroai_building_university_cooldown
+                    prev = {
+                        is_under_construction = yes
+                    }
+                }
+                lroai_renew_variable = {
+                    name = lroai_building_university_cooldown
+                    days = lroai_days_in_building_cooldown
+                }
+            }
+        }
+    }
+
+    # Construction sector
+    else_if = {
+        limit = {
+            is_building_type = building_construction_sector
+        }
+        state = {
+            change_variable = {
+                name = lroai_building_construction_sector_level
+                add = prev.level
+            }
+        }
+    }
+
+    # Railway
+    else_if = {
+        limit = {
+            is_building_type = building_railway
+        }
+        # Nothing as of now
+    }
+
+    # Port
+    else_if = {
+        limit = {
+            is_building_type = building_port
+        }
+        root = {
+            if = {
+                limit = {
+                    has_variable = lroai_building_port_cooldown
+                    prev = {
+                        is_under_construction = yes
+                    }
+                }
+                lroai_renew_variable = {
+                    name = lroai_building_port_cooldown
+                    days = lroai_days_in_building_cooldown
+                }
+            }
+        }
+        state = {
+            change_variable = {
+                name = lroai_building_port_level
+                add = prev.level
+            }
+        }
+    }
+
+    # Naval base
+    else_if = {
+        limit = {
+            is_building_type = building_naval_base
+        }
+        root = {
+            if = {
+                limit = {
+                    has_variable = lroai_building_naval_base_cooldown
+                    prev = {
+                        is_under_construction = yes
+                    }
+                }
+                lroai_renew_variable = {
+                    name = lroai_building_naval_base_cooldown
+                    days = lroai_days_in_building_cooldown
+                }
+            }
+        }
+        state = {
+            change_variable = {
+                name = lroai_building_naval_base_level
+                add = prev.level
+            }
+        }
+    }
+
+    # Barracks
+    else_if = {
+        limit = {
+            is_building_type = building_barracks
+        }
+        root = {
+            if = {
+                limit = {
+                    has_variable = lroai_building_barracks_cooldown
+                    prev = {
+                        is_under_construction = yes
+                    }
+                }
+                lroai_renew_variable = {
+                    name = lroai_building_barracks_cooldown
+                    days = lroai_days_in_building_cooldown
+                }
+            }
+        }
+        state = {
+            change_variable = {
+                name = lroai_building_barracks_level
+                add = prev.level
+            }
+        }
+    }
+}
+
+lroai_add_peasants_to_available_workforce = {
+    # Add occupation of subsistence building to available workforce in its state
+    if = {
+        limit = {
+            is_subsistence_building = yes
+        }
+        state = {
+            change_variable = {
+                name = lroai_available_workforce
+                add = {
+                    value = prev.lroai_occupied_levels
+                    if = {
+                        limit = {
+                            prev = {
+                                is_building_type = building_subsistence_rice_paddies
+                            }
+                        }
+                        multiply = 9750
+                    }
+                    else = {
+                        multiply = 4750
                     }
                 }
             }

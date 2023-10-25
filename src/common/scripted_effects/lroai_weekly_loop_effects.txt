@@ -18,7 +18,6 @@ lroai_perform_iteration_of_weekly_loop = {
     }
 
     lroai_calculate_building_construction_sector_expenses_per_point = yes
-    lroai_track_downsizing_cycle = yes
     lroai_manage_tax_and_wage_level = yes
 
 
@@ -39,34 +38,12 @@ lroai_perform_iteration_of_weekly_loop = {
 
      if = {
         limit = {
-            OR = {
-                lroai_is_construction_allowed = yes
-                $day_1_of_main_loop$ = yes
-            }
+            lroai_is_construction_allowed = yes
          }
          lroai_perform_for_every_building_type = {
             effect = 5 # lroai_check_priority_of_building
-        }
+         }
          lroai_start_construction = yes
-    }
-}
-
-
-lroai_track_downsizing_cycle = {
-     # Track cycles since last check of data that is used in downsizing of production buildings
-    if = {
-        limit = {
-            OR = {
-                NOT = {
-                    has_variable = lroai_iterations_since_production_downsizing
-                }
-                var:lroai_iterations_since_production_downsizing < lroai_max_iterations_since_production_downsizing
-            }
-        }
-        lroai_add_to_variable = {
-            name = lroai_iterations_since_production_downsizing
-            value = 1
-        }
     }
 }
 
@@ -81,9 +58,6 @@ lroai_start_downsizing = {
 }
 
 lroai_start_construction = {
-    # Start construction if it is still allowed or clear variables otherwise
-
-
     trigger_event = {
         id = lroai_construction_events.1
         days = 1

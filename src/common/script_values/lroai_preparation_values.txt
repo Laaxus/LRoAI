@@ -120,11 +120,6 @@ lroai_days_since_agriculture_resources_were_checked = {
     subtract = global_var:lroai_date_of_last_check_of_agriculture_resources
 }
 
-lroai_days_since_stalemate_wars_were_tracked = {
-    value = game_date
-    subtract = global_var:lroai_date_of_last_tracking_of_stalemate_wars
-}
-
 lroai_max_iterations_since_production_downsizing = 5
 
 lroai_base_construction_points = 5

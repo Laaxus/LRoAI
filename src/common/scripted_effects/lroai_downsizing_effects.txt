@@ -81,6 +81,5 @@ lroai_clear_downsizing_variables = {
     every_scope_state = {
         remove_variable = lroai_building_government_administration_level
         #remove_variable = lroai_railway_level
-        remove_variable = lroai_building_conscription_center_occupancy
     }
 }
