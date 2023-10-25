@@ -40,20 +40,11 @@ lroai_framework_events.1 = {
         # Once per day
         lroai_refresh_list_of_compatibility_patches = yes
 
-        # Once per month
-        lroai_track_stalemate_wars_between_ai_countries = yes
-
         # Once per year
         lroai_check_agriculture_resources_in_state_regions = yes
         
         # Country-specific actions happen in cycle with each iteration being (lroai_weeks_in_iteration * 7) days long.
         # Iteration start dates are distributed randomly and are not synchonized between different countries.
-        # Here's what iteration main sequence looks like:
-        # Day 1 = check research assitance, collect economy data (preparation).
-        # Day 2 = evaluate economy data (evaluation).
-        # Days 3-lroai_half_of_days_in_iteration_rounded_down = construct new buildings one type per day (construction).
-        # Days >lroai_half_of_days_in_iteration_rounded_down = unused.
-        # In addition, there are weekly loop iterations on day 1 and then every 7 days.
         every_country = {
 
             # If country is not allowed, it may have leftover variables, so we make sure these are cleared.
