@@ -236,7 +236,6 @@ lroai_collect_data_for_all_buildings_of_type = {
 
     if = {
         limit = {
-            has_variable = lroai_building_type_$id$_collected_data
             local_var:lroai_num_buildings_of_current_type > 0
         }
 
@@ -255,9 +254,9 @@ lroai_collect_data_for_all_buildings_of_type = {
             order_by = lroai_productivity_without_scaling
             position = local_var:lroai_num_buildings_of_current_type
             root = {
-                change_variable = {
+                set_variable = {
                     name = lroai_building_type_$id$_collected_data
-                    add = {
+                    value = {
                         value = prev.lroai_productivity_without_scaling
                         multiply = 10
                         floor = yes

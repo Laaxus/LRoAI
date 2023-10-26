@@ -29,6 +29,7 @@ lroai_consider_building = {
             has_variable = lroai_building_type_$id$_collected_data
         }
         lroai_building_type_$id$_collected_data_1 >= 90
+        always = yes
     }
 }
 
