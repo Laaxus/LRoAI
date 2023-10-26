@@ -1,29 +1,12 @@
 ﻿
 # Cell distribution of lroai_building_type_X_collected_data array variable
+
 #
-# During shortage data collection
-# dddcbbbbaa.aa
-# aaaa | multiply = 100    | ? | levels of building type with shortage
-# bbbb | divide = 100      | 3 | total levels of building type
-# c    | divide = 1000000  | 4 | usage of production methods, see lroai_check_production_methods_of_building_type
-# ddd  | divide = 10000000 | 5 | counter of ongoing constructions (max 213)
-# Note that aaaa cell doesn't align with how cells are distributed in other stages, so you can't get it with value
-#
-# After data collection is completed
-# eeedccccbb.aa
-# aa   | multiply = 100    | 1 | percent of buildings without shortage
-# bb   | no modification   | 2 | median profitability of building type compared to average in percent
-# cccc | divide = 100      | 3 | median productivity of building type with economy of scale removed (x10, 23.6 = 236)
-# d    | divide = 1000000  | 4 | usage of production methods, see lroai_check_production_methods_of_building_type
-# eee  | divide = 10000000 | 5 | counter of ongoing constructions (max 213)
-# Note that data in cells 1 and 2 is capped to 99%, but it's not a problem due to how these cells are used
-#
-# After building type priority is evaluated
 # eeedccccbb.aa
 # aa   | multiply = 100    | 1 | priority of building type
-# bb   | no modification   | 2 | supply vs demand level used for priority
-# cccc | divide = 100      | 3 | productivity that a building of this type must have to get expanded (x10, 23.6 = 236)
-# d    | divide = 1000000  | 4 | is construction of new buildings of this type allowed (0 = false, 1 = true)
+# bb   | no modification   | 2 | not used for now
+# cccc | divide = 100      | 3 | median productivity of that building type (x10, 23.6 = 236)
+# d    | divide = 1000000  | 4 | not used for now
 # eee  | divide = 10000000 | 5 | counter of ongoing constructions (max 213)
 # Note that 1 and 2 are capped to 99%, but it's not a problem due to how these cells are used
 

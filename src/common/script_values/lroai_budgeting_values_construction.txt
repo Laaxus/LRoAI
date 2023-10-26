@@ -17,9 +17,9 @@ lroai_total_workforce_next_year = {
     add = {
         if = {
            limit = {
-                has_variable = lroai_unutilized_workforce
+                has_variable = lroai_available_workforce_country
             }
-            value = var:lroai_unutilized_workforce
+            value = var:lroai_available_workforce_country
         }
         else = {
             value = 0

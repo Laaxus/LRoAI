@@ -2,25 +2,16 @@
 # reducing calls of stuff like every_scope_state and every_scope_building to the minimum possible.
 lroai_collect_data_for_construction_and_downsizing = {
 
-    # Set up variables to calculate median construction efficiency
-    set_local_variable = {
-        name = lroai_num_construction_efficiency_values
-        value = 0
-    }
-    
-    # Get a whole bunch of different data in every state of the country
     every_scope_state = {
-
         
-        # Base for available workforce is unemployed population, subsistence and excessive buildings are added later
+        # Base for available workforce is unemployed population, subsistence buildings are added later
         set_variable = {
             name = lroai_available_workforce
             value = lroai_unemployed_population
         }
 
-
-        # Set up state scope variables with government building levels
-        set_variable = { # Downsizing only
+        # Variables used in downsizing only
+        set_variable = {
             name = lroai_building_government_administration_level
             value = 0
         }
@@ -40,91 +31,10 @@ lroai_collect_data_for_construction_and_downsizing = {
             name = lroai_building_naval_base_level
             value = 0
         }
-
-
-        # To calculate median construction efficiency a value of the state is added to the list multiple times
-        # depending on how big it is, so that small states have much less influence on the median.
-        set_local_variable = {
-            name = lroai_state_weight_in_construction
-            value = {
-                value = state_population
-                divide = 200000
-                floor = yes
-                add = 1
-            }
-        }
-        while = {
-            limit = {
-                local_var:lroai_state_weight_in_construction > 0
-            }
-
-            # You can't add same value to a list multiple times, so we add id to it that we'll throw away later
-            set_local_variable = {
-                name = lroai_state_construction_efficiency
-                value = {
-                    value = modifier:state_construction_mult
-                    add = 1
-                    min = define:NEconomy|MIN_CONSTRUCTION_EFFICIENCY
-                    multiply = 1000
-                    round = yes
-                    max = 21460
-                    multiply = 100000
-                    add = {
-                        value = local_var:lroai_num_construction_efficiency_values
-                        divide = 100
-                    }
-                }
-            }
-            add_to_local_variable_list = {
-                name = lroai_construction_efficiency_values
-                target = local_var:lroai_state_construction_efficiency
-            }
-            change_local_variable = {
-                name = lroai_num_construction_efficiency_values
-                add = 1
-            }
-            change_local_variable = {
-                name = lroai_state_weight_in_construction
-                subtract = 1
-            }
-        }
     }
-
-    # Get median value from the list of construction efficiency values
-    if = {
-        limit = {
-            local_var:lroai_num_construction_efficiency_values > 0
-        }
-        set_local_variable = {
-            name = lroai_num_construction_efficiency_values
-            value = {
-                value = local_var:lroai_num_construction_efficiency_values
-                divide = 2
-                floor = yes
-            }
-        }
-        ordered_in_local_list = {
-            variable = lroai_construction_efficiency_values
-            order_by = this
-            position = local_var:lroai_num_construction_efficiency_values
-            root = {
-                set_variable = {
-                    name = lroai_median_construction_efficiency
-                    value = {
-                        value = prev
-                        divide = 100000
-                        floor = yes
-                        divide = 100
-                    }
-                }
-            }
-        }
-    }
-    remove_local_variable = lroai_num_construction_efficiency_values
-    clear_local_variable_list = lroai_construction_efficiency_values
-
     
-    # Get various data for every building in the country
+    lroai_calculate_country_median_construction_efficiency = yes
+
     every_scope_building = {
         limit = {
             level > 0 # Active buildings only
@@ -134,15 +44,15 @@ lroai_collect_data_for_construction_and_downsizing = {
         lroai_renew_cooldowns_and_calculate_gov_building_level = yes
     }
     
-    # Set up variables to calculate unutilized workforce ratio
+    # Calculate unutilized workforce
     set_variable = {
-        name = lroai_unutilized_workforce
+        name = lroai_available_workforce_country
         value = 0
     }
     every_scope_state = {
         root = {
             change_variable = {
-                name = lroai_unutilized_workforce
+                name = lroai_available_workforce_country
                 add = {
                     value = prev.lroai_available_workforce
                 }
@@ -150,13 +60,12 @@ lroai_collect_data_for_construction_and_downsizing = {
         }
     }
 
-    lroai_find_median_building_productivity = yes
+    lroai_calculate_country_median_building_productivity = yes
 
     lroai_perform_for_every_building_type = {
         effect = 1 # lroai_collect_data_for_all_buildings_of_type
     }
 
-    
     # Collect states that meet requirements of being suitable for construction
     every_scope_state = {
         limit = {
@@ -170,7 +79,6 @@ lroai_collect_data_for_construction_and_downsizing = {
             }
         }
     }
-
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -544,7 +452,7 @@ lroai_collect_states_of_same_owner_connected_by_land = {
 }
 
 
-lroai_find_median_building_productivity = {
+lroai_calculate_country_median_building_productivity = {
 
     # Set up variables for median productivity and profitability
     set_variable = {
@@ -853,4 +761,97 @@ lroai_add_peasants_to_available_workforce = {
             }
         }
     }
+}
+
+
+lroai_calculate_country_median_construction_efficiency = {
+
+    # Set up variables to calculate median construction efficiency
+    set_local_variable = {
+        name = lroai_num_construction_efficiency_values
+        value = 0
+    }
+
+    every_scope_state = {
+        
+            # To calculate median construction efficiency a value of the state is added to the list multiple times
+            # depending on how big it is, so that small states have much less influence on the median.
+            set_local_variable = {
+                name = lroai_state_weight_in_construction
+                value = {
+                    value = state_population
+                    divide = 200000
+                    floor = yes
+                    add = 1
+                }
+            }
+            while = {
+                limit = {
+                    local_var:lroai_state_weight_in_construction > 0
+                }
+    
+                # You can't add same value to a list multiple times, so we add id to it that we'll throw away later
+                set_local_variable = {
+                    name = lroai_state_construction_efficiency
+                    value = {
+                        value = modifier:state_construction_mult
+                        add = 1
+                        min = define:NEconomy|MIN_CONSTRUCTION_EFFICIENCY
+                        multiply = 1000
+                        round = yes
+                        max = 21460
+                        multiply = 100000
+                        add = {
+                            value = local_var:lroai_num_construction_efficiency_values
+                            divide = 100
+                        }
+                    }
+                }
+                add_to_local_variable_list = {
+                    name = lroai_construction_efficiency_values
+                    target = local_var:lroai_state_construction_efficiency
+                }
+                change_local_variable = {
+                    name = lroai_num_construction_efficiency_values
+                    add = 1
+                }
+                change_local_variable = {
+                    name = lroai_state_weight_in_construction
+                    subtract = 1
+                }
+            }
+        }
+    
+        # Get median value from the list of construction efficiency values
+        if = {
+            limit = {
+                local_var:lroai_num_construction_efficiency_values > 0
+            }
+            set_local_variable = {
+                name = lroai_num_construction_efficiency_values
+                value = {
+                    value = local_var:lroai_num_construction_efficiency_values
+                    divide = 2
+                    floor = yes
+                }
+            }
+            ordered_in_local_list = {
+                variable = lroai_construction_efficiency_values
+                order_by = this
+                position = local_var:lroai_num_construction_efficiency_values
+                root = {
+                    set_variable = {
+                        name = lroai_median_construction_efficiency
+                        value = {
+                            value = prev
+                            divide = 100000
+                            floor = yes
+                            divide = 100
+                        }
+                    }
+                }
+            }
+        }
+        remove_local_variable = lroai_num_construction_efficiency_values
+        clear_local_variable_list = lroai_construction_efficiency_values
 }

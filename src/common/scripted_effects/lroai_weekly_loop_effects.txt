@@ -1,25 +1,21 @@
 ﻿# Effects of weekly loop iterarion
 lroai_perform_iteration_of_weekly_loop = {
 
-    # Add a week of progress to elements of lroai_ongoing_constructions
-    lroai_add_progress_to_ongoing_constructions = yes
-
-    lroai_clear_country_iteration_variables = yes
-
-    # Collect expenses data from buildings and perform a bunch of calculations and transformations using it, with
-    # total levels, shortages and ongoing constructions also being collected on day 1 of economy cycle iteration.
-    lroai_weekly_check_of_building_data = {
-        day_1_of_main_loop = $day_1_of_main_loop$
-    }
-
     # Track how many iterations of weekly loop were performed in this main iteration and schedule next if needed
     lroai_count_and_schedule_iterations_of_weekly_loop = {
         day_1_of_main_loop = $day_1_of_main_loop$
     }
 
-    lroai_calculate_building_construction_sector_expenses_per_point = yes
-    lroai_manage_tax_and_wage_level = yes
+    # Add a week of progress to elements of lroai_ongoing_constructions
+    lroai_add_progress_to_ongoing_constructions = yes
 
+    lroai_clear_country_iteration_variables = yes
+
+    lroai_weekly_check_of_gov_building_expenses = yes
+
+    lroai_calculate_building_construction_sector_expenses_per_point = yes
+
+    lroai_manage_tax_and_wage_level = yes
 
     if = {
         limit = {
@@ -48,7 +44,6 @@ lroai_perform_iteration_of_weekly_loop = {
 }
 
 lroai_start_downsizing = {
-
     # Perform downsizing and immediately clear variables that won't be needed in construction
     if = {
         limit = { lroai_is_downsizing_allowed = yes }
@@ -60,7 +55,6 @@ lroai_start_downsizing = {
 lroai_start_construction = {
     trigger_event = {
         id = lroai_construction_events.1
-        days = 1
     }
 }
 
@@ -201,7 +195,7 @@ lroai_add_progress_to_ongoing_constructions = {
 
 # Collect expenses data from buildings and perform a bunch of calculations and transformations using it, with
 # total levels, shortages and ongoing constructions also being collected on day 1 of economy cycle iteration.
-lroai_weekly_check_of_building_data = {
+lroai_weekly_check_of_gov_building_expenses = {
 
     set_local_variable = {
         name = lroai_building_university_expenses
@@ -245,15 +239,6 @@ lroai_weekly_check_of_building_data = {
             change_local_variable = {
                 name = lroai_building_construction_sector_expenses
                 subtract = weekly_profit
-            }
-            if = {
-                limit = {
-                    $day_1_of_main_loop$ = yes
-                }
-                lroai_add_ongoing_constructions_to_counter = {
-                    id = 3
-                    counter = 3
-                }
             }
         }
         else_if = {
