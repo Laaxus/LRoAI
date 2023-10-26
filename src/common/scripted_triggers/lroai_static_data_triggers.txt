@@ -140,13 +140,13 @@ lroai_evaluate_building_university = {
         }
         switch = {
             trigger = $priority$
-            2 = {
+            4 = {
                 lroai_building_university_spending_value < lroai_building_university_spending_target_80
             }
-            3 = {
+            5 = {
                 lroai_building_university_spending_value < lroai_building_university_spending_target_90
             }
-            4 = {
+            6 = {
                 lroai_building_university_spending_value < lroai_building_university_spending_target
             }
             fallback = {
@@ -392,16 +392,16 @@ lroai_evaluate_building_port= {
         }
         switch = {
             trigger = $priority$
-            1 = {
+            3 = {
                 lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_critical
             }
-            2 = {
+            4 = {
                 lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_high
             }
-            3 = {
+            5 = {
                 lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_medium
             }
-            4 = {
+            6 = {
                 lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_low
             }
             fallback = {
