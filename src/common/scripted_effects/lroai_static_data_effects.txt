@@ -434,7 +434,7 @@ lroai_evaluate_building_rye_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 0
+        offset = 3
         priority_limit = 4
     }
 }
@@ -447,7 +447,7 @@ lroai_evaluate_building_wheat_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 0
+        offset = 3
         priority_limit = 4
     }
 }
@@ -460,7 +460,7 @@ lroai_evaluate_building_rice_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 0
+        offset = 3
         priority_limit = 4
     }
 }
@@ -473,7 +473,7 @@ lroai_evaluate_building_maize_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 0
+        offset = 3
         priority_limit = 4
     }
 }
@@ -486,7 +486,7 @@ lroai_evaluate_building_millet_farm = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:grain
-        offset = 0
+        offset = 3
         priority_limit = 4
     }
 }
@@ -499,7 +499,7 @@ lroai_evaluate_building_sugar_plantation = {
     lroai_evaluate_production_building = {
         id = $id$
         good = mg:sugar
-        offset = 0
+        offset = 2
         priority_limit = 4
     }
 }

@@ -371,6 +371,7 @@ lroai_evaluate_production_building = {
    }
 
 
+    #TODO if <= 24 and no good in the market -> priority max
     if = {
         limit = {
             var:lroai_evaluated_supply_vs_demand_level > 0

@@ -391,7 +391,7 @@ lroai_calculate_building_construction_sector_expenses_per_point = {
     if = { limit = { NOT = {has_variable = lroai_previous_cost_per_construction_point} }
         set_variable = {
             name = lroai_previous_cost_per_construction_point
-            value = 1200
+            value = 1000
         }
      }
 
@@ -430,10 +430,10 @@ lroai_calculate_building_construction_sector_expenses_per_point = {
             name = lroai_previous_cost_per_construction_point
             value = {
                 value = var:lroai_previous_cost_per_construction_point
-                multiply = 0.99
+                multiply = 0.95
                 add = {
                     value = var:lroai_temporary_cost_per_construction_point
-                    multiply = 0.01
+                    multiply = 0.05
                 }
             }
         }
