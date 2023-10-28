@@ -209,6 +209,7 @@ lroai_investment_pool_wanted_spending = {
 #
 lroai_construction_expense_ideal = {
     value   = lroai_construction_expense_maximum_from_pop       # The amount of money needed to reach full employment
+    subtract = lroai_investment_pool_net_spending
     max     = lroai_construction_expense_from_budget_maximum    # But we can't spend more than 75% of the budget
     min     = lroai_construction_expense_from_budget_minimum    # But we can't spend less than 10% of the budget
 }
