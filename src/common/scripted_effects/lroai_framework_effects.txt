@@ -680,8 +680,7 @@ lroai_clear_country_iteration_variables = {
     clear_variable_list = lroai_coastline_of_overseas_lands
     clear_variable_list = lroai_safe_to_delete_ports_in_overseas_lands
 
-    
-    clear_variable_list = lroai_states_suitable_for_construction
+
     
     remove_variable = lroai_tried_special_buildings
     

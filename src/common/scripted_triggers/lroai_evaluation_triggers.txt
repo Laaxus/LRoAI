@@ -1,28 +1,4 @@
-﻿lroai_building_is_allowed = {
-    OR = {
-        lroai_is_regular_construction_allowed = yes #TODO check if we can delete this
-        AND = {
-            $critical$ = 1
-            lroai_evaluate_building_government_administration = {
-                priority = 1
-            }
-        }
-        AND = {
-            $critical$ = 3
-            lroai_evaluate_building_construction_sector = {
-                priority = 1
-            }
-        }
-        AND = {
-            $critical$ = 5
-            lroai_evaluate_building_port = {
-                priority = 1
-            }
-        }
-    }
-}
-
-lroai_consider_building = {
+﻿lroai_consider_building = {
     OR = {
         $shortage$ = 0
         NOT = {

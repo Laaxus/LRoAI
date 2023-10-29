@@ -4,9 +4,6 @@
 
 lroai_consider_building_government_administration = {
     has_technology_researched = tech_bureaucracy
-    lroai_building_is_allowed = {
-        critical = 1 # Can be constructed as critical, 1 is id of building type
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 0
@@ -114,9 +111,6 @@ lroai_allocate_building_government_administration = {
 
 lroai_consider_building_university = {
     has_technology_researched = academia
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -175,9 +169,6 @@ lroai_allocate_building_university = {
 
 lroai_consider_building_construction_sector = {
     has_technology_researched = urbanization
-    lroai_building_is_allowed = {
-        critical = 3 # Can be constructed as critical, 3 is id of building type
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -241,9 +232,6 @@ lroai_allocate_building_construction_sector = {
 
 lroai_consider_building_railway = {
     has_technology_researched = railways
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     OR = {
         is_player = no
     }
@@ -280,7 +268,7 @@ lroai_evaluate_building_railway = {
             any_scope_state = {
                 any_scope_building = {
                     is_building_type = building_railway
-                    earnings > 5
+                    earnings > lroai_median_building_productivity
                     occupancy > 0.95
                     weekly_profit > 500
                     is_under_construction = no
@@ -316,7 +304,7 @@ lroai_sanction_building_railway = {
         }
         any_scope_building = {
             is_building_type = building_railway
-            earnings > 5
+            earnings > lroai_median_building_productivity
             occupancy > 0.95
             weekly_profit > 500
             is_under_construction = no
@@ -348,7 +336,7 @@ lroai_allocate_building_railway = {
         2 = {
             any_scope_building = {
                 is_building_type = building_railway
-                earnings > 5
+                earnings > lroai_median_building_productivity
                 occupancy > 0.95
                 weekly_profit > 500
                 is_under_construction = no
@@ -366,15 +354,17 @@ lroai_allocate_building_railway = {
 
 lroai_consider_building_port = {
     has_technology_researched = navigation
-    lroai_building_is_allowed = {
-        critical = $id$ # Can be constructed as critical, 5 is id of building type
-    }
     any_scope_state = {
         is_coastal = yes
     }
     lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_low
+    lroai_total_convoy_required_value > 0
     OR = {
         is_player = no
+    }
+    OR = {
+        $id$ = 0
+        always = yes
     }
 }
 
@@ -431,9 +421,6 @@ lroai_allocate_building_port = {
 
 lroai_consider_building_barracks = {
     has_technology_researched = standing_army
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -503,9 +490,6 @@ lroai_allocate_building_barracks = {
 
 lroai_consider_building_naval_base = {
     has_technology_researched = admiralty
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -575,9 +559,6 @@ lroai_allocate_building_naval_base = {
 # ------------
 
 lroai_consider_building_logging_camp = {
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -600,9 +581,6 @@ lroai_allocate_building_logging_camp = {
 # -------------
 
 lroai_consider_building_fishing_wharf = {
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -629,9 +607,6 @@ lroai_allocate_building_fishing_wharf = {
 
 lroai_consider_building_whaling_station = {
     has_technology_researched = navigation
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -658,9 +633,6 @@ lroai_allocate_building_whaling_station = {
 
 lroai_consider_building_rubber_plantation = {
     has_technology_researched = rubber_mastication
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -687,9 +659,6 @@ lroai_allocate_building_rubber_plantation = {
 
 lroai_consider_building_oil_rig = {
     has_technology_researched = pumpjacks
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -716,9 +685,6 @@ lroai_allocate_building_oil_rig = {
 
 lroai_consider_building_coal_mine = {
     has_technology_researched = shaft_mining
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -774,9 +740,6 @@ lroai_allocate_building_coal_mine = {
 
 lroai_consider_building_iron_mine = {
     has_technology_researched = shaft_mining
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -832,9 +795,6 @@ lroai_allocate_building_iron_mine = {
 
 lroai_consider_building_lead_mine = {
     has_technology_researched = shaft_mining
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -890,9 +850,6 @@ lroai_allocate_building_lead_mine = {
 
 lroai_consider_building_sulfur_mine = {
     has_technology_researched = shaft_mining
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -948,9 +905,6 @@ lroai_allocate_building_sulfur_mine = {
 
 lroai_consider_building_gold_mine = {
     has_technology_researched = shaft_mining
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -977,9 +931,6 @@ lroai_allocate_building_gold_mine = {
 
 lroai_consider_building_rye_farm = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1006,9 +957,6 @@ lroai_allocate_building_rye_farm = {
 
 lroai_consider_building_wheat_farm = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1035,9 +983,6 @@ lroai_allocate_building_wheat_farm = {
 
 lroai_consider_building_rice_farm = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1064,9 +1009,6 @@ lroai_allocate_building_rice_farm = {
 
 lroai_consider_building_maize_farm = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1093,9 +1035,6 @@ lroai_allocate_building_maize_farm = {
 
 lroai_consider_building_millet_farm = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1122,9 +1061,6 @@ lroai_allocate_building_millet_farm = {
 
 lroai_consider_building_livestock_ranch = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1151,9 +1087,6 @@ lroai_allocate_building_livestock_ranch = {
 
 lroai_consider_building_cotton_plantation = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1180,9 +1113,6 @@ lroai_allocate_building_cotton_plantation = {
 
 lroai_consider_building_dye_plantation = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1209,9 +1139,6 @@ lroai_allocate_building_dye_plantation = {
 
 lroai_consider_building_silk_plantation = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1238,9 +1165,6 @@ lroai_allocate_building_silk_plantation = {
 
 lroai_consider_building_banana_plantation = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1267,9 +1191,6 @@ lroai_allocate_building_banana_plantation = {
 
 lroai_consider_building_sugar_plantation = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1296,9 +1217,6 @@ lroai_allocate_building_sugar_plantation = {
 
 lroai_consider_building_tea_plantation = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1325,9 +1243,6 @@ lroai_allocate_building_tea_plantation = {
 
 lroai_consider_building_coffee_plantation = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1354,9 +1269,6 @@ lroai_allocate_building_coffee_plantation = {
 
 lroai_consider_building_tobacco_plantation = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1383,9 +1295,6 @@ lroai_allocate_building_tobacco_plantation = {
 
 lroai_consider_building_opium_plantation = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1415,9 +1324,6 @@ lroai_allocate_building_opium_plantation = {
 
 lroai_consider_building_food_industry = {
     has_technology_researched = manufacturies
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1440,9 +1346,6 @@ lroai_allocate_building_food_industry = {
 
 lroai_consider_building_textile_mills = {
     has_technology_researched = manufacturies
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1465,9 +1368,6 @@ lroai_allocate_building_textile_mills = {
 
 lroai_consider_building_furniture_manufacturies = {
     has_technology_researched = manufacturies
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1490,9 +1390,6 @@ lroai_allocate_building_furniture_manufacturies = {
 
 lroai_consider_building_glassworks = {
     has_technology_researched = manufacturies
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1557,9 +1454,6 @@ lroai_allocate_building_glassworks = {
 
 lroai_consider_building_tooling_workshops = {
     has_technology_researched = manufacturies
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1630,9 +1524,6 @@ lroai_allocate_building_tooling_workshops = {
 
 lroai_consider_building_paper_mills = {
     has_technology_researched = manufacturies
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1657,9 +1548,6 @@ lroai_consider_building_chemical_plants = {
     has_technology_researched = intensive_agriculture
     NOT = {
         has_law = law_type:law_industry_banned
-    }
-    lroai_building_is_allowed = {
-        critical = 0
     }
     lroai_consider_building = {
         id = $id$
@@ -1734,9 +1622,6 @@ lroai_consider_building_synthetics_plants = {
     NOT = {
         has_law = law_type:law_industry_banned
     }
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1761,9 +1646,6 @@ lroai_consider_building_steel_mills = {
     has_technology_researched = steelworking
     NOT = {
         has_law = law_type:law_industry_banned
-    }
-    lroai_building_is_allowed = {
-        critical = 0
     }
     lroai_consider_building = {
         id = $id$
@@ -1838,9 +1720,6 @@ lroai_consider_building_motor_industry = {
     NOT = {
         has_law = law_type:law_industry_banned
     }
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1865,9 +1744,6 @@ lroai_consider_building_shipyards = {
     has_technology_researched = navigation
     any_scope_state = {
         is_coastal = yes
-    }
-    lroai_building_is_allowed = {
-        critical = 0
     }
     lroai_consider_building = {
         id = $id$
@@ -1895,9 +1771,6 @@ lroai_consider_building_power_plant = {
     NOT = {
         has_law = law_type:law_industry_banned
     }
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1923,9 +1796,6 @@ lroai_consider_building_electrics_industry = {
     NOT = {
         has_law = law_type:law_industry_banned
     }
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1948,9 +1818,6 @@ lroai_allocate_building_electrics_industry = {
 
 lroai_consider_building_arms_industry = {
     has_technology_researched = gunsmithing
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -1976,9 +1843,6 @@ lroai_consider_building_munition_plants = {
     NOT = {
         has_law = law_type:law_industry_banned
     }
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -2003,9 +1867,6 @@ lroai_consider_building_war_machine_industry = {
     has_technology_researched = military_aviation
     NOT = {
         has_law = law_type:law_industry_banned
-    }
-    lroai_building_is_allowed = {
-        critical = 0
     }
     lroai_consider_building = {
         id = $id$
@@ -2035,9 +1896,6 @@ lroai_is_using_compatibility_patches = {
 
 lroai_consider_building_arts_academy = {
     has_technology_researched = romanticism
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -2067,9 +1925,6 @@ lroai_consider_building_explosives_factory = {
     has_technology_researched = intensive_agriculture
     NOT = {
         has_law = law_type:law_industry_banned
-    }
-    lroai_building_is_allowed = {
-        critical = 0
     }
     lroai_consider_building = {
         id = $id$
@@ -2144,9 +1999,6 @@ lroai_consider_building_military_shipyards = {
     any_scope_state = {
         is_coastal = yes
     }
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -2171,9 +2023,6 @@ lroai_allocate_building_military_shipyards = {
 
 lroai_consider_building_artillery_foundries = {
     has_technology_researched = gunsmithing
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1
@@ -2196,9 +2045,6 @@ lroai_allocate_building_artillery_foundries = {
 
 lroai_consider_building_vineyard_plantation = {
     has_technology_researched = enclosure
-    lroai_building_is_allowed = {
-        critical = 0
-    }
     lroai_consider_building = {
         id = $id$
         shortage = 1

@@ -65,20 +65,6 @@ lroai_collect_data_for_construction_and_downsizing = {
     lroai_perform_for_every_building_type = {
         effect = 1 # lroai_collect_data_for_all_buildings_of_type
     }
-
-    # Collect states that meet requirements of being suitable for construction
-    every_scope_state = {
-        limit = {
-            lroai_has_enough_infrastructure = yes
-            lroai_has_enough_workforce = yes
-        }
-        root = {
-            add_to_variable_list = {
-                name = lroai_states_suitable_for_construction
-                target = prev
-            }
-        }
-    }
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
