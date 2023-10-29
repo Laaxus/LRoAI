@@ -2,12 +2,14 @@
 
 This mod is updated to 1.5.5.
 
-version 0.5.0 released.
+version 0.6.0 released.
 
-I'm quite happy with the decision process I've built.
-Performance got worse, it is a known issue.
+I believe that LRoAI is now feature complete.
+What remains to do is :
 
-I'll exclusively work on performance, code cleaning and debugging for 0.6
+1) Lot of balancing
+2) Debugging (because I can't believe there's no bug)
+3) Document the code for the modders
 
 ## Description
 
@@ -19,9 +21,9 @@ My goal is to completely rewrite it, step by step, to make it better and provide
 
 ## Current performance vs ai
 
-![Roadmap](/img/lroai_comp_0.5.0.png)
+![Roadmap](/img/lroai_comp_0.6.0.png)
 
-Vanilla (1.5.5) vs LRoAI 0.5.0 (1.5.5)
+Vanilla (1.5.5) vs LRoAI 0.6.0 (1.5.5)
 
 ## Installation
 #### Official release
