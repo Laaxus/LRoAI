@@ -105,7 +105,11 @@ lroai_perform_allocation = {
                         lroai_sanction_$key$ = yes
 
                         # ...and is suitable
-                        lroai_has_enough_infrastructure = yes
+                        OR = {
+                            lroai_has_enough_infrastructure = yes
+                            $id$ = 4
+                            $id$ = 5
+                        }
                         lroai_has_enough_workforce = yes
                     }
 
@@ -330,9 +334,9 @@ lroai_evaluate_production_building = {
                     name = lroai_evaluated_supply_vs_demand_level
                     value = {
                         value = prev.lroai_supply_vs_demand_level
-                        subtract = $offset$
+                        subtract = $offset_supply$
                         round = yes
-                        min = $priority_limit$
+                        min = $priority_limit_supply$
                         max = 99
                     }
                 }
@@ -351,9 +355,9 @@ lroai_evaluate_production_building = {
                     value = lroai_building_type_$id$_collected_data_3
                     divide = 10
                 }
-                subtract = $offset$
+                subtract = $offset_productivity$
                 round = yes
-                min = $priority_limit$
+                min = $priority_limit_productivity$
                 max = 99
             }
         }
@@ -375,25 +379,16 @@ lroai_evaluate_production_building = {
             var:lroai_evaluated_supply_vs_demand_level > 0
             var:lroai_evaluated_supply_vs_demand_level < 99
         }
+        change_variable = {
+            name = temp_data
+            # Cell 1
+            add = {
 
-        if = { limit = { $id$ >= 24}
-            change_variable = {
-                name = temp_data
-                # Cell 1
-                add = {
-                    value = var:lroai_evaluated_productivity_level
-                    divide = 100
-                }
-            }
-        }
-        else = {
-            change_variable = {
-                name = temp_data
-                # Cell 1
-                add = {
-                    value = var:lroai_evaluated_supply_vs_demand_level
-                    divide = 100
-                }
+                #take the minimum of the two priority
+                value = var:lroai_evaluated_supply_vs_demand_level
+                max   = var:lroai_evaluated_productivity_level
+
+                divide = 100
             }
         }
     }
