@@ -5,7 +5,7 @@ This mod is updated to 1.5.5.
 version 0.6.0 released.
 
 I believe that LRoAI is now feature complete.
-What remains to do is :
+What remains to be done is :
 
 1) Lot of balancing
 2) Debugging (because I can't believe there's no bug)
