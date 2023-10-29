@@ -4,6 +4,7 @@
 # Levels 2-11 go from +75% to 0%
 # Levels 12-21 go from 0% to -75%
 # Level 22 is excess <-75%
+# Usage : market.mg:transportation.lroai_supply_vs_demand_level >= 9
 lroai_supply_vs_demand_level = {
     if = {
         limit = {
