@@ -266,11 +266,13 @@ lroai_evaluate_building_railway = {
         }
         6 = {
             any_scope_state = {
+                sg:transportation = {
+                    state_goods_pricier > 50
+                }
                 any_scope_building = {
                     is_building_type = building_railway
-                    earnings > lroai_median_building_productivity
+                    level > 0
                     occupancy > 0.95
-                    weekly_profit > 500
                     is_under_construction = no
                 }
             }
@@ -302,12 +304,16 @@ lroai_sanction_building_railway = {
                 }
             }
         }
-        any_scope_building = {
-            is_building_type = building_railway
-            earnings > lroai_median_building_productivity
-            occupancy > 0.95
-            weekly_profit > 500
-            is_under_construction = no
+        AND = {
+            sg:transportation = {
+                state_goods_pricier > 50
+            }
+            any_scope_building = {
+                is_building_type = building_railway
+                level > 0
+                occupancy > 0.95
+                is_under_construction = no
+            }
         }
     }
 }
@@ -334,12 +340,16 @@ lroai_allocate_building_railway = {
             }
         }
         2 = {
-            any_scope_building = {
-                is_building_type = building_railway
-                earnings > lroai_median_building_productivity
-                occupancy > 0.95
-                weekly_profit > 500
-                is_under_construction = no
+            AND = {
+                sg:transportation = {
+                    state_goods_pricier > 50
+                }
+                any_scope_building = {
+                    is_building_type = building_railway
+                    level > 0
+                    occupancy > 0.95
+                    is_under_construction = no
+                }
             }
         }
         fallback = {
