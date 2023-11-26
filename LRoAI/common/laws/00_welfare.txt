@@ -14,10 +14,6 @@
 		value = 0
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-
 	# AI will never abolish institutions entirely
 	ai_will_do = {
 		always = no
@@ -70,10 +66,6 @@ law_poor_laws = {
 			max = 1					
 		}
 	}
-
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -129,10 +121,6 @@ law_wage_subsidies = {
 			}				
 		}
 	}
-
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -192,10 +180,6 @@ law_old_age_pension = {
 			max = 1
 		}
 	}
-
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0

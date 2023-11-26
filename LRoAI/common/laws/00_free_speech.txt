@@ -27,10 +27,6 @@ law_outlawed_dissent = {
 		value = 0
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -70,10 +66,6 @@ law_censorship = {
 	pop_support = {
 		value = 0
 	}
-
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -138,10 +130,6 @@ law_right_of_assembly = {
 		}
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -194,27 +182,6 @@ law_protected_speech = {
 	on_activate = {
 		custom_tooltip = protected_speech_tt
 	}
-
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_ACADEMICS"			
-			if = {
-				limit = {
-					is_pop_type = academics
-				}
-				value = 0.33
-			}
-		}
-		add = {
-			desc = "ALL_POPS"			
-			value = 0.01
-		}
-	}
-
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0

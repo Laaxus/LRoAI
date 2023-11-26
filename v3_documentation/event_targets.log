@@ -35,19 +35,26 @@ Output Scopes: value
 Scope to the workplace of a pop
 Input Scopes: pop
 Output Scopes: building
+### front
+Scope to a front from various scopes
+	From a battle to the front where it takes place
+	From a character to the front where they are at or travelling towards
+	From a military formation to the front it is currently at
+	From a province to the front that contains it
+Input Scopes: battle, character, province, military_formation
+Output Scopes: front
 ### home_country
 Scopes to the home country of an exile
 Input Scopes: character, pop
 Output Scopes: country
-### modifier
-Scope to the value of the modifier type of specified key belonging to the current object
-Requires Data: yes
-Input Scopes: country, building, character, interest_group, market, state
-Output Scopes: value, bool
 ### battle
 Scope from a battle side to the battle itself
 Input Scopes: battle_side
 Output Scopes: battle
+### opposite_battle_side
+Scope from a battle side to its opposite
+Input Scopes: battle_side
+Output Scopes: battle_side
 ### province
 Scope from a battle side to the province in which the battle is being fought
 Input Scopes: battle_side
@@ -69,6 +76,14 @@ Output Scopes: country
 Scope to the market of the object
 Input Scopes: country, building, market, market_goods, province, state, state_region, state_goods
 Output Scopes: market
+### naval_invasion_attacker
+If used in a naval invasion scope, scope to the country executing the naval invasion.
+Input Scopes: color, battle, battle_side, building, civil_war, combat_unit_type, commander_order_type, country_definition, country_formation, decree, diplomatic_pact, diplomatic_relations, front, goods, institution, institution_type, journalentry, market_goods, objective, political_movement, pop_type, religion
+Output Scopes: country
+### naval_invasion_defender
+If used in a naval invasion scope, scope to the country the attacked state is controlled by.
+Input Scopes: building, building_type, civil_war, combat_unit_type, commander_order_type, country_definition, country_formation, decree, diplomatic_pact, diplomatic_relations, front, goods, institution, institution_type, journalentry, market_goods, objective, political_movement, pop_type, religion
+Output Scopes: country
 ### active_diplomatic_play
 Scope to the diplomatic play of a country or strategic region
 Input Scopes: country, strategic_region
@@ -95,6 +110,22 @@ Scope to the law the scoped political movement wants to enact/preserve.
 scope:example_movement = { desired_law = law_type:law_serfdom }
 Input Scopes: political_movement
 Output Scopes: law_type
+### country
+If used in a military formation scope, scope to the country the formation belongs to.
+Input Scopes: military_formation
+Output Scopes: country
+### highest_ranked_commander
+Scope from a military formation to its highest ranking commander character
+Input Scopes: military_formation
+Output Scopes: character
+### num_commanderless_units
+Number of units in a MilitaryFormation which currently don't have a commander due to commanders Command Limit. Obs: defeated commanders do not command units, i.e., the more defeated commanders, the more commanderless units.
+Input Scopes: military_formation
+Output Scopes: value
+### num_units
+Get the current of units for a commander or military formation
+Input Scopes: character, military_formation
+Output Scopes: value
 ### leader
 Scope to the leader of the interest group
 Input Scopes: interest_group
@@ -111,19 +142,29 @@ Output Scopes: law
 Scope to the controller of the object
 Input Scopes: province, state
 Output Scopes: country
-### land_hq
-Returns local land HQ
+### land_controller_hq
+Returns the province or state controller land HQ
 Input Scopes: province, state
 Output Scopes: hq
-### type
-Scope from an object to its type
-Input Scopes: building, institution, interest_group, law
-Output Scopes: building_type, institution_type, interest_group_type, law_type
+### land_hq
+Returns the province or state owner local land HQ
+Input Scopes: province, state
+Output Scopes: hq
+### modifier
+Scope to the value of the modifier type of specified key belonging to the current object
+Requires Data: yes
+Input Scopes: country, battle_side, building, character, interest_group, market, state
+Output Scopes: value, bool
 ### array_define
 Reference the value of a numeric value in an array define: array_define:Namespace|Name|Index. Index is 0-based.
 Requires Data: yes
 Global Link: yes
 Output Scopes: value
+### bt
+Scope to a building type
+Requires Data: yes
+Global Link: yes
+Output Scopes: building_type
 ### c
 Scope to the country with specified tag
 Requires Data: yes
@@ -215,7 +256,7 @@ Global Link: yes
 ### mobilization_option
 Scope to a mobilization option from its name (mobilization_option:key)
 Requires Data: yes
-Output Scopes: color, country, battle, battle_side, canal_type, new_combat_unit, combat_unit_type, culture, decree, diplomatic_action, diplomatic_pact, diplomatic_relations, hq, ideology, institution, interest_group, interest_group_trait, interest_group_type, law, law_type, market_goods, objective, political_movement, pop_type, religion
+Output Scopes: country, battle_side, building, canal_type, new_combat_unit, combat_unit, country_definition, country_formation, decree, diplomatic_pact, diplomatic_relations, front, goods, institution, institution_type, journalentry, market_goods, objective, political_movement, pop_type, religion
 ### named_script_value
 A script value that will calculate and returns its value in the context it is used
 Wild Card: yes
@@ -325,6 +366,11 @@ Input Scopes: country
 Output Scopes: value
 ### ai_navy_comparison
 Scope to comparative navy strength between two countries (example: value = ai_navy_comparison:root)
+Requires Data: yes
+Input Scopes: country
+Output Scopes: value
+### ai_subject_value
+Scope to AI desire of target country to have scope country as a subject (example: value = ai_subject_value:root)
 Requires Data: yes
 Input Scopes: country
 Output Scopes: value
@@ -697,6 +743,10 @@ Output Scopes: value
 Get the baseline number of units from their military formation a commander would normally get, depending on their command limit
 Input Scopes: character
 Output Scopes: value
+### commander_military_formation
+Scope to the Military Formation of a Character.
+Input Scopes: character
+Output Scopes: military_formation
 ### ideology
 Scope to the ideology of the scoped character (example: scope:example_character = { ideology = { save_scope_as = example_ideology } } )
 Input Scopes: character
@@ -721,12 +771,12 @@ Output Scopes: value
 Returns the number of fully mobilized units under a General
 Input Scopes: character
 Output Scopes: value
-### num_units
-Get the current of units for a commander
-Input Scopes: character
-Output Scopes: value
 ### num_units_not_in_battle
 Get the current of units for a commander that is NOT in battle
+Input Scopes: character
+Output Scopes: value
+### num_units_share
+Share of units a commander has considering his command limit. Example: if the character has 30 Command Limit, the fleet has 60 total Command Limit, and the formation has 50 total flotillas, then the character should get 25 flotillas for their battle)
 Input Scopes: character
 Output Scopes: value
 ### opposing_commander
@@ -741,6 +791,10 @@ Output Scopes: value
 Scope to the current supply level of a character (0-1)
 Input Scopes: character
 Output Scopes: value
+### owner
+Scope to the owner country of object
+Input Scopes: country, building, character, new_combat_unit, combat_unit, decree, institution, interest_marker, interest_group, journalentry, law, market, market_goods, pop, province, state, trade_route, military_formation
+Output Scopes: country
 ### num_garrison_units
 Returns the number of units garrisoned in a HQ
 Input Scopes: hq
@@ -753,14 +807,6 @@ Output Scopes: battle_side
 Scope from a battle to the BattleSide corresponding to the defender
 Input Scopes: battle
 Output Scopes: battle_side
-### front
-Scope to the front where a battle takes place / where a character is located
-Input Scopes: battle, character
-Output Scopes: front
-### owner
-Scope to the owner country of object
-Input Scopes: country, building, character, new_combat_unit, combat_unit, decree, institution, interest_marker, interest_group, journalentry, law, market, market_goods, pop, province, state, trade_route
-Output Scopes: country
 ### political_movement
 If used in a character scope, scope to the political movement that character supports.
 If used in a revolution civil war scope, scope to the movement that started the revolution.
@@ -804,12 +850,20 @@ Output Scopes: strategic_region
 Scope from a BattleSide or State to its theater
 Input Scopes: battle_side, state
 Output Scopes: theater
+### type
+Scope from an object to its type
+Input Scopes: building, institution, interest_group, law, company
+Output Scopes: building_type, institution_type, interest_group_type, law_type, company_type
 ### combat_width
 Scope to combat width multiplier of scope province
 Input Scopes: province
 Output Scopes: value
+### naval_controller_hq
+Returns the province or state controller navy HQ
+Input Scopes: province
+Output Scopes: hq
 ### naval_hq
-Returns local navy HQ
+Returns the province or state owner local navy HQ
 Input Scopes: province
 Output Scopes: hq
 ### momentum
@@ -901,11 +955,20 @@ Output Scopes: market
 Scope to the journal entry's goal value
 Input Scopes: journalentry
 Output Scopes: value
+### ai_state_value
+Scope to target country AI desire to own scope state (example: value = ai_state_value:root)
+Requires Data: yes
+Input Scopes: state
+Output Scopes: value
 ### b
 Scope to the building of specified key in the state
 Requires Data: yes
 Input Scopes: state
 Output Scopes: building
+### mass_migration_culture
+Scope to the mass migration target culture of a state
+Input Scopes: state
+Output Scopes: culture
 ### nf
 Scope to a Decree of specified key applied to the state
 Requires Data: yes
@@ -915,6 +978,11 @@ Output Scopes: decree
 Scope to the current percentage of the state's population that are below their expected standard of living (0-1)
 Input Scopes: state
 Output Scopes: value
+### sg
+Scope from a state to the StateGoods with the specified key
+Requires Data: yes
+Input Scopes: state
+Output Scopes: state_goods
 ### state_region
 Scope to the state region of a state
 Input Scopes: state
@@ -954,6 +1022,8 @@ goal_holder
 evaluation
 state
 target_state
+first_state
+second_state
 epicentre
 interest_group
 political_movement
@@ -965,6 +1035,7 @@ theater
 country
 culture
 combat_unit_type
+num_units
 notification_target
 notification_ignore
 previous
@@ -1001,3 +1072,4 @@ occupation_fraction
 military_formation
 is_strategic_objective
 company_type
+company

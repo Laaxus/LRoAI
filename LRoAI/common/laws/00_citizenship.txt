@@ -37,10 +37,6 @@ law_ethnostate = {
 		value = 0
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -87,10 +83,6 @@ law_national_supremacy = {
 	pop_support = {
 		value = 0
 	}
-
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -153,10 +145,6 @@ law_racial_segregation = {
 			}			
 		}
 	}
-
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -225,10 +213,6 @@ law_cultural_exclusion = {
 		}
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -290,10 +274,6 @@ law_multicultural = {
 			}			
 		}
 	}
-
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0

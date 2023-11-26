@@ -11,10 +11,6 @@
 		value = 0
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -116,82 +112,6 @@ law_migration_controls = {
 		}	
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_LOWER_STRATA"
-			if = {
-				limit = { 
-					owner = { 
-						NOT = { 
-							has_law = law_type:law_closed_borders
-						} 
-					}
-					state = {
-						state_unemployment_rate >= 0.1
-					}
-				}
-				value = 0.1
-			}
-			if = {
-				limit = {
-					owner = { 
-						NOT = { 
-							has_law = law_type:law_closed_borders
-						} 
-					}
-					state = {
-						state_unemployment_rate >= 0.2
-					}
-				}
-				value = 0.1
-			}
-			if = {
-				limit = { 
-					owner = { 
-						NOT = { 
-							has_law = law_type:law_closed_borders
-						} 
-					}
-					state = {
-						state_unemployment_rate >= 0.3
-					}
-				}
-				value = 0.1
-			}
-			if = {
-				limit = {
-					owner = { 
-						NOT = { 
-							has_law = law_type:law_closed_borders
-						} 
-					}
-					state = {
-						state_unemployment_rate >= 0.4
-					}
-				}
-				value = 0.1
-			}
-			if = {
-				limit = {
-					owner = { 
-						NOT = { 
-							has_law = law_type:law_closed_borders
-						} 
-					}
-					state = {
-						state_unemployment_rate >= 0.5
-					}
-				}
-				value = 0.1
-			}
-		}
-	}
-
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -266,57 +186,6 @@ law_closed_borders = {
 				value = 0.1
 			}
 		}	
-	}
-
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_LOWER_STRATA"
-			if = {
-				limit = { 
-					state = {
-						state_unemployment_rate >= 0.1
-					}
-				}
-				value = 0.1
-			}
-			if = {
-				limit = {
-					state = {
-						state_unemployment_rate >= 0.2
-					}
-				}
-				value = 0.1
-			}
-			if = {
-				limit = { 
-					state = {
-						state_unemployment_rate >= 0.3
-					}
-				}
-				value = 0.1
-			}
-			if = {
-				limit = {
-					state = {
-						state_unemployment_rate >= 0.4
-					}
-				}
-				value = 0.1
-			}
-			if = {
-				limit = {
-					state = {
-						state_unemployment_rate >= 0.5
-					}
-				}
-				value = 0.1
-			}
-		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions

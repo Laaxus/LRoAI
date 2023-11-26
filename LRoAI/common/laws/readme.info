@@ -30,3 +30,8 @@
 #		add = 10
 #	}
 #}
+
+#Impose law on subject
+#Only overlords can impose laws on their subject
+#Use can_impose = { } to add triggers that should evaluate to impose. initiator is available as scope for the imposing country. They are evaluated in the scope of the target coutry.
+#Use on_impose = { } to add effects that will execute when law is being imposed. initiator is available as scope for the imposing country. They are evaluated in the scope of the target coutry.

@@ -43,10 +43,6 @@
 		}
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-
 	ai_will_do = {
 		exists = ruler
 		ruler = {
@@ -124,10 +120,6 @@ law_appointed_bureaucrats = {
 		}
 	}
 
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
-
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -188,10 +180,6 @@ law_elected_bureaucrats = {
 			value = 0.25
 		}
 	}
-
-	can_impose = { 
-		is_subject_of = scope:initiator	
-	} 
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
