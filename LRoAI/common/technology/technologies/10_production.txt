@@ -402,7 +402,7 @@ improved_fertilizer = {
 	}
 	
 	ai_weight = {
-		value = 4
+		value = 2
 	}
 }
 
@@ -450,7 +450,7 @@ dynamite = {
 	}
 	
 	ai_weight = {
-		value = 3
+		value = 2
 	}
 }
 
@@ -466,7 +466,7 @@ rubber_mastication = {
 	}
 	
 	ai_weight = {
-		value = 3
+		value = 1
 		
 		if = {
 			limit = { 
