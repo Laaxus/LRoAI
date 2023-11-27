@@ -1,6 +1,6 @@
 ﻿lroai_debug_country = {
-    if = { limit = { this = c:FRA}
-       lroai_debug_collected_data_named = yes
+    if = { limit = { this = c:BIC}
+       lroai_debug_construction_values = yes
     }
 }
 
@@ -32,6 +32,7 @@ lroai_debug_construction_values = {
     debug_log = "lroai_temporary_construction_sector_expenses               [THIS.Var('lroai_temporary_construction_sector_expenses').GetValue]"
     debug_log = "lroai_usage_of_construction_points_value                   [THIS.ScriptValue('lroai_usage_of_construction_points_value')]"
     debug_log = "lroai_free_construction_points                             [THIS.ScriptValue('lroai_free_construction_points')]"
+    debug_log = "lroai_investment_pool_wanted_spending                      [THIS.ScriptValue('lroai_investment_pool_wanted_spending')]"
 }
 
 lroai_debug_construction_army = {
