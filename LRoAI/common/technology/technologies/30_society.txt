@@ -833,7 +833,7 @@ steel_frame_buildings = {
 	}
 	
 	ai_weight = {
-		value = 10
+		value = 5
 	}
 }
 
