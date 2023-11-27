@@ -99,6 +99,13 @@ law_religious_schools = {
 		}
 	}
 
+	ai_will_do = {
+	    NOR = {
+	        has_law = law_type:law_public_schools
+            has_law = law_type:law_private_schools
+	    }
+	}
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -164,6 +171,16 @@ law_private_schools = {
 			}
 			add = 750
 		}
+
+        if = {
+            limit = {
+                OR = {
+                    has_law = law_type:law_no_schools
+                    has_law = law_type:law_religious_schools
+                }
+            }
+            add = 10000
+        }
 	}
 }
 
@@ -238,5 +255,15 @@ law_public_schools = {
 			}
 			add = 750
 		}
+
+        if = {
+            limit = {
+                OR = {
+                    has_law = law_type:law_no_schools
+                    has_law = law_type:law_religious_schools
+                }
+            }
+            add = 10000
+        }
 	}
 }

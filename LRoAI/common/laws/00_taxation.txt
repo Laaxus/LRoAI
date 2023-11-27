@@ -231,6 +231,16 @@ law_per_capita_based_taxation = {
 			}
 			add = 750
 		}
+
+		if = {
+            limit = {
+                OR = {
+                    has_law = law_type:law_consumption_based_taxation
+                    has_law = law_type:law_land_based_taxation
+                }
+            }
+            add = 10000
+        }
 	}
 }
 
@@ -301,7 +311,7 @@ law_proportional_taxation = {
 	}
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 10000
 		
 		if = {
 			limit = { 

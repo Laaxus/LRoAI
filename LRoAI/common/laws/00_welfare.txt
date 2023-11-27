@@ -30,6 +30,12 @@
 			}
 			add = 750
 		}
+		if = {
+			limit = {
+				lroai_gdp_per_capita < 1.0
+			}
+			add = 750
+		}
 	}
 }
 
@@ -65,6 +71,10 @@ law_poor_laws = {
 			min = 0
 			max = 1					
 		}
+	}
+
+	ai_will_do = {
+	    lroai_gdp_per_capita > 1.0
 	}
 
 	ai_enact_weight_modifier = { #Petitions

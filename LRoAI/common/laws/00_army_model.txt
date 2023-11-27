@@ -135,7 +135,7 @@ law_professional_army = {
 	}
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 100
 		
 		if = {
 			limit = { 
@@ -145,6 +145,13 @@ law_professional_army = {
 			}
 			add = 750
 		}
+
+		if = {
+            limit = {
+                has_law = law_type:law_peasant_levies
+            }
+            add = 10000
+        }
 	}
 }
 
@@ -200,23 +207,19 @@ law_national_militia = {
 	}
 	
 	ai_will_do = {
-		exists = ruler
-		ruler = {
-			has_ideology = ideology:ideology_pacifist
-		}
+	    OR = {
+            AND = {
+                exists = ruler
+                ruler = {
+                    has_ideology = ideology:ideology_pacifist
+                }
+            }
+            has_law = law_type:law_peasant_levies
+        }
 	}
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
-		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
-			add = 750
-		}
 	}
 }
 
@@ -260,16 +263,11 @@ law_mass_conscription = {
 		value = 0
 	}
 
+    ai_will_do = {
+        always = no
+    }
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
-		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
-			add = 750
-		}
 	}
 }

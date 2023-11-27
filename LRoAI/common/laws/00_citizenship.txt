@@ -37,17 +37,12 @@ law_ethnostate = {
 		value = 0
 	}
 
+	ai_will_do = {
+        always = no
+    }
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
-		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
-			add = 750
-		}
 	}
 }
 
@@ -83,6 +78,12 @@ law_national_supremacy = {
 	pop_support = {
 		value = 0
 	}
+
+	ai_will_do = {
+	    OR = {
+            has_law = law_type:law_ethnostate
+        }
+    }
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -145,6 +146,13 @@ law_racial_segregation = {
 			}			
 		}
 	}
+
+	ai_will_do = {
+        OR = {
+            has_law = law_type:law_ethnostate
+            has_law = law_type:law_national_supremacy
+        }
+    }
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -212,6 +220,14 @@ law_cultural_exclusion = {
 			}			
 		}
 	}
+
+	ai_will_do = {
+        OR = {
+            has_law = law_type:law_ethnostate
+            has_law = law_type:law_national_supremacy
+            has_law = law_type:law_racial_segregation
+        }
+    }
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0

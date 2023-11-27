@@ -44,23 +44,11 @@
 	}
 
 	ai_will_do = {
-		exists = ruler
-		ruler = {
-			has_ideology = ideology:ideology_traditionalist
-		}
+		always = no
 	}
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
-		if = {
-			limit = { 
-				has_journal_entry = je_government_petition
-				has_variable = desired_law_var
-                scope:law = var:desired_law_var
-			}
-			add = 750
-		}
 	}
 }
 
@@ -121,7 +109,7 @@ law_appointed_bureaucrats = {
 	}
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 100
 		
 		if = {
 			limit = { 
@@ -131,6 +119,13 @@ law_appointed_bureaucrats = {
 			}
 			add = 750
 		}
+
+		if = {
+            limit = {
+                has_law = law_type:law_hereditary_bureaucrats
+            }
+            add = 10000
+        }
 	}
 }
 
@@ -182,7 +177,7 @@ law_elected_bureaucrats = {
 	}
 
 	ai_enact_weight_modifier = { #Petitions
-		value = 0
+		value = 50
 		
 		if = {
 			limit = { 
@@ -192,5 +187,12 @@ law_elected_bureaucrats = {
 			}
 			add = 750
 		}
+
+		if = {
+            limit = {
+                has_law = law_type:law_hereditary_bureaucrats
+            }
+            add = 10000
+        }
 	}
 }

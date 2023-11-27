@@ -348,6 +348,14 @@ law_landed_voting = {
 		}
 	}
 
+	ai_will_do = {
+	    NOR = {
+	        has_law = law_type:law_wealth_voting
+	        has_law = law_type:law_census_voting
+	        has_law = law_type:law_universal_suffrage
+	    }
+	}
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -359,6 +367,16 @@ law_landed_voting = {
 			}
 			add = 750
 		}
+
+		if = {
+            limit = {
+                OR = {
+                     has_law = law_type:law_autocracy
+                     has_law = law_type:law_oligarchy
+                 }
+            }
+            add = 10000
+        }
 	}
 }
 
@@ -426,6 +444,13 @@ law_wealth_voting = {
 		}
 	}
 
+	ai_will_do = {
+    	    NOR = {
+    	        has_law = law_type:law_census_voting
+    	        has_law = law_type:law_universal_suffrage
+    	    }
+    	}
+
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
 		
@@ -437,6 +462,17 @@ law_wealth_voting = {
 			}
 			add = 750
 		}
+
+		if = {
+            limit = {
+                OR = {
+                     has_law = law_type:law_autocracy
+                     has_law = law_type:law_oligarchy
+                     has_law = law_type:law_landed_voting
+                 }
+            }
+            add = 10000
+        }
 	}
 }
 
@@ -502,6 +538,12 @@ law_census_voting = {
 			}
 		}
 	}
+
+	ai_will_do = {
+    	    NOR = {
+    	        has_law = law_type:law_universal_suffrage
+    	    }
+    	}
 	
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -514,6 +556,18 @@ law_census_voting = {
 			}
 			add = 750
 		}
+
+		if = {
+            limit = {
+                OR = {
+                     has_law = law_type:law_autocracy
+                     has_law = law_type:law_oligarchy
+                     has_law = law_type:law_landed_voting
+                     has_law = law_type:law_wealth_voting
+                 }
+            }
+            add = 10000
+        }
 	}
 }
 
@@ -599,6 +653,19 @@ law_universal_suffrage = {
 			}
 			add = 750
 		}
+
+		if = {
+            limit = {
+                OR = {
+                     has_law = law_type:law_autocracy
+                     has_law = law_type:law_oligarchy
+                     has_law = law_type:law_landed_voting
+                     has_law = law_type:law_wealth_voting
+                     has_law = law_type:law_census_voting
+                 }
+            }
+            add = 10000
+        }
 	}
 }
 
