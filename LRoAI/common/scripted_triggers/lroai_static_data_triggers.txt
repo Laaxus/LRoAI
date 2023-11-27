@@ -134,13 +134,13 @@ lroai_evaluate_building_university = {
         }
         switch = {
             trigger = $priority$
-            4 = {
+            3 = {
                 lroai_building_university_spending_value < lroai_building_university_spending_target_80
             }
-            5 = {
+            4 = {
                 lroai_building_university_spending_value < lroai_building_university_spending_target_90
             }
-            6 = {
+            5 = {
                 lroai_building_university_spending_value < lroai_building_university_spending_target
             }
             fallback = {
@@ -367,8 +367,21 @@ lroai_consider_building_port = {
     any_scope_state = {
         is_coastal = yes
     }
-    lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_low
-    lroai_total_convoy_required_value > 0
+    OR = {
+        AND = {
+            lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_low
+            lroai_total_convoy_required_value > 0
+        }
+        any_scope_state = {
+            lroai_sanction_building_port = yes
+            is_isolated_from_market = yes
+            NOT = {
+                any_scope_building = {
+                    is_building_type = building_port
+                }
+            }
+        }
+    }
     OR = {
         is_player = no
     }
@@ -392,6 +405,17 @@ lroai_evaluate_building_port= {
         }
         switch = {
             trigger = $priority$
+            2 = {
+                any_scope_state = {
+                    lroai_sanction_building_port = yes
+                    is_isolated_from_market = yes
+                    NOT = {
+                        any_scope_building = {
+                            is_building_type = building_port
+                        }
+                    }
+                }
+            }
             3 = {
                 lroai_total_convoy_produced_value < lroai_total_convoy_available_value_ceiling_critical
             }
@@ -422,7 +446,24 @@ lroai_sanction_building_port = {
 
 # TODO update this so it takes account of infrastructure, market access and such
 lroai_allocate_building_port = {
-   $aptitude$ = 1
+    switch = {
+            trigger = $aptitude$
+            1 = {
+                is_isolated_from_market = yes
+                is_coastal = yes
+                NOT = {
+                    any_scope_building = {
+                        is_building_type = building_port
+                    }
+                }
+            }
+            2 = {
+                always = yes
+            }
+            fallback = {
+                always = no
+            }
+        }
 }
 
 # --------
@@ -452,25 +493,25 @@ lroai_evaluate_building_barracks = {
         }
         switch = {
             trigger = $priority$
-            2 = {
+            3 = {
                 lroai_building_barracks_spending_value < lroai_building_barracks_spending_target_70
             }
-            3 = {
+            4 = {
                 lroai_building_barracks_spending_value < lroai_building_barracks_spending_target_75
             }
-            4 = {
+            5 = {
                 lroai_building_barracks_spending_value < lroai_building_barracks_spending_target_80
             }
-            5 = {
+            6 = {
                 lroai_building_barracks_spending_value < lroai_building_barracks_spending_target_85
             }
-            6 = {
+            7 = {
                 lroai_building_barracks_spending_value < lroai_building_barracks_spending_target_90
             }
-            7 = {
+            8 = {
                 lroai_building_barracks_spending_value < lroai_building_barracks_spending_target_95
             }
-            8 = {
+            9 = {
                 lroai_building_barracks_spending_value < lroai_building_barracks_spending_target
             }
             fallback = {
@@ -521,25 +562,25 @@ lroai_evaluate_building_naval_base = {
         }
         switch = {
             trigger = $priority$
-            2 = {
+            3 = {
                 lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target_70
             }
-            3 = {
+            4 = {
                 lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target_75
             }
-            4 = {
+            5 = {
                 lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target_80
             }
-            5 = {
+            6 = {
                 lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target_85
             }
-            6 = {
+            7 = {
                 lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target_90
             }
-            7 = {
+            8 = {
                 lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target_95
             }
-            8 = {
+            9 = {
                 lroai_building_naval_base_spending_value < lroai_building_naval_base_spending_target
             }
             fallback = {
