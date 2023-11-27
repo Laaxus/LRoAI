@@ -25,6 +25,8 @@ lroai_perform_iteration_of_weekly_loop = {
             }
          }
         lroai_collect_data_for_construction_and_downsizing = yes
+        lroai_invite_intelligentsia_agitator = yes
+        lroai_invite_industrialists_agitator = yes
     }
 
     if = { limit = { $day_1_of_main_loop$ = yes }
@@ -108,7 +110,7 @@ lroai_add_progress_to_ongoing_constructions = {
                     limit = {
                         lroai_modified_current_ongoing_constructions_element_2 < 5
                     }
-                    
+
                     # Change status and thus cell 2 from points to weeks after construction ended to roughly track new
                     # levels getting employees. Cell 2 stays at 0 during transition so we hang on an extra week before
                     # claiming construction is done to account for desync between weekly loop and actual weekly tick.
@@ -121,7 +123,7 @@ lroai_add_progress_to_ongoing_constructions = {
                             add = 1000000
                         }
                     }
-                    
+
                     # If we weren't sure before if building was constructed but we see no building of such type under
                     # construction in this state, we swap from "expected to be finished" to "was finished for sure".
                     if = {
@@ -168,7 +170,7 @@ lroai_add_progress_to_ongoing_constructions = {
                     remove_local_variable = lroai_modified_current_ongoing_constructions_element
                 }
             }
-            
+
         }
 
         # Move modified version of the list to a regular one
@@ -217,7 +219,7 @@ lroai_weekly_check_of_gov_building_expenses = {
         name = lroai_building_conscription_center_expenses
         value = 0
     }
-    
+
     # Collect expenses data from buildings, with total levels, shortages and ongoing constructions also being collected
     # on day 1 of economy cycle iteration for buildings that may be constructed as critical.
     every_scope_building = {
@@ -288,7 +290,7 @@ lroai_weekly_check_of_gov_building_expenses = {
 
     # Garbage collection; we don't need consription center expenses anywhere else
     remove_local_variable = lroai_building_conscription_center_expenses
-    
+
     # We always pretend wage level is medium
     if = {
         limit = {
@@ -449,6 +451,68 @@ lroai_clear_weekly_loop_variables = {
     remove_variable = lroai_building_naval_base_spending
 }
 
-lroai_clear_weekly_loop_local_variables = {
+lroai_invite_intelligentsia_agitator = {
+    if = {
+        limit = {
+            OR = {
+                This = c:BIC
+                This = c:CHI
+                This = c:RUS
+                This = c:AUS
+                This = c:TUR
+                This = c:SPA
+                This = c:USA
+                This = c:JAP
+                This = c:KOR
+            }
+            empty_agitator_slots > 0
+            not = {
+                any_scope_character = {
+                    has_role = agitator
+                    is_interest_group_type = ig_intelligentsia
+                }
+            }
+            is_player = no
+        }
+        save_temporary_scope_as = lroai_current_country
+        random_character_in_exile_pool = {
+            limit = {
+                is_interest_group_type = ig_intelligentsia
+            }
+            transfer_character = scope:lroai_current_country
+        }
+    }
+}
 
+lroai_invite_industrialists_agitator = {
+    if = {
+        limit = {
+            OR = {
+                This = c:BIC
+                This = c:CHI
+                This = c:RUS
+                This = c:AUS
+                This = c:TUR
+                This = c:USA
+                This = c:SPA
+                This = c:JAP
+                This = c:KOR
+            }
+            empty_agitator_slots > 0
+            not = {
+                any_scope_character = {
+                    has_role = agitator
+                    is_interest_group_type = ig_industrialists
+                }
+            }
+            is_player = no
+        }
+        save_temporary_scope_as = lroai_current_country
+        random_character_in_exile_pool = {
+            limit = {
+                is_interest_group_type = ig_industrialists
+            }
+            transfer_character = scope:lroai_current_country
+        }
+    }
 }
