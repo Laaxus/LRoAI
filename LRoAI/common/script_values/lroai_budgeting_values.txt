@@ -6,3 +6,8 @@
     }
 }
 
+lroai_gdp_per_capita = {
+	value = gdp
+	divide = total_population
+}
+

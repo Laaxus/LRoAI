@@ -3,7 +3,7 @@
 # -----------------
 
 lroai_building_university_spending_share = {
-    value = 0.10
+    value = 0.15
 }
 
 lroai_building_university_spending_target = {
