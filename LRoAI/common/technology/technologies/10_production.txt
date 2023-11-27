@@ -69,7 +69,7 @@ cotton_gin = {
 	}
 	
 	ai_weight = {
-		value = 10
+		value = 100
 	}
 }
 
@@ -84,7 +84,7 @@ lathe = {
 	}
 	
 	ai_weight = {
-		value = 10
+		value = 100
 	}
 }
 
@@ -101,7 +101,7 @@ distillation = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 3
 	}
 }
 
@@ -116,7 +116,7 @@ steelworking = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 3
 		
 		if = {
 			limit = { 
@@ -141,7 +141,7 @@ prospecting = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 3
 	}
 }
 
@@ -158,7 +158,7 @@ crystal_glass = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 3
 	}
 }
 
@@ -201,7 +201,7 @@ fractional_distillation = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 3
 	}
 }
 
@@ -216,7 +216,7 @@ canneries = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 100
 	}
 }
 
@@ -232,7 +232,7 @@ watertube_boiler = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 20
 	}
 }
 
@@ -248,7 +248,7 @@ atmospheric_engine = {
 	}
 	
 	ai_weight = {
-		value = 10
+		value = 100
 	}
 }
 
@@ -270,7 +270,7 @@ railways = {
 	}
 	
 	ai_weight = {
-		value = 10
+		value = 1000
 	}
 }
 
@@ -286,7 +286,7 @@ chemical_bleaching = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 3
 	}
 }
 
@@ -309,7 +309,7 @@ nitroglycerin = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 3
 	}
 }
 
@@ -325,7 +325,7 @@ bessemer_process = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 3
 		
 		if = {
 			limit = { 
@@ -347,7 +347,7 @@ baking_powder = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 3
 	}
 }
 
@@ -368,7 +368,7 @@ mechanized_workshops = {
 	}
 	
 	ai_weight = {
-		value = 10
+		value = 100
 	}
 }
 
@@ -384,7 +384,7 @@ mechanical_tools = {
 	}
 	
 	ai_weight = {
-		value = 1		
+		value = 100
 	}
 }
 
@@ -402,7 +402,7 @@ improved_fertilizer = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 4
 	}
 }
 
@@ -450,7 +450,7 @@ dynamite = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 3
 	}
 }
 
@@ -466,7 +466,7 @@ rubber_mastication = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 3
 		
 		if = {
 			limit = { 
@@ -491,7 +491,7 @@ rotary_valve_engine = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 2
 	}
 }
 
@@ -510,7 +510,7 @@ reinforced_concrete = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 2
 	}
 }
 
@@ -592,7 +592,7 @@ open_hearth_process = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 2
 	}
 }
 
@@ -607,7 +607,7 @@ vulcanization = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 2
 	}
 }
 
