@@ -300,7 +300,7 @@ lroai_perform_for_every_building_type = {
     lroai_perform_for_building_type = { effect = $effect$ key = building_shipyards id = 43
     class = 6 counter = 43 order = 8 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_power_plant id = 44
-    class = 6 counter = 44 order = 4 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 0 }
+    class = 6 counter = 44 order = 4 limit = 5 workforce = 0 allocate = 1 branching = 1 scaling = 0 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_electrics_industry id = 45
     class = 6 counter = 45 order = 8 limit = 5 workforce = 1 allocate = 1 branching = 1 scaling = 1 }
     lroai_perform_for_building_type = { effect = $effect$ key = building_arms_industry id = 46
