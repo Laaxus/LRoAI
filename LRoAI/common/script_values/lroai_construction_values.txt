@@ -2,6 +2,10 @@
     value = 10
 }
 
+lroai_expected_ceiling_cost_per_construction_point = {
+    value = 1800
+}
+
 lroai_simultaneous_constructions = {
     value = lroai_construction_points_current
     divide = lroai_construction_points_per_building

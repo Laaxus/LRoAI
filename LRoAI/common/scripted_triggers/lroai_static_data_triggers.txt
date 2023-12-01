@@ -173,8 +173,9 @@ lroai_consider_building_construction_sector = {
         id = $id$
         shortage = 1
     }
-   lroai_current_constructions_points_percent_of_max_wanted < 1.1
+   lroai_current_constructions_points_percent_of_max_wanted < 1.0
    lroai_is_building_construction_sector_allowed = yes
+   income > 1000
     OR = {
         is_player = no
     }
@@ -200,9 +201,6 @@ lroai_evaluate_building_construction_sector = {
             }
             4 = {
                 lroai_current_constructions_points_percent_of_max_wanted < 1.0
-            }
-            5 = {
-                lroai_current_constructions_points_percent_of_max_wanted >= 1.0
             }
             fallback = {
                 always = no
@@ -486,7 +484,7 @@ lroai_evaluate_building_barracks = {
     trigger_if = {
         limit = {
             $priority$ >= 2
-            $priority$ <= 8
+            $priority$ <= 9
             NOT = {
                 has_variable = lroai_building_barracks_cooldown
             }

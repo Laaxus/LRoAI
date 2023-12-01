@@ -9,7 +9,7 @@ lroai_building_construction_sector_expenses_per_point = {
         value = root.var:lroai_previous_cost_per_construction_point
    }
    else = {
-        value = 1200
+        value = lroai_expected_ceiling_cost_per_construction_point
    }
 }
 
@@ -173,9 +173,10 @@ lroai_constructions_possible_with_current_points = {
     divide = lroai_construction_points_per_building
 }
 
-lroai_usage_of_construction_points_value = {
+lroai_non_free_usage_of_construction_points_value = {
     value = construction_queue_num_queued_levels
     multiply = lroai_construction_points_per_building
+    subtract = lroai_base_construction_value
     min = 1
     max = lroai_construction_points_current
 }

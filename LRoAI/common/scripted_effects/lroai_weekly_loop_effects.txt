@@ -393,7 +393,7 @@ lroai_calculate_building_construction_sector_expenses_per_point = {
     if = { limit = { NOT = {has_variable = lroai_previous_cost_per_construction_point} }
         set_variable = {
             name = lroai_previous_cost_per_construction_point
-            value = 1000
+            value = lroai_expected_ceiling_cost_per_construction_point
         }
      }
 
@@ -401,15 +401,16 @@ lroai_calculate_building_construction_sector_expenses_per_point = {
         name = lroai_temporary_cost_per_construction_point
         value = {
             value = local_var:lroai_building_construction_sector_expenses
-            divide = lroai_usage_of_construction_points_value
+            divide = lroai_non_free_usage_of_construction_points_value
         }
     }
-
-    set_variable = {
-        name = lroai_temporary_construction_sector_expenses
-        value = local_var:lroai_building_construction_sector_expenses
-    }
-    if = { limit = {construction_queue_num_queued_government_levels = 0}
+    if = {
+        limit = {
+            OR = {
+                lroai_construction_points_current <= lroai_base_construction_value
+                construction_queue_num_queued_government_levels = 0
+            }
+        }
             #do nothing
     }
     else_if = {
@@ -442,7 +443,6 @@ lroai_calculate_building_construction_sector_expenses_per_point = {
             }
         }
     }
-    remove_variable = lroai_temporary_construction_sector_expenses
 }
 
 lroai_clear_weekly_loop_variables = {
