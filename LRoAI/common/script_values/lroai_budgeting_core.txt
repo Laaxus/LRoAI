@@ -150,7 +150,7 @@ lroai_gold_reserves_percent = {
 
 # tag : tag_lroai_construction_expense_from_budget_maximum
 #
-# 75%  of the revenue left for construction and military. We don't want to spend more than that.
+# 70%  of the revenue left for construction and military. We don't want to spend more than that.
 # The country always need a bit of military to defend itself.
 #
 lroai_construction_expense_from_budget_maximum = {
@@ -199,11 +199,11 @@ lroai_investment_pool_net_spending = {
 #
 lroai_investment_pool_wanted_spending = {
     value = investment_pool_gross_income
-    multiply = 1.2
+    multiply = 1.1
 
     add = {
         value = investment_pool
-        divide = 100
+        divide = 1000
         max = 100000
     }
 }
@@ -214,8 +214,7 @@ lroai_investment_pool_wanted_spending = {
 #
 lroai_construction_expense_ideal = {
     value   = lroai_construction_expense_maximum_from_pop       # The amount of money needed to reach full employment
-    subtract = lroai_investment_pool_net_spending
-    max     = lroai_construction_expense_from_budget_maximum    # But we can't spend more than 75% of the budget
+    max     = lroai_construction_expense_from_budget_maximum    # But we can't spend more than 70% of the budget
     min     = lroai_construction_expense_from_budget_minimum    # But we can't spend less than 10% of the budget
 }
 
@@ -250,7 +249,8 @@ lroai_construction_points_wanted_total = {
         value  = lroai_investment_pool_wanted_spending
         divide = lroai_building_construction_sector_expenses_per_point
     }
-    min = 10
+
+    add = lroai_base_construction_value
 }
 
 
