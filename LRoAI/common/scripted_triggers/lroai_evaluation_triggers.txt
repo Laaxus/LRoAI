@@ -319,7 +319,12 @@ lroai_allocate_agriculture = {
 }
 
 lroai_is_building_construction_sector_allowed = {
-    market.mg:tools.lroai_supply_vs_demand_level >= 3
-    market.mg:iron.lroai_supply_vs_demand_level >= 3
-    market.mg:wood.lroai_supply_vs_demand_level >= 3
+    OR = {
+        AND = {
+            market.mg:tools.lroai_supply_vs_demand_level >= 3
+            market.mg:iron.lroai_supply_vs_demand_level >= 3
+            market.mg:wood.lroai_supply_vs_demand_level >= 3
+        }
+        lroai_construction_points_current <= 10
+    }
 }
