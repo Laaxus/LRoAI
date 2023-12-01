@@ -10,6 +10,7 @@ lroai_building_barracks_spending_target = {
 lroai_building_barracks_spending_excess = {
     value = lroai_building_barracks_spending_target
     multiply = 1.20
+    add = 1000
 }
 
 lroai_building_barracks_spending_ceiling = {
