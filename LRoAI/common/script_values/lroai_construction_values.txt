@@ -1,4 +1,8 @@
-﻿lroai_simultaneous_constructions = {
+﻿lroai_base_construction_value = {
+    value = 10
+}
+
+lroai_simultaneous_constructions = {
     value = lroai_construction_points_current
     divide = lroai_construction_points_per_building
 }
