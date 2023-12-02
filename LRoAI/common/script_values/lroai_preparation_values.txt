@@ -174,8 +174,22 @@ lroai_constructions_possible_with_current_points = {
 }
 
 lroai_non_free_usage_of_construction_points_value = {
-    value = construction_queue_num_queued_levels
-    multiply = lroai_construction_points_per_building
+    value = lroai_construction_points_per_building
+    max = {
+        value = lroai_construction_points_current
+        divide = {
+            value = construction_queue_num_queued_levels
+            min = 1
+        }
+    }
+
+    # This max is above is for small countries
+    # Imagine 14 construction point, one building in private and public
+    # Without this max, lroai_non_free_usage_of_construction_points_value would return 14-15 and not 4
+    # We can't add it to the original lroai_construction_points_per_building because else it gives a self feeding loop, and countries overbuild
+
+
+    multiply = construction_queue_num_queued_levels
     subtract = lroai_base_construction_value
     min = 1
     max = lroai_construction_points_current
@@ -542,18 +556,6 @@ lroai_current_barracks_level = {
 
 lroai_current_naval_base_level = {
     value = scope:lroai_current_state.var:lroai_building_naval_base_level
-}
-
-
-
-lroai_building_university_spending = {
-    value = var:lroai_building_university_spending
-}
-lroai_building_barracks_spending = {
-    value = var:lroai_building_barracks_spending
-}
-lroai_building_naval_base_spending = {
-    value = var:lroai_building_naval_base_spending
 }
 
 lroai_state_construction_sector_limit = {
