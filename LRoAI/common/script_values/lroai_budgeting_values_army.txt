@@ -22,18 +22,8 @@ lroai_building_barracks_spending_value = {
     if = {
         limit = {
             has_variable = lroai_building_barracks_spending
-            var:lroai_building_barracks_spending > 0
         }
         value = var:lroai_building_barracks_spending
-        floor = yes
-        divide = {
-            value = var:lroai_building_barracks_spending
-            subtract = {
-                value = var:lroai_building_barracks_spending
-                floor = yes
-            }
-            multiply = 100
-        }
     }
     else = {
         value = lroai_building_barracks_spending_target

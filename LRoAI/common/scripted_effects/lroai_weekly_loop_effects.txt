@@ -337,26 +337,21 @@ lroai_weekly_check_of_gov_building_expenses = {
         }
     }
 
-    lroai_add_local_variable_to_array_variable = {
-        input = lroai_building_university_expenses
-        output = lroai_building_university_spending
-        elements = lroai_weeks_in_iteration
-        zero = 2
-        cleanup = yes
+    set_variable = {
+        name = lroai_building_university_spending
+        value = local_var:lroai_building_university_expenses
     }
-    lroai_add_local_variable_to_array_variable = {
-        input = lroai_building_barracks_expenses
-        output = lroai_building_barracks_spending
-        elements = lroai_weeks_in_iteration
-        zero = 2
-        cleanup = yes
+    set_variable = {
+        name = lroai_building_construction_sector_spending
+        value = local_var:lroai_building_construction_sector_expenses
     }
-    lroai_add_local_variable_to_array_variable = {
-        input = lroai_building_naval_base_expenses
-        output = lroai_building_naval_base_spending
-        elements = lroai_weeks_in_iteration
-        zero = 2
-        cleanup = yes
+    set_variable = {
+        name = lroai_building_barracks_spending
+        value = local_var:lroai_building_barracks_expenses
+    }
+    set_variable = {
+        name = lroai_building_naval_base_spending
+        value = local_var:lroai_building_naval_base_expenses
     }
 }
 
@@ -400,7 +395,7 @@ lroai_calculate_building_construction_sector_expenses_per_point = {
     set_variable = {
         name = lroai_temporary_cost_per_construction_point
         value = {
-            value = local_var:lroai_building_construction_sector_expenses
+            value = var:lroai_building_construction_sector_spending
             divide = lroai_non_free_usage_of_construction_points_value
         }
     }

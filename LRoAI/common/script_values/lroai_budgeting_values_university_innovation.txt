@@ -38,15 +38,6 @@ lroai_building_university_spending_value = {
             var:lroai_building_university_spending > 0
         }
         value = var:lroai_building_university_spending
-        floor = yes
-        divide = {
-            value = var:lroai_building_university_spending
-            subtract = {
-                value = var:lroai_building_university_spending
-                floor = yes
-            }
-            multiply = 100
-        }
     }
     else = {
         value = lroai_building_university_spending_target
