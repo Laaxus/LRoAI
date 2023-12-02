@@ -1,7 +1,7 @@
 ## Announcement
 
-version 0.7.2 released.
-This mod is updated to 1.5.9
+version 0.7.4 released.
+This mod is updated to 1.5.10
 
 ## Description
 
