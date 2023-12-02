@@ -668,7 +668,6 @@ lroai_clear_country_cycle_variables = {
     lroai_clear_weekly_loop_variables = yes
     
     remove_variable = lroai_median_construction_efficiency
-    remove_local_variable = lroai_building_construction_sector_expenses
 }
 
 lroai_clear_country_iteration_variables = {
@@ -686,15 +685,6 @@ lroai_clear_country_iteration_variables = {
     
     lroai_perform_for_every_building_type = {
         effect = 9 # lroai_clear_building_type_variables
-    }
-
-    every_scope_state = {
-        remove_variable = lroai_available_workforce
-        remove_variable = lroai_building_construction_sector_level
-        remove_variable = lroai_building_port_level
-        remove_variable = lroai_building_barracks_level
-        remove_variable = lroai_building_naval_base_level
-        remove_variable = lroai_queued_agriculture_buildings
     }
 }
 
