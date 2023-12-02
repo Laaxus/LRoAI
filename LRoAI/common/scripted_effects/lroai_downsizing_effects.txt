@@ -2,6 +2,7 @@
     if = {
         limit = {
             lroai_bureaucracy_load >= 0.75
+            lroai_is_using_military_forces = no
         }
 
         # Bureaucracy
@@ -41,7 +42,6 @@
         # Barracks
         if = {
             limit = {
-                lroai_is_using_military_forces = no
                 lroai_building_barracks_spending_value >= lroai_building_barracks_spending_excess
             }
             random_scope_state = {
@@ -59,7 +59,6 @@
         # Naval base
         if = {
             limit = {
-                lroai_is_using_military_forces = no
                 lroai_building_naval_base_spending_value >= lroai_building_naval_base_spending_excess
             }
             random_scope_state = {
@@ -77,8 +76,13 @@
         # Construction sector
         if = {
             limit = {
-                lroai_construction_points_current <= 40
-                lroai_current_constructions_points_percent_of_max_wanted > 1.1
+                OR = {
+                    AND = {
+                        lroai_construction_points_current <= 100
+                        lroai_current_constructions_points_percent_of_max_wanted > 1.1
+                    }
+                    #lroai_current_constructions_points_percent_of_max_wanted > 1.6
+                }
             }
             random_scope_state = {
                 limit = {
