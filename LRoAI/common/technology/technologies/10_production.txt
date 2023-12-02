@@ -419,16 +419,6 @@ steam_donkey = {
 	
 	ai_weight = {
 		value = 1
-		
-		if = {
-			limit = { 
-				OR = {
-					 has_strategy = ai_strategy_industrial_expansion
-					 has_strategy = ai_strategy_resource_expansion
-				}
-			}
-			add = 2
-		}	
 	}	
 }
 
@@ -467,16 +457,6 @@ rubber_mastication = {
 	
 	ai_weight = {
 		value = 1
-		
-		if = {
-			limit = { 
-				OR = {
-					 has_strategy = ai_strategy_industrial_expansion
-					 has_strategy = ai_strategy_resource_expansion
-				}
-			}
-			add = 3
-		}	
 	}
 }	
 
@@ -526,16 +506,6 @@ threshing_machine = {
 	
 	ai_weight = {
 		value = 1
-		
-		if = {
-			limit = { 
-				OR = {
-					has_strategy = ai_strategy_agricultural_expansion 
-					has_strategy = ai_strategy_plantation_economy
-				}
-			}
-			add = 1
-		}	
 	}
 }
 
@@ -553,16 +523,6 @@ pumpjacks = {
 	
 	ai_weight = {
 		value = 1
-		
-		if = {
-			limit = { 
-				OR = {
-					 has_strategy = ai_strategy_industrial_expansion
-					 has_strategy = ai_strategy_resource_expansion
-				}
-			}
-			add = 2
-		}	
 	}
 }
 
@@ -607,7 +567,7 @@ vulcanization = {
 	}
 	
 	ai_weight = {
-		value = 2
+		value = 1
 	}
 }
 
@@ -679,16 +639,6 @@ electrical_generation = {
 	
 	ai_weight = {
 		value = 1
-		
-		if = {
-			limit = { 
-				OR = {
-					 has_strategy = ai_strategy_industrial_expansion
-					 has_strategy = ai_strategy_resource_expansion
-				}
-			}
-			add = 2
-		}	
 	}
 }
 

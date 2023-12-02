@@ -334,7 +334,7 @@ mass_communication = {
 	}
 	
 	ai_weight = {
-		value = 1.5 # Important in general
+		value = 2 # Important in general
 	}
 }
 
@@ -493,7 +493,7 @@ organized_sports = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 2
 	}
 }
 
@@ -592,7 +592,7 @@ psychiatry = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 2
 	}
 }
 
@@ -611,7 +611,7 @@ realism = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 2
 	}
 }
 
@@ -655,7 +655,7 @@ nationalism = {
 					country_has_primary_culture = cu:south_italian
 				}				
 			}
-			add = 2
+			add = 3
 		}	
 		
 		if = {
@@ -694,7 +694,7 @@ labor_movement = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 2
 		
 		if = {
 			limit = { 
@@ -731,7 +731,7 @@ postal_savings = {
 	}
 	
 	ai_weight = {
-		value = 1
+		value = 2
 	}
 }
 
@@ -833,7 +833,7 @@ steel_frame_buildings = {
 	}
 	
 	ai_weight = {
-		value = 5
+		value = 10
 	}
 }
 
