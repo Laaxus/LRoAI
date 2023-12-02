@@ -295,7 +295,7 @@ lroai_start_building_construction = {
                 counter = $counter$
                 limit = $limit$
             }
-            lroai_free_construction_points > 0
+            lroai_free_construction_points > 1
         }
 
         # Take a random list that fits conditions below
