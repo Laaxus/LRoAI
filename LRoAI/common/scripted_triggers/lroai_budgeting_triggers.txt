@@ -2,12 +2,6 @@
     OR = {
         is_at_war = yes
         is_diplomatic_play_committed_participant = yes
-        any_scope_general = {
-            is_mobilized = yes
-        }
-        any_scope_admiral = {
-            is_mobilized = yes
-        }
     }
 }
 
